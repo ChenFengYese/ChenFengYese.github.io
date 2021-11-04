@@ -47,11 +47,11 @@
         time = setInterval(function () {
             timeEnd = getTimeNow();
 
-            //如果此时检测到的时间与第一次获取的时间差有1000毫秒
-            if (timeEnd - timeStart > 100) {
+            //如果此时检测到的时间与第一次获取的时间差有300毫秒
+            if (timeEnd - timeStart > 300) {
                 //便不再继续重复此函数 （clearInterval取消周期性执行）
                 clearInterval(time);
-                //字体变红
+                //跳转连接
                 window.location.href="http://xn--kiv4f.top//%E6%99%A8%E6%98%9F%E7%BD%91%E7%AB%99.html";
             }
         }, 100);
