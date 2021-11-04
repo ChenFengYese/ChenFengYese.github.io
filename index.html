@@ -1,8 +1,9 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8" />
     <meta name="viewport" content="target-densitydpi=320,width=640,user-scalable=no">
-    <title>canvas五彩斑斓的粒子动画特效</title>
+    <title>晨星网站</title>
 
     <style>
         body {
@@ -19,14 +20,46 @@
 
 </head>
 <body>
-<audio size=20mm autoplay="autoplay" controls="controls" src="love.mp3"  loop="loop" preload="auto"></audio><br>
+<input id="p1" type="button" onmousedown="holdDown()" onmouseup="holdUp()" value="长按进入网址"/>
+<audio size=20mm autoplay="autoplay"  src="love.mp3"  loop="loop" preload="auto"></audio><br>
     <canvas id='canv'></canvas>
-love
+
     <script>
         /*
         (Book REF) HTML5 Canvas Ch. 5:  Math, Physics, and Animation ::: Uniform Circular Motion
         By Steve Fulton and Jeff Fulton
         */
+         //申明全局变量
+    var timeStart, timeEnd, time;
+
+    //获取此刻时间
+    function getTimeNow() {
+        var now = new Date();
+        return now.getTime();
+    }
+
+    //鼠标按下时触发
+    function holdDown() {
+        //获取鼠标按下时的时间
+        timeStart = getTimeNow();
+
+        //setInterval会每100毫秒执行一次，也就是每100毫秒获取一次时间
+        time = setInterval(function () {
+            timeEnd = getTimeNow();
+
+            //如果此时检测到的时间与第一次获取的时间差有1000毫秒
+            if (timeEnd - timeStart > 1000) {
+                //便不再继续重复此函数 （clearInterval取消周期性执行）
+                clearInterval(time);
+                //字体变红
+                window.location.href="http://xn--kiv4f.top//%E6%99%A8%E6%98%9F%E7%BD%91%E7%AB%99.html";
+            }
+        }, 100);
+    }
+    function holdUp() {
+        //如果按下时间不到1000毫秒便弹起，
+        clearInterval(time);
+    }
         window.requestAnimFrame = (function () {
             return window.requestAnimationFrame ||
               window.webkitRequestAnimationFrame ||
