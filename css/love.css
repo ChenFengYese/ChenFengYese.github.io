@@ -139,8 +139,8 @@ a:hover {
 /* 分页3 - 一段话 */
 .page3 {
     background-image: linear-gradient(to right, rgba(0, 162, 255, 0.4), rgba(255, 0, 255, 0.2)), url(../images/bg3.jpg);
-    padding-top: 200px;
-    height: 700px;
+    padding-top: 20px;
+    height: 1500px;
 }
 
 #talkToXHJ {
@@ -237,7 +237,7 @@ img {
 /* 自适应 */
 @media screen and (max-width: 1060px) {
     .page3 {
-        padding-top: 80px;
+        padding-top: 20px;
     }
 
     #talkToXHJ {
@@ -292,8 +292,8 @@ img {
     }
 
     .page3 {
-        padding-top: 100px;
-        height: 800px;
+        padding-top: 20px;
+        height: 1500px;
     }
 
     #talkToXHJ {
@@ -396,8 +396,8 @@ img {
     }
 
     .page3 {
-        padding-top: 100px;
-        height: 900px;
+        padding-top: 20px;
+        height: 1500px;
     }
 
     #talkToXHJ {
