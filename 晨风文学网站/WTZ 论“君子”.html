@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="renderer" content="webkit" />
+    <meta property="og:title" content="" />
+    <title>晨风文学网站</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <!--<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">-->
+
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/base.css">
+    <!--引入分享插件-->
+    <link rel="stylesheet" href="css/share.min.css">
+
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/base.js"></script>
+    <!--引入分享插件-->
+    <script src="js/jquery.share.min.js"></script>
+    <!--这里是因为在文章所以要隐藏掉右侧身体部分在大屏幕下的div，在小屏幕时在显示出来-->
+    <style type="text/css">.base_content_right{width: 0;visibility: hidden;height: 0;}</style>
+</head>
+
+<body>
+
+<!--base随笔页面的图片-->
+<div class="bg_pic"></div>
+
+<!--base随笔页面的头部部分-->
+<div class="base_header">
+
+    <div class="base_header_content">
+
+        <a href="index.html" class="base_header_logo"><img src="img/logo.png"></a>
+
+        <div class="base_header_nav">
+            <ul>
+                <!--这里是没有子栏目的样式-->
+                <li><i class="fa fa-caret-right"></i><a href="index.html">首页</a></li>
+
+                <!--顶级导航-->
+                <li class="have_second_navs">
+                    <i class="fa fa-caret-right"></i><a href="2018list.html" class="base_header_nav_active">文章</a>
+
+                    <!--二级导航有子栏目的时候-->
+                    <ul class="nav_child">
+
+                        <li><i class="fa fa-caret-right"></i><a href="2018list.html">个人</a>
+
+                            <!--三级栏目-->
+                            <ul class="nav_child">
+                                <li><a href="2018list.html">博客类</a></li>
+                                <li><a href="2018list.html">技术类</a></li>
+                                <li><a href="2018list.html">学习类</a></li>
+                            </ul>
+
+                        </li>
+
+                        <!--二级导航没有子栏目的时候-->
+                        <li><a href="2018list.html">学习</a></li>
+
+                    </ul>
+                </li>
+
+
+
+                <!--顶级导航-->
+                <li class="have_second_navs">
+                    <i class="fa fa-caret-right"></i><a href="2018list.html">导航</a>
+
+
+                    <!--二级导航有子栏目的时候-->
+                    <ul class="nav_child">
+
+                        <li><i class="fa fa-caret-right"></i><a href="2018list.html">学习</a>
+
+                            <!--三级栏目-->
+                            <ul class="nav_child">
+                                <li><a href="2018list.html">css</a></li>
+                                <li><a href="2018list.html">js</a></li>
+                                <li><a href="2018list.html">jquery</a></li>
+                            </ul>
+
+                        </li>
+
+                        <!--二级导航没有子栏目的时候-->
+                        <li><a href="javascript:void(0)">学习</a></li>
+
+                    </ul>
+                </li>
+
+
+
+
+                <li>
+                    <i class="fa fa-caret-right"></i>
+                    <a href="suibi.html">随笔</a>
+                </li>
+
+
+            </ul>
+
+
+        </div>
+
+        <!--手机导航部分-->
+
+        <div class="base_nav_menu" id="base_nav_menu" bind_click="true"><span bind_click="true"></span></div>
+
+        <div class="base_nav_zhezao"></div>
+
+    </div>
+</div>
+
+<!--base文章页身体部分开始-->
+<div class="base_content_body">
+<!--base文章页身体部分居中显示-->
+    <div class="base_content_content clearfix">
+
+
+        <div class="wenzhang_box wow zoomIn">
+<!--文章盒子-->
+            <div class="wenzhang_box_content clearfix">
+
+
+                <img class="wenzhang_yinzhang" src="img/2018yinzhang.png">
+<!--文章抬头-->
+            <div class="wenzhang_box_content_title">
+
+                <h4>
+                    <a href="javascript:void(0)"> [2018文章]汇总<i class="fa fa-angle-right"></i></a>
+
+WTZ 论“君子”                </h4>
+
+                <p class="wenzhang_box_content_jieshao">
+                    <span class="wenzhang_box_content_jieshao_zuozhe">作者：晨风</span>
+
+                    <span class="wenzhang_box_content_jieshao_zishu">总字数：3500</span>
+
+                    <span class="wenzhang_box_content_jieshao_time">更新于：2019</span>
+                    <span class="wenzhang_box_content_jieshao_weiguan">围观群众：<span class="wenzhang_box_content_jieshao_xieti">1</span></span>
+
+                    <span class="wenzhang_box_content_jieshao_dig">点赞人数：<span class="wenzhang_box_content_jieshao_xieti">1</span></span>
+
+                    <span class="wenzhang_box_content_jieshao_pinglun">评论人数：<span class="wenzhang_box_content_jieshao_xieti">1</span></span>
+
+                </p>
+
+            </div>
+
+<!--文章抬头的右侧书-->
+<!--            <div class="wenzhang_box_content_title_right">-->
+<!--                <img src="img/2018yinzhang.png">-->
+<!--            </div>-->
+
+<!--文章身体部分-->
+
+            <div class="wenzhang_box_article">
+
+                <div class="wenzhang_box_article_info">
+                    <i class="fa fa-quote-left"></i>
+                        [2018文章]汇总作于2018年11月7日，收录于【第一本书】，文章大多作于2016-2018年之间，文笔较为稚嫩，但记录了我过去的总总事迹和心情，意义十分之大。
+                    <i class="fa fa-quote-right"></i>
+                </div>
+
+
+                <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=100% height=86 src="//music.163.com/outchain/player?type=2&id=541687281&auto=1&height=66"></iframe>
+
+                <!--文章页内容开始的地方-->
+ 世言君子几乎无矣，人只乎身在己，何又关修身性？今世利益至上，仁弃其旁，商人当道，诡计多沉，何又闻大同孔身社会哉？无言无行，力弱难堪，只好浮廖沉华，坚守己道，不予黑暗资助，不与黑暗同行。</br> 吾尝询问在世圣人，当世之道即可，尔又何得隐世不出？圣人之言，吾听便是，料圣人之德，也只为叹息。</br>“世俗不同，世道已成，若为君子之仕，仅凭一己之力可成君子天下？难哉，善也，也罢守也，吾愿身处浮世，而不入仕和陈，于真己之间，离望世界天下，探寻孟子之道。”</br>  君子之路，自难行至，但若人皆受教，习孔子之论，得仁德之本，而非沉着于世，忘人皆之本，世界皆通习之，则有人为之所感，尝行一步，达君子之路，而后或续路行之，或惨遭世俗贬弃，伦为众人。社会氛围已定，浮夸激进，而无品德之心，世人皆寻名利，而无仁德之意，若要文艺复兴，只得寻其本因。</br> ①世人之所以如此，无不因为社会进步极快，若不加速发展自身，便会淘汰于众人，而后贫穷哀苦，低人一等，遭世人贬弃。倒不论世俗发展极快，而是消极偏激的性格已经种植在每个新时代人群的心中，而之所以如此，有三点主要原因。其一便是中国曾因落后被其他国家欺凌，无反打之力，国家差距过于之大，爱国人士不堪其状，奋力寻求进步，争分夺秒，近代如此的品德十分优秀，于是便传达至今；如今中国国力日渐强大，社会进步越来越快，越来越多的人效仿古近代人士，以复兴中华为目标，砥砺前行，也是由此引出舆论，拥有如此目标的人士便会变得更加成功，于是一些小人也对此感到兴趣，从而具有此态，日益壮大成功，变得十分的激进和偏激，但往往如此的大多数人都成功，赢得钱财，收获利益，于是这样的变味了的前行良好氛围就逐渐散开，导致更多的人效仿，而后因世人更愿意利己，更想要钱财，没人关心变了味的氛围，这种社会风气变定了型，长久于世。</br>②中国近代贫穷落后，百姓苦苦哀吟，不具有经济力量的人，便会无食无衣，也正是老一辈的人怕贫穷了，才教育子孙后代要积极进取，奋力读书，为家庭做出贡献，发展家庭经济；更有甚者，教育孩子仅仅为己，有最大利益的便想尽办法取得，无论是否违背道德规范，6070年代的人民大多如后者所述，正是因为如此才大大加进了小人之间的合作共讨，培养出越来越多的如此商人，而后养成这样的社会风气习惯。可见，害怕贫穷是必不可少的主要原因，家庭教育也是如此。</br>③中国人口基数庞大，人民受教育程度较低，人口素质普遍较低，社会风气大多被喷子无良之人破坏，网上舆论源源不断，网络喷子也成为潮流，低文化群众不明所言，跟风程度大大升高，自私自利的人较多，社会之间争相斗争，无法不用，无处不为，更有甚者，拆人祖坟，私藏公物，偷盗国产，恶意影响人体健康………………社会负面情况特别之多，媒体发现此类报道十分引人注目，也是夸大其词，造成舆论发展，从而引化浮夸现象。中国人口基数过大，国家力量难以全面控制社会状况，只能靠人民自身的努力来改变这种社会氛围，于是国家加大教育力度，加入国学，思想品德，等课程，预计在明后年采用义务教育十二年制度，以培养人才，来改变社会风气，引导社会走向安康自然和谐。</br>古有秦朝独尊儒术，也可看出儒家学派的经典名话可被当今社会采用，诸如君子一章，便可以之培养，可君子之路，孤独其身，若想成君子之道，非坚守人士，非心怀斗志人士，非出淤泥而不染之人士不可得也，古有孔君陶君孟君，多人之仕，或达数万之人，而今社会数二十亿之人，君子人士寥寥无几，正是因为社会风气，才会如此，也正因为如此，才需要君子，所以，君子可否再次因此逃避现实？吾之话语，可予之否？</br>
+            </div>
+
+
+                <div class="article_dig">
+
+                    <!--文章页的点赞按钮-->
+                    <a href="javascript:void(0)" class="wenzhang_dig_button" title="点个赞鼓励一下吧！"><i class="fa fa-thumbs-up"></i></a>
+
+                    <!--分享插件的盒子-->
+                    <div id="share"></div>
+
+                    <script>
+                        $('#share').share({sites: ['wechat', 'weibo', 'qq','qzone','tencent','douban']});
+                    </script>
+
+                </div>
+
+
+                <div class="wenzhang_box_article_shengming">
+                    <p>文章声明： 非特殊说明，本文版权归 晨风文学网站 所有，转载请注明出处</p>
+<p>本文标题： <span class="wenzhang_box_article_shengming_title" title="文章title">WTZ 论“君子”</span></p>
+                    <p>本文地址： <span class="wenzhang_box_article_shengming_link" title="文章链接">http://晨星.top</span></p>
+                </div>
+
+                <div class="article_prev_next_list clearfix">
+<a href="WTZ 春风不待沉欲，鲜花不等迷情 .html" title="上篇文章：标题"><i class="fa fa-arrow-left"></i>上篇文章：WTZ 春风不待沉欲，鲜花不等迷情 </a>
+                    <a href="2018list.html" title="返回目录"><i class="fa fa-list-ul"></i>返回目录</a>
+<a href="WTZ 写给你看的.html" title="下篇文章：标题"><i class="fa fa-arrow-left"></i>下篇文章：WTZ 写给你看的</a>
+                </div>
+
+                <div class="pinglun_box">
+                    <h3>全部评论</h3>
+                </div>
+
+
+
+
+            </div>
+
+        </div>
+
+
+
+        <!--base随笔页身体右边部分-->
+          <div class="base_content_right">
+
+            <div class="base_content_right_item" id="base_content_right_down">
+                <div class="base_search">
+                    <form name="searchform" class="search_form" method="post" action="#" target="_blank">
+                        <input type="text" class="search_text" required="required" name="keyboard" placeholder="输入关键字搜索">
+                        <input type="hidden" name="tbname" value="news">
+                        <input type="hidden" name="show" value="title,smalltext">
+                        <input type="hidden" name="tempid" value="1">
+                        <input type="hidden" name="classid" value="1,4,9">
+                        <input type="submit" class="search_btn" value="" title="搜索">
+                        <i class="fa fa-search"></i>
+                    </form>
+                </div>
+
+
+
+ <!--这里是页面右侧的导航部分-->
+        <div class="blog_right_nav">
+
+            <ul>
+                <blog_active_and_hover_class class="blog_active_and_hover_class"></blog_active_and_hover_class>
+                <li class="blog_lanmu_active"><a href="javascript:void(0)">全部文章</a></li>
+                <li><a href="2018list.html">【忘忧情】总集</a></li>
+                <li><a href="2018list.html">【沉·墨·殇】总集</a></li>
+                <li><a href="2018list.html">【我是谁】总集</a></li>
+                <li><a href="2018list.html">【诗歌词】翻译</a></li>
+                <li><a href="2018list.html">【2018文章】汇总</a></li>
+                <li><a href="2018list.html">【点评】</a></li>
+            </ul>
+
+        </div>
+        <!--这里是右侧的博客介绍部分-->
+        <div class="blog_info">
+            <ul>
+                <blog_active_and_hover_class class="blog_active_and_hover_class"></blog_active_and_hover_class>
+                <li class="blog_lanmu_active"><a href="javascript:void(0)">网站介绍</a></li>
+                <li><a href="javascript:void(0)">创建时间:2021年11月28日</a></li>
+                <li><a href="javascript:void(0)">创建目的:汇集所有文章</a></li>
+                <li><a href="javascript:void(0)">文章总数:210</a></li>
+                <li><a href="javascript:void(0)">来访人数:0</a></li>
+            </ul>
+        </div>
+        <!--这里是右侧的博主介绍部分-->
+        <div class="blog_master_info">
+            <ul>
+                <blog_active_and_hover_class class="blog_active_and_hover_class"></blog_active_and_hover_class>
+                <li class="blog_lanmu_active"><a href="javascript:void(0)">介绍</a></li>
+                <li><a href="javascript:void(0)">初写文章于2016，绝笔于2019，文章无人问津</a></li>
+                <li><a href="javascript:void(0)">时隔多年，终有世人寻其踪迹，特因此做藏书阁，供世人阅读。</a></li>
+                <li><a href="javascript:void(0)">虽已绝笔，仍做有新型网站，于他人倾诉，待有佳日，或可再续前缘。</a></li>
+            </ul>
+        </div>
+
+
+    </div>
+
+
+
+            <div class="base_content_right_item">
+
+                <h3 class="base_content_right_item_title">点击排行</h3>
+                <div class="base_content_right_item_list">
+<!--
+                    <ul>
+                        <li><a href="javascript:void(0)">最新文章第十五篇文章</a></li>
+                    </ul>
+                    -->
+                </div>
+            </div>
+
+
+            <div class="base_content_right_item">
+
+                <h3 class="base_content_right_item_title">最新文章</h3>
+                <div class="base_content_right_item_list">
+<!--
+                    <ul>
+                        <li><a href="javascript:void(0)">最新文章第一篇文章</a></li>
+                    </ul>
+-->
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!--一键回到顶部的box-->
+<div class="go_top"><i class="fa fa-angle-up"></i></div>
+<div class="base_footer">
+    <ul>
+        <li><a href="https://wpa.qq.com/msgrd?v=3&uin=446157433&site=qq&menu=yes" target="_blank" title="QQ:3107663466"  class="base_footer_qq"><i class="fa fa-qq"></i></a></li>
+        <li><a href="mailto:3107663466@qq.com" target="_blank" title="邮箱：3107663466@qq.com" class="base_footer_email"><i class="fa fa-envelope"></i></a></li>
+        <li><a href="javascript:void(0)" title="扫描微信二维码联系我们" class="base_footer_weixin"><i class="fa fa-weixin"></i><img src="img/erweima.png" alt=""></a><a href="img/erweima.png"></a></li>
+    </ul>
+
+    <span class="base_footer_text">Copyright © 2021-2022 Power by ChenFengYeSe</span>
+    <span class="base_footer_text">网站仓库：<a href="https://github.com/ChenFengYese/ChenFengYese.github.io">ChenFengYeSe</a></span>
+</div>
+</body>
+</html>
+
+
+

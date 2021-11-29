@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="renderer" content="webkit" />
+    <meta property="og:title" content="" />
+    <title>晨风文学网站</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <!--<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">-->
+
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/base.css">
+    <!--引入分享插件-->
+    <link rel="stylesheet" href="css/share.min.css">
+
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/base.js"></script>
+    <!--引入分享插件-->
+    <script src="js/jquery.share.min.js"></script>
+    <!--这里是因为在文章所以要隐藏掉右侧身体部分在大屏幕下的div，在小屏幕时在显示出来-->
+    <style type="text/css">.base_content_right{width: 0;visibility: hidden;height: 0;}</style>
+</head>
+
+<body>
+
+<!--base随笔页面的图片-->
+<div class="bg_pic"></div>
+
+<!--base随笔页面的头部部分-->
+<div class="base_header">
+
+    <div class="base_header_content">
+
+        <a href="index.html" class="base_header_logo"><img src="img/logo.png"></a>
+
+        <div class="base_header_nav">
+            <ul>
+                <!--这里是没有子栏目的样式-->
+                <li><i class="fa fa-caret-right"></i><a href="index.html">首页</a></li>
+
+                <!--顶级导航-->
+                <li class="have_second_navs">
+                    <i class="fa fa-caret-right"></i><a href="2018list.html" class="base_header_nav_active">文章</a>
+
+                    <!--二级导航有子栏目的时候-->
+                    <ul class="nav_child">
+
+                        <li><i class="fa fa-caret-right"></i><a href="2018list.html">个人</a>
+
+                            <!--三级栏目-->
+                            <ul class="nav_child">
+                                <li><a href="2018list.html">博客类</a></li>
+                                <li><a href="2018list.html">技术类</a></li>
+                                <li><a href="2018list.html">学习类</a></li>
+                            </ul>
+
+                        </li>
+
+                        <!--二级导航没有子栏目的时候-->
+                        <li><a href="2018list.html">学习</a></li>
+
+                    </ul>
+                </li>
+
+
+
+                <!--顶级导航-->
+                <li class="have_second_navs">
+                    <i class="fa fa-caret-right"></i><a href="2018list.html">导航</a>
+
+
+                    <!--二级导航有子栏目的时候-->
+                    <ul class="nav_child">
+
+                        <li><i class="fa fa-caret-right"></i><a href="2018list.html">学习</a>
+
+                            <!--三级栏目-->
+                            <ul class="nav_child">
+                                <li><a href="2018list.html">css</a></li>
+                                <li><a href="2018list.html">js</a></li>
+                                <li><a href="2018list.html">jquery</a></li>
+                            </ul>
+
+                        </li>
+
+                        <!--二级导航没有子栏目的时候-->
+                        <li><a href="javascript:void(0)">学习</a></li>
+
+                    </ul>
+                </li>
+
+
+
+
+                <li>
+                    <i class="fa fa-caret-right"></i>
+                    <a href="suibi.html">随笔</a>
+                </li>
+
+
+            </ul>
+
+
+        </div>
+
+        <!--手机导航部分-->
+
+        <div class="base_nav_menu" id="base_nav_menu" bind_click="true"><span bind_click="true"></span></div>
+
+        <div class="base_nav_zhezao"></div>
+
+    </div>
+</div>
+
+<!--base文章页身体部分开始-->
+<div class="base_content_body">
+<!--base文章页身体部分居中显示-->
+    <div class="base_content_content clearfix">
+
+
+        <div class="wenzhang_box wow zoomIn">
+<!--文章盒子-->
+            <div class="wenzhang_box_content clearfix">
+
+
+                <img class="wenzhang_yinzhang" src="img/2018yinzhang.png">
+<!--文章抬头-->
+            <div class="wenzhang_box_content_title">
+
+                <h4>
+                    <a href="javascript:void(0)"> [2018文章]汇总<i class="fa fa-angle-right"></i></a>
+
+WTZ 人生路上的转折点                </h4>
+
+                <p class="wenzhang_box_content_jieshao">
+                    <span class="wenzhang_box_content_jieshao_zuozhe">作者：晨风</span>
+
+                    <span class="wenzhang_box_content_jieshao_zishu">总字数：3500</span>
+
+                    <span class="wenzhang_box_content_jieshao_time">更新于：2019</span>
+                    <span class="wenzhang_box_content_jieshao_weiguan">围观群众：<span class="wenzhang_box_content_jieshao_xieti">1</span></span>
+
+                    <span class="wenzhang_box_content_jieshao_dig">点赞人数：<span class="wenzhang_box_content_jieshao_xieti">1</span></span>
+
+                    <span class="wenzhang_box_content_jieshao_pinglun">评论人数：<span class="wenzhang_box_content_jieshao_xieti">1</span></span>
+
+                </p>
+
+            </div>
+
+<!--文章抬头的右侧书-->
+<!--            <div class="wenzhang_box_content_title_right">-->
+<!--                <img src="img/2018yinzhang.png">-->
+<!--            </div>-->
+
+<!--文章身体部分-->
+
+            <div class="wenzhang_box_article">
+
+                <div class="wenzhang_box_article_info">
+                    <i class="fa fa-quote-left"></i>
+                        [2018文章]汇总作于2018年11月7日，收录于【第一本书】，文章大多作于2016-2018年之间，文笔较为稚嫩，但记录了我过去的总总事迹和心情，意义十分之大。
+                    <i class="fa fa-quote-right"></i>
+                </div>
+
+
+                <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=100% height=86 src="//music.163.com/outchain/player?type=2&id=541687281&auto=1&height=66"></iframe>
+
+                <!--文章页内容开始的地方-->
+ 序：人生千里尽悠悠，路上泥坎满载多。风吹五味人俱全，转折事事都相变。人且与己，却不知一视，一动，一语倒翻了个人。由是感动不已，故发此篇以表激谢。</br> 引文：我依然在充满未知的人生路上行走，走过“酸”“甜”“苦”的“台阶”，这里我就不一一介绍，但，我终究要写出来的。这里，我就为你们介绍一下关于我“酸”“甜”的事吧！</br> 正文：  人们常说先酸后甜，只有做完你必须完成的事，获得的甜头才更多。可我并不这样认为，我是先“甜”后“酸”的。</br>  那次，我早早的起来，向窗外呼吸一下，让那些空气知道我醒来了，鸟儿早早的起来，在天空中自由的翱翔，他们可能知道了“人们常说的‘早起的鸟儿有虫吃’”吧！我热情的向他们打招呼，世界万物都将苏醒。可是我就想着：勒，不对啊，现在不是冬天吗？怎么是初春的诗情画意般的景象呢？我就犹豫了，突然一阵铃声从我耳边响起。</br>  我才慢呼呼的伸起懒腰，我也知道了刚刚的只是个梦，但在我脑海里却是一个先“甜”后“酸”的梦我一看时间，七点了，我急忙的做好任何要做的事，快速冲到家门口，直到父亲叫我：“呦，刀，怎么这么早起来？”我回复道：“没时间和你说话了，我去上学了，再见！”但父亲一把拉住我，说道：“去什么学，今天是星期六，睡糊涂了，是吧！”但我却不理不睬，一副生气的样子。我觉得我不得不佩服那时的我，我竟然装作那种样子来守住自己的面子，太聪明了。父亲看我这样，一瞅眼，就不高兴了，可是我终于还是笑了出来，但这确是：“酸笑”——自我嘲笑。父亲仿佛明白了什么，也不由自主的笑了起来，没过几分钟，父亲就告诉了我一个好消息：“刀！你不是说你认为你那个学校很差吗？我认识一个大人物，它可以把你直接送到县里最好的学校里去</br>读书，行？”我当然爽快的答应了，心里乐滋滋的。</br>  为了庆祝这时，我在QQ空间里说道：“我就要去最好的学校里读书了，再见了，你们这些笨蛋。那是我真的是太“糊涂”了，竟把这个信息发到一个QQ好友里去了，我想了想：算了算了，还是不发了吧！晚上我们以吃大餐来庆祝。</br>  第二天——星期天，上学的前一天，我还是乐滋滋的，几乎忘记了作业，直到我的兄弟——杨桃叔给我发了一条信息，要我作业，看看我哪里写错了，我才想起来作业还没写。可是我不紧张，因为那些题目对我来说就是小菜一碟，果然，我快速的做完了，我的“乐“更加丰盛了。</br>  第三天，我依然是开心的来到了学校，蹦蹦跳跳的来到了班级上，感觉周围都具有一番色彩，让我的心情不由的更好了。我想把这个喜讯告诉他们，可因为我开心过度摔了一跤，许多人都在笑我，我默默的在心里想着：笑吧！你们笑吧！反正我马上就要离开这个凶残无情的牢房了！</br>  上课时，老师在讲家庭作业，我对别人说：“这次作业太容易了，我保证全对。”他——我的兄弟：杨桃叔没有说话，只是用着鄙视的眼神看着我，但我却不在乎。渐渐的，我觉着无聊就乱涂乱画，可能老师发现了我，就点了我的名字，并要我把这道题写到黑板上去，我自信的走过去，顺顺溜溜的把答案写上去，在写的时候还不是有人说到：“你那里错了，不是那样的，应该是S=Vt，而不是S=1/2Vt，我想着：你才是错的，还说我，我保证是正确的。（我对我那时的想法感到非常的愤怒，因为他们是我兄弟，他真诚的帮助我，我却那样想，真是够愚蠢）</br>  写完后，我依旧是自信的回到座位上去，但，我写的竟然是错误的，我感到很后悔和伤心，但这种“坏”的念头却马上打消了，因为我有想到了：我马上级要离开这破地方了，还管这些干啥？</br>  过了几天，我一直有这想法，所以我的作业基本是“漂亮至极”，没有一个是正确的，但我依旧是很开心。</br>  确实，我那些日子很开心，但自从经历过那件事后，就不怎么开心了，我才知道，我做错了。</br>  那一天，我像往常一样脚底抹油，脸上笑容开遍，四处都显摆着我很阳光。当我快步走在通往学校的路上，天上乌云越聚越浓，星云相替，伴随着一股狂风吹过，不知吹散了多少白云，渐渐地，密切的小雨滴簌簌击打在土地上，行人忙闲急里四处逃窜。我站在舞台处，让雨滴不断地击打在我的身上，倒不是我已悔过，而是我呆懵着了，我可没带伞啊，这还弄个啥子呀。我赶紧跑到学校去，当我到班上时，让我出乎意料的是：班上没有一个人笑话我，倒是还有一些熟人凝视着我，那深切的凝视让我非常不舒服，我直接慌乱坐到凳子上，然后想象着我的一中挑粪生活，想着想着，不禁将嘴巴撇开大笑起来。这时，有人不确时宜地用手碰了碰我，我不禁皱了皱眉，然后反过头去很不爽的瞪着他，并问道：“有啥子事，快说！”这几乎是命令的语气。而那个人正是我的兄弟之一——杨桃树，他依然笑着对我说：“没什么事，就是看你笑得那么奸诈，想知道你的脑袋是不是被冻坏掉了，这里有一个热水瓶，你需要不?”我望着他，他的眼神中倒看不出一点玩笑，甚至还装有一点可惜，我不禁瞢了懵，我便有点尴尬的摇了摇头后回到座位上去，然后叹息道：“哎！这人生事啊，也就像这天气一样，忽明忽暗，没有一点规律，我可是不知道这样的关心能够持续到什么时候哟。”</br>在风雨声中，我“顺利”地完成了第二节课，然后我开始去食堂品尝我的美味早餐。然而，在我走时，有人走过来问我是否需要伞，我就觉得更加奇怪了，我想是不是有人说我得了啥子癌症啥子哟，一个接一个地，有完没完呀。</br>然后， 在我吃早饭时，我的兄弟——歪侯过来了，他的脸上几乎黑白，还有几滴露珠在他的鼻子上，眼睛里还有泪珠在盘旋，正如天上的雨珠纯净却充满着悲情，而这时我才知道了他哭过了，我正想问他怎么了时，他却说到：“刀，我知道你马上就要走了，好好保重，旅途愉快，在那里不要忘记你的兄弟们，你想什么时候回来都可以，我们一直在那里等你！”</br>这时，时间仿佛静止了，外面的雨声也不再连续下去了，气温也不在像来时那么寒冷，我仿佛看到了有一束光透过窗户照射在我的周围，温暖，这种感觉比任何时候都要真实，都要更深。因为我看到了，在我周围都是我的好兄弟，好朋友，他们同样含着泪水，我不知道我们竟有如此丰厚的友谊。我似乎被他们感动了，又一个兄弟——小兴挤了过来，说道：“刀，不要忘记我们，更不要忘记你的师傅师太，也不要忘记这所学校，充满友谊的学校，这就是你的‘友谊学校’！这里，是你永居的地方，这里，指我们的友谊之地，永存！”</br>我的眼泪再也抵挡不住刺激不断地如同瀑布般地涌流下来。那个时侯，我确实后悔了，我后悔我没有珍惜友谊，我没有珍惜在学校的美好时光，和朋友在一起的时光。这种“酸”在我心里徘徊了很久很久。</br>  慢慢的，距离我离开的日子越来越近，我无时无刻都没在后悔，难受。我只能把我这痛苦的心情压抑在心里，可能是我无法接受，所以向父亲提出了留在这儿的要求，但父亲却说到：“我都已经向校长说了，你又这样！”我不禁更后悔了，因为令我更加“酸”的事发生了，我哭了。父亲可能看我这样，就无奈地说道：“好了好了，别哭了，我尽力撤回，别哭了！”</br>  在梦里，我梦到许许多多的往事，我对我之前的行为感到非常非常的后悔，我的师傅师太，在上课时不停的教我，我却不听。但，现在，我却没有一刻可以在聆听那亲切的教语了。即使我现在懂了珍惜，我依旧得不到从前。我不断地在半夜痛哭，在睡梦中不断地回想，不断地留下我痛苦的眼泪，在半夜一次又一次地探讨人生。</br>  学校，我的师傅——杨桃叔，也是我敬佩的人，还是我的知心兄弟。我的师太——小胡子，即我欣赏又佩服的人，也是我的好兄弟，好朋友。</br>  自从他们知道我将离开的信息后，就再也没有笑过。每当我来到班级的时候，一切都静了下来，我的那些朋友兄弟，一个一个的都望着我，眼里透露出他们的不舍，我感觉那个时候时间过的非常的快，我想要去珍惜时间，与他们相处的机会，我不时的找他们聊天，为的不仅仅是排解我心内的难受，也希望他们可以说说话，不要沉默，我希望在我即将离开的这段时间内，能够美丽，能够精彩，即使只有一刻，即使只有一分，我都把他当成永远，心内的永远。他们的心情我无法感受，更无法接受，那仿佛知道天将要塌下来的心情，那对我的关爱，那对我的教育，我只能用一滴泪来表达对他们的感谢，因为我一无所有。我多次的向父亲取消，父亲总是说正在尽力。</br>  终于，那一件事摆了下来，我感谢我自己的坚持精神和朋友们把我弄醒的努力。我决定要永远和他们在青翠草地上，清澈湖泊旁，阳光照耀下，微风拂面时，动物鸣叫时不断地欢乐嬉笑，在春天，一切才会如此美妙。</br>  人生路上，有许许多多的转折点，即使我错过了一个，但我也很开心，因为我懂得了最宝贵的是——友谊，并且我知道我早已得到了这份宝物。就是因为这件事，激起了我对写作的兴趣，这件事，我不会忘记，永远不会！</br>  酸甜苦辣，先酸后甜也先甜后酸。我就经历了这又酸又甜又牢记铭心的事情，先甜后酸，我体会过，但先酸后甜，我体会的更多。比如：正当我知道兄弟来送我时，我的心就很“酸“，正当我知道我成功时，我就很“甜”。</br>  人生路上的转折点，连着酸甜苦辣，构成了一条人生道路，让勇敢的人们闯出成功的人生！</br>
+            </div>
+
+
+                <div class="article_dig">
+
+                    <!--文章页的点赞按钮-->
+                    <a href="javascript:void(0)" class="wenzhang_dig_button" title="点个赞鼓励一下吧！"><i class="fa fa-thumbs-up"></i></a>
+
+                    <!--分享插件的盒子-->
+                    <div id="share"></div>
+
+                    <script>
+                        $('#share').share({sites: ['wechat', 'weibo', 'qq','qzone','tencent','douban']});
+                    </script>
+
+                </div>
+
+
+                <div class="wenzhang_box_article_shengming">
+                    <p>文章声明： 非特殊说明，本文版权归 晨风文学网站 所有，转载请注明出处</p>
+<p>本文标题： <span class="wenzhang_box_article_shengming_title" title="文章title">WTZ 人生路上的转折点</span></p>
+                    <p>本文地址： <span class="wenzhang_box_article_shengming_link" title="文章链接">http://晨星.top</span></p>
+                </div>
+
+                <div class="article_prev_next_list clearfix">
+<a href="WTZ 继二连三.html" title="上篇文章：标题"><i class="fa fa-arrow-left"></i>上篇文章：WTZ 继二连三</a>
+                    <a href="2018list.html" title="返回目录"><i class="fa fa-list-ul"></i>返回目录</a>
+<a href="WTZ 离别，也是一种享受.html" title="下篇文章：标题"><i class="fa fa-arrow-left"></i>下篇文章：WTZ 离别，也是一种享受</a>
+                </div>
+
+                <div class="pinglun_box">
+                    <h3>全部评论</h3>
+                </div>
+
+
+
+
+            </div>
+
+        </div>
+
+
+
+        <!--base随笔页身体右边部分-->
+          <div class="base_content_right">
+
+            <div class="base_content_right_item" id="base_content_right_down">
+                <div class="base_search">
+                    <form name="searchform" class="search_form" method="post" action="#" target="_blank">
+                        <input type="text" class="search_text" required="required" name="keyboard" placeholder="输入关键字搜索">
+                        <input type="hidden" name="tbname" value="news">
+                        <input type="hidden" name="show" value="title,smalltext">
+                        <input type="hidden" name="tempid" value="1">
+                        <input type="hidden" name="classid" value="1,4,9">
+                        <input type="submit" class="search_btn" value="" title="搜索">
+                        <i class="fa fa-search"></i>
+                    </form>
+                </div>
+
+
+
+ <!--这里是页面右侧的导航部分-->
+        <div class="blog_right_nav">
+
+            <ul>
+                <blog_active_and_hover_class class="blog_active_and_hover_class"></blog_active_and_hover_class>
+                <li class="blog_lanmu_active"><a href="javascript:void(0)">全部文章</a></li>
+                <li><a href="2018list.html">【忘忧情】总集</a></li>
+                <li><a href="2018list.html">【沉·墨·殇】总集</a></li>
+                <li><a href="2018list.html">【我是谁】总集</a></li>
+                <li><a href="2018list.html">【诗歌词】翻译</a></li>
+                <li><a href="2018list.html">【2018文章】汇总</a></li>
+                <li><a href="2018list.html">【点评】</a></li>
+            </ul>
+
+        </div>
+        <!--这里是右侧的博客介绍部分-->
+        <div class="blog_info">
+            <ul>
+                <blog_active_and_hover_class class="blog_active_and_hover_class"></blog_active_and_hover_class>
+                <li class="blog_lanmu_active"><a href="javascript:void(0)">网站介绍</a></li>
+                <li><a href="javascript:void(0)">创建时间:2021年11月28日</a></li>
+                <li><a href="javascript:void(0)">创建目的:汇集所有文章</a></li>
+                <li><a href="javascript:void(0)">文章总数:210</a></li>
+                <li><a href="javascript:void(0)">来访人数:0</a></li>
+            </ul>
+        </div>
+        <!--这里是右侧的博主介绍部分-->
+        <div class="blog_master_info">
+            <ul>
+                <blog_active_and_hover_class class="blog_active_and_hover_class"></blog_active_and_hover_class>
+                <li class="blog_lanmu_active"><a href="javascript:void(0)">介绍</a></li>
+                <li><a href="javascript:void(0)">初写文章于2016，绝笔于2019，文章无人问津</a></li>
+                <li><a href="javascript:void(0)">时隔多年，终有世人寻其踪迹，特因此做藏书阁，供世人阅读。</a></li>
+                <li><a href="javascript:void(0)">虽已绝笔，仍做有新型网站，于他人倾诉，待有佳日，或可再续前缘。</a></li>
+            </ul>
+        </div>
+
+
+    </div>
+
+
+
+            <div class="base_content_right_item">
+
+                <h3 class="base_content_right_item_title">点击排行</h3>
+                <div class="base_content_right_item_list">
+<!--
+                    <ul>
+                        <li><a href="javascript:void(0)">最新文章第十五篇文章</a></li>
+                    </ul>
+                    -->
+                </div>
+            </div>
+
+
+            <div class="base_content_right_item">
+
+                <h3 class="base_content_right_item_title">最新文章</h3>
+                <div class="base_content_right_item_list">
+<!--
+                    <ul>
+                        <li><a href="javascript:void(0)">最新文章第一篇文章</a></li>
+                    </ul>
+-->
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!--一键回到顶部的box-->
+<div class="go_top"><i class="fa fa-angle-up"></i></div>
+<div class="base_footer">
+    <ul>
+        <li><a href="https://wpa.qq.com/msgrd?v=3&uin=446157433&site=qq&menu=yes" target="_blank" title="QQ:3107663466"  class="base_footer_qq"><i class="fa fa-qq"></i></a></li>
+        <li><a href="mailto:3107663466@qq.com" target="_blank" title="邮箱：3107663466@qq.com" class="base_footer_email"><i class="fa fa-envelope"></i></a></li>
+        <li><a href="javascript:void(0)" title="扫描微信二维码联系我们" class="base_footer_weixin"><i class="fa fa-weixin"></i><img src="img/erweima.png" alt=""></a><a href="img/erweima.png"></a></li>
+    </ul>
+
+    <span class="base_footer_text">Copyright © 2021-2022 Power by ChenFengYeSe</span>
+    <span class="base_footer_text">网站仓库：<a href="https://github.com/ChenFengYese/ChenFengYese.github.io">ChenFengYeSe</a></span>
+</div>
+</body>
+</html>
+
+
+
