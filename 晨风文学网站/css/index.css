@@ -1,0 +1,106 @@
+@charset "UTF-8";
+body{position: absolute;z-index: 2;width: 100%;height: 100%;overflow: hidden;}
+
+
+
+/*声明 WebFont使用字蛛*/
+@font-face {
+    font-family: 'Myfont';
+    src: url('../fonts/wangxizi.eot');
+    src:
+            url('../fonts/wangxizi.eot?#font-spider') format('embedded-opentype'),
+            url('../fonts/wangxizi.woff') format('woff'),
+            url('../fonts/wangxizi.ttf') format('truetype'),
+            url('../fonts/wangxizi.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*@font-face {*/
+/*    font-family: 'Myfont';*/
+/*    src: url('../fonts/wangxizi.eot');*/
+/*    src: url('../fonts/wangxizi.eot?#iefix')*/
+/*    format('embedded-opentype'), url('../fonts/wangxizi.woff2')*/
+/*    format('woff2'), url('../fonts/wangxizi.woff') format('woff'),*/
+/*    url('../fonts/wangxizi.ttf') format('truetype'),*/
+/*    url('../fonts/wangxizi.svg#barbara_handregular') format('svg');*/
+/*    font-weight: normal;font-style: normal;}*/
+
+/*index页面头部样式开始*/
+.index_header{position: fixed;width: 100%;margin: 0;padding: 0;top: 0;left: 0;z-index: 1002;}
+
+/*index页面样式开始*/
+.index_body{height: 100%;width: 100%;overflow: hidden;position:relative;z-index: 1;}
+
+/*index页面身体部分设置宽度，和距离顶部的距离*/
+.index_body_content{
+    width: 1280px;height: calc(100% - 190px);position: relative;top: 50%;z-index: 1;
+    transform: translateY(-50%) translateX(-50%);left: 50%;overflow: hidden;}
+
+/*index页面身体部分的盒子开始*/
+.index_side_box{width: 100%;height: 100%;position: relative;overflow: hidden;
+    /*background: rgba(255,255,255,.5);*/
+}
+
+/*index页面超宽盒子开始部分*/
+.super_width_box{width: 40000px;height: 100%;}
+/*index页面循环滚动盒子设置左浮动，为了循环滚动*/
+.ul_one,.ul_two{height: 100%;float: left;
+writing-mode: vertical-lr;-webkit-writing-mode: vertical-lr;-ms-writing-mode: vertical-lr;*writing-mode:tb-rl;
+}
+/*index页面循环滚动盒子每一个li代表一篇文章*/
+.ul_one li,.ul_two li{float: left;height: 100%;
+    font-family: Myfont;
+    font-size: 40px;margin-right: 50px;line-height: 54px;
+    writing-mode: vertical-lr;-webkit-writing-mode: vertical-lr;-ms-writing-mode: vertical-lr;*writing-mode:tb-rl;
+    background-image: url("../img/index_wzbg.png");
+    background-repeat-x: repeat;background-repeat-y: repeat;
+    padding: 10px 0;position: relative;
+}
+/*.ul_one li:before{*/
+/*    content: "";*/
+/*    position: absolute;*/
+/*    width: 100%;*/
+/*    height: 2px;*/
+/*    padding: 0 25px;*/
+/*    background-color: #333;*/
+/*}*/
+.shici_line1{position: absolute;width: calc(100% - 4px);height: 2px;background-color: #000;top: 5px;left: 2px;}
+.shici_line2{position: absolute;width: calc(100% - 4px);height: 2px;background-color: #000;bottom: 5px;left: 2px;}
+
+/*index页面底部开始*/
+.index_footer{position: absolute;bottom: 0;width: 100%;left: 0;margin: 0;padding: 0;z-index: 1000;}
+
+@media (max-width: 1366px){
+    .index_body_content{width: 90%;}
+}
+@media (max-width: 1200px){
+
+}
+@media (max-width: 1024px){
+    .index_body_content{width: 94%;}
+}
+@media (max-width: 768px){
+    .ul_one li,.ul_two li{font-size: 30px;letter-spacing:0;}
+    .index_body_content{height: calc(100% - 230px);top: 80px;transform: translateX(-50%) translateY(0);}
+    .index_body_content{width: 100%;padding: 0 20px;}
+}
+@media (max-width: 650px){
+    .index_body_content{padding: 0 10px;}
+}
+@media (max-width: 500px){
+    .index_body_content{padding: 0 5px;}
+}
+@media (max-width: 300px){
+    .index_body_content {height: calc(100% - 250px);}
+}
+
+
+
+
+
+
+
+
+
+
