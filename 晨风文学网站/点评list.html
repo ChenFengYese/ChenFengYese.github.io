@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="renderer" content="webkit" />
+    <meta property="og:title" content="" />
+    <title>晨风文学网站</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <!--<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">-->
+
+
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/base.css">
+
+    <script src="js/wow.min.js"></script>
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/base.js"></script>
+
+</head>
+
+<body>
+
+<!--base列表页页面的图片-->
+<div class="bg_pic"></div>
+<!--base列表页页面的头部部分-->
+<div class="base_header">
+
+    <div class="base_header_content">
+
+        <a href="index.html" class="base_header_logo"><img src="img/logo.png" alt=""></a>
+
+        <div class="base_header_nav">
+            <ul>
+                <!--这里是没有子栏目的样式-->
+                <li><i class="fa fa-caret-right"></i><a href="index.html">首页</a></li>
+
+                <!--顶级导航-->
+                <li class="have_second_navs">
+                    <i class="fa fa-caret-right"></i><a href="点评list.html" class="base_header_nav_active">文章</a>
+
+                    <!--二级导航有子栏目的时候-->
+                    <ul class="nav_child">
+
+                        <li><i class="fa fa-caret-right"></i><a href="点评list.html">个人</a>
+
+                            <!--三级栏目-->
+                            <ul class="nav_child">
+                                <li><a href="点评list.html">博客类</a></li>
+                                <li><a href="点评list.html">技术类</a></li>
+                                <li><a href="点评list.html">学习类</a></li>
+                            </ul>
+
+                        </li>
+
+                        <!--二级导航没有子栏目的时候-->
+                        <li><a href="点评list.html">学习</a></li>
+
+                    </ul>
+                </li>
+
+
+
+                <!--顶级导航-->
+                <li class="have_second_navs">
+                    <i class="fa fa-caret-right"></i><a href="点评list.html">导航</a>
+
+
+                    <!--二级导航有子栏目的时候-->
+                    <ul class="nav_child">
+
+                        <li><i class="fa fa-caret-right"></i><a href="点评list.html">学习</a>
+
+                            <!--三级栏目-->
+                            <ul class="nav_child">
+                                <li><a href="点评list.html">css</a></li>
+                                <li><a href="点评list.html">js</a></li>
+                                <li><a href="点评list.html">jquery</a></li>
+                            </ul>
+
+                        </li>
+
+                        <!--二级导航没有子栏目的时候-->
+                        <li><a href="javascript:void(0)">学习</a></li>
+
+                    </ul>
+                </li>
+
+
+
+
+                <li>
+                    <i class="fa fa-caret-right"></i>
+                    <a href="suibi.html">随笔</a>
+                </li>
+
+
+            </ul>
+
+
+        </div>
+
+        <!--手机导航部分-->
+
+        <div class="base_nav_menu" id="base_nav_menu" bind_click="true"><span bind_click="true"></span></div>
+
+        <div class="base_nav_zhezao"></div>
+
+    </div>
+</div>
+
+<!--base列表页身体部分开始-->
+<div class="base_content_body">
+<!--base列表页身体部分居中显示-->
+    <div class="base_content_content clearfix">
+<!--base列表页身体部分的左边部分设置宽度-->
+        <div class="base_content_left">
+
+<!--base列表页身体部分最新博客盒子-->
+            <div class="base_list_box wow zoomIn" data-wow-duration="1s">
+
+                <ul>
+
+                    <li class="wow fadeIn" data-wow-delay="0.1s" data-wow-duration="1s">
+
+                        <div class="base_list_box_title">
+
+                        <!--列表页判断文章是否原创是原创添加span元素-->
+                            <span><img src="img/yuanchuangwenzhang.png"></span>
+
+
+            <a class="base_list_box_title_a" href="点评 感谢老师评价.html" title="这里是文章title">点评 感谢老师评价</a>
+
+                                    </div>
+
+                        <!--列表页判断文章是否原创是原创添加版权元素-->
+                        <div class="base_list_xiebian"><span>版权</span></div>
+
+                        <div class="base_list_box_content clearfix">
+
+                            <div class="base_list_box_left">
+
+        <a href="点评 感谢老师评价.html" title="文章title">
+                                    <img src="img/bg_pic/bg_1.png">
+                                </a>
+                            </div>
+
+                            <div class="base_list_box_right">
+
+            <div class="base_list_box_info" title="文章的全部简介部分">+之前读过不少魏品，已然感到十分惊讶，料想小魏是一位不可多得的文学爱好者，最近小魏同学又给我发了最近作笔的几篇文章，看完之后我又是感叹不已，长江后浪推前浪啊，新一代人的时代就要到来了；应同学的建议，我就在这发表下自己的拙评吧，还望小魏轻笑。+看完这篇文章，虽然之前我已经知道这篇文章会给我带来意想不到的收获，但通读全篇后内心依旧浪潮不止，精彩，绝妙，创新，新时代，这四个词忽而跃现到我的脑海里，我不禁呼出声来，精彩！这篇文章主要精在五个方面： +一精在文章的语言，文章语言生动形象，华丽优雅，扑面而来的文学气息让人陶醉不已，无论是韵脚的构思还是音调的起伏设置都恰到了好处，简单诵读一番就发现，自然，和谐，优雅，高贵是这篇文章的代名词。自然和谐的音调，高潮部分的迭起，落尾部分的感叹，无处不显现出作者的优秀的音韵控制能力。且看“我不曾……”不断的重复和后续词汇的添加，让人感情循序渐进，直至高潮的一波三折的迭起，连续的排比的韵味呼之欲出，让人感情持续爆发，最后是韵脚的设置，更是恰到好处的将情感收尾，最后的简单的语句收缩了情感，更让人回味无穷。 +二精在文章的炼字，文章字词的选择极为讲究，无论是“触碰”“踏足”“闯伐”还是“翻涌”“复载”“拉拢”，不仅表达出作者的心中所想，也透露出作者的独特的情感，尤其是“翻涌“和”复载“将内心的涌动和渴望春天的到来的感情都体现了出来，炼字之精，可谓若是。 +三精在文章的内容，文章内容既具有创新色彩和艺术色彩，创新在于内容是以诗歌的形式和现代文的形式结合起来创造的，而艺术则在于内容的精彩，文章内容可由四个小节概括，一是追求希望和阳光的作者，面对现实的大海，无能为力；二是渴望光明的作者被世界给抛弃，无人的理解和陪伴与关系，让作者心如死灰；三是对自我的勉励和自我的不断地改变与追求，让自己成为独特的人；四是对内心的平静的追求与向往，懂得了平凡的美，生活的美，也同时向着梦想前行；内容的精彩程度不言而喻，文章的意境极为丰富，一幅幅图画不仅仅给读者带来了色彩上的鲜艳，更带来了情感上的共鸣，让人赞赏不绝。 +四精在文章的标题，【晨光】这个标题，起初我也认为这个与文章内容基本没有关联，但是当我想到作者心中怀着晨光，追求着晨光，对晨光的向往，那这晨光不就是梦想和光明的代言词么？这样，晨光的喻意也便呼之欲出，其象征着作者的人生路上的灯塔，指引作者不断前行，象征着作者心中的纯净，永远坚强的面对世界，象征着作者内心的梦想，不断地挑战自我和奋斗…………        五精在文章的选材，文章的选材竟然全部都是来自于作者之前的诗歌，诗歌和现代文的结合不仅体现出作者优秀的文学素养，也让人有一种耳目一新的感觉；不仅展现出作品的艺术之美，也展现出其的感情之真；诗歌以意境的形式展现，而意境更加完整的表达出作者心中的情感，当阅读时，看到的不仅仅是一张张图画，更是一种种作者内心的情感，阅读这篇文章，像是在观看一场电影，仿佛看到了文章的意境中的图画，仿佛自身便是意境中的主角，让人不断沉醉于其中，让人赏心悦目，感叹不绝。 +以这篇文章即可看出小魏同学的不断努力和创新，有希望当属新时代的一鼓巨浪，望小魏同学继续努力，不断朝前奔跑，终有一天你会追逐到你内心中的晨光！ +                                                ——管  2019.11.17
+</div>
+
+                                        </div>
+
+                        </div>
+
+
+                        <div class="base_list_box_readmore">
+
+         <a href="点评 感谢老师评价.html" title="阅读全部">阅读全部<i class="fa fa-paper-plane"></i></a>
+                        </div>
+
+                        <div class="base_list_box_message clearfix">
+
+                            <div class="left">
+
+
+        <a href="点评list.html" title="文章所在栏目"><i class="fa fa-bookmark"></i>[点评]</a>
+
+                            </div>
+
+                            <div class="right">
+                                <a href="javascript:void(0)" title="文章发布时间"><i class="fa fa-clock-o"></i>2019</a>
+                                <a href="javascript:void(0)" title="文章点击次数"><i class="fa fa-eye"></i>1</a>
+                                <a href="javascript:void(0)" title="文章点赞次数"><i class="fa fa-thumbs-up"></i>1</a>
+                                <a href="javascript:void(0)" title="文章评论次数"><i class="fa fa-comments-o"></i>0</a>
+
+                            </div>
+
+                        </div>
+
+                    </li><li class="wow fadeIn" data-wow-delay="0.1s" data-wow-duration="1s">
+
+                        <div class="base_list_box_title">
+
+                        <!--列表页判断文章是否原创是原创添加span元素-->
+                            <span><img src="img/yuanchuangwenzhang.png"></span>
+
+
+            <a class="base_list_box_title_a" href="+点评 感谢读者评价.html" title="这里是文章title">+点评 感谢读者评价</a>
+
+                                    </div>
+
+                        <!--列表页判断文章是否原创是原创添加版权元素-->
+                        <div class="base_list_xiebian"><span>版权</span></div>
+
+                        <div class="base_list_box_content clearfix">
+
+                            <div class="base_list_box_left">
+
+        <a href="+点评 感谢读者评价.html" title="文章title">
+                                    <img src="img/bg_pic/bg_1.png">
+                                </a>
+                            </div>
+
+                            <div class="base_list_box_right">
+
+            <div class="base_list_box_info" title="文章的全部简介部分">+内心波动，唯自身吟咏，这是怎样的孤独和哀伤，才能够写出如此让人叹为观止的诗句。如同你那正在翻涌的浪涛，无声无息，大海上一片平静；如同你那在临死时才感受到最后的一刻平静一般；如同你追寻着内心的平静去寻找自我一般；如同你的内心在不断地挣扎，你的面庞却如同冰雕一般；十分让人感到悲伤，沉默，和循序渐进的痛                             ————水木天晴我看过你写的很多文章，我尝试着去看懂，但受于我的知识太过于浅陋，因此不敢轻易评论，也不敢和你交流，因为对我来说，和你接触感到压力特别之大，这种感觉像是层次之间的压制，我不知道你现实中是怎样的人，但从网络我可以推测出，容我用十分通俗的语言说出来，你是一位大神级人物！+                                                     ————水木心柔+也许，只有拥有过类似于你的经历的人，才能够静静地放下心来品为你写的每一篇文章吧我不知道他人看【雾爱】这篇文章是什么感受，但我知道我被这篇文章感动到流泪。+这篇文章似乎是刻意地用那些轻快的语调让我们逐渐回想起曾经爱过的那些人。+正如标题一般，按照我的理解，【雾爱】一是指隐藏在迷雾中，不被所爱之人察觉到的深深的爱，二是指“勿爱”意为不要爱，这似乎是在自己被爱伤的痛苦万分后给自己的警告。+这篇文章，语调轻松自然，让人赏心悦目，但它却同时讲的是一篇悲伤的故事 然而这篇故事却用如笑一般的诵读出来，我不知道这种感觉怎么说，这似乎是在刻意隐藏自己的悲伤，如同前面那个人一般，“内心波动自身聆”，不让他人察觉到自己的悲哀；也似乎是在对这件伤痛的事的淡然，仿佛如同指尖的尘埃一般，挥之便过，这也符合作者您曾写过的“逍遥赋”一文的思想；而且根据后文的一种又感伤又坦然的情感，似乎这种原因更加符合。+雾爱，从最初的不敢说出爱，到大胆的说出爱，为了爱不顾一切，再到后来的爱而不得的痛苦，再多爱后的释然，最后是对爱的结果的叹息，这是我的理解，我的一位同学则是认为这是说一个人不敢放下一切去爱，只是在默默的激励自己去爱，爱即使是失败也没什么，从而让自己去爱，而“雾爱”则是勿“雾爱”的意思，这篇文章是在让我们大胆去爱 。我不知道作者您的意图是什么，在此提出自己的陋见，实属是没有自知之明，十分抱歉。作者您继续加油！+                            ——————水木清风+这么多人发表自己的看法啊！那我作为作者的一名铁杆粉丝同时兼作者的一名好兄弟，也来说说自己的观点吧。+其一，作者的文章所要讲述的感情，事物和道理大多都十分隐晦，非了解他的人，文化水平高的人难以理解。正如作者的一篇诗歌中的“皎皎月有阴圆缺，世界情物比若愁”，以月亮有时阴暗有时明亮有时圆润有时残缺来比作感情上的忽远忽近忽有忽无，这种难以表达的情感；也正如“寄青春”总集的很多篇文章中，都提到过“春风”这个词，一开始我也不懂，后来经过对作者的询问我才知晓“春风”是他自己创作的一个典故，代指内心中深爱的人，而这个典故则出自于他早期的一篇文章【春风十里鲜花朵朵，愿舞落雨尘浮晓生】，同时这也是他的第一篇以物借为对象抒发自己对所爱人的真实的情感的文章，感兴趣的可以去看看。+其二，作者的文章总有着一种朦胧的韵味，就像是第一眼看上去是一座池塘，第二眼看则是一片湖水，仔细阅读又发现这还是一座大山，再看会发现这是一片汪洋大海，让人可以从不同的方向理解出各种不同的韵味，这种独特的中心思想的表达，让人唏嘘不止。+其三，作者的文章中不止一次出现“莲花”这类词 表现出作者十分强调人格的培养，作者曾无法忍受这世间的罪恶 大声批判这个世界，直抒胸臆，再也不隐藏自己的思想，从而可以看出一些以前难以理解的事物，诸如不符合世间逻辑的景物的存在代表着世界在颠倒黑白，像【生死赋】中“天飞地”这样特别荒谬的场景，则是表达了作者对这个世界的荒诞思想，罪恶表达了特别强烈的痛恨。同时作者也提到过君子的培养，如【君子之路】中对成功与失败展开了十分详尽的辩论；也有【沈汇王招学子列传】一文中，描绘出一个知理懂理行理的低调人物，表达出作者对其的十分肯定和赞扬；也有【生死赋】中对莲花之人的酌情刻画，同时也许下“铭志，视己”这样的话语，让人感受到作者对成为莲花居士的十分强烈和坚定的愿望。+其四，作者所要表达的感情大多不只一个方面，而是多个方面，有些文章则充分展现出他那矛盾的情感，如【忘忧情】总集里的很多篇文章都表现出“欲语还休”的情感，让人难以理解；如【晨光】，他的代表作一般，体现了他那多方面多层次的情感和思想，让人赞赏不绝。+其五，作者经常利用一些典故，而这些典故有很多来自现代，因而让人捉摸不通，如【残花落雨】一文中的“箭越山河刺痛疾”则来自于现代的一首歌【写给黄淮】的歌词“这跨越山河的箭，刺的都是那些用情至极的人”，利用这个典故从而表现出作者“爱过于深的痛苦”的情感。+其六，作者总用一些藏额名灌到文章中，从而让人难以理解，也许只有作者希望的那个人看到这类文章时，才会理解作者在写什么了吧。 +                                                        —————水木辰光
+</div>
+
+                                        </div>
+
+                        </div>
+
+
+                        <div class="base_list_box_readmore">
+
+         <a href="+点评 感谢读者评价.html" title="阅读全部">阅读全部<i class="fa fa-paper-plane"></i></a>
+                        </div>
+
+                        <div class="base_list_box_message clearfix">
+
+                            <div class="left">
+
+
+        <a href="点评list.html" title="文章所在栏目"><i class="fa fa-bookmark"></i>[点评]</a>
+
+                            </div>
+
+                            <div class="right">
+                                <a href="javascript:void(0)" title="文章发布时间"><i class="fa fa-clock-o"></i>2019</a>
+                                <a href="javascript:void(0)" title="文章点击次数"><i class="fa fa-eye"></i>1</a>
+                                <a href="javascript:void(0)" title="文章点赞次数"><i class="fa fa-thumbs-up"></i>1</a>
+                                <a href="javascript:void(0)" title="文章评论次数"><i class="fa fa-comments-o"></i>0</a>
+
+                            </div>
+
+                        </div>
+
+                    </li><li class="wow fadeIn" data-wow-delay="0.1s" data-wow-duration="1s">
+
+                        <div class="base_list_box_title">
+
+                        <!--列表页判断文章是否原创是原创添加span元素-->
+                            <span><img src="img/yuanchuangwenzhang.png"></span>
+
+
+            <a class="base_list_box_title_a" href="点评 感谢巨匠的评价一.html" title="这里是文章title">点评 感谢巨匠的评价一</a>
+
+                                    </div>
+
+                        <!--列表页判断文章是否原创是原创添加版权元素-->
+                        <div class="base_list_xiebian"><span>版权</span></div>
+
+                        <div class="base_list_box_content clearfix">
+
+                            <div class="base_list_box_left">
+
+        <a href="点评 感谢巨匠的评价一.html" title="文章title">
+                                    <img src="img/bg_pic/bg_1.png">
+                                </a>
+                            </div>
+
+                            <div class="base_list_box_right">
+
+            <div class="base_list_box_info" title="文章的全部简介部分">魏品粗略看了一遍，很为后生文才惊叹！他的诗、文、随笔写得都不错，有思想，有见地。虽然有些文章还显稚嫩，但已初入锋芒！我敢断言，只要坚持，久后有大成！ 以上几篇诗文给我总的印象是： 1.作者似仿李白浪漫主义风格，想象丰富，自由挥洒，不拘格式丶韵律限制，好！这正是诗家胚子。 2.作者流露出对自身多愁多病，家庭遭际，世态炎凉的倾诉描写，说明他是善于观察和思考的敏感少年，这也是他文人气质的反映。少年无愁爱说愁嘛！ 3.高中生正是身心健康成长与发奋学习之时，期望小魏心怀家国天下，少想些个人穷愁苦闷，全面发展。天生我材必有用！时学浅代不会辜负每一个奋勇攀登的人！ 本人才疏学浅，上述之言很可能未说道点子上，也可能有错误，仅当愚夫浅见吧！见谅！ —吴东满    2019.3.09
+</div>
+
+                                        </div>
+
+                        </div>
+
+
+                        <div class="base_list_box_readmore">
+
+         <a href="点评 感谢巨匠的评价一.html" title="阅读全部">阅读全部<i class="fa fa-paper-plane"></i></a>
+                        </div>
+
+                        <div class="base_list_box_message clearfix">
+
+                            <div class="left">
+
+
+        <a href="点评list.html" title="文章所在栏目"><i class="fa fa-bookmark"></i>[点评]</a>
+
+                            </div>
+
+                            <div class="right">
+                                <a href="javascript:void(0)" title="文章发布时间"><i class="fa fa-clock-o"></i>2019</a>
+                                <a href="javascript:void(0)" title="文章点击次数"><i class="fa fa-eye"></i>1</a>
+                                <a href="javascript:void(0)" title="文章点赞次数"><i class="fa fa-thumbs-up"></i>1</a>
+                                <a href="javascript:void(0)" title="文章评论次数"><i class="fa fa-comments-o"></i>0</a>
+
+                            </div>
+
+                        </div>
+
+                    </li><li class="wow fadeIn" data-wow-delay="0.1s" data-wow-duration="1s">
+
+                        <div class="base_list_box_title">
+
+                        <!--列表页判断文章是否原创是原创添加span元素-->
+                            <span><img src="img/yuanchuangwenzhang.png"></span>
+
+
+            <a class="base_list_box_title_a" href="点评 感谢巨匠的评价二.html" title="这里是文章title">点评 感谢巨匠的评价二</a>
+
+                                    </div>
+
+                        <!--列表页判断文章是否原创是原创添加版权元素-->
+                        <div class="base_list_xiebian"><span>版权</span></div>
+
+                        <div class="base_list_box_content clearfix">
+
+                            <div class="base_list_box_left">
+
+        <a href="点评 感谢巨匠的评价二.html" title="文章title">
+                                    <img src="img/bg_pic/bg_1.png">
+                                </a>
+                            </div>
+
+                            <div class="base_list_box_right">
+
+            <div class="base_list_box_info" title="文章的全部简介部分">以上为少将同学的点评。 此上前两段为一个同学点评，下面，是我的拙见。 看了魏涛的作品，简归两个字：多彩！ 看了两位的点评，简归两个字：精彩！ 两同学都爱好诗文，从不同角度简要点评，给予魏品以肯定，并指出其要努力的方向，不愧是诗之作者、伴者、爱者、使者和护者！+我也是在带研究生（小孩）过程中，断续读了魏品，我心灵感受是三惊： +一是惊叹：如此年纪和阅历，竟有如此诗文！（诗文写作至少三要素：基础知识、阅历、悟性或灵感） +二是惊诧：头脑中蕴藏如此丰富的词汇！ +三是惊喜：后生可畏！更是可喜！我国璀璨的文化如孔论、孟语、楚辞、唐诗、宋词……都会有年青来者传承光大！ +当然，也有简要拙评： +一是诗如其人，尚需超越自我！此乃诗之高度，有如毛泽东诗词即为楷模！魏品诗文中多有愁闷，多有迷茫之叹息，之中也有丝幽怨。 +诗文如只限于一种心情，心境的记录，且限于自赏或极少知己分享，当然可以有这些叹息和幽怨。但倘若公诸于世，则似乎不要让人与己一起叹息。当然，时机到了，依然可以发表，比如魏然作品卷一。 +别人读诗尚需激励，即当今所说的正能量。历史上有流传至今的大都此是也。 +二是诗风方面，不宜过多追求华丽的辞藻。当然，有些体裁的诗，用词超然。 +但切记不可以为辞藻华丽，则诗文亦高级！ +也切忌以为用词华丽，则诗意高深，有时生造词汇，让人费解，则诗亦有水平。此为谬也，忌也。 +纵观流传至今的唐诗宋词，和近代诗作如毛泽东诗词，大都是质朴的语言，都如此之美！之动情、之动人之气魄！之流传下来！ +所以，建议小魏不妨写一点这类语言的作品，我倒想看看。 +三是诗文立意是诗文之魂。特别是诗词，不同于散文，记叙文等体裁。前者立意一般不多项，如故表达自己情感，则会从标题内容上有讲究（如分段）。后者中散文即容量大。故注意欲表达的心情或其他，注意用对体裁。 +以上算是我的肤浅之拙见。 +一方面感谢东满和景顺两学友满足我的请求点评魏品。一方面也一并诚表自己之拙见，供小魏参考。也许是我三十步笑百步，请小魏见谅。 +最后，有请小魏百尺竿头，努力攀登，前景光明！再次感谢东满、景顺的精彩点评。
+</div>
+
+                                        </div>
+
+                        </div>
+
+
+                        <div class="base_list_box_readmore">
+
+         <a href="点评 感谢巨匠的评价二.html" title="阅读全部">阅读全部<i class="fa fa-paper-plane"></i></a>
+                        </div>
+
+                        <div class="base_list_box_message clearfix">
+
+                            <div class="left">
+
+
+        <a href="点评list.html" title="文章所在栏目"><i class="fa fa-bookmark"></i>[点评]</a>
+
+                            </div>
+
+                            <div class="right">
+                                <a href="javascript:void(0)" title="文章发布时间"><i class="fa fa-clock-o"></i>2019</a>
+                                <a href="javascript:void(0)" title="文章点击次数"><i class="fa fa-eye"></i>1</a>
+                                <a href="javascript:void(0)" title="文章点赞次数"><i class="fa fa-thumbs-up"></i>1</a>
+                                <a href="javascript:void(0)" title="文章评论次数"><i class="fa fa-comments-o"></i>0</a>
+
+                            </div>
+
+                        </div>
+
+                    </li>
+
+
+                </ul>
+
+
+                <div class="shangxiaye clearfix">
+                        <a title="Total record"><b>105</b></a>
+                        <a href="#">1</a>
+                        <b>2</b>
+                        <a href="#">3</a>
+                        <a href="$">4</a>
+                        <a href="$">5</a>
+                </div>
+
+            </div>
+
+        </div>
+
+<!--base列表页身体右边部分-->
+        <div class="base_content_right">
+
+            <div class="base_content_right_item" id="base_content_right_down">
+                <div class="base_search">
+                    <form name="searchform" class="search_form" method="post" action="#" target="_blank">
+                        <input type="text" class="search_text" required="required" name="keyboard" placeholder="输入关键字搜索">
+                        <input type="hidden" name="tbname" value="news">
+                        <input type="hidden" name="show" value="title,smalltext">
+                        <input type="hidden" name="tempid" value="1">
+                        <input type="hidden" name="classid" value="1,4,9">
+                        <input type="submit" class="search_btn" value="" title="搜索">
+                        <i class="fa fa-search"></i>
+                    </form>
+                </div>
+
+
+
+ <!--这里是页面右侧的导航部分-->
+        <div class="blog_right_nav">
+
+            <ul>
+                <blog_active_and_hover_class class="blog_active_and_hover_class"></blog_active_and_hover_class>
+                <li class="blog_lanmu_active"><a href="javascript:void(0)">全部文章</a></li>
+                <li><a href="忘忧情list.html">【忘忧情】总集</a></li>
+                <li><a href="沉·墨·殇%20list.html">【沉·墨·殇】总集</a></li>
+                <li><a href="我是谁list.html">【我是谁】总集</a></li>
+                <li><a href="诗歌词list.html">【诗歌词】翻译</a></li>
+                <li><a href="2018list.html">【2018文章】汇总</a></li>
+                <li><a href="点评list.html">【点评】</a></li>
+            </ul>
+
+        </div>
+        <!--这里是右侧的博客介绍部分-->
+        <div class="blog_info">
+            <ul>
+                <blog_active_and_hover_class class="blog_active_and_hover_class"></blog_active_and_hover_class>
+                <li class="blog_lanmu_active"><a href="javascript:void(0)">网站介绍</a></li>
+                <li><a href="javascript:void(0)">创建时间:2021年11月28日</a></li>
+                <li><a href="javascript:void(0)">创建目的:汇集所有文章</a></li>
+                <li><a href="javascript:void(0)">文章总数:210</a></li>
+                <li><a href="javascript:void(0)">来访人数:0</a></li>
+            </ul>
+        </div>
+        <!--这里是右侧的博主介绍部分-->
+        <div class="blog_master_info">
+            <ul>
+                <blog_active_and_hover_class class="blog_active_and_hover_class"></blog_active_and_hover_class>
+                <li class="blog_lanmu_active"><a href="javascript:void(0)">介绍</a></li>
+                <li><a href="javascript:void(0)">初写文章于2016，绝笔于2019，文章无人问津</a></li>
+                <li><a href="javascript:void(0)">时隔多年，终有世人寻其踪迹，特因此做藏书阁，供世人阅读。</a></li>
+                <li><a href="javascript:void(0)">虽已绝笔，仍做有新型网站，于他人倾诉，待有佳日，或可再续前缘。</a></li>
+            </ul>
+        </div>
+
+
+    </div>
+
+
+
+            <div class="base_content_right_item">
+
+                <h3 class="base_content_right_item_title">点击排行</h3>
+                <div class="base_content_right_item_list">
+<!--
+                    <ul>
+                        <li><a href="javascript:void(0)">最新文章第一篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                        <li><a href="javascript:void(0)">最新文章第二篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                        <li><a href="javascript:void(0)">最新文章第三篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                        <li><a href="javascript:void(0)">最新文章第四篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                        <li><a href="javascript:void(0)">最新文章第五篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                        <li><a href="javascript:void(0)">最新文章第六篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                        <li><a href="javascript:void(0)">最新文章第七篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                        <li><a href="javascript:void(0)">最新文章第八篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                        <li><a href="javascript:void(0)">最新文章第九篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                        <li><a href="javascript:void(0)">最新文章第十篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                        <li><a href="javascript:void(0)">最新文章第十一篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                        <li><a href="javascript:void(0)">最新文章第十二篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                        <li><a href="javascript:void(0)">最新文章第十三篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                        <li><a href="javascript:void(0)">最新文章第十四篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                        <li><a href="javascript:void(0)">最新文章第十五篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                    </ul>
+                    -->
+                </div>
+            </div>
+
+
+            <div class="base_content_right_item">
+
+                <h3 class="base_content_right_item_title">最新文章</h3>
+                <div class="base_content_right_item_list">
+<!--
+                    <ul>
+                        <li><a href="javascript:void(0)">最新文章第一篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                        <li><a href="javascript:void(0)">最新文章第二篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                        <li><a href="javascript:void(0)">最新文章第三篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                        <li><a href="javascript:void(0)">最新文章第四篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                        <li><a href="javascript:void(0)">最新文章第五篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                        <li><a href="javascript:void(0)">最新文章第六篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                        <li><a href="javascript:void(0)">最新文章第七篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                        <li><a href="javascript:void(0)">最新文章第八篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                        <li><a href="javascript:void(0)">最新文章第九篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                        <li><a href="javascript:void(0)">最新文章第十篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                        <li><a href="javascript:void(0)">最新文章第十一篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                        <li><a href="javascript:void(0)">最新文章第十二篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                        <li><a href="javascript:void(0)">最新文章第十三篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                        <li><a href="javascript:void(0)">最新文章第十四篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                        <li><a href="javascript:void(0)">最新文章第十五篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                    </ul>
+-->
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!--一键回到顶部的box-->
+<div class="go_top"><i class="fa fa-angle-up"></i></div>
+<div class="base_footer">
+    <ul>
+        <li><a href="https://wpa.qq.com/msgrd?v=3&uin=446157433&site=qq&menu=yes" target="_blank" title="QQ:3107663466"  class="base_footer_qq"><i class="fa fa-qq"></i></a></li>
+        <li><a href="mailto:3107663466@qq.com" target="_blank" title="邮箱：3107663466@qq.com" class="base_footer_email"><i class="fa fa-envelope"></i></a></li>
+        <li><a href="javascript:void(0)" title="扫描微信二维码联系我们" class="base_footer_weixin"><i class="fa fa-weixin"></i><img src="img/erweima.png" alt=""></a><a href="img/erweima.png"></a></li>
+    </ul>
+
+    <span class="base_footer_text">Copyright © 2021-2022 Power by ChenFengYeSe</span>
+    <span class="base_footer_text">网站仓库：<a href="https://github.com/ChenFengYese/ChenFengYese.github.io">ChenFengYeSe</a></span>
+</div>
+</body>
+</html>
+
+
+

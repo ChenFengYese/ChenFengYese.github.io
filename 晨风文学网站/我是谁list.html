@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="renderer" content="webkit" />
+    <meta property="og:title" content="" />
+    <title>晨风文学网站</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <!--<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">-->
+
+
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/base.css">
+
+    <script src="js/wow.min.js"></script>
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/base.js"></script>
+
+</head>
+
+<body>
+
+<!--base列表页页面的图片-->
+<div class="bg_pic"></div>
+<!--base列表页页面的头部部分-->
+<div class="base_header">
+
+    <div class="base_header_content">
+
+        <a href="index.html" class="base_header_logo"><img src="img/logo.png" alt=""></a>
+
+        <div class="base_header_nav">
+            <ul>
+                <!--这里是没有子栏目的样式-->
+                <li><i class="fa fa-caret-right"></i><a href="index.html">首页</a></li>
+
+                <!--顶级导航-->
+                <li class="have_second_navs">
+                    <i class="fa fa-caret-right"></i><a href="我是谁list.html" class="base_header_nav_active">文章</a>
+
+                    <!--二级导航有子栏目的时候-->
+                    <ul class="nav_child">
+
+                        <li><i class="fa fa-caret-right"></i><a href="我是谁list.html">个人</a>
+
+                            <!--三级栏目-->
+                            <ul class="nav_child">
+                                <li><a href="我是谁list.html">博客类</a></li>
+                                <li><a href="我是谁list.html">技术类</a></li>
+                                <li><a href="我是谁list.html">学习类</a></li>
+                            </ul>
+
+                        </li>
+
+                        <!--二级导航没有子栏目的时候-->
+                        <li><a href="我是谁list.html">学习</a></li>
+
+                    </ul>
+                </li>
+
+
+
+                <!--顶级导航-->
+                <li class="have_second_navs">
+                    <i class="fa fa-caret-right"></i><a href="我是谁list.html">导航</a>
+
+
+                    <!--二级导航有子栏目的时候-->
+                    <ul class="nav_child">
+
+                        <li><i class="fa fa-caret-right"></i><a href="我是谁list.html">学习</a>
+
+                            <!--三级栏目-->
+                            <ul class="nav_child">
+                                <li><a href="我是谁list.html">css</a></li>
+                                <li><a href="我是谁list.html">js</a></li>
+                                <li><a href="我是谁list.html">jquery</a></li>
+                            </ul>
+
+                        </li>
+
+                        <!--二级导航没有子栏目的时候-->
+                        <li><a href="javascript:void(0)">学习</a></li>
+
+                    </ul>
+                </li>
+
+
+
+
+                <li>
+                    <i class="fa fa-caret-right"></i>
+                    <a href="suibi.html">随笔</a>
+                </li>
+
+
+            </ul>
+
+
+        </div>
+
+        <!--手机导航部分-->
+
+        <div class="base_nav_menu" id="base_nav_menu" bind_click="true"><span bind_click="true"></span></div>
+
+        <div class="base_nav_zhezao"></div>
+
+    </div>
+</div>
+
+<!--base列表页身体部分开始-->
+<div class="base_content_body">
+<!--base列表页身体部分居中显示-->
+    <div class="base_content_content clearfix">
+<!--base列表页身体部分的左边部分设置宽度-->
+        <div class="base_content_left">
+
+<!--base列表页身体部分最新博客盒子-->
+            <div class="base_list_box wow zoomIn" data-wow-duration="1s">
+
+                <ul>
+
+                    <li class="wow fadeIn" data-wow-delay="0.1s" data-wow-duration="1s">
+
+                        <div class="base_list_box_title">
+
+                        <!--列表页判断文章是否原创是原创添加span元素-->
+                            <span><img src="img/yuanchuangwenzhang.png"></span>
+
+
+            <a class="base_list_box_title_a" href="我是谁 序幕.html" title="这里是文章title">我是谁 序幕</a>
+
+                                    </div>
+
+                        <!--列表页判断文章是否原创是原创添加版权元素-->
+                        <div class="base_list_xiebian"><span>版权</span></div>
+
+                        <div class="base_list_box_content clearfix">
+
+                            <div class="base_list_box_left">
+
+        <a href="我是谁 序幕.html" title="文章title">
+                                    <img src="img/bg_pic/bg_1.png">
+                                </a>
+                            </div>
+
+                            <div class="base_list_box_right">
+
+            <div class="base_list_box_info" title="文章的全部简介部分">洋洋苦海无边，缓缓前行天不生我才童，竟遭受无尽磨难生当疾病在世，骨瘦如柴无人惜小学天资显现，惨被邻居害毒药死里逃生基因变，多病体质不及人初中又甚恶人计，无财无权只罢休全校第一有何用，学校无人在识我昔日往友皆入重，唯我独在垃圾沟中学不识世界事，单纯入班甚开心氛围无学全为乐，代沟间里难重归浑浑噩噩误二年，初三重起发天资不食饭食独学习，奋勇攀进五十名不幸体质又作怪，急性病情待解决八月之后会复癌，急需用钱使除全家庭矛盾又爆发，父母之解无人是父亲离弃莫看我，母亲借钱难再还解病入院三两期，恰逢月考无处现终不现时我天资，被人嘲讽刁难情入院时期又难熬，浑身煎灼难行身动之则痛如焚骨，待之则痒如食骨冰火交加母又伤，唾骂父亲无为人班群同学又嘲笑，视我不敢参月考头昏体痛寻死路，不愿此生再受苦乌云已过光四射，逢身却似冰骨痛再寻奋斗为中考，终不惜我此遭苦本为顺利入一中，不慎却遇贪师长谓我无如高中班，除非让钱使同行无奈没权没人助，只好千千使我通说是重高直升班，却逢平行难料为再有权人入直升，即使三十点开外心情苦闷桌痛哭，泪水不住夕阳斜放平心态行新路，不再回忆往首事父母矛盾更是深，家庭圈构已破裂不愿提及再此事，若想了解看前文初入十五又叛逆，无心学习直玩玩熬夜又待两三点，身体不透难力行又逢基因突变作，体重加大数数倍胖子此词难入眼，勤跑锻炼不复变初断虚胖不碍事，不料却为新变症手脚常痛无可行，心肌梗塞又复发常常心口难言痛，头晕难有精神在常叹自身体弱病，人生难过二十岁父亲不解我身况，盼我成龙来抚养亲戚嘲笑余成绩，内心伤悲无人意寡言少语不愿述，独走自身人生路秋叶飘落覆尘海，野马奔鸣响苍野渴望有人可识我，人生却难寻知己常常渴望了此生，不再煎熬苦困行又想父母抚育恩，难别父母泪水痕恰我失意迷茫时，窈窕走入生活路欢喜伴我时长聊，注目常看愿成绱正值情窦初开时，缓解忧愁向前冲回头再看窈窕时，人尤还在伴却有悔恨泪水不禁下，怒火捶胸不复堪再看天空尤黑暗，噩梦无醒享生终难言悲愤此生事，寥寥数语难情表视完视之为空虚，不见它在此间中悲愤换笑挂脸上，埋头继续苦困行亦若平常无人晓，内心波动自身聆                               
+</div>
+
+                                        </div>
+
+                        </div>
+
+
+                        <div class="base_list_box_readmore">
+
+         <a href="我是谁 序幕.html" title="阅读全部">阅读全部<i class="fa fa-paper-plane"></i></a>
+                        </div>
+
+                        <div class="base_list_box_message clearfix">
+
+                            <div class="left">
+
+
+        <a href="我是谁list.html" title="文章所在栏目"><i class="fa fa-bookmark"></i>[点评]</a>
+
+                            </div>
+
+                            <div class="right">
+                                <a href="javascript:void(0)" title="文章发布时间"><i class="fa fa-clock-o"></i>2019</a>
+                                <a href="javascript:void(0)" title="文章点击次数"><i class="fa fa-eye"></i>1</a>
+                                <a href="javascript:void(0)" title="文章点赞次数"><i class="fa fa-thumbs-up"></i>1</a>
+                                <a href="javascript:void(0)" title="文章评论次数"><i class="fa fa-comments-o"></i>0</a>
+
+                            </div>
+
+                        </div>
+
+                    </li><li class="wow fadeIn" data-wow-delay="0.1s" data-wow-duration="1s">
+
+                        <div class="base_list_box_title">
+
+                        <!--列表页判断文章是否原创是原创添加span元素-->
+                            <span><img src="img/yuanchuangwenzhang.png"></span>
+
+
+            <a class="base_list_box_title_a" href=" 我是谁 “坚持”.html" title="这里是文章title"> 我是谁 “坚持”</a>
+
+                                    </div>
+
+                        <!--列表页判断文章是否原创是原创添加版权元素-->
+                        <div class="base_list_xiebian"><span>版权</span></div>
+
+                        <div class="base_list_box_content clearfix">
+
+                            <div class="base_list_box_left">
+
+        <a href=" 我是谁 “坚持”.html" title="文章title">
+                                    <img src="img/bg_pic/bg_1.png">
+                                </a>
+                            </div>
+
+                            <div class="base_list_box_right">
+
+            <div class="base_list_box_info" title="文章的全部简介部分">坚持…………心态可以克制思想可以坚持而身体却不待我而抑郁从不留情尝试着做了许多事但没有一件成了功想要绝气绝情离世界可心中触动却放不下或许是为了一份份执念或许是为了一次次美好我一直未能够狠下心离开一直在死亡和存活中徘徊世界总是给我带来无边黑暗也不曾带过一次微弱的温暖我渴望着被世界的群众们救赎却发现没有人会在意一只蚂蚁我就是那么的可悲可怜无助烦闷我就是那么的压抑无私善良温柔世界想着各种方法灭掉我这个毒瘤却发现无论怎样都会进入无限轮回呵，可笑至极，这么渺小的我还会被世界看重?还会有情义可言?一切都是虚妄，一切都是幻想世界就是一个牢笼，将我的心锁的死死的想要让我放弃挣扎顺他的意让我同他人一样成为他的傀儡棋子呵，可笑至极，这世界的黑暗谁没有看透呢？一个傻傻的领导者却还在不断的继续他的表演可笑，可笑，荒谬我的世界我在领导我在反抗自身我在反抗自己的内心世界滑稽，可笑 
+</div>
+
+                                        </div>
+
+                        </div>
+
+
+                        <div class="base_list_box_readmore">
+
+         <a href=" 我是谁 “坚持”.html" title="阅读全部">阅读全部<i class="fa fa-paper-plane"></i></a>
+                        </div>
+
+                        <div class="base_list_box_message clearfix">
+
+                            <div class="left">
+
+
+        <a href="我是谁list.html" title="文章所在栏目"><i class="fa fa-bookmark"></i>[点评]</a>
+
+                            </div>
+
+                            <div class="right">
+                                <a href="javascript:void(0)" title="文章发布时间"><i class="fa fa-clock-o"></i>2019</a>
+                                <a href="javascript:void(0)" title="文章点击次数"><i class="fa fa-eye"></i>1</a>
+                                <a href="javascript:void(0)" title="文章点赞次数"><i class="fa fa-thumbs-up"></i>1</a>
+                                <a href="javascript:void(0)" title="文章评论次数"><i class="fa fa-comments-o"></i>0</a>
+
+                            </div>
+
+                        </div>
+
+                    </li><li class="wow fadeIn" data-wow-delay="0.1s" data-wow-duration="1s">
+
+                        <div class="base_list_box_title">
+
+                        <!--列表页判断文章是否原创是原创添加span元素-->
+                            <span><img src="img/yuanchuangwenzhang.png"></span>
+
+
+            <a class="base_list_box_title_a" href="我是谁  醒悟.html" title="这里是文章title">我是谁  醒悟</a>
+
+                                    </div>
+
+                        <!--列表页判断文章是否原创是原创添加版权元素-->
+                        <div class="base_list_xiebian"><span>版权</span></div>
+
+                        <div class="base_list_box_content clearfix">
+
+                            <div class="base_list_box_left">
+
+        <a href="我是谁  醒悟.html" title="文章title">
+                                    <img src="img/bg_pic/bg_1.png">
+                                </a>
+                            </div>
+
+                            <div class="base_list_box_right">
+
+            <div class="base_list_box_info" title="文章的全部简介部分">我在寻找着自我 我在探索着真相 我在醒悟 我开始怀疑自我 我开始进行戏剧的高潮阶段这是 戏剧化的我 自我的描绘艺术化的我1.为权者，为所欲为；为人者，克己所欲为情者，己所不欲，情欲而予为形者，议天下大事，掌天下之局为心者，亦乎三者也，喻乎吾也掌天下之局，控天地之手，我欲持天地之力，当即灭你个不败不离。有权，而不加持；有力，而不加行；无非持欲克行，守道克己。故而莫逼之，逼之，当斩之，亦使你无人可知。2.一念，一彻! 不回，不望!一念，一深! 不欲，不得!一念，一行! 畅逍遥，谁亦懂?一念，一驰! 不畏惧，熟亦知?一念，一剑! 斩破万里烟宵，刻印白雪皑皑!一念，一剑! 卷风而起，不问终往独步行!天之奈我如何? 有剑持宵焚天!天之待我如何? 苍天之恨无始终!谁能挡我?谁敢挡我?3.这个世界说着各种情话诱使我继续留下，另一个世界拼命拉扯着我离开这似真似幻的梦境。4.天下为棋，众生皆为局中人；彻眼如心，唯我身在局之外!5.凄凄冷风蓑蓑衣，茫茫白雪寒寒心，彻彻深冬冰冰骨，惨惨冰峰漠漠情。6.世界等同于一个熔炉，里面进行着各种各样的化学反应，你们全部溶解，而我却完全沉淀。7.我与你为敌，而世界竟无比包容于你；我当与世界为敌，斩破这黑暗无际!8.大脑有时间和空间运输之领，空间无限之大而时间却有终止性，大脑运行速度超越光速，而你和我之间却隔了一个时空。9.智者：居安思危，深谋远虑，目光长远，推断能力强，思想深远，思维无穷，为浪漫主义者。心者，被社会严重污染后的智者，善于隐藏自己，算计人事，为谋取最大利益，以利益得道。乐者，钟情于山水，不视世间浮躁权财，乐于人文思想，爱戴世界。暴者，心者的极端形式，欲为利益而不惜一切代价，杀人放火，滥用私权笑面之虎无恶不作。10.世界上最大的敌人就是自己，自己的心魔已经出现，自身却只能隐藏忍耐，甚至渴望他人来灭掉自己，以避免世界遭自己破坏。12.阻碍我的，都将被我玩弄于手掌之中!13.君者，呵!禁锢我的思想，让我静待灭亡?哈，好一个官场权者!竟设如此小计!我自当不走君子之道!我要开辟一条新的大道!哈哈!世界将临来一位真正的王!14.我就是这个时代的产物，我就是你们的梦魇!我是一个黑暗的莲花!是一朵绽放的荆棘!是绝然的黄昏之美!15.我与这个世界不同维度!我是这个幻想世界的创造者!16.戏命师?呵，这个称号可真的适合我!18.我将我的枪交给你，看到如此嗜暴的我，你会否开枪灭杀我?19.杀了我!灭了我!我不想失去理智，毁了你!20.我是世界的毒瘤，整个世界都想要灭掉我!21.天地囚牢，你困不住我无穷远的思想!22.天地无光哈!让我灭亡哈!时不待我!世不待我!23.创诗文无数，无人观看!创天地之理，无人欣赏!哀自身小命，无人在意!恨天地无人!熟可知己?24.这么着急，这么想灭掉我?呵，我设个套中套，看你如何脱身!25.天地大叹!世才无数!唯我如此黯淡!陨落的星辰?呵，碰撞即将毁灭天地!26.心魔，占据了我的身体。27.与儿时的娃娃脸，清秀的头发，两边红腮似霞，冰香玉骨，穿着一身似芳草鲜花似晚朝红霞似燕喜迎欢似点点浪涛的衣裳，你已经大径不同28.身穿荣华彩衣而非朴素迷情，耳戴金铜玉石而非排隅玩香，你就是那显达富贵而我穷途末遇29.悲剧总是由喜剧的形式呈现出来，悲伤总是被喜兴的面具掩盖30.你永远不会知道一个人为此付出了多少，呵，坚持到底终是话不过一段逍遥31.世界，需被拯救，而又无药可救，那就让其毁灭32.世界就只有我一个人，内心波动自身聆33.苍天漫雾千古恨，乾坤始终万轮回34.本以为这世界是暗淡无光的，遇到你之后才发现一缕隐藏在暗处的圣洁的光芒35.这光芒照亮整个世界，却唯独避开我这片黑暗36.我是什么？！全是谎言？！不要再给我希望！这个世界只有无穷的绝望！37.开向世界的花朵，是我的唯一，却不能作为我的唯一38.红霞消逝离去，才看见月光的圣洁之美，从前感叹红霞的短暂，而今等待月光的到来39.我是沉溺于幻境之中，而非发现了一个新的世界40.何处有知己？何处有志同道合之人？人生惨淡，也只有枯草乌鸦乌云白雾作伴41.鲜花的美，是在面朝阳光的时候，而非是在被压抑的乌云遮盖之时42.再见，曾经的世界，曾经的我，曾经的幻想的云彩43.鲜花，你将是我认识中最美好的记忆，谢谢你44.谢谢你的仁慈，你的不快尚未表现在话语之中，仅仅表现在神情之上
+</div>
+
+                                        </div>
+
+                        </div>
+
+
+                        <div class="base_list_box_readmore">
+
+         <a href="我是谁  醒悟.html" title="阅读全部">阅读全部<i class="fa fa-paper-plane"></i></a>
+                        </div>
+
+                        <div class="base_list_box_message clearfix">
+
+                            <div class="left">
+
+
+        <a href="我是谁list.html" title="文章所在栏目"><i class="fa fa-bookmark"></i>[点评]</a>
+
+                            </div>
+
+                            <div class="right">
+                                <a href="javascript:void(0)" title="文章发布时间"><i class="fa fa-clock-o"></i>2019</a>
+                                <a href="javascript:void(0)" title="文章点击次数"><i class="fa fa-eye"></i>1</a>
+                                <a href="javascript:void(0)" title="文章点赞次数"><i class="fa fa-thumbs-up"></i>1</a>
+                                <a href="javascript:void(0)" title="文章评论次数"><i class="fa fa-comments-o"></i>0</a>
+
+                            </div>
+
+                        </div>
+
+                    </li><li class="wow fadeIn" data-wow-delay="0.1s" data-wow-duration="1s">
+
+                        <div class="base_list_box_title">
+
+                        <!--列表页判断文章是否原创是原创添加span元素-->
+                            <span><img src="img/yuanchuangwenzhang.png"></span>
+
+
+            <a class="base_list_box_title_a" href="我是谁  艺术.html" title="这里是文章title">我是谁  艺术</a>
+
+                                    </div>
+
+                        <!--列表页判断文章是否原创是原创添加版权元素-->
+                        <div class="base_list_xiebian"><span>版权</span></div>
+
+                        <div class="base_list_box_content clearfix">
+
+                            <div class="base_list_box_left">
+
+        <a href="我是谁  艺术.html" title="文章title">
+                                    <img src="img/bg_pic/bg_1.png">
+                                </a>
+                            </div>
+
+                            <div class="base_list_box_right">
+
+            <div class="base_list_box_info" title="文章的全部简介部分">我被艺术加以渲染，披着一身沉重的外衣这是，纯艺术的我自我语句：一：一世之言，不为己过，即是繁花落弟，佳人欣赏，亦无为所动。方有其言，美目欣之，即是同肴共舞，谈说志趣，亦欣欣而然。可谓道若同方为彼己，若不同道志，无语可言二：浮了沉华之间，又有谁可与我清心静然三：予独爱莲之出淤泥而不染，濯清涟而不妖，中通外直，不蔓不枝，香远益清，亭亭净植，可远观而不可亵玩焉。四：江山之中再无支莲，黄河海上皆为浑浊五：予知晓各事而不说，知晓各理而不行，无非保持本心。六：既无人与吾同奏，无众与吾同台，吾既表演自身，而享于自然。七：月影成虚光四伏，树荫成影无人意。心有朝阳影随从，不复月光踏前行。八：奔流到海的浪涛滚滚而行，驾驭一首载向黄昏幽林的无言静寂的乐章九：万里奔腾却话不过一阵逍遥，坚持到底终是难言的悲哀十：黄霞那般迷人，却似暮沉好景随光而逝十一：黄花落寂，枯叶伴舞，也仅有黄昏阙影陪伴我度过余生十二：树叶的一生，就是生长和飘落，最后落地归根，这是多么悲壮的事实啊，树叶的生活更是如此的无依无靠，一生也就是余下的悲霜。十三：烟雨淅汐，浪涌孤舟。繁花落尽，水倒东流！夕阳谁边，晚霞朝燕？白浪滔天，万事赴灭！浪子不回头，弥雾心间中！歌嘲水边过，倚笑滔天流！十四：卷卷细线连天地，斩不断，更坚韧，问心无愧！十五：独月免思愁，意望未来何处是，仅翻得：一烟，一雾，一河流。明星闪亮洲，却问幸福何处有，仅叹许:月气，星耀和艳虹。十六：只有最亮或最特殊的恒星，那才是我想要的。十万里恒星围绕之间，便是永恒的动力。十七：误解，是圣人最担心的事情。十八：人生中，有最合适的同伴陪同，便多了一份光彩；有最令人欢乐的事情，便形成了一片绿洲；有最芬香的事物、最美丽的景物，便变为了桃花源地。十九：月明星稀，雨落点滴。漫山明星，湖静水清。何处闻来吟笛声，酒膛玉景伴我行。雨雾重嵘，万叶伴奏。和兴风起，蜜桃藏心。问去来日有此景，宁愿己伴江山行。二十：梦回九连天，凌箫涯海边。览心众明月，悠长欲境深。雄心报不得， 独乘向蓬莱。路梦涯游路，又起寻路难。万里驰骋漠，凶浪波涛海。斩光起舞影，挽月来陪伴。蓬莱一行难，惟持雄心归。剑亮几十年，老壮青少心。心沉气净和，更奔云阶梯。擎拿蓬莱水，知己报心归。二十一：月影成虚梦成影，花开花落随风絮。不念酒醒飘何处，恰使黄州变金州。回返一顾废墟酒，耳边响应心中梦。二十二：将进酒，杯莫停，晚来好景需称道，再享光辉已趋迟。荣誉之事需大笑，扫除悲欲往前行。失意之事需大笑，挥手离去坚忠行。人生在世不称意，早生华发半偏舟，何得在意繁琐事，时光皆比笑而过。人生在世需畅谈，欢笑挂脸不辞去。笑比兼容更赋时，人心易暖更恒久。二十三：千里乌云遍布，无不讨论，无不知晓，万里晴空遍历，无人在意，无人议论，十万里大舟航行，皆为所叹，八厘小足行之，无人看齐。二十四:沧海笑，心若狂，何曾时得千花黄。尽一时，百寒天，莫守终时皆空妄。二十五：有鱼焉，离水稍微，不行于世，念水可归，蛮网行窃，别离水园，却不得不悲，岂非笑之耳？二十六：尔否支花待还我?再将一樽酒情思？二十七：心比天高夭九雷，腿过长垠覆荆棘。手堪摘月染星辰，一行一竖震苍生。自喻世上无难事，天下谁人不识君？二十八：长生不老皆仙家所想，永恒不朽为天地所求。众生所愿又无处可走，世事皆违斗现实一行。不愿那白化一场，书一比热血胸膛。了却梦中皆所求，不枉人生走一场。二十九：猛雨击袭轰雷鸣，乌云祭天恨晨明。汹涛跨涌吞天际，狂风刮切无处行。百兽惊呵飞重渡，万物的奔不素争。黑暗天绝了无垠，无可赴生终葬连。混沌虚无物赖寂，轮回众生惨心眠。三十：天浮沉雨落心航，不计归属任荒凉。三十一：悲剧总是由喜剧的形式呈现出来，悲伤总是被喜兴的面具掩盖三十二：苍天漫雾千古恨，乾坤始终万轮回三十三：红霞消逝离去，才看见月光的圣洁之美，从前感叹红霞的短暂，而今等待月光的到来。三十三：我是沉溺于幻境之中，而非发现了一个新的世界三十四：何处有知己？何处有志同道合之人？人生惨淡，也只有枯草乌鸦乌云白雾作伴三十五：鲜花的美，是在面朝阳光的时候，而非是在被压抑的乌云遮盖之时三十六：来者不知攀登路 漫漫轻松低远愁 和风再起巡游路 佳光无限永逢春路漫漫，修远行 其艰苦，何难耐 酷暑之语迈中重 炙热艰熬难攀登心向上，雪终融！仰物之景天上丛，四季彷徨无知晓，乐观终取天上虹！三十七：欲起酒来敬天虹，借问美好持久候， 酒入喉咙麻丝痛，落杯只见美胜虹。三十八：玄黄真气，磅礴西来，雨阴掀扫乾坤撼大浪滔滔，席卷东去，横卷万物中华愁青春朝气，磅礴西来，雨阴掀扫乾坤撼大浪滔滔，奔腾东去，携卷苍生中华梦三十九：昏黄沙涯少人烟 阵阵黑风卷悲愁独步漫涯何人识 无人关心自叹寒四十：烟秋黄霞寒夜寐 残酒孤舟随歌行辄酒立饮摧肠破 无丝无觉卧落篱月影成虚无光处 嘁嘁冷风嗦蓑衣江山才尽无人意 谁懂舟夫船头心黑眼迷蒙沉欲睡 地狱临门少一人空吼鸦鸣枯叶悲 世界知己无再寻。四十一：磐石无欲雨中行，白雪霭霭浸弥身。不言世间来往客，坐卧残花暮春新。四季枉合终独木，百花筱生继零疏。悬崖苦马河舟乐，繁星无处此心中。沧颜白发思枯泪，满载伤声又妄谁?拂晓天间行客去！巅山毋问喜怒悲！四十二：重新定义世界清除世界痕迹如烟般，如光般逝云化消，回归自然非自身，非己，非我还归身躯，灵化自身断除一切残留痕迹欲，情，世之所存断绝，回归本性身，故于世非身，非生，飞升，遗世不在世，我故我不迹，故我矣虚影，而非真世无念，无望，无欲，无迹可仅为己而可遗世我非我，而我故我奇幻之境天下，独我，可运于掌欲，则有不欲，则无我故我得无喜无伤无怒无悲以所存之力攻无故之力断因果，得逍遥我思故我存，我欲则我达我运则我有，我念则我得学无尽，思而无穷，得而矣 
+</div>
+
+                                        </div>
+
+                        </div>
+
+
+                        <div class="base_list_box_readmore">
+
+         <a href="我是谁  艺术.html" title="阅读全部">阅读全部<i class="fa fa-paper-plane"></i></a>
+                        </div>
+
+                        <div class="base_list_box_message clearfix">
+
+                            <div class="left">
+
+
+        <a href="我是谁list.html" title="文章所在栏目"><i class="fa fa-bookmark"></i>[点评]</a>
+
+                            </div>
+
+                            <div class="right">
+                                <a href="javascript:void(0)" title="文章发布时间"><i class="fa fa-clock-o"></i>2019</a>
+                                <a href="javascript:void(0)" title="文章点击次数"><i class="fa fa-eye"></i>1</a>
+                                <a href="javascript:void(0)" title="文章点赞次数"><i class="fa fa-thumbs-up"></i>1</a>
+                                <a href="javascript:void(0)" title="文章评论次数"><i class="fa fa-comments-o"></i>0</a>
+
+                            </div>
+
+                        </div>
+
+                    </li><li class="wow fadeIn" data-wow-delay="0.1s" data-wow-duration="1s">
+
+                        <div class="base_list_box_title">
+
+                        <!--列表页判断文章是否原创是原创添加span元素-->
+                            <span><img src="img/yuanchuangwenzhang.png"></span>
+
+
+            <a class="base_list_box_title_a" href="我是谁  人格分裂.html" title="这里是文章title">我是谁  人格分裂</a>
+
+                                    </div>
+
+                        <!--列表页判断文章是否原创是原创添加版权元素-->
+                        <div class="base_list_xiebian"><span>版权</span></div>
+
+                        <div class="base_list_box_content clearfix">
+
+                            <div class="base_list_box_left">
+
+        <a href="我是谁  人格分裂.html" title="文章title">
+                                    <img src="img/bg_pic/bg_1.png">
+                                </a>
+                            </div>
+
+                            <div class="base_list_box_right">
+
+            <div class="base_list_box_info" title="文章的全部简介部分">一半天才，一半疯子一半纯理性，一半纯感性一半理智至极，一半若疯若狂可以于教室内观察宇宙透过宏观物质探测微观联想大统一理论和未知揭示隐藏于深处的真相对挚爱亲朋珍惜和爱戴对时间投以强烈的好奇这就是，第五人格的我可以肆意践踏自己的为人可以对一切不满的投以暴力可以忘记任何人只在乎自己可以为了私欲不惜一切代价可以陷入疯狂的幻想和行为可以丢失任何的光芒化为一只野兽渴望得到求助并逐渐失去希望和耐心眼瞳变得黑暗言语变得焦灼可以沉迷于无尽深渊只为一死可以报复一切只为宣泄仇恨对自己的不满充冽了现实的波纹一只野兽在毫无抵制的吞噬着自己的光芒一切都变得毫无意义一切都失去了乐趣来不及判断孰对孰错自己的存在便是最大的错误理性的催生灭绝了一切的可能陷入无言的悲哀和难以言表的悔恨忘记了一切忘记了自己只有不断的质问自己究竟是真是假一切的一切都是谎言都是自己给自己蒙蔽的一层布如同海洋般沉重的愁绪充斥着全身无法呼吸无法抑制无法承担无法睁开自己脆弱的双眼渴望他人给予一点点将我喊醒但是疯癫的人没有人愿意触碰他是个疯子没有理性的疯子这是，我的第四九人格我究竟是谁我为何而迷茫因为我在不断的探寻真相寻找真正的自我我在田野中捕捉着蝴蝶大声的喊着我爱你大自然我在河流旁边乱丢垃圾，踩踏所有花朵用木棍砍伐一切碍眼的事物我究竟是怎样的人我在一人独自的思考着未知的事物探索着让人无比好奇的新鲜事物说着我必将在这条道路上坚持到底当我成功思考出真相后想要把它大声告诉世界却发现早在很久之前就已经有了对此的解释而我的思考也是错误连连我却质问自身我这样做有何意义我究竟是一个怎样的人我在不断的谱写描绘自己高尚的人格说我不好荣耀和功名永远坚持真理但在看到自身的一切不被支持不被关注开始沉默着悲哀着质问着自己究竟是对是错我究竟是一个怎样的人我开始寻找答案我开始广阅群书我开始寻找志同道合的伙伴我找到了一个可以概括我所作所为的词语—艺术我的一切被艺术加以渲染包括记忆也被艺术加以美化我在塑造着自己的人格形象我在不断的着笔描写自己这描写被艺术包裹打扮我开始有了一个新的自我我对一切都富有艺术包括诗歌，包括研究，也包括此一切都如同戏剧一般像是顺着一定的轨迹一般如同结局已经定好了一般我开始不断的行走寻找和轮回艺术来源于大脑大脑的纯理性感到孤单了他需要渲染他需要陪伴他需要引人注目他也真的很落寞他开始强调他开始引诱他开始迷失他开始流浪他没有了寄宿的地方他成为了一切他就像是一个演员幻想着一切的一切着笔描写着一切的一切表演着一切的一切感情真挚至极但又是多变至极大脑不清楚自己究竟需要什么不清楚自己到底是为了什么他什么都不需要他可以创造出一切东西他可以永久的存活他在不断的运作他不断的矛盾最后开始崩溃0和1不能同时存在系统判定错误面临着解离偏激不断极致理性和感性一切疯狂一切冷漠就此开始这就是我无聊的我也是真实的我纯5号人格的我描绘着所有人格经历着所有人格这就是我一个不断探索自己的我孤独的我迷茫的我这就是我无人理解的我寻求终理的我 
+</div>
+
+                                        </div>
+
+                        </div>
+
+
+                        <div class="base_list_box_readmore">
+
+         <a href="我是谁  人格分裂.html" title="阅读全部">阅读全部<i class="fa fa-paper-plane"></i></a>
+                        </div>
+
+                        <div class="base_list_box_message clearfix">
+
+                            <div class="left">
+
+
+        <a href="我是谁list.html" title="文章所在栏目"><i class="fa fa-bookmark"></i>[点评]</a>
+
+                            </div>
+
+                            <div class="right">
+                                <a href="javascript:void(0)" title="文章发布时间"><i class="fa fa-clock-o"></i>2019</a>
+                                <a href="javascript:void(0)" title="文章点击次数"><i class="fa fa-eye"></i>1</a>
+                                <a href="javascript:void(0)" title="文章点赞次数"><i class="fa fa-thumbs-up"></i>1</a>
+                                <a href="javascript:void(0)" title="文章评论次数"><i class="fa fa-comments-o"></i>0</a>
+
+                            </div>
+
+                        </div>
+
+                    </li><li class="wow fadeIn" data-wow-delay="0.1s" data-wow-duration="1s">
+
+                        <div class="base_list_box_title">
+
+                        <!--列表页判断文章是否原创是原创添加span元素-->
+                            <span><img src="img/yuanchuangwenzhang.png"></span>
+
+
+            <a class="base_list_box_title_a" href="我是谁  宁静.html" title="这里是文章title">我是谁  宁静</a>
+
+                                    </div>
+
+                        <!--列表页判断文章是否原创是原创添加版权元素-->
+                        <div class="base_list_xiebian"><span>版权</span></div>
+
+                        <div class="base_list_box_content clearfix">
+
+                            <div class="base_list_box_left">
+
+        <a href="我是谁  宁静.html" title="文章title">
+                                    <img src="img/bg_pic/bg_1.png">
+                                </a>
+                            </div>
+
+                            <div class="base_list_box_right">
+
+            <div class="base_list_box_info" title="文章的全部简介部分">清晨的一束束阳光透过薄薄的棉纱窗户照到客房内的地上，一点点黑白相间的光斑随着微风的飘拂而欣喜的舞蹈昨晚夜间下了一场大雨，此时此刻屋檐的外壁上还有不少的水珠歇息着。“滴答”“滴答”顺着这种自然赐予的和律，我踏着音调的动摇走到钢琴台前，指尖轻轻抚过黑白的琴键，一阵阵波动如溪水潺潺般悠悠地浮起，犹如细水横流，小鸟低语般的音乐静静地悄悄地地于自然间弹出，一首自然的音乐，就此奏响。宁静的环境，宁静的声音，宁静的内心。顺着音律的变换，眉头的紧皱也渐渐消淡。手指交汇着，变换着，“滴答”“滴答”，轻轻地，慢慢地，美妙的音乐向着大自然抒发着我的忧愁。“呼呼呼呼呼璐璐”………………忽而低沉，忽而明耀，忽而长音，忽而短促；手指在我的脑海里绘画出一幅幅过去的图画。“咚咚咚咚”，钢琴的声音如同滚滚浪涛带着无尽的悔恨和愤怒般行来，变得越来越急促，“叮”，声音如同一滴水珠落到巨石般戛然而止，我意识到我脑海里的思绪的不断变迁，也触碰到了内心里的那一层脆弱的膜，我感觉到了强烈的痛苦，也认识到是我打破了这一份难得的宁静。我急忙站起身来，停下我狂暴的演奏，也停止挣扎我那伤痕累累的心灵。轻轻呼出一口浊气，我擦了擦脸上的冷汗，摇了摇头走向门外。为了寻找内心的宁静，我决定去往庭园内的池塘，聆听大自然的声音，感受纯净的池水和圣洁的莲花，洗涤我这污浊的灵魂。道路两边的花朵轻轻吐着如泡泡般童真似的芬芳，树叶上的露水随着风群静静的荡漾，一缕缕青色的阳光透过交杂的树叶照到我前行的小路上，点点斑驳似是对我露出温暖而又可爱的微笑，我脚踏着一抹抹葱绿的春意，带着对宁静的向往，绽放出一种迷人的芳香，走向那宁静的池塘。微风轻抚我的稚嫩而又沧桑的脸庞，脚底落下青草的“悉悉”的声响，眼看四周正在开放的桃花一茬一茬，在灵动的微风下轻轻地摇摆着，舞蹈着，“呼呼”，风儿在给我领路，也在给我奏响前行的号角；一许轻笑，几许馨香，我歌颂这自然的宁静，宁静的美妙；春风舒酥，使我沉醉于无尽的如诗一般的天堂，我向这春风抒出我的情感，向她轻轻挥舞着双手，轻轻触摸她的尾巴，轻轻向她倾述着我的烦恼…………声音渐续渐弱，向春风高喊爱的号角后，我开始向宁静的池塘奔跑…………  
+</div>
+
+                                        </div>
+
+                        </div>
+
+
+                        <div class="base_list_box_readmore">
+
+         <a href="我是谁  宁静.html" title="阅读全部">阅读全部<i class="fa fa-paper-plane"></i></a>
+                        </div>
+
+                        <div class="base_list_box_message clearfix">
+
+                            <div class="left">
+
+
+        <a href="我是谁list.html" title="文章所在栏目"><i class="fa fa-bookmark"></i>[点评]</a>
+
+                            </div>
+
+                            <div class="right">
+                                <a href="javascript:void(0)" title="文章发布时间"><i class="fa fa-clock-o"></i>2019</a>
+                                <a href="javascript:void(0)" title="文章点击次数"><i class="fa fa-eye"></i>1</a>
+                                <a href="javascript:void(0)" title="文章点赞次数"><i class="fa fa-thumbs-up"></i>1</a>
+                                <a href="javascript:void(0)" title="文章评论次数"><i class="fa fa-comments-o"></i>0</a>
+
+                            </div>
+
+                        </div>
+
+                    </li><li class="wow fadeIn" data-wow-delay="0.1s" data-wow-duration="1s">
+
+                        <div class="base_list_box_title">
+
+                        <!--列表页判断文章是否原创是原创添加span元素-->
+                            <span><img src="img/yuanchuangwenzhang.png"></span>
+
+
+            <a class="base_list_box_title_a" href="我是谁  莲花亭下序.html" title="这里是文章title">我是谁  莲花亭下序</a>
+
+                                    </div>
+
+                        <!--列表页判断文章是否原创是原创添加版权元素-->
+                        <div class="base_list_xiebian"><span>版权</span></div>
+
+                        <div class="base_list_box_content clearfix">
+
+                            <div class="base_list_box_left">
+
+        <a href="我是谁  莲花亭下序.html" title="文章title">
+                                    <img src="img/bg_pic/bg_1.png">
+                                </a>
+                            </div>
+
+                            <div class="base_list_box_right">
+
+            <div class="base_list_box_info" title="文章的全部简介部分">英年朝暮终有时，长叹何曾造梦极。晴天历程摧独树，焦源阴焚毁铭生。天历裁决不知渺，可畏绵生度春晓，决望年生生眠风，江涌雷壑填梦平。身苦残绝舟涌久，时愤年堪何须情？流水缠纤杜牧焦，殇情有绝湖度月。时甚年朝跨时迁，广废江水无垠路，心头嗟叹浪刻舟，九来芜望临江水，时深千载忘岳轮。尔来九百里黄河，度何曾时长久怨！长恨怋终天罢叹，深云不绝皎月开。似得名声非得志，何得使我开心颜？绝云覆气登天际，较阔湘江寄流情，虹桥坠断蛟龙海，牛织缠绕皆撕散。奔流苍天灌沧海，云涌星乱搂齐天。尔来狂风刮天旭，天姥残破无吟别，蓬莱仙境苍穹塔，乱石斗涌抗成灰。门裂塔败地凋脆，妖狂霸久虐人心。尔来八万长城下，血海罪深厄心魔，天碎不孤当云塔，千载光年废虚客。残乱光时难路劫，九州辽下度灵墟。漫天无际硝烟去，仙人灵碎扫人心。爆鹏碾落星霄离，汹海妄波黑覆天。尔来九万大舟行，人民惶恐不齐心，深泉万涌弥怖惧，齐火鸿飞摧烟起。大舟奔起航飞行，寻酒住客醉不停，酒欣娱欢念长久，奔流长赴明日须，惨光暗阳破风起，刮载冬山寒力行！敢问天尺轮有时，安行罪手滔悦情？长罢叹有终须时，牢狱赋堪无名归，生死安能度辉久，嗟吁长恨九州情！断眠芸海直飞烟，深海动涌波不起，昨云不念天飞地，跨渊长鸣天洲泣。何雨噬空重涟镰，虚时魁久心碉树。落悲红淤灼身烧，双眉灼痛鼓风起，落幕黑暗侵久刻，圣莲终情不惧蚀。安能行舟度万辈？吁叹荒行圣情心。怎可妄途再入反？归途艰难何可攀？心伤良久似深海，却有心底捣万载。安能断绝圣心莲？花开居士始轮回 。青莲入梦潭花却，始久翻覆接心途。独木安乐流澎湃？世人多许众玫瑰。朽木不雕安可侯？白云千载空许悠。可问独木挂年轮，侵蚀坚响撼乾坤。可惜墓日深啼睡，朝日鸿光着成心。世人皆寻名门归，不识桑叶老轮槐。花开云朝有时归，开期却是一刻回。万流不显难堪命，终须一颜待老摧。百木安可丛林树，千花亦可抚人心。安其又耐独木挺？独欲桃园荒树林。众人所愿皆急时，彩云常客寻终际，不赏独树花一枝，只梦长河落日圆。莲花之心不可辱，心生向品何时须？众人所愿不拾途，花开花落随风起。奔海名归客欲发，始眠终晓是他家，风潇落云卷舞影，似得铭志刻身花。莲花圣士朝如许，屈原李白与渊明。头欲花朝染此心，带笔屋檐做此序。铭志，视己。莲花居士 晨光时2019年4月1日 
+</div>
+
+                                        </div>
+
+                        </div>
+
+
+                        <div class="base_list_box_readmore">
+
+         <a href="我是谁  莲花亭下序.html" title="阅读全部">阅读全部<i class="fa fa-paper-plane"></i></a>
+                        </div>
+
+                        <div class="base_list_box_message clearfix">
+
+                            <div class="left">
+
+
+        <a href="我是谁list.html" title="文章所在栏目"><i class="fa fa-bookmark"></i>[点评]</a>
+
+                            </div>
+
+                            <div class="right">
+                                <a href="javascript:void(0)" title="文章发布时间"><i class="fa fa-clock-o"></i>2019</a>
+                                <a href="javascript:void(0)" title="文章点击次数"><i class="fa fa-eye"></i>1</a>
+                                <a href="javascript:void(0)" title="文章点赞次数"><i class="fa fa-thumbs-up"></i>1</a>
+                                <a href="javascript:void(0)" title="文章评论次数"><i class="fa fa-comments-o"></i>0</a>
+
+                            </div>
+
+                        </div>
+
+                    </li><li class="wow fadeIn" data-wow-delay="0.1s" data-wow-duration="1s">
+
+                        <div class="base_list_box_title">
+
+                        <!--列表页判断文章是否原创是原创添加span元素-->
+                            <span><img src="img/yuanchuangwenzhang.png"></span>
+
+
+            <a class="base_list_box_title_a" href="我是谁  失落.html" title="这里是文章title">我是谁  失落</a>
+
+                                    </div>
+
+                        <!--列表页判断文章是否原创是原创添加版权元素-->
+                        <div class="base_list_xiebian"><span>版权</span></div>
+
+                        <div class="base_list_box_content clearfix">
+
+                            <div class="base_list_box_left">
+
+        <a href="我是谁  失落.html" title="文章title">
+                                    <img src="img/bg_pic/bg_1.png">
+                                </a>
+                            </div>
+
+                            <div class="base_list_box_right">
+
+            <div class="base_list_box_info" title="文章的全部简介部分">我真是个奇迹 内心的阴暗面都被自我抑制 接触那么多角落里的阴暗物品 看到那么多的阴暗事件 我还能够保持本心 不被污染 我尝试去描绘出各种各样的复杂的人格 以此让我探讨这个复杂的世界 我曾抑郁了一年，时间也不长 但每一天都十分难熬 每一刻都过日如年 每一秒都在与死亡的念想做挣扎 每一秒都是新的一生 每一分都是不同的我 我的剧烈的频繁的改变 让我失去许多很好的朋友 让我频繁的接触负面知识 让我不断的面临崩解和自杀 让我不断的寻求解脱的道路 每一秒都在不断的挣扎 脑袋在不断的争吵 以至于我渴望以死来寻求平静 我曾经难以接受我的性格 难以接受现实的状况 沉溺于自我创作的世界当中 沉迷于自我的娱乐当中 无法自拔 因此伤害了很多人 致使许多人离我远去 我的行为极其极端 我的思想极其极端 我开始对一切不满足期望的说不 对一切有害于自身创作出的幻想世界的物品 置于不闻不顾之处 我无法控制住自己 我也在不断的挣扎和对抗自己 渴望做回自己 但总是使得自身伤痕累累 再次抑郁 抑郁与暴怒的不断地重复 使我精疲力尽 曾经在意我的朋友也累了 也离我而去 曾经关照我的朋友也失望了 将我留在无人在意的角落 我在不断的挣扎 一次又一次 创造伤口，舔舐伤口 我很累，真的很累 但我坚持下去 我渴望光明 我渴望改变 我还有梦想 我还在坚持 最终，我还是摆脱了 那只残忍的恶魔 我 真的很棒啊 我也 真的很累啊 也请不要在伤害我啦 有些言语 也许真的会让人思考很久 有些行为 也许真的会让人念念不忘 我真的很累 也不愿再想了 也不愿再想了 就想当一个疯子 自由自在无拘无束 做快乐的自己吧 可，我真的快乐吗？ 答案是否定的啊 因为 我还在寻求梦想 我不要这种掩盖伤痕的抹布 我要让世人 看到我的伤痕 看到我即使伤痕累累 也要不断朝前奔跑 或许世人真的不会理解我吧 或许也不会有人真正认真的看过我的文章吧 或许一切仅仅只是自身的勉励吧 或许世人都厌恶着我这种人吧 或许 我真的什么都不是吧 但是 我还是要坚持我自己啊 我不能失去梦想 我担当的是 自己的梦想 和一个与生俱来的使命 你们 何时能够理解我 支持我 真正在意我啊 或许 我也真的不配在意吧 或许 这就是我要走的路吧 无人理解，终究是最残忍的事实啊 一切还要继续 加油吧  
+</div>
+
+                                        </div>
+
+                        </div>
+
+
+                        <div class="base_list_box_readmore">
+
+         <a href="我是谁  失落.html" title="阅读全部">阅读全部<i class="fa fa-paper-plane"></i></a>
+                        </div>
+
+                        <div class="base_list_box_message clearfix">
+
+                            <div class="left">
+
+
+        <a href="我是谁list.html" title="文章所在栏目"><i class="fa fa-bookmark"></i>[点评]</a>
+
+                            </div>
+
+                            <div class="right">
+                                <a href="javascript:void(0)" title="文章发布时间"><i class="fa fa-clock-o"></i>2019</a>
+                                <a href="javascript:void(0)" title="文章点击次数"><i class="fa fa-eye"></i>1</a>
+                                <a href="javascript:void(0)" title="文章点赞次数"><i class="fa fa-thumbs-up"></i>1</a>
+                                <a href="javascript:void(0)" title="文章评论次数"><i class="fa fa-comments-o"></i>0</a>
+
+                            </div>
+
+                        </div>
+
+                    </li><li class="wow fadeIn" data-wow-delay="0.1s" data-wow-duration="1s">
+
+                        <div class="base_list_box_title">
+
+                        <!--列表页判断文章是否原创是原创添加span元素-->
+                            <span><img src="img/yuanchuangwenzhang.png"></span>
+
+
+            <a class="base_list_box_title_a" href="我是谁  渐归.html" title="这里是文章title">我是谁  渐归</a>
+
+                                    </div>
+
+                        <!--列表页判断文章是否原创是原创添加版权元素-->
+                        <div class="base_list_xiebian"><span>版权</span></div>
+
+                        <div class="base_list_box_content clearfix">
+
+                            <div class="base_list_box_left">
+
+        <a href="我是谁  渐归.html" title="文章title">
+                                    <img src="img/bg_pic/bg_1.png">
+                                </a>
+                            </div>
+
+                            <div class="base_list_box_right">
+
+            <div class="base_list_box_info" title="文章的全部简介部分">一：唉，人生路上兜兜转转，最终还是回到了原路。或许 也就只有这一条路可以走吧。曾经在花海中迷失了方向 误认为那是大自然的赠礼，却让我堕入无尽的谷底，迷失了自己；曾经在雪峰上沾染星空，宛如上帝，但这只是与星空的一次简单的交流，并不能助我一步登天；曾经相信了很多人很多话，但最终我发现这都是一张张童话故事里的薄纸，把我蒙骗于彩虹之中；曾经错过了许多，得到了许多，失去了许多，身边的人越来越少，儿时的童真再也不会拥有；我也曾迷茫，曾沮丧，甚至想要一了了之，结束这悲惨的生活，但我始终渴望着明日阳光会倾洒在我的身上；我曾经碰到过彩虹，但最终还是化为虚无；我曾经与春风共舞，但最后我与冬天共抗；我曾经拥有过一切，但最后，都飘散如烟。曾经的，都已成为记忆，失去的，努力的挽留，未来的，努力的争取，不论以后还会说几个曾经，不论以后还会有多少风雨，不论未来是一帆风顺还是风吹雨打，永远应该记得，自己心中的方向，自己应该走的路，自己要做到怎样的人，自己，要珍惜谁，要，爱谁。二：越是抒发自身感情的越难写出来，越不是抒发自身情感的越是随意我总是把自己真实的内在无限隐藏，不想让任何人明白，就连写诗也是如此，总是让其无比隐晦，让诗句难以明白，唉。三：如果你觉得我的文章中的一句话可以表达很多意思那么你就理解为这些意思都是我想要表达的吧四：我是一颗划过天空的孤星，对着地上的人们发出苍白渐淡的光芒。一步一步地向你们驶进，又一步一步地与你们渐息渐远。残星在离去，你看不懂它的心理，也看不到它的表情，你不知道它到底是为何离去，你也对此毫不理会；星星不是没有表情，它也会落泪，但它更会隐藏，它会把所有的苦埋进心里，进行更深层次的速降，它最终也会坠落，但它会向世界发出最后的光芒，让它对这个世界发出最后的告白。五：当下的信息社会中，一些阴暗面逐渐通过信息传播进入到青少年的眼内，这将会影响青少年的人格成长，当代青少年必须要拥有相当的判断能力，辨析能力和良好的社会观，人生观，价值观，不要随波逐流，要站稳脚跟，保守初心，坚持美好社会的思想，拒绝同流合污，拒绝污浊思想，文化，行为的干扰，要正面，阳光，积极，要拥有正确的价值导向。六：每到了夜晚，它总会袭来悄无声息的，瓦解你那柔弱的内心它是无止境的黑暗，无止境的深渊它将你的灵魂压入没有任何光亮的地方让你无路可走，无处可走你的一切都是黑暗的献祭品包括你的血肉和心脏都将被层层浸透那是无止境的痛苦它像一阵阴影一般直悬在你的心头没有人会感知到它的存在只有你自己能体味到这难以忍受的痛毫无征兆地你也只能够强忍着这无止境的折磨克服着你内心的柔弱向着团黑暗斗争你也必须坚持自己的内心坚信一切都将有光明一切总会从深渊中逃出你带着面具向他人求助他人也只当你无病呻吟这种可恶的恶魔将会加剧…………——【抑郁】七：我们一直在观察未来，接触未来，和改变未来任何一个行为，都将影响到未来这个世界是残酷的人生，也不会拥有回头路八：如今，梦第探花，顾影自怜。但即使壮志难酬，怀才不遇，有苦难言，知音难觅，也要仰天大笑出门去，纵酒放歌千万里；自信人生二百年，会当激流三千里；所谓大鹏一日同风起，扶摇直上九万里，必有一天会当绝顶，九州游遍，看万山重影，岂在眉前！长风破浪会有时，直挂云帆济沧海！九：见惯了，平淡了，也不爱说话了自悲了，抑制了，也变得癫疯了一切所表现的，也不是自己内心的我一切，也就憋在心里吧世界，装傻的人很多也都不会互相拆穿只有经历过的人才会对对方有着亲切的共鸣世界，沉默的人也很多但也不会互相打扰每个人内心中都有着自己的心事也都渴望着阳光的救赎当一个疯子，去忘却忧愁吧当一个疯子，消除这份疏远的感觉吧当一个疯子，让表面的一切都看着舒服点吧当一个疯子，去追求内心平静的自己吧变得沉默不语，内心波动也只自身能懂优秀的自己，也会因为谦让被视为懦弱无能当一个疯子，尽情去宣泄和表现吧九：最近有点偏好“多重人格”的文本了呢，是最近的自我表现越发像是在隐藏内心的自我吗，神经质的感觉，仿佛是人格的不断变迁吧，而这个人格是自我创作出来的，是自我刻意为之的，也就是说，逃避和面对，无穷的矛盾瞬发出这个独特的我吧。呵呵，精彩的生活，有些时候我倒真的希望有人能够看完这个完整的戏剧，以看清我到底是谁呢，但，枯燥的表演令人乏味，懒惰的惯性令我拒绝表现自我，只想沉浸于精神上的修养与追求，也只让内心的轮盘不断转动，在外面表现出不断变化的我吧。戏剧，正在逐步迈入高潮了呢，我该如何选择呢，要不要参与参与，还是顺副人格的行动自然观看呢？内心的感伤是连接在一起的，我倒是希望那个懦弱的我离我远一点，以免面临连续不断的失败。哈哈。迫不及待想要表现自己，又想不断隐瞒不拘拘于事故，不愔愔于人生，唉，这种矛盾的我，谁来理解呢？我要的是观众，和读者，以让他们看见我所刻画的史诗作品，一切都是我的作品！十：每个人都只看到我的一面，真实的自我也仅在最要好都兄弟和父母之间表现出来。或许我这样会被人难以理解，不清楚我是怎样的人，或许我这样会被别人误解，从而使他人对我轻视，怀疑，进行批判或教导……或许我这样会活得很累，但我可以随心所欲，不顾及除知己之外的其他人的看法，不必在意其他东西，因为自己最了解自己，自己拥有自己的自信，或许有时我会因此对一些人无法理解感到烦忧，如此我才和一些人讲解多变的我和多重人格的我和最真实的我，或许你们仍未理解，仍保持怀疑，我也无能为力，我为了能够不断修养自己，提升自己，为了韬光养晦，扮猪吃老虎……有时，不得不扮演一个傻子，或许为了排解忧愁，或者是为了避免一些事情，或者有时仅是想守着儿时的纯真……看过我的文章的人，或许对我有着更深层次的看法。还希望各位理解。十一：我想，处于当今的环境中，知音者寥寥无几，能够真正欣赏文章者亦寥寥无几，偏见者数不胜数，漠视者更占多数，往往内心主张和波动，也只自身感叹和吟咏，遥望天空还是那么高，自己也还是呆在地上，不知道要做些什么，本想要修心养性，更好地发展自己，但还是控制不住这个年龄独有的贪玩的欲望，往往还是陷入其中，忘乎所以，唉，也许是年龄的限制吧，也许这些思想也不该出现在现在的我的身上吧，果真控制自己才是真正的最难的事情，自己也是最大的敌人；他人不解我便不提，便语休，便往往取乐各山中，他人亦不闻，亦不解，我便不断压制自己的不寻常，将自己变得普通，可笑的是也仅有自己认为自己不普通，因为自身从未展示；待到未来遇到真正的知音，可与共同谈说志趣，互帮互助，那也会逐渐发出光芒，培养自信，消除不同之处；也或许是现在眼界渺茫，看事无透，心中有感，才无法控制自身再次回到真实的自我，也罢无论是爱情，游戏，亲情，学习还是友谊，自我等等，都终究不是我真正在意的东西，自我的意义似乎也早已消淡，留下的只有一个思考的脑袋和观察的人身，仿佛每时每刻我都只是在观看一部电影，也不愿插手，也习惯了当个旁观客，仿佛我也习惯了无喜无怒无悲，也乐于无喜无怒无悲；也许这样才使得我感到心累，因为，世人的不解终是湖底的不断沉淀的巨石，似乎无声无息，又似乎痛苦不堪，但一切的波动也从未表现出来。内心波动，也只自身吟咏。
+</div>
+
+                                        </div>
+
+                        </div>
+
+
+                        <div class="base_list_box_readmore">
+
+         <a href="我是谁  渐归.html" title="阅读全部">阅读全部<i class="fa fa-paper-plane"></i></a>
+                        </div>
+
+                        <div class="base_list_box_message clearfix">
+
+                            <div class="left">
+
+
+        <a href="我是谁list.html" title="文章所在栏目"><i class="fa fa-bookmark"></i>[点评]</a>
+
+                            </div>
+
+                            <div class="right">
+                                <a href="javascript:void(0)" title="文章发布时间"><i class="fa fa-clock-o"></i>2019</a>
+                                <a href="javascript:void(0)" title="文章点击次数"><i class="fa fa-eye"></i>1</a>
+                                <a href="javascript:void(0)" title="文章点赞次数"><i class="fa fa-thumbs-up"></i>1</a>
+                                <a href="javascript:void(0)" title="文章评论次数"><i class="fa fa-comments-o"></i>0</a>
+
+                            </div>
+
+                        </div>
+
+                    </li>
+
+
+                </ul>
+
+
+                <div class="shangxiaye clearfix">
+                        <a title="Total record"><b>105</b></a>
+                        <a href="#">1</a>
+                        <b>2</b>
+                        <a href="#">3</a>
+                        <a href="$">4</a>
+                        <a href="$">5</a>
+                </div>
+
+            </div>
+
+        </div>
+
+<!--base列表页身体右边部分-->
+        <div class="base_content_right">
+
+            <div class="base_content_right_item" id="base_content_right_down">
+                <div class="base_search">
+                    <form name="searchform" class="search_form" method="post" action="#" target="_blank">
+                        <input type="text" class="search_text" required="required" name="keyboard" placeholder="输入关键字搜索">
+                        <input type="hidden" name="tbname" value="news">
+                        <input type="hidden" name="show" value="title,smalltext">
+                        <input type="hidden" name="tempid" value="1">
+                        <input type="hidden" name="classid" value="1,4,9">
+                        <input type="submit" class="search_btn" value="" title="搜索">
+                        <i class="fa fa-search"></i>
+                    </form>
+                </div>
+
+
+
+ <!--这里是页面右侧的导航部分-->
+        <div class="blog_right_nav">
+
+            <ul>
+                <blog_active_and_hover_class class="blog_active_and_hover_class"></blog_active_and_hover_class>
+                <li class="blog_lanmu_active"><a href="javascript:void(0)">全部文章</a></li>
+                <li><a href="忘忧情list.html">【忘忧情】总集</a></li>
+                <li><a href="沉·墨·殇%20list.html">【沉·墨·殇】总集</a></li>
+                <li><a href="我是谁list.html">【我是谁】总集</a></li>
+                <li><a href="诗歌词list.html">【诗歌词】翻译</a></li>
+                <li><a href="2018list.html">【2018文章】汇总</a></li>
+                <li><a href="点评list.html">【点评】</a></li>
+            </ul>
+
+        </div>
+        <!--这里是右侧的博客介绍部分-->
+        <div class="blog_info">
+            <ul>
+                <blog_active_and_hover_class class="blog_active_and_hover_class"></blog_active_and_hover_class>
+                <li class="blog_lanmu_active"><a href="javascript:void(0)">网站介绍</a></li>
+                <li><a href="javascript:void(0)">创建时间:2021年11月28日</a></li>
+                <li><a href="javascript:void(0)">创建目的:汇集所有文章</a></li>
+                <li><a href="javascript:void(0)">文章总数:210</a></li>
+                <li><a href="javascript:void(0)">来访人数:0</a></li>
+            </ul>
+        </div>
+        <!--这里是右侧的博主介绍部分-->
+        <div class="blog_master_info">
+            <ul>
+                <blog_active_and_hover_class class="blog_active_and_hover_class"></blog_active_and_hover_class>
+                <li class="blog_lanmu_active"><a href="javascript:void(0)">介绍</a></li>
+                <li><a href="javascript:void(0)">初写文章于2016，绝笔于2019，文章无人问津</a></li>
+                <li><a href="javascript:void(0)">时隔多年，终有世人寻其踪迹，特因此做藏书阁，供世人阅读。</a></li>
+                <li><a href="javascript:void(0)">虽已绝笔，仍做有新型网站，于他人倾诉，待有佳日，或可再续前缘。</a></li>
+            </ul>
+        </div>
+
+
+    </div>
+
+
+
+            <div class="base_content_right_item">
+
+                <h3 class="base_content_right_item_title">点击排行</h3>
+                <div class="base_content_right_item_list">
+<!--
+                    <ul>
+                        <li><a href="javascript:void(0)">最新文章第一篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                        <li><a href="javascript:void(0)">最新文章第二篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                        <li><a href="javascript:void(0)">最新文章第三篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                        <li><a href="javascript:void(0)">最新文章第四篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                        <li><a href="javascript:void(0)">最新文章第五篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                        <li><a href="javascript:void(0)">最新文章第六篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                        <li><a href="javascript:void(0)">最新文章第七篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                        <li><a href="javascript:void(0)">最新文章第八篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                        <li><a href="javascript:void(0)">最新文章第九篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                        <li><a href="javascript:void(0)">最新文章第十篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                        <li><a href="javascript:void(0)">最新文章第十一篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                        <li><a href="javascript:void(0)">最新文章第十二篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                        <li><a href="javascript:void(0)">最新文章第十三篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                        <li><a href="javascript:void(0)">最新文章第十四篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                        <li><a href="javascript:void(0)">最新文章第十五篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                    </ul>
+                    -->
+                </div>
+            </div>
+
+
+            <div class="base_content_right_item">
+
+                <h3 class="base_content_right_item_title">最新文章</h3>
+                <div class="base_content_right_item_list">
+<!--
+                    <ul>
+                        <li><a href="javascript:void(0)">最新文章第一篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                        <li><a href="javascript:void(0)">最新文章第二篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                        <li><a href="javascript:void(0)">最新文章第三篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                        <li><a href="javascript:void(0)">最新文章第四篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                        <li><a href="javascript:void(0)">最新文章第五篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                        <li><a href="javascript:void(0)">最新文章第六篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                        <li><a href="javascript:void(0)">最新文章第七篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                        <li><a href="javascript:void(0)">最新文章第八篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                        <li><a href="javascript:void(0)">最新文章第九篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                        <li><a href="javascript:void(0)">最新文章第十篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                        <li><a href="javascript:void(0)">最新文章第十一篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                        <li><a href="javascript:void(0)">最新文章第十二篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                        <li><a href="javascript:void(0)">最新文章第十三篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                        <li><a href="javascript:void(0)">最新文章第十四篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                        <li><a href="javascript:void(0)">最新文章第十五篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                    </ul>
+-->
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!--一键回到顶部的box-->
+<div class="go_top"><i class="fa fa-angle-up"></i></div>
+<div class="base_footer">
+    <ul>
+        <li><a href="https://wpa.qq.com/msgrd?v=3&uin=446157433&site=qq&menu=yes" target="_blank" title="QQ:3107663466"  class="base_footer_qq"><i class="fa fa-qq"></i></a></li>
+        <li><a href="mailto:3107663466@qq.com" target="_blank" title="邮箱：3107663466@qq.com" class="base_footer_email"><i class="fa fa-envelope"></i></a></li>
+        <li><a href="javascript:void(0)" title="扫描微信二维码联系我们" class="base_footer_weixin"><i class="fa fa-weixin"></i><img src="img/erweima.png" alt=""></a><a href="img/erweima.png"></a></li>
+    </ul>
+
+    <span class="base_footer_text">Copyright © 2021-2022 Power by ChenFengYeSe</span>
+    <span class="base_footer_text">网站仓库：<a href="https://github.com/ChenFengYese/ChenFengYese.github.io">ChenFengYeSe</a></span>
+</div>
+</body>
+</html>
+
+
+

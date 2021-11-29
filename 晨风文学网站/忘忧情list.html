@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="renderer" content="webkit" />
+    <meta property="og:title" content="" />
+    <title>晨风文学网站</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <!--<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">-->
+
+
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/base.css">
+
+    <script src="js/wow.min.js"></script>
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/base.js"></script>
+
+</head>
+
+<body>
+
+<!--base列表页页面的图片-->
+<div class="bg_pic"></div>
+<!--base列表页页面的头部部分-->
+<div class="base_header">
+
+    <div class="base_header_content">
+
+        <a href="index.html" class="base_header_logo"><img src="img/logo.png" alt=""></a>
+
+        <div class="base_header_nav">
+            <ul>
+                <!--这里是没有子栏目的样式-->
+                <li><i class="fa fa-caret-right"></i><a href="index.html">首页</a></li>
+
+                <!--顶级导航-->
+                <li class="have_second_navs">
+                    <i class="fa fa-caret-right"></i><a href="忘忧情list.html" class="base_header_nav_active">文章</a>
+
+                    <!--二级导航有子栏目的时候-->
+                    <ul class="nav_child">
+
+                        <li><i class="fa fa-caret-right"></i><a href="忘忧情list.html">个人</a>
+
+                            <!--三级栏目-->
+                            <ul class="nav_child">
+                                <li><a href="忘忧情list.html">博客类</a></li>
+                                <li><a href="忘忧情list.html">技术类</a></li>
+                                <li><a href="忘忧情list.html">学习类</a></li>
+                            </ul>
+
+                        </li>
+
+                        <!--二级导航没有子栏目的时候-->
+                        <li><a href="忘忧情list.html">学习</a></li>
+
+                    </ul>
+                </li>
+
+
+
+                <!--顶级导航-->
+                <li class="have_second_navs">
+                    <i class="fa fa-caret-right"></i><a href="忘忧情list.html">导航</a>
+
+
+                    <!--二级导航有子栏目的时候-->
+                    <ul class="nav_child">
+
+                        <li><i class="fa fa-caret-right"></i><a href="忘忧情list.html">学习</a>
+
+                            <!--三级栏目-->
+                            <ul class="nav_child">
+                                <li><a href="忘忧情list.html">css</a></li>
+                                <li><a href="忘忧情list.html">js</a></li>
+                                <li><a href="忘忧情list.html">jquery</a></li>
+                            </ul>
+
+                        </li>
+
+                        <!--二级导航没有子栏目的时候-->
+                        <li><a href="javascript:void(0)">学习</a></li>
+
+                    </ul>
+                </li>
+
+
+
+
+                <li>
+                    <i class="fa fa-caret-right"></i>
+                    <a href="suibi.html">随笔</a>
+                </li>
+
+
+            </ul>
+
+
+        </div>
+
+        <!--手机导航部分-->
+
+        <div class="base_nav_menu" id="base_nav_menu" bind_click="true"><span bind_click="true"></span></div>
+
+        <div class="base_nav_zhezao"></div>
+
+    </div>
+</div>
+
+<!--base列表页身体部分开始-->
+<div class="base_content_body">
+<!--base列表页身体部分居中显示-->
+    <div class="base_content_content clearfix">
+<!--base列表页身体部分的左边部分设置宽度-->
+        <div class="base_content_left">
+
+<!--base列表页身体部分最新博客盒子-->
+            <div class="base_list_box wow zoomIn" data-wow-duration="1s">
+
+                <ul>
+
+                    <li class="wow fadeIn" data-wow-delay="0.1s" data-wow-duration="1s">
+
+                        <div class="base_list_box_title">
+
+                        <!--列表页判断文章是否原创是原创添加span元素-->
+                            <span><img src="img/yuanchuangwenzhang.png"></span>
+
+
+            <a class="base_list_box_title_a" href="忘忧情——坚持.html" title="这里是文章title">忘忧情——坚持</a>
+
+                                    </div>
+
+                        <!--列表页判断文章是否原创是原创添加版权元素-->
+                        <div class="base_list_xiebian"><span>版权</span></div>
+
+                        <div class="base_list_box_content clearfix">
+
+                            <div class="base_list_box_left">
+
+        <a href="忘忧情——坚持.html" title="文章title">
+                                    <img src="img/bg_pic/bg_1.png">
+                                </a>
+                            </div>
+
+                            <div class="base_list_box_right">
+
+            <div class="base_list_box_info" title="文章的全部简介部分">心态可以克制思想可以坚持而身体却不待我而抑郁从不留情尝试着做了许多事但没有一件成了功想要绝气绝情离世界可心中触动却放不下或许是为了一份份执念或许是为了一次次美好我一直未能够狠下心离开一直在死亡和存活中徘徊世界总是给我带来无边黑暗也不曾带过一次微弱的温暖我渴望着被世界的群众们救赎却发现没有人会在意一只蚂蚁我就是那么的可悲可怜无助烦闷我就是那么的压抑无私善良温柔世界想着各种方法灭掉我这个毒瘤却发现无论怎样都会进入无限轮回呵，可笑至极，这么渺小的我还会被世界看重?还会有情义可言?一切都是虚妄，一切都是幻想世界就是一个牢笼，将我的心锁的死死的想要让我放弃挣扎顺他的意让我同他人一样成为他的傀儡棋子呵，可笑至极，这世界的黑暗谁没有看透呢？一个傻傻的领导者却还在不断的继续他的表演可笑，可笑，荒谬 
+</div>
+
+                                        </div>
+
+                        </div>
+
+
+                        <div class="base_list_box_readmore">
+
+         <a href="忘忧情——坚持.html" title="阅读全部">阅读全部<i class="fa fa-paper-plane"></i></a>
+                        </div>
+
+                        <div class="base_list_box_message clearfix">
+
+                            <div class="left">
+
+
+        <a href="忘忧情list.html" title="文章所在栏目"><i class="fa fa-bookmark"></i>忘忧情总集</a>
+
+                            </div>
+
+                            <div class="right">
+                                <a href="javascript:void(0)" title="文章发布时间"><i class="fa fa-clock-o"></i>2019</a>
+                                <a href="javascript:void(0)" title="文章点击次数"><i class="fa fa-eye"></i>1</a>
+                                <a href="javascript:void(0)" title="文章点赞次数"><i class="fa fa-thumbs-up"></i>1</a>
+                                <a href="javascript:void(0)" title="文章评论次数"><i class="fa fa-comments-o"></i>0</a>
+
+                            </div>
+
+                        </div>
+
+                    </li><li class="wow fadeIn" data-wow-delay="0.1s" data-wow-duration="1s">
+
+                        <div class="base_list_box_title">
+
+                        <!--列表页判断文章是否原创是原创添加span元素-->
+                            <span><img src="img/yuanchuangwenzhang.png"></span>
+
+
+            <a class="base_list_box_title_a" href="忘忧情——野草.html" title="这里是文章title">忘忧情——野草</a>
+
+                                    </div>
+
+                        <!--列表页判断文章是否原创是原创添加版权元素-->
+                        <div class="base_list_xiebian"><span>版权</span></div>
+
+                        <div class="base_list_box_content clearfix">
+
+                            <div class="base_list_box_left">
+
+        <a href="忘忧情——野草.html" title="文章title">
+                                    <img src="img/bg_pic/bg_1.png">
+                                </a>
+                            </div>
+
+                            <div class="base_list_box_right">
+
+            <div class="base_list_box_info" title="文章的全部简介部分">野草啊，为何你如此高大健壮却依旧是低下你的头颅?你的头为何如此低重?为何不敢直面阳光啊！明明你如此高壮，你却依旧弯下腰朝现实低头，你是沉溺于无尽的自卑自悲之中么？是感受到对现实的浑然无力么？看你这么高壮的身躯，明明可以撑起一片天空!却依旧是朝这黑暗，弯了腰，低了头!自卑呵，自己不敢承认及肯定自己的能力呵!自己不发出自己的光芒!自己情愿活在现实的影子里!自己甘愿躲在黑暗之中静等吞噬!?即使阳光直面照射你，即使你的身躯如此高大!你依旧是，无法举起你那自卑的头颅!你向地面低头弯腰，你向前方低头弯腰，你向未来低头弯腰!你向前方低头，让自身的满腹才能无处可施，让自己生活在无止境的黑暗深渊之中!你为何就不能相信自己?!你的自信呢？!你的一颗坚强的心呢!?难道就被这吞没天际的大火给燃烧耗尽了么？相信你自己啊!不要低头!不要自卑!不要抑郁!直面那现实中惨淡的阳光!直面那充满希望的太阳!你向后处弯腰，你在原地停留，是否是在怀念过去，是否是在留念美好，是否是对过去的不舍及无奈?是否是沉溺于过去，躲藏于昏暗，不断的掩饰自己，无力于现在啊！为何你如此高大，因为你曾辉煌过!为何你向后方低头，因为你沉溺过去，怀念过去，现在的黑暗你承受不住，因为你很迷茫，你不知所措，你很无助，因为你是一颗野草，拥有生长素，必须要生长啊！
+</div>
+
+                                        </div>
+
+                        </div>
+
+
+                        <div class="base_list_box_readmore">
+
+         <a href="忘忧情——野草.html" title="阅读全部">阅读全部<i class="fa fa-paper-plane"></i></a>
+                        </div>
+
+                        <div class="base_list_box_message clearfix">
+
+                            <div class="left">
+
+
+        <a href="忘忧情list.html" title="文章所在栏目"><i class="fa fa-bookmark"></i>忘忧情总集</a>
+
+                            </div>
+
+                            <div class="right">
+                                <a href="javascript:void(0)" title="文章发布时间"><i class="fa fa-clock-o"></i>2019</a>
+                                <a href="javascript:void(0)" title="文章点击次数"><i class="fa fa-eye"></i>1</a>
+                                <a href="javascript:void(0)" title="文章点赞次数"><i class="fa fa-thumbs-up"></i>1</a>
+                                <a href="javascript:void(0)" title="文章评论次数"><i class="fa fa-comments-o"></i>0</a>
+
+                            </div>
+
+                        </div>
+
+                    </li><li class="wow fadeIn" data-wow-delay="0.1s" data-wow-duration="1s">
+
+                        <div class="base_list_box_title">
+
+                        <!--列表页判断文章是否原创是原创添加span元素-->
+                            <span><img src="img/yuanchuangwenzhang.png"></span>
+
+
+            <a class="base_list_box_title_a" href=" 忘忧情——凌晨夜梦.html" title="这里是文章title"> 忘忧情——凌晨夜梦</a>
+
+                                    </div>
+
+                        <!--列表页判断文章是否原创是原创添加版权元素-->
+                        <div class="base_list_xiebian"><span>版权</span></div>
+
+                        <div class="base_list_box_content clearfix">
+
+                            <div class="base_list_box_left">
+
+        <a href=" 忘忧情——凌晨夜梦.html" title="文章title">
+                                    <img src="img/bg_pic/bg_1.png">
+                                </a>
+                            </div>
+
+                            <div class="base_list_box_right">
+
+            <div class="base_list_box_info" title="文章的全部简介部分">你是一朵灿烂的开向世界的鲜花我是孤零零的低垂的凋零的野草你在奋力开向未来开向世界我在奋力逃避现实逃避世界你是单纯积极阳光可爱我是沉重悲哀愤怒阴暗你不懂世界的黑暗的痛苦我不得世界的光明的治愈你已经是单纯善良阳光积极我已经是黑浊污染遍体鳞伤你开向世界，我攻向世界你保持单纯，我让世界单纯你积极入世，我奋力改变世界你是一名小天使，我是守护着你的巨人你对我一无所知，我对你刻骨铭心你不知晓世界的一切我便让世界变得只有你知道的那一些你不懂世界更何谈懂得非在世间的我我是沉重的无言的无私的爱使得黑暗不再侵入你的体内使得光明持续净化我的内心使得世界因为我们而变得更加美好 
+</div>
+
+                                        </div>
+
+                        </div>
+
+
+                        <div class="base_list_box_readmore">
+
+         <a href=" 忘忧情——凌晨夜梦.html" title="阅读全部">阅读全部<i class="fa fa-paper-plane"></i></a>
+                        </div>
+
+                        <div class="base_list_box_message clearfix">
+
+                            <div class="left">
+
+
+        <a href="忘忧情list.html" title="文章所在栏目"><i class="fa fa-bookmark"></i>忘忧情总集</a>
+
+                            </div>
+
+                            <div class="right">
+                                <a href="javascript:void(0)" title="文章发布时间"><i class="fa fa-clock-o"></i>2019</a>
+                                <a href="javascript:void(0)" title="文章点击次数"><i class="fa fa-eye"></i>1</a>
+                                <a href="javascript:void(0)" title="文章点赞次数"><i class="fa fa-thumbs-up"></i>1</a>
+                                <a href="javascript:void(0)" title="文章评论次数"><i class="fa fa-comments-o"></i>0</a>
+
+                            </div>
+
+                        </div>
+
+                    </li><li class="wow fadeIn" data-wow-delay="0.1s" data-wow-duration="1s">
+
+                        <div class="base_list_box_title">
+
+                        <!--列表页判断文章是否原创是原创添加span元素-->
+                            <span><img src="img/yuanchuangwenzhang.png"></span>
+
+
+            <a class="base_list_box_title_a" href="忘忧情——生死赋.html" title="这里是文章title">忘忧情——生死赋</a>
+
+                                    </div>
+
+                        <!--列表页判断文章是否原创是原创添加版权元素-->
+                        <div class="base_list_xiebian"><span>版权</span></div>
+
+                        <div class="base_list_box_content clearfix">
+
+                            <div class="base_list_box_left">
+
+        <a href="忘忧情——生死赋.html" title="文章title">
+                                    <img src="img/bg_pic/bg_1.png">
+                                </a>
+                            </div>
+
+                            <div class="base_list_box_right">
+
+            <div class="base_list_box_info" title="文章的全部简介部分">生亦何情，死亦何求在世不意，在鬼未休轮回游荡，百年莫愁望尘不达，千里悠悠百年逢世天才意，朝晖万户文曲星生年乐达通五行，阴阳融合形契意生不觉，竟流荡，野马苍野持焦枪恨天光，地凉茫，无处可曾是他黄万里江山无归处，百年焦灼持茫然千里烟波霭弥浸，深冬万载度苍年黑水翻涌行天浪，雄火奔扬响天绝终里无尘星墨叹，苍穹无光扬黑边天苍，何蓝，地荒，何足，河浑，何度，心乱，何除，沧桑不绝，海天不古柔可缠纤，刚可硬棉望先天无际，叹后天不齐长里天坎填月处，埋藏多少隐人心红月当空，阴月排海卷万物狂风，清天下静咏暴雷惊闪，浪翻吞空鲲不足道，鹏淹丈逢看万里行足，无花便是，尽消沉悲哀莫经一乐，莫提一琴，万事皆为空叹恨长城万里，生不当头何尽一时，逐一浪排空偶遇达官显贵，尽贪腐黑擢无一行足，皆利益当头恨千里江山，无纳归处皆奉里寻求，揭客而走偏涯万算长思侯，殇眼波涛浪中重风不加行无力前，顿为静咏何破愁万里江山，皆是一般愁问去江山行何客，尽重愁长烟万里尽悠悠水定愁，牵丝愁阴风袭空，何是一般层，尽显黑红污秽侵湖，何是一般清，尽显浊渘问苍天鼎盛，黑流似连天，不知何滋味，百般愁长乘单舟如海茫，天涯海角显四方青莲静卧如处子，鲜花环笑如清纯乌鸦四吼如悲愁，野草躺息叹忧愁天非天，地非地，万物非万物，皆是一转虚无，辗转反侧不知所路，尽展一丝崩涌叹苍生万物，无物可求，皆尽力索求生亦何苦，死亦何哀，人生如戏，再做莫忘奉一曲深香岁月，赞一首岁月馨香哀唏吁，长罢叹，免忧愁
+</div>
+
+                                        </div>
+
+                        </div>
+
+
+                        <div class="base_list_box_readmore">
+
+         <a href="忘忧情——生死赋.html" title="阅读全部">阅读全部<i class="fa fa-paper-plane"></i></a>
+                        </div>
+
+                        <div class="base_list_box_message clearfix">
+
+                            <div class="left">
+
+
+        <a href="忘忧情list.html" title="文章所在栏目"><i class="fa fa-bookmark"></i>忘忧情总集</a>
+
+                            </div>
+
+                            <div class="right">
+                                <a href="javascript:void(0)" title="文章发布时间"><i class="fa fa-clock-o"></i>2019</a>
+                                <a href="javascript:void(0)" title="文章点击次数"><i class="fa fa-eye"></i>1</a>
+                                <a href="javascript:void(0)" title="文章点赞次数"><i class="fa fa-thumbs-up"></i>1</a>
+                                <a href="javascript:void(0)" title="文章评论次数"><i class="fa fa-comments-o"></i>0</a>
+
+                            </div>
+
+                        </div>
+
+                    </li><li class="wow fadeIn" data-wow-delay="0.1s" data-wow-duration="1s">
+
+                        <div class="base_list_box_title">
+
+                        <!--列表页判断文章是否原创是原创添加span元素-->
+                            <span><img src="img/yuanchuangwenzhang.png"></span>
+
+
+            <a class="base_list_box_title_a" href=" 忘忧情——苍天之悲千古恨.html" title="这里是文章title"> 忘忧情——苍天之悲千古恨</a>
+
+                                    </div>
+
+                        <!--列表页判断文章是否原创是原创添加版权元素-->
+                        <div class="base_list_xiebian"><span>版权</span></div>
+
+                        <div class="base_list_box_content clearfix">
+
+                            <div class="base_list_box_left">
+
+        <a href=" 忘忧情——苍天之悲千古恨.html" title="文章title">
+                                    <img src="img/bg_pic/bg_1.png">
+                                </a>
+                            </div>
+
+                            <div class="base_list_box_right">
+
+            <div class="base_list_box_info" title="文章的全部简介部分">苍天之悲千古恨绵续不断万轮回朝云复成河行户蒙汗只从万钟来皆来远望长叹息风毫未足酿原情了载天下无所求再将江风樽酒愁问来往声终独木泛海滩头往叹兮凤海腾空驱四伐焦江泉涌浪翻舟心有不足自知明燕行已空划天去爱己关照已虚无茫茫白界自怜情江山之中无支莲黄河海上皆浑浊不闻世间三两声何天裁剪生与情
+</div>
+
+                                        </div>
+
+                        </div>
+
+
+                        <div class="base_list_box_readmore">
+
+         <a href=" 忘忧情——苍天之悲千古恨.html" title="阅读全部">阅读全部<i class="fa fa-paper-plane"></i></a>
+                        </div>
+
+                        <div class="base_list_box_message clearfix">
+
+                            <div class="left">
+
+
+        <a href="忘忧情list.html" title="文章所在栏目"><i class="fa fa-bookmark"></i>忘忧情总集</a>
+
+                            </div>
+
+                            <div class="right">
+                                <a href="javascript:void(0)" title="文章发布时间"><i class="fa fa-clock-o"></i>2019</a>
+                                <a href="javascript:void(0)" title="文章点击次数"><i class="fa fa-eye"></i>1</a>
+                                <a href="javascript:void(0)" title="文章点赞次数"><i class="fa fa-thumbs-up"></i>1</a>
+                                <a href="javascript:void(0)" title="文章评论次数"><i class="fa fa-comments-o"></i>0</a>
+
+                            </div>
+
+                        </div>
+
+                    </li><li class="wow fadeIn" data-wow-delay="0.1s" data-wow-duration="1s">
+
+                        <div class="base_list_box_title">
+
+                        <!--列表页判断文章是否原创是原创添加span元素-->
+                            <span><img src="img/yuanchuangwenzhang.png"></span>
+
+
+            <a class="base_list_box_title_a" href="忘忧情——残花落雨.html" title="这里是文章title">忘忧情——残花落雨</a>
+
+                                    </div>
+
+                        <!--列表页判断文章是否原创是原创添加版权元素-->
+                        <div class="base_list_xiebian"><span>版权</span></div>
+
+                        <div class="base_list_box_content clearfix">
+
+                            <div class="base_list_box_left">
+
+        <a href="忘忧情——残花落雨.html" title="文章title">
+                                    <img src="img/bg_pic/bg_1.png">
+                                </a>
+                            </div>
+
+                            <div class="base_list_box_right">
+
+            <div class="base_list_box_info" title="文章的全部简介部分">伤心情断菲桥路落花残石冰覆冬深雨凉茫顺千泪黯淡锋芒数若中痛心豫甚倩思挂灰往如尘深似海焦石坐卧寻天命粮泉不绝难纵归三杯即过不问处海破山河万里泫落红映地血如履箭越山河刺痛疾情枫惨淡碉花树落暮终情难心言 
+</div>
+
+                                        </div>
+
+                        </div>
+
+
+                        <div class="base_list_box_readmore">
+
+         <a href="忘忧情——残花落雨.html" title="阅读全部">阅读全部<i class="fa fa-paper-plane"></i></a>
+                        </div>
+
+                        <div class="base_list_box_message clearfix">
+
+                            <div class="left">
+
+
+        <a href="忘忧情list.html" title="文章所在栏目"><i class="fa fa-bookmark"></i>忘忧情总集</a>
+
+                            </div>
+
+                            <div class="right">
+                                <a href="javascript:void(0)" title="文章发布时间"><i class="fa fa-clock-o"></i>2019</a>
+                                <a href="javascript:void(0)" title="文章点击次数"><i class="fa fa-eye"></i>1</a>
+                                <a href="javascript:void(0)" title="文章点赞次数"><i class="fa fa-thumbs-up"></i>1</a>
+                                <a href="javascript:void(0)" title="文章评论次数"><i class="fa fa-comments-o"></i>0</a>
+
+                            </div>
+
+                        </div>
+
+                    </li><li class="wow fadeIn" data-wow-delay="0.1s" data-wow-duration="1s">
+
+                        <div class="base_list_box_title">
+
+                        <!--列表页判断文章是否原创是原创添加span元素-->
+                            <span><img src="img/yuanchuangwenzhang.png"></span>
+
+
+            <a class="base_list_box_title_a" href="忘忧情——苍天悲河人心碎.html" title="这里是文章title">忘忧情——苍天悲河人心碎</a>
+
+                                    </div>
+
+                        <!--列表页判断文章是否原创是原创添加版权元素-->
+                        <div class="base_list_xiebian"><span>版权</span></div>
+
+                        <div class="base_list_box_content clearfix">
+
+                            <div class="base_list_box_left">
+
+        <a href="忘忧情——苍天悲河人心碎.html" title="文章title">
+                                    <img src="img/bg_pic/bg_1.png">
+                                </a>
+                            </div>
+
+                            <div class="base_list_box_right">
+
+            <div class="base_list_box_info" title="文章的全部简介部分">苍天悲河人心碎怕是情意已尽回满载焦黄心深醉绵绵情意已乱随冬霜风寒子茫然殇口红花映紫丹奈何伴奏无识乐只把心头弦拉叹无言静默鹿惶乱侵口不入深方谈皆清淡，不复还天苍何蓝，地荒何绿，心乱何行，苍生何覆。
+</div>
+
+                                        </div>
+
+                        </div>
+
+
+                        <div class="base_list_box_readmore">
+
+         <a href="忘忧情——苍天悲河人心碎.html" title="阅读全部">阅读全部<i class="fa fa-paper-plane"></i></a>
+                        </div>
+
+                        <div class="base_list_box_message clearfix">
+
+                            <div class="left">
+
+
+        <a href="忘忧情list.html" title="文章所在栏目"><i class="fa fa-bookmark"></i>忘忧情总集</a>
+
+                            </div>
+
+                            <div class="right">
+                                <a href="javascript:void(0)" title="文章发布时间"><i class="fa fa-clock-o"></i>2019</a>
+                                <a href="javascript:void(0)" title="文章点击次数"><i class="fa fa-eye"></i>1</a>
+                                <a href="javascript:void(0)" title="文章点赞次数"><i class="fa fa-thumbs-up"></i>1</a>
+                                <a href="javascript:void(0)" title="文章评论次数"><i class="fa fa-comments-o"></i>0</a>
+
+                            </div>
+
+                        </div>
+
+                    </li><li class="wow fadeIn" data-wow-delay="0.1s" data-wow-duration="1s">
+
+                        <div class="base_list_box_title">
+
+                        <!--列表页判断文章是否原创是原创添加span元素-->
+                            <span><img src="img/yuanchuangwenzhang.png"></span>
+
+
+            <a class="base_list_box_title_a" href="忘忧情——苍楼破心碎.html" title="这里是文章title">忘忧情——苍楼破心碎</a>
+
+                                    </div>
+
+                        <!--列表页判断文章是否原创是原创添加版权元素-->
+                        <div class="base_list_xiebian"><span>版权</span></div>
+
+                        <div class="base_list_box_content clearfix">
+
+                            <div class="base_list_box_left">
+
+        <a href="忘忧情——苍楼破心碎.html" title="文章title">
+                                    <img src="img/bg_pic/bg_1.png">
+                                </a>
+                            </div>
+
+                            <div class="base_list_box_right">
+
+            <div class="base_list_box_info" title="文章的全部简介部分">九悲怜上灵魂寐重心情憾深渊坠满载愁伤惊天泪暮后晨光不复回心牵醉，浪心碎衡苦苍野沸情溃浪头直上身心累无人可复回樽酒单悲馈影殇牵独凌人睡悲演伤心枯崖慰 
+</div>
+
+                                        </div>
+
+                        </div>
+
+
+                        <div class="base_list_box_readmore">
+
+         <a href="忘忧情——苍楼破心碎.html" title="阅读全部">阅读全部<i class="fa fa-paper-plane"></i></a>
+                        </div>
+
+                        <div class="base_list_box_message clearfix">
+
+                            <div class="left">
+
+
+        <a href="忘忧情list.html" title="文章所在栏目"><i class="fa fa-bookmark"></i>忘忧情总集</a>
+
+                            </div>
+
+                            <div class="right">
+                                <a href="javascript:void(0)" title="文章发布时间"><i class="fa fa-clock-o"></i>2019</a>
+                                <a href="javascript:void(0)" title="文章点击次数"><i class="fa fa-eye"></i>1</a>
+                                <a href="javascript:void(0)" title="文章点赞次数"><i class="fa fa-thumbs-up"></i>1</a>
+                                <a href="javascript:void(0)" title="文章评论次数"><i class="fa fa-comments-o"></i>0</a>
+
+                            </div>
+
+                        </div>
+
+                    </li><li class="wow fadeIn" data-wow-delay="0.1s" data-wow-duration="1s">
+
+                        <div class="base_list_box_title">
+
+                        <!--列表页判断文章是否原创是原创添加span元素-->
+                            <span><img src="img/yuanchuangwenzhang.png"></span>
+
+
+            <a class="base_list_box_title_a" href="忘忧情——终诗.html" title="这里是文章title">忘忧情——终诗</a>
+
+                                    </div>
+
+                        <!--列表页判断文章是否原创是原创添加版权元素-->
+                        <div class="base_list_xiebian"><span>版权</span></div>
+
+                        <div class="base_list_box_content clearfix">
+
+                            <div class="base_list_box_left">
+
+        <a href="忘忧情——终诗.html" title="文章title">
+                                    <img src="img/bg_pic/bg_1.png">
+                                </a>
+                            </div>
+
+                            <div class="base_list_box_right">
+
+            <div class="base_list_box_info" title="文章的全部简介部分">满载一趟花野      闻不到滴点花香赶往奔流大海      看不到半点浪涛初望阴日太阳      见不到一点阳光脚踏荒凉大地      泪水浸湿了衣裳看 天地无光   叹     大地荒凉无物待我      无物陪伴他之脚趾摇我之宝箱      辗转难得他人即忘苍流黑天漫雾殇野     雄心已却          难做芷质叹湛茫欲送一朵雨丁香    趁着夜火          送给心仪的她不觉梦夜弥寐     大雨磅礴           手脚残骸                 尽无光天     阻我定航静     待灭亡  
+</div>
+
+                                        </div>
+
+                        </div>
+
+
+                        <div class="base_list_box_readmore">
+
+         <a href="忘忧情——终诗.html" title="阅读全部">阅读全部<i class="fa fa-paper-plane"></i></a>
+                        </div>
+
+                        <div class="base_list_box_message clearfix">
+
+                            <div class="left">
+
+
+        <a href="忘忧情list.html" title="文章所在栏目"><i class="fa fa-bookmark"></i>忘忧情总集</a>
+
+                            </div>
+
+                            <div class="right">
+                                <a href="javascript:void(0)" title="文章发布时间"><i class="fa fa-clock-o"></i>2019</a>
+                                <a href="javascript:void(0)" title="文章点击次数"><i class="fa fa-eye"></i>1</a>
+                                <a href="javascript:void(0)" title="文章点赞次数"><i class="fa fa-thumbs-up"></i>1</a>
+                                <a href="javascript:void(0)" title="文章评论次数"><i class="fa fa-comments-o"></i>0</a>
+
+                            </div>
+
+                        </div>
+
+                    </li><li class="wow fadeIn" data-wow-delay="0.1s" data-wow-duration="1s">
+
+                        <div class="base_list_box_title">
+
+                        <!--列表页判断文章是否原创是原创添加span元素-->
+                            <span><img src="img/yuanchuangwenzhang.png"></span>
+
+
+            <a class="base_list_box_title_a" href="忘忧情——夜雨彷徨.html" title="这里是文章title">忘忧情——夜雨彷徨</a>
+
+                                    </div>
+
+                        <!--列表页判断文章是否原创是原创添加版权元素-->
+                        <div class="base_list_xiebian"><span>版权</span></div>
+
+                        <div class="base_list_box_content clearfix">
+
+                            <div class="base_list_box_left">
+
+        <a href="忘忧情——夜雨彷徨.html" title="文章title">
+                                    <img src="img/bg_pic/bg_1.png">
+                                </a>
+                            </div>
+
+                            <div class="base_list_box_right">
+
+            <div class="base_list_box_info" title="文章的全部简介部分">雨佳宏，千丝痛，红花依旧，不问取莫愁。彩云端，缤纷时秀，叹心腕，横悲依旧难遭受，崩情忧，抑郁不得，人比黄花瘦。佳友伴，心意就，于心无遮，天比地府寇。
+</div>
+
+                                        </div>
+
+                        </div>
+
+
+                        <div class="base_list_box_readmore">
+
+         <a href="忘忧情——夜雨彷徨.html" title="阅读全部">阅读全部<i class="fa fa-paper-plane"></i></a>
+                        </div>
+
+                        <div class="base_list_box_message clearfix">
+
+                            <div class="left">
+
+
+        <a href="忘忧情list.html" title="文章所在栏目"><i class="fa fa-bookmark"></i>忘忧情总集</a>
+
+                            </div>
+
+                            <div class="right">
+                                <a href="javascript:void(0)" title="文章发布时间"><i class="fa fa-clock-o"></i>2019</a>
+                                <a href="javascript:void(0)" title="文章点击次数"><i class="fa fa-eye"></i>1</a>
+                                <a href="javascript:void(0)" title="文章点赞次数"><i class="fa fa-thumbs-up"></i>1</a>
+                                <a href="javascript:void(0)" title="文章评论次数"><i class="fa fa-comments-o"></i>0</a>
+
+                            </div>
+
+                        </div>
+
+                    </li><li class="wow fadeIn" data-wow-delay="0.1s" data-wow-duration="1s">
+
+                        <div class="base_list_box_title">
+
+                        <!--列表页判断文章是否原创是原创添加span元素-->
+                            <span><img src="img/yuanchuangwenzhang.png"></span>
+
+
+            <a class="base_list_box_title_a" href="忘忧情——终章——雾爱（完结撒花）.html" title="这里是文章title">忘忧情——终章——雾爱（完结撒花）</a>
+
+                                    </div>
+
+                        <!--列表页判断文章是否原创是原创添加版权元素-->
+                        <div class="base_list_xiebian"><span>版权</span></div>
+
+                        <div class="base_list_box_content clearfix">
+
+                            <div class="base_list_box_left">
+
+        <a href="忘忧情——终章——雾爱（完结撒花）.html" title="文章title">
+                                    <img src="img/bg_pic/bg_1.png">
+                                </a>
+                            </div>
+
+                            <div class="base_list_box_right">
+
+            <div class="base_list_box_info" title="文章的全部简介部分">我不想深究爱的对错自相情愿的爱情一切都消失在烟火我不愿成为爱的先锋自我的放纵一切都飞散在烟中我不愿落下遗憾挥落余生使得感情消逝雾中一切都是沉闷的心声那不再隐瞒就让爆炸不断破裂梦境的生活也是一段余烟一段故事不佳情缘终究客问故乡孤舟履地歌月徘徊无言于心中何不妨纵情一次挥洒一次宣泄着感情的迷宫也就一声空叹一滴泪珠落日彷徨深陷爱的泥沼之中所谓情深如海渺小如针来日方长近日无望何得放下心声如做客人只耐望客归发一声不闻内心波动唯自身吟咏有时不惜余生只守一杯回忆酿的孤酒不管现今如何未来几载不闻不问只为执着那一道甘苦的滋味也许多年之后往昔回首不过一声轻笑点染指尖眉头回忆消淡淤红依在只是昔人已去人走楼空料事难明情紊难懂即使清泉桃花浪波云涌也都让她从指缝中流走我不曾成为先锋也不曾翱翔云中但终究遗憾情生飘荡余生将感情挥洒于雪雨之中于无人的尽头…………………………完
+</div>
+
+                                        </div>
+
+                        </div>
+
+
+                        <div class="base_list_box_readmore">
+
+         <a href="忘忧情——终章——雾爱（完结撒花）.html" title="阅读全部">阅读全部<i class="fa fa-paper-plane"></i></a>
+                        </div>
+
+                        <div class="base_list_box_message clearfix">
+
+                            <div class="left">
+
+
+        <a href="忘忧情list.html" title="文章所在栏目"><i class="fa fa-bookmark"></i>忘忧情总集</a>
+
+                            </div>
+
+                            <div class="right">
+                                <a href="javascript:void(0)" title="文章发布时间"><i class="fa fa-clock-o"></i>2019</a>
+                                <a href="javascript:void(0)" title="文章点击次数"><i class="fa fa-eye"></i>1</a>
+                                <a href="javascript:void(0)" title="文章点赞次数"><i class="fa fa-thumbs-up"></i>1</a>
+                                <a href="javascript:void(0)" title="文章评论次数"><i class="fa fa-comments-o"></i>0</a>
+
+                            </div>
+
+                        </div>
+
+                    </li>
+
+
+                </ul>
+
+
+                <div class="shangxiaye clearfix">
+                        <a title="Total record"><b>105</b></a>
+                        <a href="#">1</a>
+                        <b>2</b>
+                        <a href="#">3</a>
+                        <a href="$">4</a>
+                        <a href="$">5</a>
+                </div>
+
+            </div>
+
+        </div>
+
+<!--base列表页身体右边部分-->
+        <div class="base_content_right">
+
+            <div class="base_content_right_item" id="base_content_right_down">
+                <div class="base_search">
+                    <form name="searchform" class="search_form" method="post" action="#" target="_blank">
+                        <input type="text" class="search_text" required="required" name="keyboard" placeholder="输入关键字搜索">
+                        <input type="hidden" name="tbname" value="news">
+                        <input type="hidden" name="show" value="title,smalltext">
+                        <input type="hidden" name="tempid" value="1">
+                        <input type="hidden" name="classid" value="1,4,9">
+                        <input type="submit" class="search_btn" value="" title="搜索">
+                        <i class="fa fa-search"></i>
+                    </form>
+                </div>
+
+
+
+ <!--这里是页面右侧的导航部分-->
+        <div class="blog_right_nav">
+
+            <ul>
+                <blog_active_and_hover_class class="blog_active_and_hover_class"></blog_active_and_hover_class>
+                <li class="blog_lanmu_active"><a href="javascript:void(0)">全部文章</a></li>
+                <li><a href="忘忧情list.html">【忘忧情】总集</a></li>
+                <li><a href="沉·墨·殇%20list.html">【沉·墨·殇】总集</a></li>
+                <li><a href="我是谁list.html">【我是谁】总集</a></li>
+                <li><a href="诗歌词list.html">【诗歌词】翻译</a></li>
+                <li><a href="2018list.html">【2018文章】汇总</a></li>
+                <li><a href="点评list.html">【点评】</a></li>
+            </ul>
+
+        </div>
+        <!--这里是右侧的博客介绍部分-->
+        <div class="blog_info">
+            <ul>
+                <blog_active_and_hover_class class="blog_active_and_hover_class"></blog_active_and_hover_class>
+                <li class="blog_lanmu_active"><a href="javascript:void(0)">网站介绍</a></li>
+                <li><a href="javascript:void(0)">创建时间:2021年11月28日</a></li>
+                <li><a href="javascript:void(0)">创建目的:汇集所有文章</a></li>
+                <li><a href="javascript:void(0)">文章总数:210</a></li>
+                <li><a href="javascript:void(0)">来访人数:0</a></li>
+            </ul>
+        </div>
+        <!--这里是右侧的博主介绍部分-->
+        <div class="blog_master_info">
+            <ul>
+                <blog_active_and_hover_class class="blog_active_and_hover_class"></blog_active_and_hover_class>
+                <li class="blog_lanmu_active"><a href="javascript:void(0)">介绍</a></li>
+                <li><a href="javascript:void(0)">初写文章于2016，绝笔于2019，文章无人问津</a></li>
+                <li><a href="javascript:void(0)">时隔多年，终有世人寻其踪迹，特因此做藏书阁，供世人阅读。</a></li>
+                <li><a href="javascript:void(0)">虽已绝笔，仍做有新型网站，于他人倾诉，待有佳日，或可再续前缘。</a></li>
+            </ul>
+        </div>
+
+
+    </div>
+
+
+
+            <div class="base_content_right_item">
+
+                <h3 class="base_content_right_item_title">点击排行</h3>
+                <div class="base_content_right_item_list">
+<!--
+                    <ul>
+                        <li><a href="javascript:void(0)">最新文章第十五篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                    </ul>
+                    -->
+                </div>
+            </div>
+
+
+            <div class="base_content_right_item">
+
+                <h3 class="base_content_right_item_title">最新文章</h3>
+                <div class="base_content_right_item_list">
+<!--
+                    <ul>
+                        <li><a href="javascript:void(0)">最新文章第一篇文章的标题部分嫩嗯嗯嗯嗯讷讷呢</a></li>
+                    </ul>
+-->
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!--一键回到顶部的box-->
+<div class="go_top"><i class="fa fa-angle-up"></i></div>
+<div class="base_footer">
+    <ul>
+        <li><a href="https://wpa.qq.com/msgrd?v=3&uin=446157433&site=qq&menu=yes" target="_blank" title="QQ:3107663466"  class="base_footer_qq"><i class="fa fa-qq"></i></a></li>
+        <li><a href="mailto:3107663466@qq.com" target="_blank" title="邮箱：3107663466@qq.com" class="base_footer_email"><i class="fa fa-envelope"></i></a></li>
+        <li><a href="javascript:void(0)" title="扫描微信二维码联系我们" class="base_footer_weixin"><i class="fa fa-weixin"></i><img src="img/erweima.png" alt=""></a><a href="img/erweima.png"></a></li>
+    </ul>
+
+    <span class="base_footer_text">Copyright © 2021-2022 Power by ChenFengYeSe</span>
+    <span class="base_footer_text">网站仓库：<a href="https://github.com/ChenFengYese/ChenFengYese.github.io">ChenFengYeSe</a></span>
+</div>
+</body>
+</html>
+
+
+

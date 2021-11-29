@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="renderer" content="webkit" />
+    <meta property="og:title" content="" />
+    <title>晨风文学网站</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <!--<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">-->
+
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/base.css">
+    <!--引入分享插件-->
+    <link rel="stylesheet" href="css/share.min.css">
+
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/base.js"></script>
+    <!--引入分享插件-->
+    <script src="js/jquery.share.min.js"></script>
+    <!--这里是因为在文章所以要隐藏掉右侧身体部分在大屏幕下的div，在小屏幕时在显示出来-->
+    <style type="text/css">.base_content_right{width: 0;visibility: hidden;height: 0;}</style>
+</head>
+
+<body>
+
+<!--base随笔页面的图片-->
+<div class="bg_pic"></div>
+
+<!--base随笔页面的头部部分-->
+<div class="base_header">
+
+    <div class="base_header_content">
+
+        <a href="index.html" class="base_header_logo"><img src="img/logo.png"></a>
+
+        <div class="base_header_nav">
+            <ul>
+                <!--这里是没有子栏目的样式-->
+                <li><i class="fa fa-caret-right"></i><a href="index.html">首页</a></li>
+
+                <!--顶级导航-->
+                <li class="have_second_navs">
+                    <i class="fa fa-caret-right"></i><a href="诗歌词list.html" class="base_header_nav_active">文章</a>
+
+                    <!--二级导航有子栏目的时候-->
+                    <ul class="nav_child">
+
+                        <li><i class="fa fa-caret-right"></i><a href="诗歌词list.html">个人</a>
+
+                            <!--三级栏目-->
+                            <ul class="nav_child">
+                                <li><a href="诗歌词list.html">博客类</a></li>
+                                <li><a href="诗歌词list.html">技术类</a></li>
+                                <li><a href="诗歌词list.html">学习类</a></li>
+                            </ul>
+
+                        </li>
+
+                        <!--二级导航没有子栏目的时候-->
+                        <li><a href="诗歌词list.html">学习</a></li>
+
+                    </ul>
+                </li>
+
+
+
+                <!--顶级导航-->
+                <li class="have_second_navs">
+                    <i class="fa fa-caret-right"></i><a href="诗歌词list.html">导航</a>
+
+
+                    <!--二级导航有子栏目的时候-->
+                    <ul class="nav_child">
+
+                        <li><i class="fa fa-caret-right"></i><a href="诗歌词list.html">学习</a>
+
+                            <!--三级栏目-->
+                            <ul class="nav_child">
+                                <li><a href="诗歌词list.html">css</a></li>
+                                <li><a href="诗歌词list.html">js</a></li>
+                                <li><a href="诗歌词list.html">jquery</a></li>
+                            </ul>
+
+                        </li>
+
+                        <!--二级导航没有子栏目的时候-->
+                        <li><a href="javascript:void(0)">学习</a></li>
+
+                    </ul>
+                </li>
+
+
+
+
+                <li>
+                    <i class="fa fa-caret-right"></i>
+                    <a href="suibi.html">随笔</a>
+                </li>
+
+
+            </ul>
+
+
+        </div>
+
+        <!--手机导航部分-->
+
+        <div class="base_nav_menu" id="base_nav_menu" bind_click="true"><span bind_click="true"></span></div>
+
+        <div class="base_nav_zhezao"></div>
+
+    </div>
+</div>
+
+<!--base文章页身体部分开始-->
+<div class="base_content_body">
+<!--base文章页身体部分居中显示-->
+    <div class="base_content_content clearfix">
+
+
+        <div class="wenzhang_box wow zoomIn">
+<!--文章盒子-->
+            <div class="wenzhang_box_content clearfix">
+
+
+                <img class="wenzhang_yinzhang" src="img/诗歌yinzhang.png">
+<!--文章抬头-->
+            <div class="wenzhang_box_content_title">
+
+                <h4>
+                    <a href="javascript:void(0)">[诗歌词]翻译<i class="fa fa-angle-right"></i></a>
+
+翻译文章 【晨光】——作品全文解读                </h4>
+
+                <p class="wenzhang_box_content_jieshao">
+                    <span class="wenzhang_box_content_jieshao_zuozhe">作者：晨风</span>
+
+                    <span class="wenzhang_box_content_jieshao_zishu">总字数：3500</span>
+
+                    <span class="wenzhang_box_content_jieshao_time">更新于：2019</span>
+                    <span class="wenzhang_box_content_jieshao_weiguan">围观群众：<span class="wenzhang_box_content_jieshao_xieti">1</span></span>
+
+                    <span class="wenzhang_box_content_jieshao_dig">点赞人数：<span class="wenzhang_box_content_jieshao_xieti">1</span></span>
+
+                    <span class="wenzhang_box_content_jieshao_pinglun">评论人数：<span class="wenzhang_box_content_jieshao_xieti">1</span></span>
+
+                </p>
+
+            </div>
+
+<!--文章抬头的右侧书-->
+<!--            <div class="wenzhang_box_content_title_right">-->
+<!--                <img src="img/诗歌yinzhang.png">-->
+<!--            </div>-->
+
+<!--文章身体部分-->
+
+            <div class="wenzhang_box_article">
+
+                <div class="wenzhang_box_article_info">
+                    <i class="fa fa-quote-left"></i>
+                        [诗歌词]翻译作于2019年12月13日，收录于【第二本书】，由于文章无人问津，便思考是否是他人看不懂自己写的文章，于是作出对过往诗歌的部分翻译合集。
+                    <i class="fa fa-quote-right"></i>
+                </div>
+
+
+                <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=100% height=86 src="//music.163.com/outchain/player?type=2&id=541687281&auto=1&height=66"></iframe>
+
+                <!--文章页内容开始的地方-->
+【晨光】 作者——晨光</br>我不曾看见阳光</br>也不曾触碰希望</br>我不曾踏足云霄</br>也不曾闯伐波浪</br>我只是一个</br>平凡的人</br>我有着我那</br>平凡的幸福</br>我曾在云火之中</br>看到那美丽的</br>星灿宇宙</br>我渴望攀登上天</br>去摘那九天揽月</br>我渴望月角作伴</br>看那星云海啸</br>翻涌，翻涌</br>复载，那空旷的心田</br>我不曾看到</br>这遥远的景色</br>心中渴望呼唤着</br>大地的春色</br>有谁</br>又能够倾听</br>漫边的心</br>有谁</br>又能够在意</br>浪徒的烟旅</br>我不曾拉拢</br>烟波云散</br>也不曾放弃</br>破晓残梦</br>我不曾看到</br>星云无际</br>却追求着</br>微弱的星辰之光</br>我不曾烟柳遥花</br>看那江波水静</br>也不曾话断姻缘</br>做那空灵仙客</br>我不曾雪中舞剑</br>直指那狂放诗作</br>也不曾柔水捞月</br>感叹那丝愁缠眠</br>我不曾隔山望海</br>幻想那碧波之雨</br>也不曾摇曳徘徊</br>寻找那空灵仙家</br>我不曾遨遥星云之外</br>陶醉那芸芸星海</br>也不曾眼望万年之后</br>痛恨那人民贪欲</br>我只有一支笔</br>一支能够抒写</br>雄怀壮志</br>能够描绘</br>世界万物的</br>心中之笔</br>我仅怀着心中</br>微弱的晨光</br>抒写着</br>毕生的梦想</br></br>1.我不曾看见阳光，也不曾触碰希望</br>选自作品【希望，何方？】</br>远方的太阳啊，听到了我的呼唤吗？给予一点光明啊，至少给我一点希望，即使那么渺茫。</br>①表明深陷黑暗当中的无助凄惨哀伤。</br>②回忆过去，阐述困境</br>2.我只是一个平凡的人，我有着我那平凡的幸福。我曾在云火之中看到那美丽的星灿宇宙。</br>作用：展开全文，阐明主题。介绍作者的成长经历，渴望不平凡，深陷平凡，苦恼平凡，追求平凡，梦第探花，又不平凡。</br>3.我渴望攀登上天，去摘那九天揽月。</br>选自作品【梦回九连天】</br>梦回九连天，凌箫涯海边，览心众明月，悠长欲境深。</br>①抒发自己的凌云壮志和透露出自身的高雅情趣。</br>②回忆过去，阐述梦想。</br>4.我渴望月角作伴，看那星云海啸，翻涌，翻涌，复载，那空旷的心田。</br>解释：我渴望我的内心不再是荒芜一片，毫无生级，我希望重新获得新生不再抑郁下去。</br>5.我不曾看到这遥远的景色，心中渴望呼唤着大地的春色。</br>①我未看到诗歌中的景色，一切只是内心的不断追求和向往。</br>②我渴望着春天的到来，我将会走出这些不断的抑郁。</br>6.有谁，又能够倾听，漫边的心。</br>选自【浪江行——昏暗沙涯少人烟】</br>独步漫涯何人识，无人关心自叹寒。</br>①无人理解这隐藏在内心的深痛。</br>②无人识得这一个独行的流浪之人。</br>7.有谁，又能够在意，浪徒的烟旅。</br>选自【浪江行——谁懂舟夫船头心】</br>月影成虚无光处，嘁嘁冷风嗦蓑衣</br>①无人在意 痛苦难言</br>②默默坚守 独自浪途</br>8.我不曾拉拢，烟波云散，也不曾放弃，破晓残梦。</br>解释：我没有去挽留已经消失了的事物，已经离去的人。也从未放弃过，已经难以实现的残岁的梦想，在行走在逐梦的道路上，一些人，一些事也终究需要结束。</br>失去了的自我 失去了的家庭 失去了的自信 </br>失去了的朋友 失去了的世界 只残留痛苦的我</br>9.我不曾看到，星云无际，却追求着，微弱的星辰之光。</br>选自【沧海笑沧桑】</br>不说那，天若星望，遥遥无望。</br>①我没有看到这些美丽的景色，也没能力见识，一切只不过是在内心的自勉和幻想。</br>②我还在朝着希望不断的奔跑。</br>10.我不曾烟柳遥花，看那江波水静，也不曾话断姻缘，做那空灵仙客。</br>①我并没有看到这类和平宁静的景色，我只不过在渴望内心的宁静，追求内心的宁静，以忘却忧愁。</br>②我并没有选择放弃爱情，只不过在不断地隐瞒内心的声音。</br>11.我不曾雪中舞剑，直指那狂放诗作。也不曾柔水捞月，感叹那丝愁缠眠。我不曾隔山望海，幻想那碧波之雨，也不曾摇曳徘徊，寻找那空灵仙家。我不曾遨遥星云之外，陶醉那芸芸星海，也不曾眼看万年之后，痛恨那人民贪欲。</br>选自【浪江行——巅峰有感】</br>看，孤山坠雪 ，万物淞沆。我，手握炽月，碾碎星霄</br>选自【牢狱赋】</br>流棉连丝千千醉，恰似愁苦细丝不再回，可恨千斤醉！</br>选自【归园田居（三）】</br>隔山望海听丝雨，摇曳隔阂看仙家</br>选自【归园田居（二）】</br>晨海星浩云雾游，暮霞光彩浪江涌</br>选自【相对论（一）】</br>这儿仅使留下淡红的凄凉的血色，和困苦的微漠的难言的悲哀</br>①阐述过去的两个不同的我，一个自卑过度愤怒自身为何如此懦弱，开始不断的自我激励，但行为偏激。一个烦恼忧愁，渴望改变自我，但无从下手，只是在不断的轮回其中。</br>②阐述过去另两个不同的我，一个渴望寻求内心宁静，忘却世间痛苦，归园田居，悠然自得，心无杂念，修心养脾。一个渴望对世人和世界进行不断的批判，渴望打破现实生活中的痛苦的境况，获得新生，努力向世人表现自己。</br>12.我只有一支笔，一只能够抒写，雄怀壮志，能够描绘，世界万物的，心中之笔</br>解释：内心波动，唯自身吟咏，抒怀壮志，阐述对世间人事的心中的点点滴滴感受，了却心中的矛盾，做一个自然的平凡的人。</br>13.我仅怀着心中，微弱的晨光，抒写着，毕生的梦想。</br>解释：不断朝着梦想前进，即使如今，梦第探花，顾影自怜，即使壮志难酬，怀才不遇，有苦难言，知音难觅，也要仰天大笑出门去，纵酒放歌千万里；自信人生二百年，会当激流三千里；所谓大鹏一日同风起，扶摇直上九万里，必有一天会当绝顶，九州游遍，看万山重影，岂在眉前！长风破浪会有时，直挂云帆济沧海！</br>
+            </div>
+
+
+                <div class="article_dig">
+
+                    <!--文章页的点赞按钮-->
+                    <a href="javascript:void(0)" class="wenzhang_dig_button" title="点个赞鼓励一下吧！"><i class="fa fa-thumbs-up"></i></a>
+
+                    <!--分享插件的盒子-->
+                    <div id="share"></div>
+
+                    <script>
+                        $('#share').share({sites: ['wechat', 'weibo', 'qq','qzone','tencent','douban']});
+                    </script>
+
+                </div>
+
+
+                <div class="wenzhang_box_article_shengming">
+                    <p>文章声明： 非特殊说明，本文版权归 晨风文学网站 所有，转载请注明出处</p>
+<p>本文标题： <span class="wenzhang_box_article_shengming_title" title="文章title">翻译文章 【晨光】——作品全文解读</span></p>
+                    <p>本文地址： <span class="wenzhang_box_article_shengming_link" title="文章链接">http://晨星.top</span></p>
+                </div>
+
+                <div class="article_prev_next_list clearfix">
+<a href="翻译文章 【忘忧情——苍天之悲千古恨】解析.html" title="上篇文章：标题"><i class="fa fa-arrow-left"></i>上篇文章：翻译文章 【忘忧情——苍天之悲千古恨】解析</a>
+                    <a href="诗歌词list.html" title="返回目录"><i class="fa fa-list-ul"></i>返回目录</a>
+<a href="翻译文章 往昔回首.html" title="下篇文章：标题"><i class="fa fa-arrow-left"></i>下篇文章：翻译文章 往昔回首</a>
+                </div>
+
+                <div class="pinglun_box">
+                    <h3>全部评论</h3>
+                </div>
+
+
+
+
+            </div>
+
+        </div>
+
+
+
+        <!--base随笔页身体右边部分-->
+          <div class="base_content_right">
+
+            <div class="base_content_right_item" id="base_content_right_down">
+                <div class="base_search">
+                    <form name="searchform" class="search_form" method="post" action="#" target="_blank">
+                        <input type="text" class="search_text" required="required" name="keyboard" placeholder="输入关键字搜索">
+                        <input type="hidden" name="tbname" value="news">
+                        <input type="hidden" name="show" value="title,smalltext">
+                        <input type="hidden" name="tempid" value="1">
+                        <input type="hidden" name="classid" value="1,4,9">
+                        <input type="submit" class="search_btn" value="" title="搜索">
+                        <i class="fa fa-search"></i>
+                    </form>
+                </div>
+
+
+
+ <!--这里是页面右侧的导航部分-->
+        <div class="blog_right_nav">
+
+            <ul>
+                <blog_active_and_hover_class class="blog_active_and_hover_class"></blog_active_and_hover_class>
+                <li class="blog_lanmu_active"><a href="javascript:void(0)">全部文章</a></li>
+                <li><a href="诗歌词list.html">【忘忧情】总集</a></li>
+                <li><a href="诗歌词list.html">【沉·墨·殇】总集</a></li>
+                <li><a href="诗歌词list.html">【我是谁】总集</a></li>
+                <li><a href="诗歌词list.html">【诗歌词】翻译</a></li>
+                <li><a href="诗歌词list.html">【2018文章】汇总</a></li>
+                <li><a href="诗歌词list.html">【点评】</a></li>
+            </ul>
+
+        </div>
+        <!--这里是右侧的博客介绍部分-->
+        <div class="blog_info">
+            <ul>
+                <blog_active_and_hover_class class="blog_active_and_hover_class"></blog_active_and_hover_class>
+                <li class="blog_lanmu_active"><a href="javascript:void(0)">网站介绍</a></li>
+                <li><a href="javascript:void(0)">创建时间:2021年11月28日</a></li>
+                <li><a href="javascript:void(0)">创建目的:汇集所有文章</a></li>
+                <li><a href="javascript:void(0)">文章总数:210</a></li>
+                <li><a href="javascript:void(0)">来访人数:0</a></li>
+            </ul>
+        </div>
+        <!--这里是右侧的博主介绍部分-->
+        <div class="blog_master_info">
+            <ul>
+                <blog_active_and_hover_class class="blog_active_and_hover_class"></blog_active_and_hover_class>
+                <li class="blog_lanmu_active"><a href="javascript:void(0)">介绍</a></li>
+                <li><a href="javascript:void(0)">初写文章于2016，绝笔于2019，文章无人问津</a></li>
+                <li><a href="javascript:void(0)">时隔多年，终有世人寻其踪迹，特因此做藏书阁，供世人阅读。</a></li>
+                <li><a href="javascript:void(0)">虽已绝笔，仍做有新型网站，于他人倾诉，待有佳日，或可再续前缘。</a></li>
+            </ul>
+        </div>
+
+
+    </div>
+
+
+
+            <div class="base_content_right_item">
+
+                <h3 class="base_content_right_item_title">点击排行</h3>
+                <div class="base_content_right_item_list">
+<!--
+                    <ul>
+                        <li><a href="javascript:void(0)">最新文章第十五篇文章</a></li>
+                    </ul>
+                    -->
+                </div>
+            </div>
+
+
+            <div class="base_content_right_item">
+
+                <h3 class="base_content_right_item_title">最新文章</h3>
+                <div class="base_content_right_item_list">
+<!--
+                    <ul>
+                        <li><a href="javascript:void(0)">最新文章第一篇文章</a></li>
+                    </ul>
+-->
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!--一键回到顶部的box-->
+<div class="go_top"><i class="fa fa-angle-up"></i></div>
+<div class="base_footer">
+    <ul>
+        <li><a href="https://wpa.qq.com/msgrd?v=3&uin=446157433&site=qq&menu=yes" target="_blank" title="QQ:3107663466"  class="base_footer_qq"><i class="fa fa-qq"></i></a></li>
+        <li><a href="mailto:3107663466@qq.com" target="_blank" title="邮箱：3107663466@qq.com" class="base_footer_email"><i class="fa fa-envelope"></i></a></li>
+        <li><a href="javascript:void(0)" title="扫描微信二维码联系我们" class="base_footer_weixin"><i class="fa fa-weixin"></i><img src="img/erweima.png" alt=""></a><a href="img/erweima.png"></a></li>
+    </ul>
+
+    <span class="base_footer_text">Copyright © 2021-2022 Power by ChenFengYeSe</span>
+    <span class="base_footer_text">网站仓库：<a href="https://github.com/ChenFengYese/ChenFengYese.github.io">ChenFengYeSe</a></span>
+</div>
+</body>
+</html>
+
+
+

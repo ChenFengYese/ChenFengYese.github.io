@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="renderer" content="webkit" />
+    <meta property="og:title" content="" />
+    <title>晨风文学网站</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <!--<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">-->
+
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/base.css">
+    <!--引入分享插件-->
+    <link rel="stylesheet" href="css/share.min.css">
+
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/base.js"></script>
+    <!--引入分享插件-->
+    <script src="js/jquery.share.min.js"></script>
+    <!--这里是因为在文章所以要隐藏掉右侧身体部分在大屏幕下的div，在小屏幕时在显示出来-->
+    <style type="text/css">.base_content_right{width: 0;visibility: hidden;height: 0;}</style>
+</head>
+
+<body>
+
+<!--base随笔页面的图片-->
+<div class="bg_pic"></div>
+
+<!--base随笔页面的头部部分-->
+<div class="base_header">
+
+    <div class="base_header_content">
+
+        <a href="index.html" class="base_header_logo"><img src="img/logo.png"></a>
+
+        <div class="base_header_nav">
+            <ul>
+                <!--这里是没有子栏目的样式-->
+                <li><i class="fa fa-caret-right"></i><a href="index.html">首页</a></li>
+
+                <!--顶级导航-->
+                <li class="have_second_navs">
+                    <i class="fa fa-caret-right"></i><a href="沉·墨·殇 list.html" class="base_header_nav_active">文章</a>
+
+                    <!--二级导航有子栏目的时候-->
+                    <ul class="nav_child">
+
+                        <li><i class="fa fa-caret-right"></i><a href="沉·墨·殇 list.html">个人</a>
+
+                            <!--三级栏目-->
+                            <ul class="nav_child">
+                                <li><a href="沉·墨·殇 list.html">博客类</a></li>
+                                <li><a href="沉·墨·殇 list.html">技术类</a></li>
+                                <li><a href="沉·墨·殇 list.html">学习类</a></li>
+                            </ul>
+
+                        </li>
+
+                        <!--二级导航没有子栏目的时候-->
+                        <li><a href="沉·墨·殇 list.html">学习</a></li>
+
+                    </ul>
+                </li>
+
+
+
+                <!--顶级导航-->
+                <li class="have_second_navs">
+                    <i class="fa fa-caret-right"></i><a href="沉·墨·殇 list.html">导航</a>
+
+
+                    <!--二级导航有子栏目的时候-->
+                    <ul class="nav_child">
+
+                        <li><i class="fa fa-caret-right"></i><a href="沉·墨·殇 list.html">学习</a>
+
+                            <!--三级栏目-->
+                            <ul class="nav_child">
+                                <li><a href="沉·墨·殇 list.html">css</a></li>
+                                <li><a href="沉·墨·殇 list.html">js</a></li>
+                                <li><a href="沉·墨·殇 list.html">jquery</a></li>
+                            </ul>
+
+                        </li>
+
+                        <!--二级导航没有子栏目的时候-->
+                        <li><a href="javascript:void(0)">学习</a></li>
+
+                    </ul>
+                </li>
+
+
+
+
+                <li>
+                    <i class="fa fa-caret-right"></i>
+                    <a href="suibi.html">随笔</a>
+                </li>
+
+
+            </ul>
+
+
+        </div>
+
+        <!--手机导航部分-->
+
+        <div class="base_nav_menu" id="base_nav_menu" bind_click="true"><span bind_click="true"></span></div>
+
+        <div class="base_nav_zhezao"></div>
+
+    </div>
+</div>
+
+<!--base文章页身体部分开始-->
+<div class="base_content_body">
+<!--base文章页身体部分居中显示-->
+    <div class="base_content_content clearfix">
+
+
+        <div class="wenzhang_box wow zoomIn">
+<!--文章盒子-->
+            <div class="wenzhang_box_content clearfix">
+
+
+                <img class="wenzhang_yinzhang" src="img/沉yinzhang.png">
+<!--文章抬头-->
+            <div class="wenzhang_box_content_title">
+
+                <h4>
+                    <a href="javascript:void(0)">【沉·墨·殇】总集<i class="fa fa-angle-right"></i></a>
+
+沉·墨·殇 淡墨沉光，逝水年华                </h4>
+
+                <p class="wenzhang_box_content_jieshao">
+                    <span class="wenzhang_box_content_jieshao_zuozhe">作者：晨风</span>
+
+                    <span class="wenzhang_box_content_jieshao_zishu">总字数：3500</span>
+
+                    <span class="wenzhang_box_content_jieshao_time">更新于：2019</span>
+                    <span class="wenzhang_box_content_jieshao_weiguan">围观群众：<span class="wenzhang_box_content_jieshao_xieti">1</span></span>
+
+                    <span class="wenzhang_box_content_jieshao_dig">点赞人数：<span class="wenzhang_box_content_jieshao_xieti">1</span></span>
+
+                    <span class="wenzhang_box_content_jieshao_pinglun">评论人数：<span class="wenzhang_box_content_jieshao_xieti">1</span></span>
+
+                </p>
+
+            </div>
+
+<!--文章抬头的右侧书-->
+<!--            <div class="wenzhang_box_content_title_right">-->
+<!--                <img src="img/沉yinzhang.png">-->
+<!--            </div>-->
+
+<!--文章身体部分-->
+
+            <div class="wenzhang_box_article">
+
+                <div class="wenzhang_box_article_info">
+                    <i class="fa fa-quote-left"></i>
+                        [沉·墨·殇]合集作于2019年10月13日，收录于【第二本书】，其中文章大多是为了抒发自身难以言出的心情而写，或是心怀壮志，壮志难酬；或是勉励自身，砥砺前行；或是讽刺社会现象；或是抒发自身理想…………
+                    <i class="fa fa-quote-right"></i>
+                </div>
+
+
+                <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=100% height=86 src="//music.163.com/outchain/player?type=2&id=541687281&auto=1&height=66"></iframe>
+
+                <!--文章页内容开始的地方-->
+淡墨沉光，逝水年华，往乎如烟，手间夹杂如诗如画。眷缕细发，遥遥浮霞，只耐梦里寻她苍颜白发。吁吁暗崖，回也无她，纵有红花遍地，也只醉酒歌罢；零碎鲜花，洒满江华，若有星辰暗染，点缀时空年华；波粼闪闪，心尘皆她，尽有百般美景，都不胜眼中之她；流星落舞，空亦无她，假有美味好酒，又可与谁弹响最美年华；歌涌明朝，暗茫光华，作有余思，奏响未来的他。若如星河不若重山，若如今有不若远望，若如川流不若磐石，若如残星不若白云，也就群游乱舞，疯遥傻邋，宁做远星遥望，默视不可触碰的她，淡漠晨光，墨守年华，宁做她欢喜的他，接触不可触及的她。</br>不尽人生，也守着内心的她，纵使残星终降，也落下优美的弧画，苍白的事迹，涂上墨的记忆，绽放那似水年华，容易感动的他。</br>水木晨光，水木清华。</br>终有一日，再见年少的他，定要煮酒挥声，畅享如日的年华。</br>——淡墨沉光，水木清华</br> </br>沉·墨·殇 草创</br>“看着花儿在笑，花儿在哭，花儿在呐喊”</br>夏月的时光，知了在浮躁地鸣叫，云朵在天空中狂乱的飘动，夏风在无序的摇晃。密密麻麻的成群草虫在不断的进行摇滚合唱。</br>树叶在抖，树枝在颤，落叶在孤独的进行流浪旅途中最后的奉献给自己的葬乐吟唱。</br>老天也崩坏了眼，红一片，蓝一片，白一片，黑一片，不断的滚动错乱，不断的旋转错位，不断的在为自己的最后一次出现进行最疯狂的舞会。</br>城市中的车鸣和人声不断的喧哗吵闹，鸟儿听了也受惊，急急忙忙地挥舞着残落的翅膀吃力地飞上黑暗的高空。城市下方的下水道里，老鼠窝在一处熟睡着，黑暗，宁静，也无望。</br>池塘里的水流平静，十分平静，因为在池塘底部堆满了的各式各样的垃圾将池塘划分为多处，每一处都是一个不可联通的密室，每一处都是水的迷失，水的最后的挣扎，水的绝望。这儿又脏又乱，成堆的垃圾还可成为一道亮丽的风景线，这儿绿一片，黑一片，那儿杂一片，沉一片！</br>北方吹起的飓风，呼啸不停，风眼里的深渊无情的漠视着这个多姿多彩，亮丽无尽的世界，它将他的恐怖丑陋的大嘴张开，露出无比恶心的尖锐的獠牙，开始大肆吞噬着，啃噬着，碾碎着，这个美丽的世界的所有花朵。</br>这儿烂一片，那儿烂一片，老天终于笑裂了嘴，化身为一个灭世的恶魔。天空中血红的雷电四处涌动和喷洒，黑暗的眼泪和汗水在疯狂的宣泄，腐蚀着一切的一切。</br>瞧，多么美丽！多么精彩！东边的泰山还在眺望着这个万年难遇的精彩话剧，无数游客四处挤压，他们都想要站在最佳的方位拍下最好的照片和视频，然后火遍网络，却不知有多少人被挤下山崖，结束这罪恶的一生，山底的深泉还在滴答作响，山腰的尖子嘴佛祖却还在向未来狂啸：“世界，属于我们！”轰隆隆，轰隆隆，雷鸣声越来越近，是话剧到了下一站，泰山。老天爷也热爱着人民，为人民奉献出一切，让他们亲身参与这个完美的话剧！</br>哗啦啦，哗啦啦，墨色的图样，渲染了整个泰山，一切，都化为了虚无。</br>……………………</br>乱了，全乱了。人们还在庆祝着，西方还在颠倒黑白，自娱自乐，大海的湛蓝早已消失不见，仅存的颜色也只有天上的星空，在世界的最后一个安全的地方，人们，抬头仰望着天空，俯视着大地，登上了前往远方的新家园。就让这个世界，遗落在这个地方，遗落于未来所有人的记忆当中，没有人，会在意这个地方，没有人，会想起，这，还有个地球。</br>已经出去远征数十年之久的宇航员再一次经过太阳系，用先进的望远镜，看着这个蔚蓝的星球。“多么美丽的星球，我的家园，你还好吗？我还在执行着我的任务，我还在星空中流浪，我想你了”他缓缓的飞过这个被遗落的地方，但又是无时无刻地不回头望望哺育自己的母亲，自己的家乡。</br>然而，地球上的残留的人类，大笑着离开了这个地方，向着几年前发现的新的可居住的星球远航，他们庆幸着自己还活着。他们，真的，还活着吗？</br>天啊，你默默地看着人们的远去，你也黑了，黑夜的沉默是为了更好的喧嚣吗？</br>你没有说话，只是在那酸雨中夹着了一些纯净的雨水，那是，你的眼泪吗？</br>他们，是你的孩子吗？</br>我不知道，我也不清楚，因为，我只是五万年后在一个新家园的人，我不知道，你现在是什么情况。人类已经换了无数个家园了，我们再也找不到新的可居住的地方了，我们，无时无刻不再流荡，因为，我们，没有了家，没有了家的概念，心中的家，在何方？</br></br>沉·墨·殇 中秋夜风起情思</br>月夜花枝落，微草连声颤。</br>光萦璇中夜，秋时情度深。</br>广下天明月，心悦何方人？</br>盛日吟绝唱，桐古安淡尘。</br>宁知浪路客，心犹怀她人。</br>泪尽不知处，直筎随风吹。</br>待到春风漫步时，</br>可知此滋味。</br> </br>沉·墨·殇 淡墨沉光，逝水年华</br>淡墨沉光，逝水年华，往乎如烟，手间夹杂如诗如画。眷缕细发，遥遥浮霞，只耐梦里寻她苍颜白发。吁吁暗崖，回也无她，纵有红花遍地，也只醉酒歌罢；零碎鲜花，洒满江华，若有星辰暗染，点缀时空年华；波粼闪闪，心尘皆她，尽有百般美景，都不胜眼中之她；流星落舞，空亦无她，假有美味好酒，又可与谁弹响最美年华；歌涌明朝，暗茫光华，作有余思，奏响未来的他。若如星河不若重山，若如今有不若远望，若如川流不若磐石，若如残星不若白云，也就群游乱舞，疯遥傻邋，宁做远星遥望，默视不可触碰的她，淡漠晨光，墨守年华，宁做她欢喜的他，接触不可触及的她。</br>不尽人生，也守着内心的她，纵使残星终降，也落下优美的弧画，苍白的事迹，涂上墨的记忆，绽放那似水年华，容易感动的他。</br>盛日阳花，桐古清华。</br>终有一日，再见年少的他，定要煮酒挥声，畅享如日的年华。</br>——淡墨沉光，水木清华</br> </br> 
+            </div>
+
+
+                <div class="article_dig">
+
+                    <!--文章页的点赞按钮-->
+                    <a href="javascript:void(0)" class="wenzhang_dig_button" title="点个赞鼓励一下吧！"><i class="fa fa-thumbs-up"></i></a>
+
+                    <!--分享插件的盒子-->
+                    <div id="share"></div>
+
+                    <script>
+                        $('#share').share({sites: ['wechat', 'weibo', 'qq','qzone','tencent','douban']});
+                    </script>
+
+                </div>
+
+
+                <div class="wenzhang_box_article_shengming">
+                    <p>文章声明： 非特殊说明，本文版权归 晨风文学网站 所有，转载请注明出处</p>
+<p>本文标题： <span class="wenzhang_box_article_shengming_title" title="文章title">沉·墨·殇 淡墨沉光，逝水年华</span></p>
+                    <p>本文地址： <span class="wenzhang_box_article_shengming_link" title="文章链接">http://晨星.top</span></p>
+                </div>
+
+                <div class="article_prev_next_list clearfix">
+<a href="沉·墨·殇 中秋夜风起情思——晨光.html" title="上篇文章：标题"><i class="fa fa-arrow-left"></i>上篇文章：沉·墨·殇 中秋夜风起情思——晨光</a>
+                    <a href="沉·墨·殇 list.html" title="返回目录"><i class="fa fa-list-ul"></i>返回目录</a>
+<a href="沉·墨·殇 草创.html" title="下篇文章：标题"><i class="fa fa-arrow-left"></i>下篇文章：沉·墨·殇 草创</a>
+                </div>
+
+                <div class="pinglun_box">
+                    <h3>全部评论</h3>
+                </div>
+
+
+
+
+            </div>
+
+        </div>
+
+
+
+        <!--base随笔页身体右边部分-->
+          <div class="base_content_right">
+
+            <div class="base_content_right_item" id="base_content_right_down">
+                <div class="base_search">
+                    <form name="searchform" class="search_form" method="post" action="#" target="_blank">
+                        <input type="text" class="search_text" required="required" name="keyboard" placeholder="输入关键字搜索">
+                        <input type="hidden" name="tbname" value="news">
+                        <input type="hidden" name="show" value="title,smalltext">
+                        <input type="hidden" name="tempid" value="1">
+                        <input type="hidden" name="classid" value="1,4,9">
+                        <input type="submit" class="search_btn" value="" title="搜索">
+                        <i class="fa fa-search"></i>
+                    </form>
+                </div>
+
+
+
+ <!--这里是页面右侧的导航部分-->
+        <div class="blog_right_nav">
+
+            <ul>
+                <blog_active_and_hover_class class="blog_active_and_hover_class"></blog_active_and_hover_class>
+                <li class="blog_lanmu_active"><a href="javascript:void(0)">全部文章</a></li>
+                <li><a href="沉·墨·殇 list.html">【忘忧情】总集</a></li>
+                <li><a href="沉·墨·殇 list.html">【沉·墨·殇】总集</a></li>
+                <li><a href="沉·墨·殇 list.html">【我是谁】总集</a></li>
+                <li><a href="沉·墨·殇 list.html">【诗歌词】翻译</a></li>
+                <li><a href="沉·墨·殇 list.html">【2018文章】汇总</a></li>
+                <li><a href="沉·墨·殇 list.html">【点评】</a></li>
+            </ul>
+
+        </div>
+        <!--这里是右侧的博客介绍部分-->
+        <div class="blog_info">
+            <ul>
+                <blog_active_and_hover_class class="blog_active_and_hover_class"></blog_active_and_hover_class>
+                <li class="blog_lanmu_active"><a href="javascript:void(0)">网站介绍</a></li>
+                <li><a href="javascript:void(0)">创建时间:2021年11月28日</a></li>
+                <li><a href="javascript:void(0)">创建目的:汇集所有文章</a></li>
+                <li><a href="javascript:void(0)">文章总数:210</a></li>
+                <li><a href="javascript:void(0)">来访人数:0</a></li>
+            </ul>
+        </div>
+        <!--这里是右侧的博主介绍部分-->
+        <div class="blog_master_info">
+            <ul>
+                <blog_active_and_hover_class class="blog_active_and_hover_class"></blog_active_and_hover_class>
+                <li class="blog_lanmu_active"><a href="javascript:void(0)">介绍</a></li>
+                <li><a href="javascript:void(0)">初写文章于2016，绝笔于2019，文章无人问津</a></li>
+                <li><a href="javascript:void(0)">时隔多年，终有世人寻其踪迹，特因此做藏书阁，供世人阅读。</a></li>
+                <li><a href="javascript:void(0)">虽已绝笔，仍做有新型网站，于他人倾诉，待有佳日，或可再续前缘。</a></li>
+            </ul>
+        </div>
+
+
+    </div>
+
+
+
+            <div class="base_content_right_item">
+
+                <h3 class="base_content_right_item_title">点击排行</h3>
+                <div class="base_content_right_item_list">
+<!--
+                    <ul>
+                        <li><a href="javascript:void(0)">最新文章第十五篇文章</a></li>
+                    </ul>
+                    -->
+                </div>
+            </div>
+
+
+            <div class="base_content_right_item">
+
+                <h3 class="base_content_right_item_title">最新文章</h3>
+                <div class="base_content_right_item_list">
+<!--
+                    <ul>
+                        <li><a href="javascript:void(0)">最新文章第一篇文章</a></li>
+                    </ul>
+-->
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!--一键回到顶部的box-->
+<div class="go_top"><i class="fa fa-angle-up"></i></div>
+<div class="base_footer">
+    <ul>
+        <li><a href="https://wpa.qq.com/msgrd?v=3&uin=446157433&site=qq&menu=yes" target="_blank" title="QQ:3107663466"  class="base_footer_qq"><i class="fa fa-qq"></i></a></li>
+        <li><a href="mailto:3107663466@qq.com" target="_blank" title="邮箱：3107663466@qq.com" class="base_footer_email"><i class="fa fa-envelope"></i></a></li>
+        <li><a href="javascript:void(0)" title="扫描微信二维码联系我们" class="base_footer_weixin"><i class="fa fa-weixin"></i><img src="img/erweima.png" alt=""></a><a href="img/erweima.png"></a></li>
+    </ul>
+
+    <span class="base_footer_text">Copyright © 2021-2022 Power by ChenFengYeSe</span>
+    <span class="base_footer_text">网站仓库：<a href="https://github.com/ChenFengYese/ChenFengYese.github.io">ChenFengYeSe</a></span>
+</div>
+</body>
+</html>
+
+
+

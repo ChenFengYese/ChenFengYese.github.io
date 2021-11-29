@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="renderer" content="webkit" />
+    <meta property="og:title" content="" />
+    <title>晨风文学网站</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <!--<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">-->
+
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/base.css">
+    <!--引入分享插件-->
+    <link rel="stylesheet" href="css/share.min.css">
+
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/base.js"></script>
+    <!--引入分享插件-->
+    <script src="js/jquery.share.min.js"></script>
+    <!--这里是因为在文章所以要隐藏掉右侧身体部分在大屏幕下的div，在小屏幕时在显示出来-->
+    <style type="text/css">.base_content_right{width: 0;visibility: hidden;height: 0;}</style>
+</head>
+
+<body>
+
+<!--base随笔页面的图片-->
+<div class="bg_pic"></div>
+
+<!--base随笔页面的头部部分-->
+<div class="base_header">
+
+    <div class="base_header_content">
+
+        <a href="index.html" class="base_header_logo"><img src="img/logo.png"></a>
+
+        <div class="base_header_nav">
+            <ul>
+                <!--这里是没有子栏目的样式-->
+                <li><i class="fa fa-caret-right"></i><a href="index.html">首页</a></li>
+
+                <!--顶级导航-->
+                <li class="have_second_navs">
+                    <i class="fa fa-caret-right"></i><a href="我是谁list.html" class="base_header_nav_active">文章</a>
+
+                    <!--二级导航有子栏目的时候-->
+                    <ul class="nav_child">
+
+                        <li><i class="fa fa-caret-right"></i><a href="我是谁list.html">个人</a>
+
+                            <!--三级栏目-->
+                            <ul class="nav_child">
+                                <li><a href="我是谁list.html">博客类</a></li>
+                                <li><a href="我是谁list.html">技术类</a></li>
+                                <li><a href="我是谁list.html">学习类</a></li>
+                            </ul>
+
+                        </li>
+
+                        <!--二级导航没有子栏目的时候-->
+                        <li><a href="我是谁list.html">学习</a></li>
+
+                    </ul>
+                </li>
+
+
+
+                <!--顶级导航-->
+                <li class="have_second_navs">
+                    <i class="fa fa-caret-right"></i><a href="我是谁list.html">导航</a>
+
+
+                    <!--二级导航有子栏目的时候-->
+                    <ul class="nav_child">
+
+                        <li><i class="fa fa-caret-right"></i><a href="我是谁list.html">学习</a>
+
+                            <!--三级栏目-->
+                            <ul class="nav_child">
+                                <li><a href="我是谁list.html">css</a></li>
+                                <li><a href="我是谁list.html">js</a></li>
+                                <li><a href="我是谁list.html">jquery</a></li>
+                            </ul>
+
+                        </li>
+
+                        <!--二级导航没有子栏目的时候-->
+                        <li><a href="javascript:void(0)">学习</a></li>
+
+                    </ul>
+                </li>
+
+
+
+
+                <li>
+                    <i class="fa fa-caret-right"></i>
+                    <a href="suibi.html">随笔</a>
+                </li>
+
+
+            </ul>
+
+
+        </div>
+
+        <!--手机导航部分-->
+
+        <div class="base_nav_menu" id="base_nav_menu" bind_click="true"><span bind_click="true"></span></div>
+
+        <div class="base_nav_zhezao"></div>
+
+    </div>
+</div>
+
+<!--base文章页身体部分开始-->
+<div class="base_content_body">
+<!--base文章页身体部分居中显示-->
+    <div class="base_content_content clearfix">
+
+
+        <div class="wenzhang_box wow zoomIn">
+<!--文章盒子-->
+            <div class="wenzhang_box_content clearfix">
+
+
+                <img class="wenzhang_yinzhang" src="img/我是谁yinzhang.png">
+<!--文章抬头-->
+            <div class="wenzhang_box_content_title">
+
+                <h4>
+                    <a href="javascript:void(0)">【我是谁】<i class="fa fa-angle-right"></i></a>
+
+我是谁  渐归                </h4>
+
+                <p class="wenzhang_box_content_jieshao">
+                    <span class="wenzhang_box_content_jieshao_zuozhe">作者：晨风</span>
+
+                    <span class="wenzhang_box_content_jieshao_zishu">总字数：3500</span>
+
+                    <span class="wenzhang_box_content_jieshao_time">更新于：2019</span>
+                    <span class="wenzhang_box_content_jieshao_weiguan">围观群众：<span class="wenzhang_box_content_jieshao_xieti">1</span></span>
+
+                    <span class="wenzhang_box_content_jieshao_dig">点赞人数：<span class="wenzhang_box_content_jieshao_xieti">1</span></span>
+
+                    <span class="wenzhang_box_content_jieshao_pinglun">评论人数：<span class="wenzhang_box_content_jieshao_xieti">1</span></span>
+
+                </p>
+
+            </div>
+
+<!--文章抬头的右侧书-->
+<!--            <div class="wenzhang_box_content_title_right">-->
+<!--                <img src="img/我是谁yinzhang.png">-->
+<!--            </div>-->
+
+<!--文章身体部分-->
+
+            <div class="wenzhang_box_article">
+
+                <div class="wenzhang_box_article_info">
+                    <i class="fa fa-quote-left"></i>
+                        这是对自我的不断地探讨，这是对抗抑郁的艰难的历程，一切的一切都记录在这里，我……是谁？
+                    <i class="fa fa-quote-right"></i>
+                </div>
+
+
+                <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=100% height=86 src="//music.163.com/outchain/player?type=2&id=541687281&auto=1&height=66"></iframe>
+
+                <!--文章页内容开始的地方-->
+一：</br>唉，人生路上兜兜转转，最终还是回到了原路。</br>或许 也就只有这一条路可以走吧。</br>曾经在花海中迷失了方向 误认为那是大自然的赠礼，却让我堕入无尽的谷底，迷失了自己；曾经在雪峰上沾染星空，宛如上帝，但这只是与星空的一次简单的交流，并不能助我一步登天；曾经相信了很多人很多话，但最终我发现这都是一张张童话故事里的薄纸，把我蒙骗于彩虹之中；曾经错过了许多，得到了许多，失去了许多，身边的人越来越少，儿时的童真再也不会拥有；我也曾迷茫，曾沮丧，甚至想要一了了之，结束这悲惨的生活，但我始终渴望着明日阳光会倾洒在我的身上；我曾经碰到过彩虹，但最终还是化为虚无；我曾经与春风共舞，但最后我与冬天共抗；我曾经拥有过一切，但最后，都飘散如烟。</br>曾经的，都已成为记忆，失去的，努力的挽留，未来的，努力的争取，不论以后还会说几个曾经，不论以后还会有多少风雨，不论未来是一帆风顺还是风吹雨打，永远应该记得，自己心中的方向，自己应该走的路，自己要做到怎样的人，自己，要珍惜谁，要，爱谁。</br>二：</br>越是抒发自身感情的越难写出来，越不是抒发自身情感的越是随意</br>我总是把自己真实的内在无限隐藏，不想让任何人明白，就连写诗也是如此，总是让其无比隐晦，让诗句难以明白，唉。</br>三：</br>如果你觉得我的文章中的一句话可以表达很多意思</br>那么你就理解为这些意思都是我想要表达的吧</br>四：</br>我是一颗划过天空的孤星，对着地上的人们发出苍白渐淡的光芒。一步一步地向你们驶进，又一步一步地与你们渐息渐远。残星在离去，你看不懂它的心理，也看不到它的表情，你不知道它到底是为何离去，你也对此毫不理会；星星不是没有表情，它也会落泪，但它更会隐藏，它会把所有的苦埋进心里，进行更深层次的速降，它最终也会坠落，但它会向世界发出最后的光芒，让它对这个世界发出最后的告白。</br>五：</br>当下的信息社会中，一些阴暗面逐渐通过信息传播进入到青少年的眼内，这将会影响青少年的人格成长，当代青少年必须要拥有相当的判断能力，辨析能力和良好的社会观，人生观，价值观，不要随波逐流，要站稳脚跟，保守初心，坚持美好社会的思想，拒绝同流合污，拒绝污浊思想，文化，行为的干扰，要正面，阳光，积极，要拥有正确的价值导向。</br>六：</br>每到了夜晚，它总会袭来</br>悄无声息的，瓦解你那柔弱的内心</br>它是无止境的黑暗，无止境的深渊</br>它将你的灵魂压入没有任何光亮的地方</br>让你无路可走，无处可走</br>你的一切都是黑暗的献祭品</br>包括你的血肉和心脏</br>都将被层层浸透</br>那是无止境的痛苦</br>它像一阵阴影一般</br>直悬在你的心头</br>没有人会感知到它的存在</br>只有你自己能体味到这难以忍受的痛</br>毫无征兆地</br>你也只能够强忍着这无止境的折磨</br>克服着你内心的柔弱</br>向着团黑暗斗争</br>你也必须坚持自己的内心</br>坚信一切都将有光明</br>一切总会从深渊中逃出</br>你带着面具</br>向他人求助</br>他人也只当你无病呻吟</br>这种可恶的恶魔将会加剧</br>…………</br>——【抑郁】</br>七：</br>我们一直在观察未来，接触未来，和改变未来</br>任何一个行为，都将影响到未来</br>这个世界是残酷的</br>人生，也不会拥有回头路</br>八：</br>如今，梦第探花，顾影自怜。但即使壮志难酬，怀才不遇，有苦难言，知音难觅，也要仰天大笑出门去，纵酒放歌千万里；自信人生二百年，会当激流三千里；所谓大鹏一日同风起，扶摇直上九万里，必有一天会当绝顶，九州游遍，看万山重影，岂在眉前！长风破浪会有时，直挂云帆济沧海！</br>九：</br>见惯了，平淡了，也不爱说话了</br>自悲了，抑制了，也变得癫疯了</br>一切所表现的，也不是自己内心的我</br>一切，也就憋在心里吧</br>世界，装傻的人很多</br>也都不会互相拆穿</br>只有经历过的人</br>才会对对方有着亲切的共鸣</br>世界，沉默的人也很多</br>但也不会互相打扰</br>每个人内心中都有着自己的心事</br>也都渴望着阳光的救赎</br>当一个疯子，去忘却忧愁吧</br>当一个疯子，消除这份疏远的感觉吧</br>当一个疯子，让表面的一切都看着舒服点吧</br>当一个疯子，去追求内心平静的自己吧</br>变得沉默不语，内心波动</br>也只自身能懂</br>优秀的自己，也会因为谦让</br>被视为懦弱无能</br>当一个疯子，尽情去宣泄和表现吧</br>九：</br>最近有点偏好“多重人格”的文本了呢，是最近的自我表现越发像是在隐藏内心的自我吗，神经质的感觉，仿佛是人格的不断变迁吧，而这个人格是自我创作出来的，是自我刻意为之的，也就是说，逃避和面对，无穷的矛盾瞬发出这个独特的我吧。呵呵，精彩的生活，有些时候我倒真的希望有人能够看完这个完整的戏剧，以看清我到底是谁呢，但，枯燥的表演令人乏味，懒惰的惯性令我拒绝表现自我，只想沉浸于精神上的修养与追求，也只让内心的轮盘不断转动，在外面表现出不断变化的我吧。戏剧，正在逐步迈入高潮了呢，我该如何选择呢，要不要参与参与，还是顺副人格的行动自然观看呢？内心的感伤是连接在一起的，我倒是希望那个懦弱的我离我远一点，以免面临连续不断的失败。哈哈。迫不及待想要表现自己，又想不断隐瞒不拘拘于事故，不愔愔于人生，唉，这种矛盾的我，谁来理解呢？我要的是观众，和读者，以让他们看见我所刻画的史诗作品，一切都是我的作品！</br>十：</br>每个人都只看到我的一面，真实的自我也仅在最要好都兄弟和父母之间表现出来。或许我这样会被人难以理解，不清楚我是怎样的人，或许我这样会被别人误解，从而使他人对我轻视，怀疑，进行批判或教导……或许我这样会活得很累，但我可以随心所欲，不顾及除知己之外的其他人的看法，不必在意其他东西，因为自己最了解自己，自己拥有自己的自信，或许有时我会因此对一些人无法理解感到烦忧，如此我才和一些人讲解多变的我和多重人格的我和最真实的我，或许你们仍未理解，仍保持怀疑，我也无能为力，我为了能够不断修养自己，提升自己，为了韬光养晦，扮猪吃老虎……有时，不得不扮演一个傻子，或许为了排解忧愁，或者是为了避免一些事情，或者有时仅是想守着儿时的纯真……看过我的文章的人，或许对我有着更深层次的看法。还希望各位理解。</br>十一：</br>我想，处于当今的环境中，知音者寥寥无几，能够真正欣赏文章者亦寥寥无几，偏见者数不胜数，漠视者更占多数，往往内心主张和波动，也只自身感叹和吟咏，遥望天空还是那么高，自己也还是呆在地上，不知道要做些什么，本想要修心养性，更好地发展自己，但还是控制不住这个年龄独有的贪玩的欲望，往往还是陷入其中，忘乎所以，唉，也许是年龄的限制吧，也许这些思想也不该出现在现在的我的身上吧，果真控制自己才是真正的最难的事情，自己也是最大的敌人；他人不解我便不提，便语休，便往往取乐各山中，他人亦不闻，亦不解，我便不断压制自己的不寻常，将自己变得普通，可笑的是也仅有自己认为自己不普通，因为自身从未展示；待到未来遇到真正的知音，可与共同谈说志趣，互帮互助，那也会逐渐发出光芒，培养自信，消除不同之处；也或许是现在眼界渺茫，看事无透，心中有感，才无法控制自身再次回到真实的自我，也罢无论是爱情，游戏，亲情，学习还是友谊，自我等等，都终究不是我真正在意的东西，自我的意义似乎也早已消淡，留下的只有一个思考的脑袋和观察的人身，仿佛每时每刻我都只是在观看一部电影，也不愿插手，也习惯了当个旁观客，仿佛我也习惯了无喜无怒无悲，也乐于无喜无怒无悲；也许这样才使得我感到心累，因为，世人的不解终是湖底的不断沉淀的巨石，似乎无声无息，又似乎痛苦不堪，但一切的波动也从未表现出来。内心波动，也只自身吟咏。
+            </div>
+
+
+                <div class="article_dig">
+
+                    <!--文章页的点赞按钮-->
+                    <a href="javascript:void(0)" class="wenzhang_dig_button" title="点个赞鼓励一下吧！"><i class="fa fa-thumbs-up"></i></a>
+
+                    <!--分享插件的盒子-->
+                    <div id="share"></div>
+
+                    <script>
+                        $('#share').share({sites: ['wechat', 'weibo', 'qq','qzone','tencent','douban']});
+                    </script>
+
+                </div>
+
+
+                <div class="wenzhang_box_article_shengming">
+                    <p>文章声明： 非特殊说明，本文版权归 晨风文学网站 所有，转载请注明出处</p>
+<p>本文标题： <span class="wenzhang_box_article_shengming_title" title="文章title">我是谁  渐归</span></p>
+                    <p>本文地址： <span class="wenzhang_box_article_shengming_link" title="文章链接">http://晨星.top</span></p>
+                </div>
+
+                <div class="article_prev_next_list clearfix">
+<a href="我是谁  失落.html" title="上篇文章：标题"><i class="fa fa-arrow-left"></i>上篇文章：我是谁  失落</a>
+                    <a href="我是谁list.html" title="返回目录"><i class="fa fa-list-ul"></i>返回目录</a>
+<a href="我是谁  渐归.html" title="上篇文章：标题"><i class="fa fa-arrow-left"></i>上篇文章：我是谁  渐归</a>
+                </div>
+
+                <div class="pinglun_box">
+                    <h3>全部评论</h3>
+                </div>
+
+
+
+
+            </div>
+
+        </div>
+
+
+
+        <!--base随笔页身体右边部分-->
+          <div class="base_content_right">
+
+            <div class="base_content_right_item" id="base_content_right_down">
+                <div class="base_search">
+                    <form name="searchform" class="search_form" method="post" action="#" target="_blank">
+                        <input type="text" class="search_text" required="required" name="keyboard" placeholder="输入关键字搜索">
+                        <input type="hidden" name="tbname" value="news">
+                        <input type="hidden" name="show" value="title,smalltext">
+                        <input type="hidden" name="tempid" value="1">
+                        <input type="hidden" name="classid" value="1,4,9">
+                        <input type="submit" class="search_btn" value="" title="搜索">
+                        <i class="fa fa-search"></i>
+                    </form>
+                </div>
+
+
+
+ <!--这里是页面右侧的导航部分-->
+        <div class="blog_right_nav">
+
+            <ul>
+                <blog_active_and_hover_class class="blog_active_and_hover_class"></blog_active_and_hover_class>
+                <li class="blog_lanmu_active"><a href="javascript:void(0)">全部文章</a></li>
+                <li><a href="我是谁list.html">【忘忧情】总集</a></li>
+                <li><a href="我是谁list.html">【沉·墨·殇】总集</a></li>
+                <li><a href="我是谁list.html">【我是谁】总集</a></li>
+                <li><a href="我是谁list.html">【诗歌词】翻译</a></li>
+                <li><a href="我是谁list.html">【2018文章】汇总</a></li>
+                <li><a href="我是谁list.html">【点评】</a></li>
+            </ul>
+
+        </div>
+        <!--这里是右侧的博客介绍部分-->
+        <div class="blog_info">
+            <ul>
+                <blog_active_and_hover_class class="blog_active_and_hover_class"></blog_active_and_hover_class>
+                <li class="blog_lanmu_active"><a href="javascript:void(0)">网站介绍</a></li>
+                <li><a href="javascript:void(0)">创建时间:2021年11月28日</a></li>
+                <li><a href="javascript:void(0)">创建目的:汇集所有文章</a></li>
+                <li><a href="javascript:void(0)">文章总数:210</a></li>
+                <li><a href="javascript:void(0)">来访人数:0</a></li>
+            </ul>
+        </div>
+        <!--这里是右侧的博主介绍部分-->
+        <div class="blog_master_info">
+            <ul>
+                <blog_active_and_hover_class class="blog_active_and_hover_class"></blog_active_and_hover_class>
+                <li class="blog_lanmu_active"><a href="javascript:void(0)">介绍</a></li>
+                <li><a href="javascript:void(0)">初写文章于2016，绝笔于2019，文章无人问津</a></li>
+                <li><a href="javascript:void(0)">时隔多年，终有世人寻其踪迹，特因此做藏书阁，供世人阅读。</a></li>
+                <li><a href="javascript:void(0)">虽已绝笔，仍做有新型网站，于他人倾诉，待有佳日，或可再续前缘。</a></li>
+            </ul>
+        </div>
+
+
+    </div>
+
+
+
+            <div class="base_content_right_item">
+
+                <h3 class="base_content_right_item_title">点击排行</h3>
+                <div class="base_content_right_item_list">
+<!--
+                    <ul>
+                        <li><a href="javascript:void(0)">最新文章第十五篇文章</a></li>
+                    </ul>
+                    -->
+                </div>
+            </div>
+
+
+            <div class="base_content_right_item">
+
+                <h3 class="base_content_right_item_title">最新文章</h3>
+                <div class="base_content_right_item_list">
+<!--
+                    <ul>
+                        <li><a href="javascript:void(0)">最新文章第一篇文章</a></li>
+                    </ul>
+-->
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!--一键回到顶部的box-->
+<div class="go_top"><i class="fa fa-angle-up"></i></div>
+<div class="base_footer">
+    <ul>
+        <li><a href="https://wpa.qq.com/msgrd?v=3&uin=446157433&site=qq&menu=yes" target="_blank" title="QQ:3107663466"  class="base_footer_qq"><i class="fa fa-qq"></i></a></li>
+        <li><a href="mailto:3107663466@qq.com" target="_blank" title="邮箱：3107663466@qq.com" class="base_footer_email"><i class="fa fa-envelope"></i></a></li>
+        <li><a href="javascript:void(0)" title="扫描微信二维码联系我们" class="base_footer_weixin"><i class="fa fa-weixin"></i><img src="img/erweima.png" alt=""></a><a href="img/erweima.png"></a></li>
+    </ul>
+
+    <span class="base_footer_text">Copyright © 2021-2022 Power by ChenFengYeSe</span>
+    <span class="base_footer_text">网站仓库：<a href="https://github.com/ChenFengYese/ChenFengYese.github.io">ChenFengYeSe</a></span>
+</div>
+</body>
+</html>
+
+
+

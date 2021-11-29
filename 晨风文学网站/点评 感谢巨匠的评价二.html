@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="renderer" content="webkit" />
+    <meta property="og:title" content="" />
+    <title>晨风文学网站</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <!--<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">-->
+
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/base.css">
+    <!--引入分享插件-->
+    <link rel="stylesheet" href="css/share.min.css">
+
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/base.js"></script>
+    <!--引入分享插件-->
+    <script src="js/jquery.share.min.js"></script>
+    <!--这里是因为在文章所以要隐藏掉右侧身体部分在大屏幕下的div，在小屏幕时在显示出来-->
+    <style type="text/css">.base_content_right{width: 0;visibility: hidden;height: 0;}</style>
+</head>
+
+<body>
+
+<!--base随笔页面的图片-->
+<div class="bg_pic"></div>
+
+<!--base随笔页面的头部部分-->
+<div class="base_header">
+
+    <div class="base_header_content">
+
+        <a href="index.html" class="base_header_logo"><img src="img/logo.png"></a>
+
+        <div class="base_header_nav">
+            <ul>
+                <!--这里是没有子栏目的样式-->
+                <li><i class="fa fa-caret-right"></i><a href="index.html">首页</a></li>
+
+                <!--顶级导航-->
+                <li class="have_second_navs">
+                    <i class="fa fa-caret-right"></i><a href="点评list.html" class="base_header_nav_active">文章</a>
+
+                    <!--二级导航有子栏目的时候-->
+                    <ul class="nav_child">
+
+                        <li><i class="fa fa-caret-right"></i><a href="点评list.html">个人</a>
+
+                            <!--三级栏目-->
+                            <ul class="nav_child">
+                                <li><a href="点评list.html">博客类</a></li>
+                                <li><a href="点评list.html">技术类</a></li>
+                                <li><a href="点评list.html">学习类</a></li>
+                            </ul>
+
+                        </li>
+
+                        <!--二级导航没有子栏目的时候-->
+                        <li><a href="点评list.html">学习</a></li>
+
+                    </ul>
+                </li>
+
+
+
+                <!--顶级导航-->
+                <li class="have_second_navs">
+                    <i class="fa fa-caret-right"></i><a href="点评list.html">导航</a>
+
+
+                    <!--二级导航有子栏目的时候-->
+                    <ul class="nav_child">
+
+                        <li><i class="fa fa-caret-right"></i><a href="点评list.html">学习</a>
+
+                            <!--三级栏目-->
+                            <ul class="nav_child">
+                                <li><a href="点评list.html">css</a></li>
+                                <li><a href="点评list.html">js</a></li>
+                                <li><a href="点评list.html">jquery</a></li>
+                            </ul>
+
+                        </li>
+
+                        <!--二级导航没有子栏目的时候-->
+                        <li><a href="javascript:void(0)">学习</a></li>
+
+                    </ul>
+                </li>
+
+
+
+
+                <li>
+                    <i class="fa fa-caret-right"></i>
+                    <a href="suibi.html">随笔</a>
+                </li>
+
+
+            </ul>
+
+
+        </div>
+
+        <!--手机导航部分-->
+
+        <div class="base_nav_menu" id="base_nav_menu" bind_click="true"><span bind_click="true"></span></div>
+
+        <div class="base_nav_zhezao"></div>
+
+    </div>
+</div>
+
+<!--base文章页身体部分开始-->
+<div class="base_content_body">
+<!--base文章页身体部分居中显示-->
+    <div class="base_content_content clearfix">
+
+
+        <div class="wenzhang_box wow zoomIn">
+<!--文章盒子-->
+            <div class="wenzhang_box_content clearfix">
+
+
+                <img class="wenzhang_yinzhang" src="img/点评yinzhang.png">
+<!--文章抬头-->
+            <div class="wenzhang_box_content_title">
+
+                <h4>
+                    <a href="javascript:void(0)"> 点评<i class="fa fa-angle-right"></i></a>
+
+点评 感谢巨匠的评价二                </h4>
+
+                <p class="wenzhang_box_content_jieshao">
+                    <span class="wenzhang_box_content_jieshao_zuozhe">作者：晨风</span>
+
+                    <span class="wenzhang_box_content_jieshao_zishu">总字数：3500</span>
+
+                    <span class="wenzhang_box_content_jieshao_time">更新于：2019</span>
+                    <span class="wenzhang_box_content_jieshao_weiguan">围观群众：<span class="wenzhang_box_content_jieshao_xieti">1</span></span>
+
+                    <span class="wenzhang_box_content_jieshao_dig">点赞人数：<span class="wenzhang_box_content_jieshao_xieti">1</span></span>
+
+                    <span class="wenzhang_box_content_jieshao_pinglun">评论人数：<span class="wenzhang_box_content_jieshao_xieti">1</span></span>
+
+                </p>
+
+            </div>
+
+<!--文章抬头的右侧书-->
+<!--            <div class="wenzhang_box_content_title_right">-->
+<!--                <img src="img/点评yinzhang.png">-->
+<!--            </div>-->
+
+<!--文章身体部分-->
+
+            <div class="wenzhang_box_article">
+
+                <div class="wenzhang_box_article_info">
+                    <i class="fa fa-quote-left"></i>
+                        这里收录了读者的各类点评，有些是自己单纯无聊寂寞，假装别人写的点评，一般水木开头的都是自我的小号。
+                    <i class="fa fa-quote-right"></i>
+                </div>
+
+
+                <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=100% height=86 src="//music.163.com/outchain/player?type=2&id=541687281&auto=1&height=66"></iframe>
+
+                <!--文章页内容开始的地方-->
+以上为少将同学的点评。 </br>此上前两段为一个同学点评，下面，是我的拙见。 </br>看了魏涛的作品，简归两个字：多彩！ </br>看了两位的点评，简归两个字：精彩！ </br>两同学都爱好诗文，从不同角度简要点评，给予魏品以肯定，并指出其要努力的方向，不愧是诗之作者、伴者、爱者、使者和护者！</br>+我也是在带研究生（小孩）过程中，断续读了魏品，我心灵感受是三惊： </br>+一是惊叹：如此年纪和阅历，竟有如此诗文！（诗文写作至少三要素：基础知识、阅历、悟性或灵感） </br>+二是惊诧：头脑中蕴藏如此丰富的词汇！ </br>+三是惊喜：后生可畏！更是可喜！我国璀璨的文化如孔论、孟语、楚辞、唐诗、宋词……都会有年青来者传承光大！ </br>+当然，也有简要拙评： </br>+一是诗如其人，尚需超越自我！此乃诗之高度，有如毛泽东诗词即为楷模！魏品诗文中多有愁闷，多有迷茫之叹息，之中也有丝幽怨。 </br>+诗文如只限于一种心情，心境的记录，且限于自赏或极少知己分享，当然可以有这些叹息和幽怨。但倘若公诸于世，则似乎不要让人与己一起叹息。当然，时机到了，依然可以发表，比如魏然作品卷一。 </br>+别人读诗尚需激励，即当今所说的正能量。历史上有流传至今的大都此是也。 </br>+二是诗风方面，不宜过多追求华丽的辞藻。当然，有些体裁的诗，用词超然。 </br>+但切记不可以为辞藻华丽，则诗文亦高级！ </br>+也切忌以为用词华丽，则诗意高深，有时生造词汇，让人费解，则诗亦有水平。此为谬也，忌也。 </br>+纵观流传至今的唐诗宋词，和近代诗作如毛泽东诗词，大都是质朴的语言，都如此之美！之动情、之动人之气魄！之流传下来！ </br>+所以，建议小魏不妨写一点这类语言的作品，我倒想看看。 </br>+三是诗文立意是诗文之魂。特别是诗词，不同于散文，记叙文等体裁。前者立意一般不多项，如故表达自己情感，则会从标题内容上有讲究（如分段）。后者中散文即容量大。故注意欲表达的心情或其他，注意用对体裁。 </br>+以上算是我的肤浅之拙见。 </br>+一方面感谢东满和景顺两学友满足我的请求点评魏品。一方面也一并诚表自己之拙见，供小魏参考。也许是我三十步笑百步，请小魏见谅。 </br>+最后，有请小魏百尺竿头，努力攀登，前景光明！再次感谢东满、景顺的精彩点评。 
+            </div>
+
+
+                <div class="article_dig">
+
+                    <!--文章页的点赞按钮-->
+                    <a href="javascript:void(0)" class="wenzhang_dig_button" title="点个赞鼓励一下吧！"><i class="fa fa-thumbs-up"></i></a>
+
+                    <!--分享插件的盒子-->
+                    <div id="share"></div>
+
+                    <script>
+                        $('#share').share({sites: ['wechat', 'weibo', 'qq','qzone','tencent','douban']});
+                    </script>
+
+                </div>
+
+
+                <div class="wenzhang_box_article_shengming">
+                    <p>文章声明： 非特殊说明，本文版权归 晨风文学网站 所有，转载请注明出处</p>
+<p>本文标题： <span class="wenzhang_box_article_shengming_title" title="文章title">点评 感谢巨匠的评价二</span></p>
+                    <p>本文地址： <span class="wenzhang_box_article_shengming_link" title="文章链接">http://晨星.top</span></p>
+                </div>
+
+                <div class="article_prev_next_list clearfix">
+<a href="点评 感谢巨匠的评价一.html" title="上篇文章：标题"><i class="fa fa-arrow-left"></i>上篇文章：点评 感谢巨匠的评价一</a>
+                    <a href="点评list.html" title="返回目录"><i class="fa fa-list-ul"></i>返回目录</a>
+<a href="点评 感谢巨匠的评价二.html" title="上篇文章：标题"><i class="fa fa-arrow-left"></i>上篇文章：点评 感谢巨匠的评价二</a>
+                </div>
+
+                <div class="pinglun_box">
+                    <h3>全部评论</h3>
+                </div>
+
+
+
+
+            </div>
+
+        </div>
+
+
+
+        <!--base随笔页身体右边部分-->
+          <div class="base_content_right">
+
+            <div class="base_content_right_item" id="base_content_right_down">
+                <div class="base_search">
+                    <form name="searchform" class="search_form" method="post" action="#" target="_blank">
+                        <input type="text" class="search_text" required="required" name="keyboard" placeholder="输入关键字搜索">
+                        <input type="hidden" name="tbname" value="news">
+                        <input type="hidden" name="show" value="title,smalltext">
+                        <input type="hidden" name="tempid" value="1">
+                        <input type="hidden" name="classid" value="1,4,9">
+                        <input type="submit" class="search_btn" value="" title="搜索">
+                        <i class="fa fa-search"></i>
+                    </form>
+                </div>
+
+
+
+ <!--这里是页面右侧的导航部分-->
+        <div class="blog_right_nav">
+
+            <ul>
+                <blog_active_and_hover_class class="blog_active_and_hover_class"></blog_active_and_hover_class>
+                <li class="blog_lanmu_active"><a href="javascript:void(0)">全部文章</a></li>
+                <li><a href="点评list.html">【忘忧情】总集</a></li>
+                <li><a href="点评list.html">【沉·墨·殇】总集</a></li>
+                <li><a href="点评list.html">【我是谁】总集</a></li>
+                <li><a href="点评list.html">【诗歌词】翻译</a></li>
+                <li><a href="点评list.html">【2018文章】汇总</a></li>
+                <li><a href="点评list.html">【点评】</a></li>
+            </ul>
+
+        </div>
+        <!--这里是右侧的博客介绍部分-->
+        <div class="blog_info">
+            <ul>
+                <blog_active_and_hover_class class="blog_active_and_hover_class"></blog_active_and_hover_class>
+                <li class="blog_lanmu_active"><a href="javascript:void(0)">网站介绍</a></li>
+                <li><a href="javascript:void(0)">创建时间:2021年11月28日</a></li>
+                <li><a href="javascript:void(0)">创建目的:汇集所有文章</a></li>
+                <li><a href="javascript:void(0)">文章总数:210</a></li>
+                <li><a href="javascript:void(0)">来访人数:0</a></li>
+            </ul>
+        </div>
+        <!--这里是右侧的博主介绍部分-->
+        <div class="blog_master_info">
+            <ul>
+                <blog_active_and_hover_class class="blog_active_and_hover_class"></blog_active_and_hover_class>
+                <li class="blog_lanmu_active"><a href="javascript:void(0)">介绍</a></li>
+                <li><a href="javascript:void(0)">初写文章于2016，绝笔于2019，文章无人问津</a></li>
+                <li><a href="javascript:void(0)">时隔多年，终有世人寻其踪迹，特因此做藏书阁，供世人阅读。</a></li>
+                <li><a href="javascript:void(0)">虽已绝笔，仍做有新型网站，于他人倾诉，待有佳日，或可再续前缘。</a></li>
+            </ul>
+        </div>
+
+
+    </div>
+
+
+
+            <div class="base_content_right_item">
+
+                <h3 class="base_content_right_item_title">点击排行</h3>
+                <div class="base_content_right_item_list">
+<!--
+                    <ul>
+                        <li><a href="javascript:void(0)">最新文章第十五篇文章</a></li>
+                    </ul>
+                    -->
+                </div>
+            </div>
+
+
+            <div class="base_content_right_item">
+
+                <h3 class="base_content_right_item_title">最新文章</h3>
+                <div class="base_content_right_item_list">
+<!--
+                    <ul>
+                        <li><a href="javascript:void(0)">最新文章第一篇文章</a></li>
+                    </ul>
+-->
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!--一键回到顶部的box-->
+<div class="go_top"><i class="fa fa-angle-up"></i></div>
+<div class="base_footer">
+    <ul>
+        <li><a href="https://wpa.qq.com/msgrd?v=3&uin=446157433&site=qq&menu=yes" target="_blank" title="QQ:3107663466"  class="base_footer_qq"><i class="fa fa-qq"></i></a></li>
+        <li><a href="mailto:3107663466@qq.com" target="_blank" title="邮箱：3107663466@qq.com" class="base_footer_email"><i class="fa fa-envelope"></i></a></li>
+        <li><a href="javascript:void(0)" title="扫描微信二维码联系我们" class="base_footer_weixin"><i class="fa fa-weixin"></i><img src="img/erweima.png" alt=""></a><a href="img/erweima.png"></a></li>
+    </ul>
+
+    <span class="base_footer_text">Copyright © 2021-2022 Power by ChenFengYeSe</span>
+    <span class="base_footer_text">网站仓库：<a href="https://github.com/ChenFengYese/ChenFengYese.github.io">ChenFengYeSe</a></span>
+</div>
+</body>
+</html>
+
+
+
