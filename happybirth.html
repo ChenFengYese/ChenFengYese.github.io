@@ -1,9 +1,8 @@
 ﻿<!doctype html>
-<html lang="en">
+<html>
 <head>
 <meta charset="utf-8">
-<title>生日页面祝福</title>
-  <script src="js/birth.js"></script>
+<title>我们的生日祝福</title>
 <script>
   function color_random() {
     this.r = Math.floor(Math.random() * 255);
@@ -25,17 +24,20 @@
   ref.parentNode.insertBefore(style, ref);
 </script>
 <style>
-
 html,body{
 	margin:0px;
+	width:100%;
+	height:100%;
+	overflow:hidden;
 }
 </style>
 
 </head>
 <body>
-<audio size="20mm" autoplay="autoplay" controls="controls" src="happybirth.mp3" loop="loop" preload="auto"></audio>
+
 <canvas id="canvas" style="position:absolute;width:100%;height:100%;z-index:8888"></canvas>
 <canvas style="position:absolute;width:100%;height:100%;z-index:9999" class="canvas" ></canvas>
+<audio size="20mm" autoplay="autoplay" controls="controls" src="happybirth.mp3" loop="loop" preload="auto"></audio>
 <div class="overlay">
   <div class="tabs">
     <div class="tabs-labels"><span class="tabs-label"></span><span class="tabs-label"></span><span class="tabs-label"></span></div>
@@ -58,16 +60,16 @@ function initVars(){
 	playerZ=-25;
 	playerX=playerY=playerVX=playerVY=playerVZ=pitch=yaw=pitchV=yawV=0;
 	scale=600;
-	seedTimer=0;seedInterval=5;seedLife=100;gravity=.02;
-	seeds=[];
-	sparkPics=[];
+	seedTimer=0;seedInterval=5,seedLife=100;gravity=.02;
+	seeds=new Array();
+	sparkPics=new Array();
 	s="https://cantelope.org/NYE/";
 	for(i=1;i<=10;++i){
 		sparkPic=new Image();
 		sparkPic.src=s+"spark"+i+".png";
 		sparkPics.push(sparkPic);
 	}
-	sparks=[];
+	sparks=new Array();
 	pow1=new Audio(s+"pow1.ogg");
 	pow2=new Audio(s+"pow2.ogg");
 	pow3=new Audio(s+"pow3.ogg");
@@ -111,7 +113,7 @@ function rasterizePoint(x,y,z){
 
 function spawnSeed(){
 
-	seed={};
+	seed=new Object();
 	seed.x=-50+Math.random()*100;
 	seed.y=25;
 	seed.z=-50+Math.random()*100;
@@ -133,20 +135,20 @@ function splode(x,y,z){
 			break;
 		case 1:
 			pic1=parseInt(Math.random()*10);
-			do{ pic2=parseInt(Math.random()*10); }while(pic2===pic1);
+			do{ pic2=parseInt(Math.random()*10); }while(pic2==pic1);
 			break;
 		case 2:
 			pic1=parseInt(Math.random()*10);
-			do{ pic2=parseInt(Math.random()*10); }while(pic2===pic1);
-			do{ pic3=parseInt(Math.random()*10); }while(pic3===pic1 || pic3===pic2);
+			do{ pic2=parseInt(Math.random()*10); }while(pic2==pic1);
+			do{ pic3=parseInt(Math.random()*10); }while(pic3==pic1 || pic3==pic2);
 			break;
 	}
 	for(m=1;m<t;++m){
-		spark={};
+		spark=new Object();
 		spark.x=x; spark.y=y; spark.z=z;
 		p1=pi*2*Math.random();
 		p2=pi*Math.random();
-		v=sparkV*(1+Math.random()/6);
+		v=sparkV*(1+Math.random()/6)
 		spark.vx=Math.sin(p1)*Math.sin(p2)*v;
 		spark.vz=Math.cos(p1)*Math.sin(p2)*v;
 		spark.vy=Math.cos(p2)*v;
@@ -165,7 +167,7 @@ function splode(x,y,z){
 		}
 		spark.radius=25+Math.random()*50;
 		spark.alpha=1;
-		spark.trail=[];
+		spark.trail=new Array();
 		sparks.push(spark);
 	}
 	switch(parseInt(Math.random()*4)){
@@ -200,7 +202,7 @@ function doLogic(){
 			sparks[i].alpha-=.01;
 			sparks[i].radius/=1.02;
 			sparks[i].vy+=gravity;
-			point={};
+			point=new Object();
 			point.x=sparks[i].x;
 			point.y=sparks[i].y;
 			point.z=sparks[i].z;
@@ -252,7 +254,7 @@ function draw(){
 		for(j=-100;j<100;j+=4){
 			x=i;z=j;y=25;
 			point=rasterizePoint(x,y,z);
-			if(point.d!==-1){
+			if(point.d!=-1){
 				size=250/(1+point.d);
 				d = Math.sqrt(x * x + z * z);
 				a = 0.75 - Math.pow(d / 100, 6) * 0.75;
@@ -266,15 +268,15 @@ function draw(){
 	ctx.globalAlpha=1;
 	for(i=0;i<seeds.length;++i){
 		point=rasterizePoint(seeds[i].x,seeds[i].y,seeds[i].z);
-		if(point.d!==-1){
+		if(point.d!=-1){
 			size=200/(1+point.d);
 			ctx.fillRect(point.x-size/2,point.y-size/2,size,size);
 		}
 	}
-	point1={};
+	point1=new Object();
 	for(i=0;i<sparks.length;++i){
 		point=rasterizePoint(sparks[i].x,sparks[i].y,sparks[i].z);
-		if(point.d!==-1){
+		if(point.d!=-1){
 			size=sparks[i].radius*200/(1+point.d);
 			if(sparks[i].alpha<0)sparks[i].alpha=0;
 			if(sparks[i].trail.length){
@@ -284,17 +286,17 @@ function draw(){
 					case sparkPics[0]:ctx.strokeStyle="#f84";break;
 					case sparkPics[1]:ctx.strokeStyle="#84f";break;
 					case sparkPics[2]:ctx.strokeStyle="#8ff";break;
-					case sparkPics[3]:ctx.strokeStyle="#46fffd";break;
+					case sparkPics[3]:ctx.strokeStyle="#fff";break;
 					case sparkPics[4]:ctx.strokeStyle="#4f8";break;
 					case sparkPics[5]:ctx.strokeStyle="#f44";break;
 					case sparkPics[6]:ctx.strokeStyle="#f84";break;
 					case sparkPics[7]:ctx.strokeStyle="#84f";break;
-					case sparkPics[8]:ctx.strokeStyle="#e85fff";break;
+					case sparkPics[8]:ctx.strokeStyle="#fff";break;
 					case sparkPics[9]:ctx.strokeStyle="#44f";break;
 				}
 				for(j=sparks[i].trail.length-1;j>=0;--j){
 					point2=rasterizePoint(sparks[i].trail[j].x,sparks[i].trail[j].y,sparks[i].trail[j].z);
-					if(point2.d!==-1){
+					if(point2.d!=-1){
 						ctx.globalAlpha=j/sparks[i].trail.length*sparks[i].alpha/2;
 						ctx.beginPath();
 						ctx.moveTo(point1.x,point1.y);
@@ -334,7 +336,7 @@ window.addEventListener("resize",()=>{
 initVars();
 frame();
 </script>
-
+<script src="js/happybirth.js"></script>
 
 </body>
 </html>
