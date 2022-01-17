@@ -1,0 +1,15 @@
+{
+	"extends": "@ledge/configs/tsconfig.json",
+	"compilerOptions": {
+		"esModuleInterop": false,
+		"noPropertyAccessFromIndexSignature": true
+	},
+	"include": [
+		"*.ts",
+		"smtp/**/*.ts",
+		"test/*.ts",
+	],
+	"ts-node": {
+		"transpileOnly": true
+	}
+}
