@@ -7,9 +7,10 @@
     <title>Title</title>
 </head>
 <body>
-    <script>
-        const email = require("emailjs");
-        const server = email.server.connect({
+    <script type="module">
+
+        import {SMTPClient} from "./emailjs";
+        var client = new SMTPClient({
             user: "3107663466@qq.com",      // 你的QQ用户
             password: "xmjjzhvpxkgkddfj",           // 注意，不是QQ密码，而是刚才生成的授权码 vyzytmpywxundgbb
             host: "smtp.qq.com",         // 主机，不改
@@ -17,15 +18,14 @@
         });
 
         //开始发送邮件
-        server.send({
-            text:    "祝魏涛生日快乐"+"\n",       //邮件内容
+        client.send({
+           text:    "祝魏涛生日快乐"+"\n",       //邮件内容
             from:    "3107663466@qq.com",        //谁发送的
             to:      "3107663466@qq.com",       //发送给谁的
             subject: "邮件主题"          //邮件主题
-        }, function(err, message) {
-            //回调函数
-            console.log(err || message);
-        });
+        }, function (err, message) {
+
+        })
 
     </script>
 </body>
