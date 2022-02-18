@@ -143,7 +143,7 @@ a:hover {
     height: 6800px;
 }
 
-#talkToXHJ {
+#talkToYou {
     width: 750px;
     padding: 50px 100px;
     background-color: rgba(0, 0, 0, 0.3);
@@ -153,11 +153,11 @@ a:hover {
     text-shadow: 0 0 3px black;
 }
 
-#talkToXHJ b {
+#talkToYou b {
     font-size: 25px;
 }
 
-#talkToXHJ p {
+#talkToYou p {
     font-size: 20px;
 }
 
@@ -186,7 +186,7 @@ a:hover {
 }
 
 .swiper-container-lovexhj3
-.swiper-wrapper 
+.swiper-wrapper
 .swiper-slide {
     width: 100%;
     height: 400px;
@@ -194,8 +194,8 @@ a:hover {
 }
 
 .swiper-container-lovexhj3
-.swiper-wrapper 
-.swiper-slide 
+.swiper-wrapper
+.swiper-slide
 img {
     height: 90%;
     border-radius: 20px;
@@ -240,7 +240,7 @@ img {
         padding-top: 20px;
     }
 
-    #talkToXHJ {
+    #talkToYou {
         width: 500px;
         padding: 50px 50px;
     }
@@ -296,16 +296,16 @@ img {
         height: 6800px;
     }
 
-    #talkToXHJ {
+    #talkToYou {
         width: 350px;
         padding: 30px 30px;
     }
 
-    #talkToXHJ b {
+    #talkToYou b {
         font-size: 23px;
     }
-    
-    #talkToXHJ p {
+
+    #talkToYou p {
         font-size: 15px;
     }
 
@@ -321,9 +321,9 @@ img {
         width: 100%;
     }
 
-    .swiper-container-lovexhj3 
-    .swiper-wrapper 
-    .swiper-slide 
+    .swiper-container-lovexhj3
+    .swiper-wrapper
+    .swiper-slide
         img {
         height: 100%;
         border-radius: 20px;
@@ -400,16 +400,16 @@ img {
         height: 6800px;
     }
 
-    #talkToXHJ {
+    #talkToYou {
         width: 80%;
         padding: 20px 10px;
     }
 
-    #talkToXHJ b {
+    #talkToYou b {
         font-size: 23px;
     }
-    
-    #talkToXHJ p {
+
+    #talkToYou p {
         font-size: 15px;
     }
 
