@@ -6,13 +6,13 @@
     }
 @font-face{
     font-family: LUOHUASHITI;
-    src:url('HYHUOHUASHIW.TTF'), 
+    src:url('../font/HYHUOHUASHIW.woff'), 
     url('HYHUOHUASHIW.TTF'),
     url('HYHUOHUASHIW.TTF'); /* IE9 */
     }
 @font-face{
     font-family: SENTYTANGTI;
-    src:url('SENTYTANG.TTF'), 
+    src:url('../font/SENTYTANG.woff'), 
     url('SENTYTANG.TTF'),
     url('SENTYTANG.TTF'); /* IE9 */
     }
