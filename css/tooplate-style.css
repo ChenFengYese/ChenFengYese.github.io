@@ -21,7 +21,7 @@
     url('SENTYTANG.TTF'); /* IE9 */
     }
 body {
-  font-family: 'SENTYTANGTI','LUOHUASHITI','MEIZITI',"Open Sans", Helvetica, Arial, sans-serif;
+  font-family: Arial,'Times New Roman'，'SENTYTANGTI','LUOHUASHITI','MEIZITI',"Open Sans", sans-serif;
   font-size: 19px;
   color: #ffffff;
   overflow-x: hidden;
