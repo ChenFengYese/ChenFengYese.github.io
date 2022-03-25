@@ -1,20 +1,20 @@
 @font-face{
     font-family: MEIZITI;
-    src:url('css/HYCHENMEIZIW.TTF'), 
-    url('css/HYCHENMEIZIW.TTF'),
-    url('css/HYCHENMEIZIW.TTF'); /* IE9 */
+    src:url('HYCHENMEIZIW.TTF'), 
+    url('HYCHENMEIZIW.TTF'),
+    url('HYCHENMEIZIW.TTF'); /* IE9 */
     }
 @font-face{
     font-family: LUOHUASHITI;
-    src:url('css/HYHUOHUASHIW.TTF'), 
-    url('css/HYHUOHUASHIW.TTF'),
-    url('css/HYHUOHUASHIW.TTF'); /* IE9 */
+    src:url('HYHUOHUASHIW.TTF'), 
+    url('HYHUOHUASHIW.TTF'),
+    url('HYHUOHUASHIW.TTF'); /* IE9 */
     }
 @font-face{
     font-family: SENTYTANGTI;
-    src:url('css/SENTYTANG.TTF'), 
-    url('css/SENTYTANG.TTF'),
-    url('css/SENTYTANG.TTF'); /* IE9 */
+    src:url('SENTYTANG.TTF'), 
+    url('SENTYTANG.TTF'),
+    url('SENTYTANG.TTF'); /* IE9 */
     }
 body{margin:0;padding:0;background:##12adf7;font-size:12px;overflow:auto}
 #mainDiv{width:100%;height:100%}
