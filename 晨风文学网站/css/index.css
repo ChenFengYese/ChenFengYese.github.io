@@ -48,7 +48,7 @@ writing-mode: vertical-lr;-webkit-writing-mode: vertical-lr;-ms-writing-mode: ve
 }
 /*index页面循环滚动盒子每一个li代表一篇文章*/
 .ul_one li,.ul_two li{float: left;height: 100%;
-    font-family: 'Myfont';
+    font-family: Arial,'Times New Roman','Myfont';
     font-size: 40px;margin-right: 50px;line-height: 54px;
     writing-mode: vertical-lr;-webkit-writing-mode: vertical-lr;-ms-writing-mode: vertical-lr;*writing-mode:tb-rl;
     background-image: url("../img/index_wzbg.png");
