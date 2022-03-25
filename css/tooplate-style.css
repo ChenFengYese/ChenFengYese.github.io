@@ -4,7 +4,7 @@
 }
 @font-face{
     font-family: MEIZITI;
-    src:url('../font/HYCHENMEIZIW.woff'), 
+    src:url('HYCHENMEIZIW.TTF'), 
     url('HYCHENMEIZIW.TTF'),
     url('HYCHENMEIZIW.TTF'); /* IE9 */
     }
