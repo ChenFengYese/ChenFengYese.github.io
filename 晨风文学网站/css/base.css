@@ -9,8 +9,16 @@ ul{list-style: none;}
 p{padding: 0;margin: 0;text-align: Justify;word-wrap: break-word;
     word-break: break-all;}
 input,textarea{outline: none;}
-
-body{font: 14px/1.5 Arial, Helvetica,sans-serif}
+@font-face {
+    font-family: 'Myfont';
+    src: url('HYHELONGXINGSHUW.TTF');
+    src:
+            url('HYHELONGXINGSHUW.TTF'),
+            url('HYHELONGXINGSHUW.TTF') format('truetype'),
+    font-weight: normal;
+    font-style: normal;
+}
+body{font-family: Myfont,Arial, Helvetica,sans-serif;font: 14px/1.5}
 
 .clearfix:after {content:""; display:block; height:0; visibility:hidden; clear:both; }
 .clearfix {display:block;}
