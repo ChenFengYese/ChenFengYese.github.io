@@ -1,15 +1,27 @@
-/*
-Template 2109 The Card
-http://www.tooplate.com/view/2109-the-card
-*/
-
 * {
   margin: 0;
   padding: 0;
 }
-
+@font-face{
+    font-family: MEIZITI;
+    src:url('css/HYCHENMEIZIW.TTF'), 
+    url('css/HYCHENMEIZIW.TTF'),
+    url('css/HYCHENMEIZIW.TTF'); /* IE9 */
+    }
+@font-face{
+    font-family: LUOHUASHITI;
+    src:url('css/HYHUOHUASHIW.TTF'), 
+    url('css/HYHUOHUASHIW.TTF'),
+    url('css/HYHUOHUASHIW.TTF'); /* IE9 */
+    }
+@font-face{
+    font-family: SENTYTANGTI;
+    src:url('css/SENTYTANG.TTF'), 
+    url('css/SENTYTANG.TTF'),
+    url('css/SENTYTANG.TTF'); /* IE9 */
+    }
 body {
-  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-family: 'SENTYTANGTI','LUOHUASHITI','MEIZITI',"Open Sans", Helvetica, Arial, sans-serif;
   font-size: 19px;
   color: #ffffff;
   overflow-x: hidden;
