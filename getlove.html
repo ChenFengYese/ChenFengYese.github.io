@@ -32,8 +32,8 @@ p{
 	<script>
 	$(function(){
 		$.fn.snow({ 
-			minSize: 5,		//雪花的最小尺寸
-			maxSize: 50, 	//雪花的最大尺寸
+			minSize: 8,		//雪花的最小尺寸
+			maxSize: 60, 	//雪花的最大尺寸
 			newOn: 150		//雪花出现的频率 这个数值越小雪花越多
 		});
 	});
@@ -70,7 +70,7 @@ p{
 				<span class="comments">/~ </span><br />
 				<span class="comments">// </span><br />
 
-			<p>*<br /></p>
+			<p id="pe">*<br /></p>
 
 			</div>
 			<div id="loveHeart">
@@ -119,7 +119,7 @@ p{
 		    if(i<=22){
 		     document.getElementsByClassName("comments")[i].innerHTML=str_array[i];}
 		     if(i>22){
-		     document.getElementById("p").innerText=str_array[22];
+		     document.getElementById("pe").innerText=str_array[22];
 		     break;
 		     }
 		}
@@ -144,12 +144,12 @@ p{
 		} else {
 			setTimeout(function () {
 				startHeartAnimation();
-			}, 5000);
+			}, 3000);
 
 			timeElapse(together);
 			setInterval(function () {
 				timeElapse(together);
-			}, 500);
+			}, 300);
 
 			adjustCodePosition();
 			$("#code").typewriter();
