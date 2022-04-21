@@ -20,27 +20,6 @@ p{
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/garden.js"></script>
     <script type="text/javascript" src="js/functions.js"></script>
-	<script>
-        const user1 = window.opener.document.getElementById("text").value;
-        str_array = [];
-        //分割方法1
-        str_array = user1.split(/[(\r\n)\r\n]+/);
-        let i;
-        for (i = 0; i < str_array.length; i++) {
-                if (str_array[i] === "") {
-                    str_array.splice(i, 1);//去掉值为空的数组
-                    i = i - 1;
-                }
-            }
-        for(i = 0; i<str_array.length; i++) {
-            if(i<=22){
-             document.getElementsByClassName("comments")[i].innerHTML=str_array[i];}
-             if(i>22){
-             document.getElementById("p").innerText=str_array[22];
-             break;
-             }
-        }
-    </script>
 	<script type="text/javascript" src="js/jq_snow.js"></script>
 </head> 
 
@@ -60,30 +39,30 @@ p{
 		<div id="content">
 			<div id="code">
 <!--                <a href="晨星新网站.html" >网站示例</a>-->
-				<span class="comments">/**</span><br />
-        <span class="space"></span><span class="comments">* </span><br />
-        <span class="space"></span><span class="comments">*  </span><br />
+				<span class="comments">听我说</span><br />
+        <span class="space"></span><span class="comments">你很棒</span><br />
+        <span class="space"></span><span class="comments">加油</span><br />
         <span class="space"></span><span class="comments">*  </span><br />
         <span class="space"></span><span class="comments">* </span><br />
 				<span class="space"></span><span class="comments">*/</span><br />
-				<span class="comments">//  </span><br />
-				<span class="comments">// </span><br />
-				<span class="comments">// </span><br />
+				<span class="comments">其实 </span><br />
+				<span class="comments">世界并不美好</span><br />
+				<span class="comments">但是 </span><br />
         <span class="comments">// </span><br />
-				<span class="comments">// </span><br />
-				<span class="comments">// </span><br />
+				<span class="comments">我们不需要 </span><br />
+				<span class="comments">陷入 </span><br />
         <span class="comments">//  </span><br />
-				<span class="comments">// </span><br />
+				<span class="comments">不完美与不美好的漩涡 </span><br />
         <span class="comments">//  </span><br />
-		<span class="comments">//  </span><br />
+		<span class="comments">加油  </span><br />
 
-				<span class="comments">//  </span><br />
+				<span class="comments">你的眼睛  </span><br />
 
-                <span class="comments">//  </span><br />
+                <span class="comments">会看到  </span><br />
 
-	<span class="comments">//  </span><br />
+	<span class="comments">美丽的  </span><br />
 
-				<span class="comments">//  </span><br />
+				<span class="comments">鲜花 </span><br />
 
 				<span class="comments">/~ </span><br />
 				<span class="comments">// </span><br />
@@ -122,6 +101,25 @@ p{
 </div>
 
 	<script type="text/javascript">
+		const user1 = window.opener.document.getElementById("text").value;
+		str_array = [];
+		//分割方法1
+		str_array = user1.split(/[(\r\n)\r\n]+/);
+		let i;
+		for (i = 0; i < str_array.length; i++) {
+			if (str_array[i] === "") {
+			    str_array.splice(i, 1);//去掉值为空的数组
+			    i = i - 1;
+			}
+		    }
+		for(i = 0; i<str_array.length; i++) {
+		    if(i<=22){
+		     document.getElementsByClassName("comments")[i].innerHTML=str_array[i];}
+		     if(i>22){
+		     document.getElementById("p").innerText=str_array[22];
+		     break;
+		     }
+		}
 		var offsetX = $("#loveHeart").width() / 2;
 		var offsetY = $("#loveHeart").height() / 2 - 55;
 		var together = new Date();
