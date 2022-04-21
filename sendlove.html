@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <style>
+        div{
+            filter:alpha(Opacity=70);
+            /*垂直居中 */
+            vertical-align: middle;
+            /*水平居中*/
+            text-align: center;
+        }
+        #submit{
+            border: none;
+            outline: none;
+        }
+        #show{
+            color: #FF1CAE;
+            font-size:26px;
+        }
+         textarea::-webkit-input-placeholder {
+
+        color: #FF00FF;
+
+        font-size: 16px;
+
+    }
+    </style>
+</head>
+<body background="img/photo-07.jpg" style=" background-repeat:no-repeat ;background-size:cover;">
+<div>
+    <label>
+        <textarea name="saythis" rows="23" cols="100" id="text" placeholder="这里填写" style="background-color:rgba(255,255,255,0.1);border-style:none;outline:none"></textarea></label>
+    <br/><br/>
+    <label><input type="submit" name="submit" id="submit" value="提交" onclick="listen()"></label>
+        </div>
+    <br/>
+    <div id="show">最多允许输入23行字符，且最后一行为粉红色字体</div>
+    <!--soft回车不会提交，hard回车会提交-->
+</body>
+<script type="text/javascript">
+    function listen() {
+        var value = document.getElementById('text').value;
+        str_array = [];
+        str_array = value.split(/[(\r\n)\r\n]+/);
+        if(str_array.length>23) {
+            document.getElementById('show').innerHTML = "方框内不可输入超过23行的字符";
+        }
+        else if(str_array.length===1){
+            document.getElementById('show').innerHTML = "你尚未输入任何字符或仅输入一行字符";
+        }
+        else{window.open("晨星新网站.html");}
+    }
+</script>
+
+</html>
