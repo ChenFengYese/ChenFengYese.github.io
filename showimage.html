@@ -1,0 +1,216 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>晨星纪念图片网站</title>
+    <link rel="stylesheet" href="https://www.xn--kiv4f.top/css/style.css" />
+  </head>
+  <style>
+    body {
+      width: 1200px;
+      margin: auto;
+    }
+
+    .love {
+      display: flex;
+      flex-direction: column;
+    }
+
+    header,
+    footer {
+      height: 80px;
+    }
+    header {
+      text-align: center;
+      line-height: 80px;
+      background-color: #141114;
+      font-size: 30px;
+      color: #fff;
+      border-radius: 8px;
+    }
+    footer {
+      color: #fff;
+      text-align: center;
+      font-size: 24px;
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+    .love-body {
+      display: flex;
+    }
+
+    .love-content {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      box-sizing: border-box;
+      padding: 5px;
+      margin: 5px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      min-height: 280px;
+    }
+    a {
+      text-decoration: none;
+    }
+
+    .love-content-text {
+      color: #60bde8;
+      height: 30px;
+      text-align: center;
+      line-height: 30px;
+      font-size: 18px;
+      font-weight: 666;
+    }
+    .love-content img {
+      border-radius: 8px;
+      display: block;
+      height: 250px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        width: 100%;
+      }
+      .love-body {
+        flex-direction: column;
+        flex: 1;
+      }
+      .love-content {
+        min-height: 280px;
+        flex: auto;
+      }
+      .love-content img {
+        display: block;
+        width: 100%;
+        height: 280px;
+      }
+      header,
+      footer {
+        flex: 1;
+      }
+    }
+  </style>
+  <body>
+   <audio size=20mm autoplay="autoplay"  src="music/Beauty.mp3"  loop="loop" preload="auto"></audio><br>
+<br>
+    <div class="love">
+      <!-- 头部 -->
+      <header class="pulse sign">
+        <span class="fast-flicker"></span>张<span class="flicker"
+          >纪念图片</span
+        >展示
+      </header>
+      <!-- 中间--><div class="middle"></div>
+      <!-- 底部 -->
+      <footer>
+        晨星纪念网站
+        <div>
+          <a href="http://xn--kiv4f.top"
+          >
+            <div style="color: red; margin-top: 10px" class="award-name">
+              点击进入~晨星官方网站
+            </div></a
+          >
+        </div>
+      </footer>
+    </div>
+  </body>
+  <script>
+      let img = window.opener.document.getElementsByTagName("img");
+      let length =  img.length;
+      document.getElementsByClassName("fast-flicker")[0].innerHTML = String(length).padEnd(2,' ');
+      for(let i = 0 ;i<length;i++){
+          if(i%4===0)
+          {
+              //创建一个div
+            div = document.createElement("div");
+            //为div创建属性class = "test"
+            const divattr = document.createAttribute("class");
+            divattr.value = "love-body";
+            //把属性class = "test"添加到div
+            div.setAttributeNode(divattr);
+          }
+            //创建main
+            const main = document.createElement("main");
+            const mainattr = document.createAttribute("class");
+            mainattr.value = "love-content raise";
+            main.setAttributeNode(mainattr);
+            //创建a标签
+            const a = document.createElement("a");
+            //创建div_content
+            const div_content = document.createElement("div");
+            const divattrs = document.createAttribute("class");
+            divattrs.value = "love-content-text";
+            div_content.setAttributeNode(divattrs);
+            div_content.innerHTML = img[i].name;
+            a.appendChild(div_content);
+            main.appendChild(a);
+            //创建img标签
+            const imgp = document.createElement("img");
+            const imgsrc = document.createAttribute("src");
+            imgsrc.value= img[i].src;
+            imgp.setAttributeNode(imgsrc);
+            main.appendChild(imgp);
+            div.appendChild(main);
+            document.getElementsByClassName("middle").item(0).appendChild(div);
+      }
+
+
+    //
+    // /* 获取节点 */
+    // // var oUl = document.getElementsByTagName("ul")[0];
+    // //获取所有元素,返回的是一个数组
+    // var aLi = document.querySelectorAll(".love-content");
+    // // console.log(aLi, "aLi");
+    // // var aLi = oUl.getElementsByTagName("li");
+    //
+    // /* 创建img标签函数 */
+    // function createImg(obj) {
+    //     let src = "";
+    //     if (obj.dataset.src) {
+    //     src = obj.dataset.src;
+    //   } else {
+    //     src = obj.getAttribute("data-src");
+    //   }
+    //   // console.log(obj, "obj");
+    //   if (obj.children.length <= 2) {
+    //       const img = document.createElement("img");
+    //       img.src = src;
+    //
+    //     obj.appendChild(img);
+    //   }
+    // }
+    //
+    // /* 计算节点到文档顶部的距离 */
+    // function getTop(obj) {
+    //   var h = 0;
+    //   while (obj) {
+    //     h += obj.offsetTop;
+    //     obj = obj.offsetParent;
+    //   }
+    //   return h;
+    // }
+    // /* 滚动实时计算所到区域并进行相关计算 */
+    // window.onscroll = function () {
+    //   var t =
+    //     document.documentElement.clientHeight +
+    //     (document.body.scrollTop || document.documentElement.scrollTop);
+    //   for (var i = 0; i < aLi.length; i++) {
+    //     if (getTop(aLi[i]) < t) {
+    //       setTimeout("createImg(aLi[" + i + "])", 500);
+    //     }
+    //   }
+    // };
+    // /* 页面加载完便执行一次滚动函数 */
+    // window.onload = function () {
+    //   window.onscroll();
+    //
+    // };
+  </script>
+</html>
