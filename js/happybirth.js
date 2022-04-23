@@ -1,23 +1,15 @@
 
-/*
 
-  Shape Shifter
-  =============
-  A canvas experiment by Kenneth Cachia
-  http://www.kennethcachia.com
-
-  Updated code
-  ------------
-  https://github.com/kennethcachia/Shape-Shifter
-
-*/
-
-alert("谢谢美丽帅气的你来庆祝我的生日");
-bless_name = prompt("告诉我你的名字叭，我很感激你的祝福喔");
-var greetings = prompt("填写你的祝福语叭，我很感激你的祝福喔");
-
+var bless_name = window.opener.document.getElementById("contact_name").value;
+var happy_name = window.opener.document.getElementById("contact_name2").value;
+var greetings = window.opener.document.getElementById("contact_message").value;
+var userselect = window.opener.document.getElementById("contact_info").value;
+// var happy_name = document.getElementById("name2").value;
+// var greetings = document.getElementById("greetings").value;
+// var userselect = document.getElementById("userselect").value;
 var insertIntervalString = (originStr, disNum = 10, insertStr = "\n") => originStr.replace(new RegExp("(.{" + disNum + "})", "g"), "$1" + insertStr);
 greetings = insertIntervalString(greetings, 5, "|");
+
 var S = {
   init: function () {
     var action = window.location.href,
@@ -25,7 +17,11 @@ var S = {
 
     S.Drawing.init('.canvas');
     document.body.classList.add('body--ready');
-    var beginPath = "|#countdown 3||"+bless_name+"|祝|魏 涛|生日快乐|#rectangle|"+greetings+"|感谢我的一生中|"+"遇到了你|"+"谢谢你|";
+    if(userselect.length!==0)
+    { var beginPath =  userselect;}
+    else{
+        var beginPath = "|#countdown 3||"+bless_name+"|祝|"+happy_name+"|生日快乐|#rectangle|"+greetings+"|感谢我的一生中|"+"遇到了你|"+"谢谢你|";
+    }
     if (i !== -1) {
       S.UI.simulate(decodeURI(action).substring(i + 3));
     } else {
