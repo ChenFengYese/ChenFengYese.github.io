@@ -23,43 +23,6 @@
     <link rel="stylesheet" href="slick/slick-theme.css" />
     <link rel="stylesheet" href="css/magnific-popup.css" />
     <link rel="stylesheet" href="css/tooplate-style.css" />
-    <script>
-	    	function launchFullscreen(element) {
-			  if(element.requestFullscreen) {
-			    element.requestFullscreen();
-			  } else if(element.mozRequestFullScreen) {
-			    element.mozRequestFullScreen();
-			  } else if(element.webkitRequestFullscreen) {
-			    element.webkitRequestFullscreen();
-			  } else if(element.msRequestFullscreen) {
-			    element.msRequestFullscreen();
-			  }
-	}
-	 //alert全屏
-        swal({ 
-		title: "全屏模式获得最佳观赏", 
-		text: "推荐你以全屏模式观看网页", 
-		type: "warning",
-		showCancelButton: true, 
-		confirmButtonColor: "#DD6B55",
-		confirmButtonText: "进入全屏", 
-		cancelButtonText: "保持原样",
-		closeOnConfirm: true, 
-		closeOnCancel: true	
-		},
-		function(isConfirm){ 
-		if (isConfirm) { 
-			launchFullscreen(document.documentElement);
-			swal("成功！", "已全屏",
-		"success"); 
-
-		} 
-		else{
-		swal("成功！", "已恢复。",
-		"success"); 
-}
-    });
-</script>
     <!-- Templatemo style -->
   </head>
 
@@ -509,7 +472,7 @@
           slidesToShow: slidesToShow,
           slidesToScroll: slidesToScroll
         });
-
+	
         // Open big image when a gallery image is clicked.
         // $(".slick-list").magnificPopup({
         //   delegate: "a",
