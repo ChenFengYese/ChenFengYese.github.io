@@ -92,7 +92,7 @@
                   </p>
                 </div>
                 <a href="#" id="tm_about_link" data-linkid="1" class="tm-link">关于我</a>
-		<a href="#" class="tm-link" onclick="confirmFull()">开启全屏模式</a>
+		<a href="#" id="fullscreen" class="tm-link" onclick="confirmFull()">开启全屏模式</a>
               </section>
 
               <!-- Section 1 About Me -->
@@ -433,7 +433,9 @@
 			  }
 	}
 	    function confirmFull(){
-		    launchFullscreen(document.documentElement);}
+
+		    launchFullscreen(document.documentElement);
+	    	    document.getElementById("fullscreen").innerHTML="关闭全屏模式";}
       function adjustFooter() {
         const windowHeight = $(window).height();
         const topHeight = $(".tm-top-container").height();
