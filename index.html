@@ -343,7 +343,12 @@
 		closeOnCancel: false	
 		},
 		function(isConfirm){ 
-		 function launchFullscreen(element) {
+		if (isConfirm) { 
+			launchFullScreen(document.documentElement);
+		} 
+    });
+      };
+	function launchFullscreen(element) {
 			  if(element.requestFullscreen) {
 			    element.requestFullscreen();
 			  } else if(element.mozRequestFullScreen) {
@@ -354,12 +359,6 @@
 			    element.msRequestFullscreen();
 			  }
 			}
-		if (isConfirm) { 
-			launchFullScreen(document.documentElement);
-		} 
-    });
-      };
-
       function navLinkClick(e) {
         if ($(e.target).hasClass("external")) {
           return;
