@@ -88,6 +88,15 @@
         </div>
     </div>
 <script>
+     function IsPC(){
+     var userAgentInfo = navigator.userAgent;
+     var Agents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"];
+     var flag = true;
+     for (var v = 0; v < Agents.length; v++) {
+         if (userAgentInfo.indexOf(Agents[v]) > 0) { flag = false; break; }
+     }
+     return flag;
+  }
     document.querySelector('#file').onchange = function (){
                 document.getElementById("save").innerHTML = getFileURL(this.files[0]);
                 document.getElementById("showfile").innerHTML = "已提交"+this.files[0].name;
@@ -111,21 +120,26 @@
         window.open('https://wpa.qq.com/msgrd?v=3&uin=3107663466&site=qq&menu=yes')
     }
     function btn() {
-        var inf1 = document.getElementById("contact_name").value;
-        var inf2 = document.getElementById("contact_name2").value;
-        var inf3 = document.getElementById("contact_message").value;
-        function isnull(val) {
-            var str = val.replace(/(^\s*)|(\s*$)/g, '');//去除空格;
-            return str === '' || str === undefined || str == null;
-        }
+        if (/(Android)/i.test(navigator.userAgent)) {
+swal("加载失败","当前手机端浏览器无法进行自定义设计，将为您跳转到默认样式链接，我们为您的糟糕体验感到很抱歉，在未来我们将不断进行优化以满足用户更多需求，感谢你的支持。")
+            else{
+                var inf1 = document.getElementById("contact_name").value;
+                var inf2 = document.getElementById("contact_name2").value;
+                var inf3 = document.getElementById("contact_message").value;
+                function isnull(val) {
+                    var str = val.replace(/(^\s*)|(\s*$)/g, '');//去除空格;
+                    return str === '' || str === undefined || str == null;
+                }
 
-        if ((!isnull(inf1)) && (!isnull(inf2))  && (!isnull(inf3)) ) {
-            swal("提交成功！","欢迎进行更多尝试","success");
-            window.open('happybirth.html');
-        }
-        else{
-            swal("提交失败","当前信息未全部填写或仅填写空格")
-        }
+                if ((!isnull(inf1)) && (!isnull(inf2))  && (!isnull(inf3)) ) {
+                    swal("提交成功！","欢迎进行更多尝试","success");
+                    document.getElementById("contact_info").value = "";
+                    window.open('happybirth.html');
+                }
+                else{
+                    swal("提交失败","当前信息未全部填写或仅填写空格")
+                }
+            }
     }
     function view(){
         if(document.getElementById("moreinfo").style.display !=="block")
@@ -137,17 +151,24 @@
         }
     }
     function btn_info(){
-        var inf = document.getElementById("contact_info").value;
-        function isnull(val) {
-            var str = val.replace(/(^\s*)|(\s*$)/g, '');//去除空格;
-            return str === '' || str === undefined || str == null;
-        }
-        if (!isnull(inf)){swal("提交成功！","欢迎进行更多尝试","success")
-            window.open('happybirth.html');
-        }
-        else{
-            swal("提交失败","当前信息未全部填写或仅填写空格")
-        }
+        if (/(Android)/i.test(navigator.userAgent)) {
+swal("加载失败","当前手机端浏览器无法进行自定义设计，将为您跳转到默认样式链接，我们为您的糟糕体验感到很抱歉，在未来我们将不断进行优化以满足用户更多需求，感谢你的支持。")
+            else{
+                var inf = document.getElementById("contact_info").value;
+                function isnull(val) {
+                    var str = val.replace(/(^\s*)|(\s*$)/g, '');//去除空格;
+                    return str === '' || str === undefined || str == null;
+                }
+                if (!isnull(inf)){swal("提交成功！","欢迎进行更多尝试","success")
+                    document.getElementById("contact_name").value = "";
+                    document.getElementById("contact_name2").value = "";
+                    document.getElementById("contact_message").value = "";
+                    window.open('happybirth.html');
+                }
+                else{
+                    swal("提交失败","当前信息未全部填写或仅填写空格")
+                }
+            }
     }
 
         var urls = ["https://w.wallhaven.cc/full/72/wallhaven-72kejo.jpg","https://w.wallhaven.cc/full/8o/wallhaven-8owjzk.jpg","https://w.wallhaven.cc/full/rd/wallhaven-rdxr6j.jpg","https://w.wallhaven.cc/full/v9/wallhaven-v9r7dl.png",
