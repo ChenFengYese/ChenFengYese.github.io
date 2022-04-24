@@ -14,6 +14,8 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600"
     />
+    <link rel="stylesheet" type="text/css" href="https://blog.huangwx.cn/css/sweetalert.css">
+<script type="text/javascript" src="https://blog.huangwx.cn/js/sweetalert-dev.js"></script>
     <!-- Google web font "Open Sans" -->
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <!-- https://getbootstrap.com/ -->
@@ -340,7 +342,35 @@
         if ($(e.target).data("align")) {
           pageAlign = $(e.target).data("align");
         }
-
+        //alert全屏
+        swal({ 
+		title: "全屏模式获得最佳观赏", 
+		text: "推荐你以全屏模式观看网页", 
+		type: "warning",
+		showCancelButton: true, 
+		confirmButtonColor: "#DD6B55",
+		confirmButtonText: "进入全屏", 
+		cancelButtonText: "保持原样",
+		closeOnConfirm: false, 
+		closeOnCancel: false	
+		},
+    function launchFullscreen(element) {
+  if(element.requestFullscreen) {
+    element.requestFullscreen();
+  } else if(element.mozRequestFullScreen) {
+    element.mozRequestFullScreen();
+  } else if(element.webkitRequestFullscreen) {
+    element.webkitRequestFullscreen();
+  } else if(element.msRequestFullscreen) {
+    element.msRequestFullscreen();
+  }
+},
+		function(isConfirm){ 
+		if (isConfirm) { 
+			launchFullScreen(document.documentElement);
+		} else { 
+		} 
+    });
         // Change bg image
         previousImageId = currentImageId;
         currentImageId = $(e.target).data("linkid");
