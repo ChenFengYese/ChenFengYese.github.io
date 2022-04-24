@@ -81,8 +81,9 @@
             margin:1em;
             height:70vh;
         }
-
+    
     </style>
+    <script type="text/javascript" src="https://blog.huangwx.cn/js/sweetalert-dev.js"></script>
 </head>
 <body background="https://www.xn--kiv4f.top/img/photo-05.jpg" style=" background-repeat:no-repeat ;background-size:cover;">
 <div class="card">
@@ -98,6 +99,15 @@
 
 </body>
 <script type="text/javascript">
+    function IsPC(){
+     var userAgentInfo = navigator.userAgent;
+     var Agents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"];
+     var flag = true;
+     for (var v = 0; v < Agents.length; v++) {
+         if (userAgentInfo.indexOf(Agents[v]) > 0) { flag = false; break; }
+     }
+     return flag;
+  }
      document.querySelector('#file').onchange = function (){
       if(this.files.length) {
           let files = this.files;
@@ -119,12 +129,21 @@
       }
     };
      function listen(){
-         if(document.getElementsByTagName("img").length>0){
-             window.open("showimage.html")
-         }
-         else {
-             alert("图片数量为0，无法提交")
-         }
+            if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
+              swal("加载失败","当前手机端浏览器无法进行自定义设计，将为您跳转到默认样式链接，我们为您的糟糕体验感到很抱歉，在未来我们将不断进行优化以满足用户更多需求，感谢你的支持。")
+              window.location.href ="photo.html";
+            } else if (/(Android)/i.test(navigator.userAgent)) {
+            swal("加载失败","当前手机端浏览器无法进行自定义设计，将为您跳转到默认样式链接，我们为您的糟糕体验感到很抱歉，在未来我们将不断进行优化以满足用户更多需求，感谢你的支持。")
+              window.location.href ="photo.html";
+            } else {
+
+                     if(document.getElementsByTagName("img").length>0){
+                         window.open("showimage.html")
+                     }
+                     else {
+                         swal("提交失败","图片数量为0，无法提交")
+                     }
+            }
      }
      function remove(){
          const imgs = document.getElementsByTagName("img");
