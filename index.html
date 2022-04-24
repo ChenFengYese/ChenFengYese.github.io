@@ -351,16 +351,14 @@
 		confirmButtonColor: "#DD6B55",
 		confirmButtonText: "进入全屏", 
 		cancelButtonText: "保持原样",
-		closeOnConfirm: false, 
-		closeOnCancel: false	
+		closeOnConfirm: true, 
+		closeOnCancel: true	
 		},
 		function(isConfirm){ 
 		if (isConfirm) { 
 			launchFullscreen(document.documentElement);
 		} 
-		else{
-			swal("网页模式","已恢复网页模式");
-		}
+		else{}
     });
       function navLinkClick(e) {
         if ($(e.target).hasClass("external")) {
