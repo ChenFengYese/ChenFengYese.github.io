@@ -88,10 +88,11 @@
                     该新类型网站建设于2021年11月25日，具体代码可通过GitHub搜索ChenFengYeSe查看
                   </p>
                   <p class="mb-0">
-                    本类型网站用于个人测试以及学习，不用于任何其他用途
+                    本类型网站用于个人测试以及学习，不用于任何其他用途，开启全屏模式体验更佳
                   </p>
                 </div>
                 <a href="#" id="tm_about_link" data-linkid="1" class="tm-link">关于我</a>
+		<a href="#" class="tm-link" onclick="confirmFull()">开启全屏模式</a>
               </section>
 
               <!-- Section 1 About Me -->
@@ -420,7 +421,19 @@
 
         adjustFooter();
       }); // DOM is ready
-
+	function launchFullscreen(element) {
+			  if(element.requestFullscreen) {
+			    element.requestFullscreen();
+			  } else if(element.mozRequestFullScreen) {
+			    element.mozRequestFullScreen();
+			  } else if(element.webkitRequestFullscreen) {
+			    element.webkitRequestFullscreen();
+			  } else if(element.msRequestFullscreen) {
+			    element.msRequestFullscreen();
+			  }
+	}
+	    function confirmFull(){
+		    launchFullscreen(document.documentElement);}
       function adjustFooter() {
         const windowHeight = $(window).height();
         const topHeight = $(".tm-top-container").height();
