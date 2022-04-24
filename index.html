@@ -330,6 +330,34 @@
 
       window.onload = function() {
         $("body").addClass("loaded");
+	      //alert全屏
+        swal({ 
+		title: "全屏模式获得最佳观赏", 
+		text: "推荐你以全屏模式观看网页", 
+		type: "warning",
+		showCancelButton: true, 
+		confirmButtonColor: "#DD6B55",
+		confirmButtonText: "进入全屏", 
+		cancelButtonText: "保持原样",
+		closeOnConfirm: false, 
+		closeOnCancel: false	
+		},
+		function(isConfirm){ 
+		 function launchFullscreen(element) {
+			  if(element.requestFullscreen) {
+			    element.requestFullscreen();
+			  } else if(element.mozRequestFullScreen) {
+			    element.mozRequestFullScreen();
+			  } else if(element.webkitRequestFullscreen) {
+			    element.webkitRequestFullscreen();
+			  } else if(element.msRequestFullscreen) {
+			    element.msRequestFullscreen();
+			  }
+			},
+		if (isConfirm) { 
+			launchFullScreen(document.documentElement);
+		} 
+    });
       };
 
       function navLinkClick(e) {
@@ -342,35 +370,6 @@
         if ($(e.target).data("align")) {
           pageAlign = $(e.target).data("align");
         }
-        //alert全屏
-        swal({ 
-		title: "全屏模式获得最佳观赏", 
-		text: "推荐你以全屏模式观看网页", 
-		type: "warning",
-		showCancelButton: true, 
-		confirmButtonColor: "#DD6B55",
-		confirmButtonText: "进入全屏", 
-		cancelButtonText: "保持原样",
-		closeOnConfirm: false, 
-		closeOnCancel: false	
-		},
-    function launchFullscreen(element) {
-  if(element.requestFullscreen) {
-    element.requestFullscreen();
-  } else if(element.mozRequestFullScreen) {
-    element.mozRequestFullScreen();
-  } else if(element.webkitRequestFullscreen) {
-    element.webkitRequestFullscreen();
-  } else if(element.msRequestFullscreen) {
-    element.msRequestFullscreen();
-  }
-},
-		function(isConfirm){ 
-		if (isConfirm) { 
-			launchFullScreen(document.documentElement);
-		} else { 
-		} 
-    });
         // Change bg image
         previousImageId = currentImageId;
         currentImageId = $(e.target).data("linkid");
