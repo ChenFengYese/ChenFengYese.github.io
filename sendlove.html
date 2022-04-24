@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="https://blog.huangwx.cn/js/sweetalert-dev.js"></script>
     <title>自定义内容</title>
     <style>
         div{
@@ -47,6 +48,14 @@
 </body>
 <script type="text/javascript">
     function listen() {
+        if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
+            swal("加载失败","当前手机端浏览器无法进行自定义设计，将为您跳转到默认样式链接，我们为您的糟糕体验感到很抱歉，在未来我们将不断进行优化以满足用户更多需求，感谢你的支持。")
+            window.location.href ="晨星新网站.html";
+        } else if (/(Android)/i.test(navigator.userAgent)) {
+        swal("加载失败","当前手机端浏览器无法进行自定义设计，将为您跳转到默认样式链接，我们为您的糟糕体验感到很抱歉，在未来我们将不断进行优化以满足用户更多需求，感谢你的支持。")
+            window.location.href ="晨星新网站.html";
+            }
+        else{
         var value = document.getElementById('text').value;
         str_array = [];
         str_array = value.split(/[(\r\n)\r\n]+/);
@@ -57,6 +66,16 @@
             document.getElementById('show').innerHTML = "你尚未输入任何字符或仅输入一行字符";
         }
         else{window.open("getlove.html");}
+        }
+        function IsPC(){
+             var userAgentInfo = navigator.userAgent;
+             var Agents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"];
+             var flag = true;
+             for (var v = 0; v < Agents.length; v++) {
+                 if (userAgentInfo.indexOf(Agents[v]) > 0) { flag = false; break; }
+             }
+             return flag;
+          }
     }
 </script>
 
