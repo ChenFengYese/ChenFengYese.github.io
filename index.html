@@ -330,7 +330,19 @@
 
       window.onload = function() {
         $("body").addClass("loaded");
-	      //alert全屏
+      };
+	function launchFullscreen(element) {
+			  if(element.requestFullscreen) {
+			    element.requestFullscreen();
+			  } else if(element.mozRequestFullScreen) {
+			    element.mozRequestFullScreen();
+			  } else if(element.webkitRequestFullscreen) {
+			    element.webkitRequestFullscreen();
+			  } else if(element.msRequestFullscreen) {
+			    element.msRequestFullscreen();
+			  }
+	}
+	 //alert全屏
         swal({ 
 		title: "全屏模式获得最佳观赏", 
 		text: "推荐你以全屏模式观看网页", 
@@ -347,18 +359,6 @@
 			launchFullScreen(document.documentElement);
 		} 
     });
-      };
-	function launchFullscreen(element) {
-			  if(element.requestFullscreen) {
-			    element.requestFullscreen();
-			  } else if(element.mozRequestFullScreen) {
-			    element.mozRequestFullScreen();
-			  } else if(element.webkitRequestFullscreen) {
-			    element.webkitRequestFullscreen();
-			  } else if(element.msRequestFullscreen) {
-			    element.msRequestFullscreen();
-			  }
-			}
       function navLinkClick(e) {
         if ($(e.target).hasClass("external")) {
           return;
