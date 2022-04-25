@@ -1,18 +1,17 @@
 
-if(window.opener==='null' || window.opener.closed == false)
-{
-bless_name = prompt("请输入你的名字","魏涛");
-happy_name = prompt("请输入对方的名字","涛魏");
-greetings = prompt("请输入你想说的话","开开心心");
-userselect = ''
-}
-else
-{
+try{
 bless_name = window.opener.document.getElementById("contact_name").value;
 happy_name = window.opener.document.getElementById("contact_name2").value;
 greetings = window.opener.document.getElementById("contact_message").value;
 userselect = window.opener.document.getElementById("contact_info").value;
 }
+catch(error){
+  bless_name = prompt("请输入你的名字","魏涛");
+  happy_name = prompt("请输入对方的名字","涛魏");
+  greetings = prompt("请输入你想说的话","开开心心");
+  userselect = ''
+}
+  
 // var happy_name = document.getElementById("name2").value;
 // var greetings = document.getElementById("greetings").value;
 // var userselect = document.getElementById("userselect").value;
