@@ -91,7 +91,7 @@
                     本类型网站用于个人测试以及学习，不用于任何其他用途，开启全屏模式体验更佳
                   </p>
                 </div>
-		<a href="#" id="fullscreen" class="tm-link" onclick="confirmFull()">开启全屏模式</a>
+		<a href="javascript:void(0);" id="fullscreen" class="tm-link" onclick="confirmFull()">开启全屏模式</a>
                 <a href="#" id="tm_about_link" data-linkid="1" class="tm-link">关于我</a>
 
               </section>
@@ -451,8 +451,8 @@
 	    	    document.getElementById("fullscreen").innerHTML="关闭全屏模式";
 		}
 		else if(document.getElementById("fullscreen").innerHTML="关闭全屏模式"){
-		     exitFullscreen() 
 		     document.getElementById("fullscreen").innerHTML="开启全屏模式";
+		     exitFullscreen() 
 		}
 	}
       function adjustFooter() {
