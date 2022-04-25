@@ -133,36 +133,28 @@
     };
      function listen(){
             if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
-             swal({
-    title: "加载失败",
-    text: `当前手机端浏览器自定义设计尚未完善，您可以选择跳转到默认样式链接，我们为您的糟糕体验感到很抱歉，在未来我们将不断进行优化以满足用户更多需求，感谢你的支持。`,
-    type: "warning",
-    showCancelButton: true,
-    confirmButtonColor: "#4D9BFF",
-    cancelButtonText: "取消",
-    confirmButtonText: "跳转至默认链接",
-    closeOnConfirm: true,
-    timer: 200
-     }, function (isConfirm) {
-        if (isConfirm) {
-            window.open('showimage.html')}
-                else{window.open('photo.html')}
+              swal({
+              title: '加载失败',
+              text: "当前手机端浏览器无法进行自定义设计，将为您跳转到默认样式链接，我们为您的糟糕体验感到很抱歉，在未来我们将不断进行优化以满足用户更多需求，感谢你的支持。",
+              icon: 'warning',
+              showCancelButton: true,
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              confirmButtonText: '跳转至默认链接'
+            }).then((result) => {
+                window.open('happybirthday.html')
             });
             } else if (/(Android)/i.test(navigator.userAgent)) {
              swal({
-    title: "加载失败",
-    text: `当前手机端浏览器自定义设计尚未完善，您可以选择跳转到默认样式链接，我们为您的糟糕体验感到很抱歉，在未来我们将不断进行优化以满足用户更多需求，感谢你的支持。`,
-    type: "warning",
-    showCancelButton: true,
-    confirmButtonColor: "#4D9BFF",
-    cancelButtonText: "取消",
-    confirmButtonText: "跳转至默认链接",
-    closeOnConfirm: true,
-    timer: 200
-     }, function (isConfirm) {
-        if (isConfirm) {
-           window.open('photo.html')}
-                else{}
+              title: '加载失败',
+              text: "当前手机端浏览器无法进行自定义设计，将为您跳转到默认样式链接，我们为您的糟糕体验感到很抱歉，在未来我们将不断进行优化以满足用户更多需求，感谢你的支持。",
+              icon: 'warning',
+              showCancelButton: true,
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              confirmButtonText: '跳转至默认链接'
+            }).then((result) => {
+                window.open('happybirthday.html')
             });
             } else {
 
