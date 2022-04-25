@@ -433,10 +433,28 @@
 			    element.msRequestFullscreen();
 			  }
 	}
-	    function confirmFull(){
+	function exitFullscreen() {
+    if (document.exitFullscreen) {
+        document.exitFullscreen();
+    } else if (document.msExitFullscreen) {
+        document.msExitFullscreen();
+    } else if (document.mozCancelFullScreen) {
+        document.mozCancelFullScreen();
+    } else if (document.webkitExitFullscreen) {
+        document.webkitExitFullscreen();
+    }
+}
 
+	    function confirmFull(){
+		if(document.getElementById("fullscreen").innerHTML="开启全屏模式"){
 		    launchFullscreen(document.documentElement);
-	    	    document.getElementById("fullscreen").innerHTML="关闭全屏模式";}
+	    	    document.getElementById("fullscreen").innerHTML="关闭全屏模式";
+		}
+		else if(document.getElementById("fullscreen").innerHTML="关闭全屏模式"){
+		     exitFullscreen() 
+		     document.getElementById("fullscreen").innerHTML="开启全屏模式";
+		}
+	}
       function adjustFooter() {
         const windowHeight = $(window).height();
         const topHeight = $(".tm-top-container").height();
