@@ -5,6 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Title</title>
     <style>
+        video{
+
+          position: fixed;
+
+          right:0;
+
+          bottom: 0;
+
+          min-width: 100%;
+
+          min-height: 100%;
+
+          width: auto;
+
+          height: auto;
+
+          z-index: -9999;}
         #img{
             height:20%;
             width:20%;
@@ -88,7 +105,10 @@
 <link rel="stylesheet" type="text/css" href="https://blog.huangwx.cn/css/sweetalert.css">
     <script type="text/javascript" src="https://blog.huangwx.cn/js/sweetalert-dev.js"></script>
 </head>
-<body background="https://www.xn--kiv4f.top/img/photo-05.jpg" style=" background-repeat:no-repeat ;background-size:cover;">
+<body>
+       <video id="v1" autoplay muted loop style="width: 100%">
+    <source  src="mp4/02.mp4">
+</video>
 <div class="card">
 <input type="file" id="file" multiple="multiple" class="file"/>
   <div id="d1">
