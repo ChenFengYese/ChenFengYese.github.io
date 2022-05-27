@@ -34,7 +34,7 @@
             outline: none;
         }
         #d1{
-            filter:alpha(Opacity=70);
+            filter:alpha(Opacity=50);
             /*垂直居中 */
             vertical-align: middle;
             /*水平居中*/
@@ -42,11 +42,11 @@
         }
         .card{
               position: relative;
-              box-shadow: 20px 20px 50px rgba(17, 70, 113, 0.3);
+              box-shadow: 20px 20px 50px rgba(17, 70, 113, 0.08);
               overflow: hidden;
               border-radius: 25px;
-              border-top: 1px solid rgba(63, 9, 9, 0.2);
-              border-left: 1px solid rgba(56, 2, 2, 0.2);
+              border-top: 1px solid rgba(63, 9, 9, 0.1);
+              border-left: 1px solid rgba(56, 2, 2, 0.1);
               padding: 2em;
               transform-style: preserve-3d;
               perspective: 1000px;
@@ -73,10 +73,10 @@
               color: black;
               font-family: inherit;
               font-size: 120%;
-              background: rgba(85, 144, 173, 0.24);
+              background: rgba(85, 144, 173, 0.08);
               transform: translateZ(30px);
-              border-top: 1px solid rgba(176, 151, 151, 0.8);
-              border-left: 1px solid rgba(255, 255, 255, 0.8);
+              border-top: 1px solid rgba(176, 151, 151, 0.1);
+              border-left: 1px solid rgba(255, 255, 255, 0.1);
               backdrop-filter: blur(3px);
         }
         input#submit,#remove{
@@ -85,7 +85,7 @@
           font-size:1.0em;
           height:2.7em;
           border-radius:4px;
-          border:1px solid rgba(165, 0, 173, 0.12);
+          border:1px solid rgba(165, 0, 173, 0.05);
           color: #126d99;
           -web-kit-appearance:none;
           -moz-appearance: none;
@@ -109,6 +109,7 @@
        <video id="v1" autoplay muted loop style="width: 100%">
     <source  src="mp4/02.mp4">
 </video>
+    <audio size="20mm" autoplay="autoplay" controls="controls" src="music/getimage.mp3" loop="loop" preload="auto" style="display:none" __idm_id__="186384385"></audio>
 <div class="card">
 <input type="file" id="file" multiple="multiple" class="file"/>
   <div id="d1">
