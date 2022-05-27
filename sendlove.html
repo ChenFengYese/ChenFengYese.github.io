@@ -68,8 +68,8 @@
         <textarea name="saythis" rows="35" cols="120" id="text" placeholder="这里填写" style="background-color:rgba(255,255,255,0.1);border-style:none;outline:none"></textarea></label>
     <br/><br/>
     <label><input type="submit" name="submit" id="submit" value="提交" onclick="listen()" style="width:40px;height:30px" ></label>
-    &emsp&emsp&emsp&emsp
-    <label><input type="submit" name="submit" id="fullscreen" value="开启全屏模式" onclick="confirmFull()" style="width:40px;height:30px" ></label>
+                            
+    <label><input type="submit" name="submit" id="fullscreen" value="全屏" onclick="confirmFull()" style="width:40px;height:30px" ></label>
         </div>
     <br/>
     <div id="show">最多允许输入23行字符，且最后一行为粉红色字体</div>
@@ -148,12 +148,12 @@
 }
 
 	    function confirmFull(){
-		if(document.getElementById("fullscreen").innerHTML==="开启全屏模式"){
+		if(document.getElementById("fullscreen").value==="开启全屏模式"){
 		    launchFullscreen(document.documentElement);
-	    	    document.getElementById("fullscreen").innerHTML="关闭全屏模式";
+	    	    document.getElementById("fullscreen").value="关闭全屏模式";
 		}
-		else if(document.getElementById("fullscreen").innerHTML==="关闭全屏模式"){
-		     document.getElementById("fullscreen").innerHTML="开启全屏模式";
+		else if(document.getElementById("fullscreen").value==="关闭全屏模式"){
+		     document.getElementById("fullscreen").value="开启全屏模式";
 		     exitFullscreen() 
 		}
 	}
