@@ -42,7 +42,9 @@
           const choice = document.getElementById("choice");
           const index = choice.selectedIndex;
 	      try{
-          const value = choice.options[index].value;}
+          const value = choice.options[index].value;
+	  mv.play(value.target.result);
+	      }
 	      catch(e){
 			swal({
 			  title: "出错了",
@@ -51,10 +53,13 @@
 			  buttons: true,
 			  dangerMode: true,
 			});
+		      alert("提交失败"+e);
 		      console.log(e);
 	      }
-          mv.play(value.target.result);
+	      finally{
+          alert("结束");
           window.close();
+	      }
       }
   </script>
   <body>
