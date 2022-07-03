@@ -12,8 +12,7 @@
   </head>
       <script type="text/javascript" src="scripts/MusicVisualizer.js"></script>
       <script type="text/javascript" src="scripts/index.js"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <script type="text/javascript">
+      <script type="text/javascript">
        var mv = new Musicvisualizer({
             size:size,
             draw:draw
@@ -41,25 +40,22 @@
       function post() {
           const choice = document.getElementById("choice");
           const index = choice.selectedIndex;
-	      try{
-          const value = choice.options[index].value;
-	  mv.play(value.target.result);
-	      }
-	      catch(e){
-			swal({
-			  title: "出错了",
-			  text: "提交失败，请前往控制台查看原因",
-			  icon: "warning",
-			  buttons: true,
-			  dangerMode: true,
-			});
-		      alert("提交失败"+e);
-		      console.log(e);
-	      }
-	      finally{
-          alert("结束");
-          window.close();
-	      }
+	  try{
+		  const value = choice.options[index].value;
+		  var fr = new FileReader();
+		  var filename = value.name;
+		  fr.onload = function(e){
+			// 重写play方法  这边e.target.result已经是arraybuffer对象类型，不再是ajax路径读入
+			mv.play(e.target.result);}
+		  fr.readAsArrayBuffer(value);
+		}
+	catch(e){
+		 alert("提交失败"+e);
+		 console.log(e);
+		  }
+	finally{
+		 window.close();
+		}
       }
   </script>
   <body>
