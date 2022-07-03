@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>音乐选择</title>
+      <style type="text/css">
+          body{
+              font-size:25px;
+              position:center;
+          }
+      </style>
+  </head>
+  <script type="text/javascript">
+      function play() {
+          var audio = document.getElementById('music');
+          var src = audio.src;
+          var str;
+          if (audio.paused) {
+              audio.play();
+              str = src.split('//');
+              document.getElementById('musicImg').innerHTML = "正在播放" + str[str.length - 1];
+          } else {
+              audio.pause();
+              audio.currentTime = 0;//音乐从头播放
+              document.getElementById('musicImg').innerHTML = "已停止";
+          }
+      }
+      function select(srcs) {
+          const audio = document.getElementById('music');
+          audio.src = srcs;
+          play();
+      }
+      function post() {
+          const choice = document.getElementById("choice");
+          const index = choice.selectedIndex;
+          window.opener.document.getElementById("test").innerHTML = choice.options[index].value;
+          window.close();
+      }
+  </script>
+  <body>
+<audio size="20mm" autoplay="autoplay" src="music/back.mp3" loop="loop" preload="auto" id="music"></audio>
+  <span id="musicImg">点击试听音乐</span><br>
+	   <a href="javascript:select('music//back.mp3')">rubia</a><br>
+	   <a href="javascript:select('music//miss.mp3')">千与千寻</a><br>
+	   <a href="javascript:select('music//secret.mp3')">secret base</a><br>
+	   <a href="javascript:select('music//you.mp3')">you</a><br>
+	   <a href="javascript:select('music//Beauty.mp3')">雪山</a><br>
+	   <a href="javascript:select('music//backgroundmusic.mp3')">鹤观</a><br>
+	   <a href="javascript:select('music//getimage.mp3')">申鹤</a><br>
+	   <a href="javascript:select('music//love.mp3')">love</a><br>
+	   <a href="javascript:select('music//sendlove.mp3')">绀田村</a><br>
+	   <a href="javascript:select('music//sky.mp3')">memory</a><br>
+	   <a href="javascript:select('music//sanye.mp3')">三叶主题曲</a><br>
+<label for="choice"></label>
+<select id="choice" >
+  <option style="font-size: 20px;" value="music//back.mp3" selected>rubia</option>
+     <option style="font-size: 20px;" value="music//miss.mp3">千与千寻 </option>
+     <option style="font-size: 20px;" value="music//secret.mp3">secret base </option>
+     <option style="font-size: 20px;" value="music//you.mp3">you </option>
+    <option style="font-size: 20px;" value="music//Beauty.mp3" selected>雪山</option>
+     <option style="font-size: 20px;" value="music//backgroundmusic.mp3">鹤观</option>
+     <option style="font-size: 20px;" value="music//getimage.mp3">申鹤</option>
+     <option style="font-size: 20px;" value="music//love.mp3">love</option>
+    <option style="font-size: 20px;" value="music//sendlove.mp3" selected>绀田村</option>
+     <option style="font-size: 20px;" value="music//sky.mp3">memory</option>
+     <option style="font-size: 20px;" value="music//sanye.mp3">三叶主题曲</option>
+  </select>
+  <button id="post" onclick="post()">提交</button>
+</body>
+
+</html>
