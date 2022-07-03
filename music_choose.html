@@ -63,7 +63,7 @@
 		  reader.onload = function(e){
 			// 重写play方法  这边e.target.result已经是arraybuffer对象类型，不再是ajax路径读入
 			mv.play(e.result);}
-		  fr.readAsArrayBuffer(blob);
+		  reader.readAsArrayBuffer(blob);
 		}
 	catch(e){
 		 alert("提交失败"+e);
