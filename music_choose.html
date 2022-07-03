@@ -37,17 +37,33 @@
           audio.src = srcs;
           play();
       }
+      function urltoblob(value){
+		      var xhr = new XMLHttpRequest();
+		//配置请求方式、请求地址以及是否同步
+		xhr.open('POST', value, true);
+		//设置请求结果类型为blob
+		xhr.responseType = 'blob';
+		//请求成功回调函数
+		xhr.onload = function(e) {
+		    if (this.status == 200) {//请求成功
+			 if (callback) {
+                callback(this.response);
+            }
+		    }
+		};
+		xhr.send()
+	      }
       function post() {
           const choice = document.getElementById("choice");
           const index = choice.selectedIndex;
 	  try{
 		  const value = choice.options[index].value;
-		  var fr = new FileReader();
-		  var filename = value.name;
-		  fr.onload = function(e){
+		  var blob = urltoblob(value);
+		var reader = new FileReader()
+		  reader.onload = function(e){
 			// 重写play方法  这边e.target.result已经是arraybuffer对象类型，不再是ajax路径读入
-			mv.play(e.target.result);}
-		  fr.readAsArrayBuffer(value);
+			mv.play(e.result);}
+		  fr.readAsArrayBuffer(blob);
 		}
 	catch(e){
 		 alert("提交失败"+e);
