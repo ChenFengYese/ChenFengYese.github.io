@@ -72,6 +72,18 @@ header button#add{
 	border-width:0px;	/*边框透明*/
 	outline:none;	/*点击后没边框*/
 }
+header button#fullscreen{
+	display: block;
+	color: white;
+	margin: 10px auto;
+	height: 50px;
+	font-size: 30px;
+	border-radius: 5px;
+	padding: 0 5px;
+	background:transparent;	/*按钮背景透明*/
+	border-width:0px;	/*边框透明*/
+	outline:none;	/*点击后没边框*/
+}
 header input#loadfile{
 	display: none;
 }
@@ -129,6 +141,11 @@ ul.type li{
 		line-height: 34px;
 	}
 	header button#add{
+		font-size: 20px;
+		height: 25px;
+		width: 40%;
+	}
+	header button#fullscreen{
 		font-size: 20px;
 		height: 25px;
 		width: 40%;
