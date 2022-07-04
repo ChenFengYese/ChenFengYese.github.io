@@ -89,7 +89,7 @@ function base64ToUint8Array(base64String) {
        }
        return outputArray;
 }
-function reader(url){
+function reader(url,callback){
     const script = document.createElement('script');
     script.type='text/javascript';
     script.async='async';
@@ -116,7 +116,6 @@ function reader(url){
               console.log(base);
               const buf = base64ToUint8Array(base);
               mv.play(buf);
-
           });
 	 }catch(e)
 	 {alert("错误"+e);}
