@@ -12,6 +12,7 @@
   </head>
       <script type="text/javascript" src="scripts/MusicVisualizer.js"></script>
       <script type="text/javascript" src="scripts/index.js"></script>
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
       <script type="text/javascript">
        var mv = new Musicvisualizer({
             size:size,
@@ -37,41 +38,88 @@
           audio.src = srcs;
           play();
       }
-      function urltoblob(value){
-		      var xhr = new XMLHttpRequest();
-		//配置请求方式、请求地址以及是否同步
-		xhr.open('POST', value, true);
-		//设置请求结果类型为blob
-		xhr.responseType = 'blob';
-		//请求成功回调函数
-		xhr.onload = function(e) {
-		    if (this.status == 200) {//请求成功
-			 if (callback) {
-                callback(this.response);
-            	     }
-		};
-		xhr.send()
-	      }
-      }
-      function post() {
+//       function urltoblob(value){
+// 		      var xhr = new XMLHttpRequest();
+// 		//配置请求方式、请求地址以及是否同步
+// 		xhr.open('POST', value, true);
+// 		//设置请求结果类型为blob
+// 		xhr.responseType = 'blob';
+// 		//请求成功回调函数
+// 		xhr.onload = function(e) {
+// 		    if (this.status == 200) {//请求成功
+// 			 if (callback) {
+//                 callback(this.response);
+//             	     }
+// 		};
+// 		xhr.send()
+// 	      }
+//       }
+//       function post() {
+//           const choice = document.getElementById("choice");
+//           const index = choice.selectedIndex;
+// 	  try{
+// 		  const value = choice.options[index].value;
+// 		  var blob = urltoblob(value);
+// 		var reader = new FileReader()
+// 		  reader.onload = function(e){
+// 			// 重写play方法  这边e.target.result已经是arraybuffer对象类型，不再是ajax路径读入
+// 			mv.play(e.result);}
+// 		  reader.readAsArrayBuffer(blob);
+// 		}
+// 	catch(e){
+// 		 alert("提交失败"+e);
+// 		 console.log(e);
+// 		  }
+// 	finally{
+// 		 window.close();
+// 		}
+//       }
+function base64ToUint8Array(base64String) {
+　　　　const padding = '='.repeat((4 - base64String.length % 4) % 4);
+       const base64 = (base64String + padding)
+                    .replace(/\-/g, '+')
+                    .replace(/_/g, '/');
+
+       const rawData = window.atob(base64);
+       const outputArray = new Uint8Array(rawData.length);
+
+       for (let i = 0; i < rawData.length; ++i) {
+            outputArray[i] = rawData.charCodeAt(i);
+       }
+       return outputArray;
+}
+function reader(url){
+    const script = document.createElement('script');
+    script.type='text/javascript';
+    script.async='async';
+　　script.src=url;
+    document.body.appendChild(script);
+    if(script.readyState){   //IE
+　　　　　　script.onreadystatechange=function(){
+　　　　　　　　if(script.readyState==='complete'||script.readyState==='loaded'){
+　　　　　　　　　　script.onreadystatechange=null;
+　　　　　　　　　　callback();
+　　　　　　　　}
+　　　　　　}
+　　　　}else{    //非IE
+　　　　　　script.onload=function(){callback();}
+　　　　}
+}
+ function post() {
           const choice = document.getElementById("choice");
           const index = choice.selectedIndex;
-	  try{
-		  const value = choice.options[index].value;
-		  var blob = urltoblob(value);
-		var reader = new FileReader()
-		  reader.onload = function(e){
-			// 重写play方法  这边e.target.result已经是arraybuffer对象类型，不再是ajax路径读入
-			mv.play(e.result);}
-		  reader.readAsArrayBuffer(blob);
-		}
-	catch(e){
-		 alert("提交失败"+e);
-		 console.log(e);
-		  }
-	finally{
-		 window.close();
-		}
+          const value = choice.options[index].value;
+	 try{
+          reader(value,function(){
+              const base = base;
+              console.log(base);
+              const buf = base64ToUint8Array(base);
+              mv.play(buf);
+
+          });
+	 }catch(e)
+	 {alert("错误"+e);}
+	 finally{              window.close();}
       }
   </script>
   <body>
@@ -90,17 +138,18 @@
 	   <a href="javascript:select('music//sanye.mp3')">三叶主题曲</a><br>
 <label for="choice"></label>
 <select id="choice" >
-  <option style="font-size: 20px;" value="music//back.mp3" selected>rubia</option>
-     <option style="font-size: 20px;" value="music//miss.mp3">千与千寻 </option>
-     <option style="font-size: 20px;" value="music//secret.mp3">secret base </option>
-     <option style="font-size: 20px;" value="music//you.mp3">you </option>
-    <option style="font-size: 20px;" value="music//Beauty.mp3" selected>雪山</option>
-     <option style="font-size: 20px;" value="music//backgroundmusic.mp3">鹤观</option>
-     <option style="font-size: 20px;" value="music//getimage.mp3">申鹤</option>
-     <option style="font-size: 20px;" value="music//love.mp3">love</option>
-    <option style="font-size: 20px;" value="music//sendlove.mp3" selected>绀田村</option>
-     <option style="font-size: 20px;" value="music//sky.mp3">memory</option>
-     <option style="font-size: 20px;" value="music//sanye.mp3">三叶主题曲</option>
+    <option style="font-size: 20px;" value=base64//rubia.js selected>rubia</option>
+     <option style="font-size: 20px;" value=base64//千与千寻.js>千与千寻 </option>
+     <option style="font-size: 20px;" value=base64//secretbase.js>secret base </option>
+     <option style="font-size: 20px;" value=base64//you.js>you </option>
+    <option style="font-size: 20px;" value=base64//雪山.js>雪山</option>
+     <option style="font-size: 20px;" value=base64//鹤观.js>鹤观</option>
+     <option style="font-size: 20px;" value=base64//申鹤.js>申鹤</option>
+     <option style="font-size: 20px;" value=base64//love.js>love</option>
+    <option style="font-size: 20px;" value=base64//绀田村.js>绀田村</option>
+     <option style="font-size: 20px;" value=base64//绀memory.js>memory</option>
+     <option style="font-size: 20px;" value=base64//三叶主题曲.js>三叶主题曲</option>
+<option style="font-size: 20px;" value=base64//海岛.js>海岛</option>
   </select>
   <button id="post" onclick="post()">提交</button>
 </body>
