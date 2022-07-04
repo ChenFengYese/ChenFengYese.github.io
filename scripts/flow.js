@@ -19,7 +19,7 @@ window.onload = function(){
 	
 	//finally some mouse tracking
 	canvas.addEventListener('mousemove', track_mouse, false);
-	
+	canvas.addEventListener('touchmove', track_touch, false);
 	function track_mouse(e)
 	{
 		//since the canvas = full page the position of the mouse 
@@ -27,7 +27,10 @@ window.onload = function(){
 		mouse.x = e.pageX;
 		mouse.y = e.pageY;
 	}
-	
+	function track_touch(e) {
+	    mouse.x = e.touches[0].clientX;
+	    mouse.y = e.touches[0].clientY;
+	}
 	function particle()
 	{
 		//speed, life, location, life, colors
