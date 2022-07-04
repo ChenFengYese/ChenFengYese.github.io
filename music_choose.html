@@ -112,7 +112,7 @@ function reader(url,callback){
           const value = choice.options[index].value;
 	 try{
           reader(value,function(){
-              const base = base;
+              const base = window.base;
               console.log(base);
               const buf = base64ToUint8Array(base);
               mv.play(buf);
