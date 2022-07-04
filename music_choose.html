@@ -47,9 +47,11 @@
 		xhr.onload = function(e) {
 		    if (this.status == 200) {//请求成功
 			 if (callback) {
+		alert("请求成功");
                 callback(this.response);
-            }
-		    }
+            	     }   else{
+		alert("请求失败或已结束");
+		     }
 		};
 		xhr.send()
 	      }
