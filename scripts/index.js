@@ -21,17 +21,6 @@ var mv = new Musicvisualizer({
 	draw:draw
 });
 
-// 歌曲点击切换
-// for(var i=0;i<list.length;i++){
-// 	list[i].onclick = function(){
-// 		for(var j=0;j<list.length;j++){
-// 			list[j].className = "";
-// 		}
-// 		this.className = "selected";
-// 		mv.play("/media/"+this.title);
-// 		// load("/media/"+this.title);
-// 	};
-// }
 
 // 切换可视化效果类型
 var typeli = $(".type li");
@@ -45,6 +34,38 @@ for(var i=0;i<typeli.length;i++){
 	}
 }
 
+
+function base64ToUint8Array(base64String) {
+　　　　const padding = '='.repeat((4 - base64String.length % 4) % 4);
+       const base64 = (base64String + padding)
+                    .replace(/\-/g, '+')
+                    .replace(/_/g, '/');
+
+       const rawData = window.atob(base64);
+       const outputArray = new Uint8Array(rawData.length);
+
+       for (let i = 0; i < rawData.length; ++i) {
+            outputArray[i] = rawData.charCodeAt(i);
+       }
+       return outputArray;
+}
+function reader(url,callback) {
+    const script = document.createElement('script');
+    script.type='text/javascript';
+    script.async='async';
+　　script.src=url;
+    document.body.appendChild(script);
+    if(script.readyState){   //IE
+　　　　　　script.onreadystatechange=function(){
+　　　　　　　　if(script.readyState==='complete'||script.readyState==='loaded'){
+　　　　　　　　　　script.onreadystatechange=null;
+　　　　　　　　　　callback();
+　　　　　　　　}
+　　　　　　}
+　　　　}else{    //非IE
+　　　　　　script.onload=function(){callback();}
+　　　　}
+}
 
 
 function getRandom(m,n){
@@ -135,21 +156,46 @@ function draw(arr){
 draw.type = "column";//默认显示效果类型
 
 $("#add")[0].onclick = function(){
-	swal({
-  title: "",
-  text: "选择本地音乐播放或者网络音乐播放",
-  icon: "warning",
-	buttons: ["网络音乐选择","本地音乐播放"],
-  // buttons: true,
-  dangerMode: true,
-})
-.then((local) => {
-  if (local) {
-    	$("#loadfile")[0].click();
-  } else {
-    openWin('music_choose.html');
-  }
-});
+judgement = document.getElementById("add").innerHTML;
+	if(judgement==="Load Music"){
+		swal({
+			  title: "",
+			  text: "选择本地音乐播放或者网络音乐播放",
+			  icon: "warning",
+				buttons: ["网络音乐选择","本地音乐播放"],
+			  dangerMode: true,
+			})
+			.then((local) => {
+			  if (local) {
+					$("#loadfile")[0].click();
+			  } else {
+				openWin('music_choose.html');
+			  }
+			});
+	}
+	else{
+		swal({
+			  title: "",
+			  text: judgement+"，是否重新选择?",
+			  icon: "warning",
+				buttons: ["播放","重新选择"],
+			  dangerMode: true,
+			})
+			.then((local) => {
+				if (local) {
+					document.getElementById("add").innerHTML = "Load Music";
+					$("#add")[0].click();
+				} else {
+
+					const value = document.getElementById("address").href;
+					reader(value, function () {
+						const base = window.base;
+						const buf = base64ToUint8Array(base);
+						mv.play(buf);
+					});
+			}
+			});
+	}
 }
 function openWin(url)
 			 {
