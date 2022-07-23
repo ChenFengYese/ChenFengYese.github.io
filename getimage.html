@@ -125,6 +125,12 @@
 
 </body>
 <script type="text/javascript">
+    var judgepc = window.opener.document.getElementById("pc").value;
+	if(judgepc === "nopc")
+	{ 
+		document.getElementById("v1").src = "";
+		document.getElementById("v1").style.display = "none";
+	}
     function IsPC(){
      var userAgentInfo = navigator.userAgent;
      var Agents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"];
