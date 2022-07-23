@@ -78,6 +78,12 @@
     <!--soft回车不会提交，hard回车会提交-->
 </body>
 <script type="text/javascript">
+	var judgepc = window.opener.document.getElementById("pc").value;
+	if(judgepc === "nopc")
+	{ 
+		document.getElementById("v1").src = "";
+		document.getElementById("v1").style.display = "none";
+	}
     function listen() {
         if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
             swal({
