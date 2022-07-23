@@ -28,6 +28,7 @@
 
   <body>
     <audio size="20mm" autoplay="autoplay" controls="controls" src="music/backgroundmusic.mp3" loop="loop" preload="auto" style="display:none"></audio>
+	  <p id="pc" hidden="hidden">ispc</p>
     <!-- Loader -->
     <div id="loader-wrapper">
       <div id="loader"></div>
@@ -127,7 +128,7 @@
                         <span style="color:#f028ff">倾心的告白</span>
                       </h2>
                       <p>words for love</p>
-                      <a href="https://xn--kiv4f.top/sendlove.html">words for love</a>
+                      <a href="javascript:JudgePC('sendlove.html')">words for love</a>
                     </figcaption>
                   </figure>
                   
@@ -150,7 +151,7 @@
                         <span style="color:#0febff">纪念的图片</span>
                       </h2>
                       <p>remember these.remember me.</p>
-                      <a rel="nofollow" href="https://xn--kiv4f.top/getimage.html">remember me</a>
+                      <a rel="nofollow" href="javascript:JudgePC('sgetimage.html')">remember me</a>
                     </figcaption>
                   </figure>
 		<figure class="effect-goliath tm-gallery-item">
@@ -482,6 +483,23 @@
         //   }
         // });
       }
+function IsPC(){ 
+	 var userAgentInfo = navigator.userAgent; 
+	 var Agents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"]; 
+	 var flag = true; 
+	 for (var v = 0; v < Agents.length; v++) { 
+	 if (userAgentInfo.indexOf(Agents[v]) > 0) { flag = false; break; } 
+	 } 
+	 return flag; 
+	 }    
+function JudgePC(url) { 
+ if (/(Android)/i.test(navigator.userAgent)) { 
+	 document.getElementById("pc").value = "nopc";
+	 window.open(url);
+}else{
+document.getElementById("pc").value = "ispc";
+	window.open(url);
+}
     </script>
   </body>
 </html>
