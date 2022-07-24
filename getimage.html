@@ -125,6 +125,7 @@
 
 </body>
 <script type="text/javascript">
+	try{
     var judgepc = window.opener.document.getElementById("pc").value;
 	if(judgepc === "nopc")
 	{ 
@@ -137,6 +138,13 @@
 		document.getElementById("v1").src="mp4/02.mp4";
 		document.getElementById("v1").style="width: 100%;object-fit:fill";
 	}
+	}
+	catch(e)
+	{console.log(e);
+		document.getElementById("v1").src="mp4/02.mp4";
+		document.getElementById("v1").style="width: 100%;object-fit:fill";
+		}
+	
     function IsPC(){
      var userAgentInfo = navigator.userAgent;
      var Agents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"];
