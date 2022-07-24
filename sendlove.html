@@ -78,6 +78,7 @@
     <!--soft回车不会提交，hard回车会提交-->
 </body>
 <script type="text/javascript">
+	try{
 	var judgepc = window.opener.document.getElementById("pc").value;
 	if(judgepc === "nopc")
 	{ 
@@ -86,6 +87,12 @@
 	}
 	else
 	{
+		document.getElementById("v1").src="mp4/01.mp4";
+		document.getElementById("v1").style="width: 100%;object-fit:fill";
+	}
+	}
+	catch(e){
+		console.log(e);
 		document.getElementById("v1").src="mp4/01.mp4";
 		document.getElementById("v1").style="width: 100%;object-fit:fill";
 	}
