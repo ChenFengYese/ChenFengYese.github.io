@@ -9,6 +9,7 @@
     <script type="text/javascript" src="https://blog.huangwx.cn/js/sweetalert-dev.js"></script>
     <title>自定义内容</title>
     <style>
+	    html,body,div{height:100%;}
         div{
             filter:alpha(Opacity=70);
             /*垂直居中 */
@@ -69,14 +70,14 @@
     <audio size="20mm" autoplay="autoplay" src="music/sendlove.mp3" loop="loop" preload="auto"></audio>
 <div>
     <label>
-        <textarea name="saythis" id="text" placeholder="这里填写" style="width:80%;height:expression((this.scrollHeight>150)?'150px':(this.scrollHeight+5)+'px');overflow:auto;background-color:rgba(255,255,255,0.1);border-style:none;outline:none"></textarea></label>
+        <textarea name="saythis" id="text" placeholder="这里填写" style="width:80%;height:90%;overflow:auto;background-color:rgba(255,255,255,0.1);border-style:none;outline:none"></textarea></label>
     <br/><br/><br/><br/>
     <label><input type="submit" name="submit" id="submit" value="提交" onclick="listen()" style="width:40px;height:30px" ></label>
                   &nbsp &nbsp&nbsp&nbsp&nbsp&nbsp  &nbsp       
     <label><input type="submit" name="submit" id="fullscreen" value="开启全屏" onclick="confirmFull()" style="width:60px;height:30px" ></label>
-        </div>
     <br/><br/>
-    <div id="show">最多允许输入23行字符，且最后一行为粉红色字体</div>
+    <span id="show">最多允许输入23行字符，且最后一行为粉红色字体</span>
+</div>
     <!--soft回车不会提交，hard回车会提交-->
 </body>
 <script type="text/javascript">
