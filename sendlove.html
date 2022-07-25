@@ -78,29 +78,28 @@
     <!--soft回车不会提交，hard回车会提交-->
 </body>
 <script type="text/javascript">
-	try{
-	var judgepc = window.opener.document.getElementById("pc").value;
-	if(judgepc === "nopc")
-	{ 
+	function IsPC(){
+             var userAgentInfo = navigator.userAgent;
+             var Agents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"];
+             var flag = true;
+             for (var v = 0; v < Agents.length; v++) {
+                 if (userAgentInfo.indexOf(Agents[v]) > 0) { flag = false; break; }
+             }
+             return flag;
+          }
+	if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)){ 
+		document.getElementById("v1").src = "";
 		document.getElementById("v1").style.display = "none";
-		document.body.style =  "background-image:url(img/sendlove.jpg);background-repeat:no-repeat;background-size:100% 100%;background-attachment: fixed;";
-	}
-	else
-	{
-		document.getElementById("v1").src="mp4/01.mp4";
-		document.getElementById("v1").style="width: 100%;object-fit:fill";
-	}
-	}
-	catch(e){
-		console.log(e);
+		document.body.style =  "background-image:url(img/sendlove.jpg);background-repeat:no-repeat ;background-size:100% 100%;background-attachment: fixed;";
+	}else{
 		document.getElementById("v1").src="mp4/01.mp4";
 		document.getElementById("v1").style="width: 100%;object-fit:fill";
 	}
     function listen() {
-        if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
+        if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)) {
             swal({
               title: '加载失败',
-              text: "当前手机端浏览器无法进行自定义设计，将为您跳转到默认样式链接，我们为您的糟糕体验感到很抱歉，在未来我们将不断进行优化以满足用户更多需求，感谢你的支持。",
+              text: "当前移动端浏览器无法进行自定义设计，将为您跳转到默认样式链接，我们为您的糟糕体验感到很抱歉，在未来我们将不断进行优化以满足用户更多需求，感谢你的支持。",
               icon: 'warning',
               showCancelButton: true,
               confirmButtonColor: '#3085d6',
@@ -109,20 +108,7 @@
             }).then((result) => {
                 window.open('晨星新网站.html')
             });
-        } else if (/(Android)/i.test(navigator.userAgent)) {
-            swal({
-              title: '加载失败',
-              text: "当前手机端浏览器无法进行自定义设计，将为您跳转到默认样式链接，我们为您的糟糕体验感到很抱歉，在未来我们将不断进行优化以满足用户更多需求，感谢你的支持。",
-              icon: 'warning',
-              showCancelButton: true,
-              confirmButtonColor: '#3085d6',
-              cancelButtonColor: '#d33',
-              confirmButtonText: '跳转至默认链接'
-            }).then((result) => {
-                window.open('晨星新网站.html')
-            });
-            }
-        else{
+        }else{
         var value = document.getElementById('text').value;
         str_array = [];
         str_array = value.split(/[(\r\n)\r\n]+/);
@@ -134,15 +120,6 @@
         }
         else{window.open("getlove.html");}
         }
-        function IsPC(){
-             var userAgentInfo = navigator.userAgent;
-             var Agents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"];
-             var flag = true;
-             for (var v = 0; v < Agents.length; v++) {
-                 if (userAgentInfo.indexOf(Agents[v]) > 0) { flag = false; break; }
-             }
-             return flag;
-          }
     }
 	function launchFullscreen(element) {
 			  if(element.requestFullscreen) {
@@ -167,7 +144,7 @@
     }
 }
 
-	    function confirmFull(){
+function confirmFull(){
 		if(document.getElementById("fullscreen").value==="开启全屏"){
 		    launchFullscreen(document.documentElement);
 	    	    document.getElementById("fullscreen").value="关闭全屏";
