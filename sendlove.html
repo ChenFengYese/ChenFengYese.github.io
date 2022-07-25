@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
   
 <link rel="stylesheet" type="text/css" href="https://blog.huangwx.cn/css/sweetalert.css">
 	    <script type="text/javascript" src="scripts/click.js"></script>
@@ -15,6 +15,8 @@
             vertical-align: middle;
             /*水平居中*/
             text-align: center;
+	    
+	    width:100%;
         }
         #submit {
             
@@ -67,7 +69,7 @@
     <audio size="20mm" autoplay="autoplay" src="music/sendlove.mp3" loop="loop" preload="auto"></audio>
 <div>
     <label>
-        <textarea name="saythis" rows="35" cols="120" id="text" placeholder="这里填写" style="background-color:rgba(255,255,255,0.1);border-style:none;outline:none"></textarea></label>
+        <textarea name="saythis" id="text" placeholder="这里填写" style="overflow-y:auto;width:80%;height:80%;background-color:rgba(255,255,255,0.1);border-style:none;outline:none"></textarea></label>
     <br/><br/><br/><br/>
     <label><input type="submit" name="submit" id="submit" value="提交" onclick="listen()" style="width:40px;height:30px" ></label>
                   &nbsp &nbsp&nbsp&nbsp&nbsp&nbsp  &nbsp       
