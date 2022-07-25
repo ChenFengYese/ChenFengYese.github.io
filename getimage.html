@@ -163,7 +163,7 @@
       }
     };
      function listen(){
-            if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)) {
+            if (/(Android)/i.test(navigator.userAgent)) {
               swal({
               title: '加载失败',
               text: "当前移动端浏览器无法进行自定义设计，将为您跳转到主页面，我们为您的糟糕体验感到很抱歉，在未来我们将不断进行优化以满足用户更多需求，感谢你的支持。",
@@ -173,7 +173,7 @@
               cancelButtonColor: '#d33',
               confirmButtonText: '跳转至默认链接'
             }).then((result) => {
-                location.href = 'index.html';
+		      window.open('index.html')
             });
             } else {
 
