@@ -1,8 +1,8 @@
 
 window.addEventListener('load', function () {
         let body = document.body;
-        let content = ["❤去活出你自己。❤", "❤May all the beauty be blessed❤", "❤愿世上所有美好都能被祝福❤", "❤薪火相传❤", "❤为世上所有的美好而战❤",
-            "❤美德不灭❤", "❤风雨犹祝，山海同欢，是承天地之佑❤", "❤星移斗转，沧海桑田，烟火人间依旧❤", "❤功名在我，百岁千秋，勿忘秉烛夜游❤", "❤今古诸事，激荡中流，宏图待看新秀 ❤",
+        let content = ["❤听说鼠标右键点击可以全屏喔❤", "❤去活出你自己。❤", "❤May all the beauty be blessed❤", "❤愿世上所有美好都能被祝福❤", "❤薪火相传❤", "❤为世上所有的美好而战❤",
+            "❤美德不灭❤", "❤德丽莎世界第一可爱❤", "❤可莉世界第一可爱！❤", "❤风雨犹祝，山海同欢，是承天地之佑❤", "❤星移斗转，沧海桑田，烟火人间依旧❤", "❤功名在我，百岁千秋，勿忘秉烛夜游❤", "❤今古诸事，激荡中流，宏图待看新秀 ❤",
             "❤年岁一箸，山海一壶。❤", "❤阅古话今，几度春秋。❤", "❤炊烟喜乐，柴米朝暮。❤", "❤纤云逐月，尘世系舟。❤", "❤世事易变，匪石弗转❤", "❤谁也没有见过爱情，直到有花束抛向自己。❤",
             "❤与君相别离，不知何日是归期，我如朝露转瞬晞。❤", "❤万商云来，千船继至，百货叠出❤",
             "❤霞彩换花火,花火知我愿❤", "❤我愿入夜空，夜空自甄明❤", "❤不要放弃❤", "❤醒时恐为梦一场，事事俱忘，何处是吾乡❤", "❤星与你消失之日❤", "❤锦筝叹千年，月下渡忘川❤",
@@ -61,3 +61,70 @@ window.addEventListener('load', function () {
             return color; //返回随机生成的颜色
         }
     });
+
+let unfullscreen = true;
+let isclick = true;
+document.oncontextmenu = function(e){
+    if(isclick) {
+        if (unfullscreen) {
+            fullScreen();
+            unfullscreen = false;
+        } else {
+            fullExit();
+            unfullscreen = true;
+        }
+        isclick = false;
+    }
+    setTimeout(function(){isclick=true;},500);
+	return false
+};
+  function fullScreen() {
+        var element = document.documentElement; //若要全屏页面中div，var element= document.getElementById("divID");
+        //IE 10及以下ActiveXObject
+        if (window.ActiveXObject) {
+            var WsShell = new ActiveXObject('WScript.Shell')
+            WsShell.SendKeys('{F11}');
+        }
+        //HTML W3C 提议
+        else if (element.requestFullScreen) {
+            element.requestFullScreen();
+        }
+        //IE11
+        else if (element.msRequestFullscreen) {
+            element.msRequestFullscreen();
+        }
+        // Webkit (works in Safari5.1 and Chrome 15)
+        else if (element.webkitRequestFullScreen) {
+            element.webkitRequestFullScreen();
+        }
+        // Firefox (works in nightly)
+        else if (element.mozRequestFullScreen) {
+            element.mozRequestFullScreen();
+        }
+    }
+
+    //退出全屏
+    function fullExit() {
+        var element = document.documentElement; //若要全屏页面中div，var element= document.getElementById("divID");
+        //IE ActiveXObject
+        if (window.ActiveXObject) {
+            var WsShell = new ActiveXObject('WScript.Shell')
+            WsShell.SendKeys('{F11}');
+        }
+        //HTML5 W3C 提议
+        else if (element.requestFullScreen) {
+            document.exitFullscreen();
+        }
+        //IE 11
+        else if (element.msRequestFullscreen) {
+            document.msExitFullscreen();
+        }
+        // Webkit (works in Safari5.1 and Chrome 15)
+        else if (element.webkitRequestFullScreen) {
+            document.webkitCancelFullScreen();
+        }
+        // Firefox (works in nightly)
+        else if (element.mozRequestFullScreen) {
+            document.mozCancelFullScreen();
+        }
+    }
