@@ -18,7 +18,7 @@ window.addEventListener('load', function () {
             let text = new Text(x, y, randContent);
             let span = document.createElement('span');
             span.style.color = text.getRandom();
-            span.style.cssText = " position: absolute;user-select: none;"
+            span.style.cssText = " position: absolute;user-select: none;";
                 
             text.create(span);
             setTimeout(function () {
