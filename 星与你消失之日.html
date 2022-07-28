@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html,body{height:100%;width:100%;overflow-x:hidden;overflow-y:hidden}
+         video{
+
+          position: fixed;
+
+          /*right:-9.8%;*/
+
+          /*bottom: -26%;*/
+          right:0;
+
+          bottom: 0;
+          min-width: 100%;
+
+          min-height: 100%;
+
+          width: auto;
+
+          height: auto;
+
+          z-index: -9999;}
+    </style>
+</head>
+<body>
+    <audio id="music" size="20mm" autoplay="autoplay" controls="controls" src="mp4/观星.mp3" loop="loop" preload="auto" style="display:none"></audio>
+<video id="v1" autoplay muted loop  preload="auto" playsinline="true" webkit-playsinline="true" x-webkit-airplay="true" mtt-playsinline="true" x5-video-player-type="h5-page"
+ x5-video-player-fullscreen="true" x5-video-orientation="portraint">
+    <source src="mp4/观星1.mp4">
+</video>
+    <div id="hidden" style="position:relative;width:100%;height:100%;" onmousedown="holdDown()" onmouseup="holdUp()">
+        <span hidden id="fullscreen">开启全屏</span>
+        <span id="color" class="color" style="display:block;opacity:0.1;color:#db56da;font-size:50px;text-align: center;line-height:6;">听说点击鼠标右键可以全屏诶<br/>
+        或许完全显示出来后，会发生神奇的事情诶</span>
+        <p id="full1" class="color" style="position:absolute;opacity:0;color:#db56da;font-size:30px;right:150px;top:0;">❤星与你消失之日❤</p>
+        <p id="full2" class="color" style="position:absolute;opacity:0;color:#db56da;font-size:30px;right:50px;top:40px;">朔夜观星 爱你</p>
+        <p id="full3" class="color" style="position:absolute;opacity:0;color:#db56da;font-size:30px;right:200px;top:80px;">长按回归原位</p>
+        <p id="downfull1" class="color" style="position:absolute;opacity:0;color:#db56da;font-size:30px;right:350px;bottom:150px;">刺客先生，或许我们再也不会相见了</p>
+        <p id="downfull2" class="color"  style="position:absolute;opacity:0;color:#db56da;font-size:30px;right:250px;bottom:100px;">还记得，那一刻吗…………</p>
+        <p id="downfull3" class="color"  style="position:absolute;opacity:0;color:#db56da;font-size:30px;right:400px;bottom:200px;">长按回归原位</p>
+    </div>
+
+</body>
+<script>
+    let unfullscreen = true;
+    let isclick = true;
+    let opa = 0;
+    let timeStart, timeEnd, time;//申明全局变量
+document.oncontextmenu = function(e){
+    if(isclick) {
+        if (unfullscreen) {
+            fullScreen();
+            unfullscreen = false;
+        } else {
+            fullExit();
+            unfullscreen = true;
+        }
+        isclick = false;
+    }
+    setTimeout(function(){isclick=true;},500);
+	return false
+};
+  function fullScreen() {
+        var element = document.documentElement; //若要全屏页面中div，var element= document.getElementById("divID");
+        //IE 10及以下ActiveXObject
+        if (window.ActiveXObject) {
+            var WsShell = new ActiveXObject('WScript.Shell');
+            WsShell.SendKeys('{F11}');
+        }
+        //HTML W3C 提议
+        else if (element.requestFullScreen) {
+            element.requestFullScreen();
+        }
+        //IE11
+        else if (element.msRequestFullscreen) {
+            element.msRequestFullscreen();
+        }
+        // Webkit (works in Safari5.1 and Chrome 15)
+        else if (element.webkitRequestFullScreen) {
+            element.webkitRequestFullScreen();
+        }
+        // Firefox (works in nightly)
+        else if (element.mozRequestFullScreen) {
+            element.mozRequestFullScreen();
+        }
+    }
+
+    //退出全屏
+    function fullExit() {
+        var element = document.documentElement; //若要全屏页面中div，var element= document.getElementById("divID");
+        //IE ActiveXObject
+        if (window.ActiveXObject) {
+            var WsShell = new ActiveXObject('WScript.Shell');
+            WsShell.SendKeys('{F11}');
+        }
+        //HTML5 W3C 提议
+        else if (element.requestFullScreen) {
+            document.exitFullscreen();
+        }
+        //IE 11
+        else if (element.msRequestFullscreen) {
+            document.msExitFullscreen();
+        }
+        // Webkit (works in Safari5.1 and Chrome 15)
+        else if (element.webkitRequestFullScreen) {
+            document.webkitCancelFullScreen();
+        }
+        // Firefox (works in nightly)
+        else if (element.mozRequestFullScreen) {
+            document.mozCancelFullScreen();
+        }
+    }
+
+window.addEventListener('load', function () {
+        let body = document.body;
+        let content = ["❤听说点击右键可以全屏喔❤","❤X键似乎可以接触什么限制❤", "❤点按各类字体颜色也会改变呀❤","❤要不要来向上滑滑，向下也行喔❤","❤May all the beauty be blessed❤",
+            "❤愿世上所有美好都能被祝福❤", "❤薪火相传❤", "❤为世上所有的美好而战❤", "❤美德不灭❤", "❤德丽莎世界第一可爱❤", "❤星与你消失之日❤", "❤你与星远去的时刻❤", "❤命中注定的离别 ❤",
+            "❤跨越星空的爱念。❤", "❤无数次轮回换你一次生路。❤", "❤星空变得黯淡。❤", "❤与星星的故事。❤", "❤舰长，深渊结算了喔❤", "❤你说德丽莎可不可爱。❤",
+            "❤舰长~我要内个~给我买~。❤", "❤救我…………❤", "❤霞彩换花火,花火知我愿❤", "❤我愿入夜空，夜空自甄明❤", "❤不要放弃❤", "❤醒时恐为梦一场，事事俱忘，何处是吾乡❤",
+            "❤星与你消失之日❤", "❤锦筝叹千年，月下渡忘川❤", "❤花与月与海❤", "❤regression❤", "❤浮生如梦❤", "❤白鹭归庭❤", "❤一樽还酹江月❤", "❤一梦千宵❤",
+            "❤最后一课❤", "回家的路", "❤乡愁如丝❤", "❤驻足在这星空下❤", "❤爱莉希雅死了❤", "❤朔夜观星❤",
+            "❤星陨❤",  "❤所念皆星河❤"
+        ]; //自定义内容的数组
+        body.addEventListener('click', function (e) {
+            let spancolor = document.getElementsByClassName("color");
+            let x = e.pageX;
+            let y = e.pageY; //当前坐标
+            let randContent = Math.ceil(Math.random() * content.length);
+            let text = new Text(x, y, randContent);
+            let span = document.createElement('span');
+            span.style.cssText = " position: absolute;user-select: none;font-size:20px";
+            span.style.color = text.getRandom();
+            for(var i = 0; i < spancolor.length; i++) {            spancolor[i].style.color = span.style.color;}
+            text.create(span);
+            setTimeout(function () {
+                text.out(span)
+            }, 1900)
+
+        });
+
+        function Text(x, y, rand) {
+            this.x = x;
+            this.y = y;
+            this.rand = rand;
+        }
+        Text.prototype.create = function (_this) {
+            let body = document.body;
+            _this.innerHTML = content[this.rand - 1];
+            _this.className = 'text';
+            _this.style.top = this.y - 20 + 'px';
+            _this.style.left = this.x - 50 + 'px';
+            _this.style.animation = 'remove 2s';
+            body.appendChild(_this);
+            let i = 0;
+            setInterval(() => {
+                _this.style.top = this.y - 20 - i + 'px';
+                i++
+            }, 10);
+        };
+        Text.prototype.out = function (_this) {
+            _this.remove()
+        };
+        //设置随机颜色
+        Text.prototype.getRandom = function () {
+            var r = Math.floor(Math.random()*256);
+			var g = Math.floor(Math.random()*256);
+			var b = Math.floor(Math.random()*256);
+            return '#' + r.toString(16) + g.toString(16) + b.toString(16);
+
+        }
+    });
+    function scrollFunc2(){return false;}
+     function keyEvent(){
+            if(event.keyCode===88) //X
+                    window.onmousewheel = document.onmousewheel = scrollFunc;
+        }
+    document.onkeydown = keyEvent;
+    const scrollFunc = function (e) {
+        e = e || window.event;
+        const spanopacity = document.getElementById("color");
+        const downopacity = document.getElementById("downfull1");
+        const downopacity2 = document.getElementById("downfull2");
+        const downopacity3 = document.getElementById("downfull3");
+        const fullopacity = document.getElementById("full1");
+        const fullopacity2 = document.getElementById("full2");
+        const fullopacity3 = document.getElementById("full3");
+
+        if (e.wheelDelta) {  //判断浏览器IE，谷歌滑轮事件
+            if(spanopacity.style.opacity===0&&downopacity.style.opacity===0&&fullopacity2.style.opacity===0)
+            {document.getElementById("v1").src = 'mp4/观星.mp4';}
+
+            if (e.wheelDelta > 0) { //当滑轮向上滚动时
+                 if (spanopacity.style.opacity !== 0) {
+                     downopacity2.style.opacity = 0;
+                     downopacity.style.opacity = 0;
+                     downopacity3.style.opacity = 0;
+                 }
+                if (opa < 1) {
+                    opa = opa > 0 ? opa:0;
+                    opa += 0.02;
+                    spanopacity.style.opacity = opa;
+                } else {
+                    if(opa<2){opa += 0.02;
+                    fullopacity2.style.opacity = opa-1;
+                    fullopacity.style.opacity = opa-1;
+                    fullopacity3.style.opacity = opa-1;}
+                    else{
+                    if( document.getElementById("v1").src !== 'mp4/德丽莎.mp4')
+                    {document.getElementById("v1").src = 'mp4/德丽莎.mp4';
+                    document.getElementById("v1").style.bottom = '-26%';
+                    spanopacity.style.opacity = 0;
+                    window.onmousewheel = document.onmousewheel = scrollFunc2;
+                    }}
+                }
+            }
+            if (e.wheelDelta < 0) { //当滑轮向下滚动时
+                 if (fullopacity2.style.opacity * 10 > 0) {
+                     fullopacity2.style.opacity = 0;
+                     fullopacity.style.opacity = 0;
+                     fullopacity3.style.opacity = 0;
+                 }
+
+                if (opa > 0) {
+                    opa -= 0.02;
+                    if(spanopacity.style.opacity>0)
+                        spanopacity.style.opacity = opa;
+                    else if(opa<= 1)
+                        spanopacity.style.opacity = opa;
+
+                } else {
+                    opa -= 0.02;
+                    if (opa > -1) {
+                        downopacity2.style.opacity = -opa;
+                        downopacity.style.opacity = -opa;
+                        downopacity3.style.opacity = -opa;
+                    } else {
+                        if(document.getElementById("v1").src !== 'mp4/观星2.mp4')
+                        {document.getElementById("v1").src = 'mp4/观星2.mp4';
+                                            document.getElementById("v1").style.bottom = '0';
+                        window.onmousewheel = document.onmousewheel = scrollFunc2;
+                        }
+                        else{return false;}
+                    }
+                }
+            }
+        } else if (e.detail) {  //Firefox滑轮事件
+            if (e.detail > 0) { //当滑轮向上滚动时
+                if (spanopacity.style.opacity < 1) {
+
+                } else {
+
+                    document.getElementById("v1").src = 'mp4/德丽莎.mp4';
+                    document.getElementById("music").src = 'mp4/德丽莎.mp3';
+
+                }
+            }
+            if (e.detail < 0) { //当滑轮向下滚动时
+                if (spanopacity.style.opacity > 0) {
+
+                } else {
+                    if (document.getElementById("full1").style.opacity < 1) {
+
+                    } else {
+                        document.getElementById("v1").src = 'mp4/观星2.mp4';
+                    }
+                }
+            }
+        }
+    };
+     function getTimeNow()//获取此刻时间
+            {
+                var now=new Date();
+                return now.getTime();
+            }
+            function holdDown()//鼠标按下时触发
+            {
+                timeStart=getTimeNow();//获取鼠标按下时的时间
+                time=setInterval(function()//setInterval会每100毫秒执行一次
+                {
+                    timeEnd=getTimeNow();//也就是每100毫秒获取一次时间
+                    let v1;
+                    let v2;
+                    if (timeEnd - timeStart > 1000)//如果此时检测到的时间与第一次获取的时间差有1000毫秒
+                    {
+                        clearInterval(time);//便不再继续重复此函数 （clearInterval取消周期性执行）
+                        opa = 0;
+                        document.getElementById("color").style.opacity = "0";
+                        document.getElementById("downfull1").style.opacity = "0";
+                        document.getElementById("downfull2").style.opacity = "0";
+                        document.getElementById("downfull3").style.opacity = "0";
+                        document.getElementById("full1").style.opacity = "0";
+                        document.getElementById("full2").style.opacity = "0";
+                        document.getElementById("full3").style.opacity = "0";
+                        v1 = document.getElementById("v1").src;
+                        v2 = document.getElementById("music").src;
+                        if (v1.slice(v1.lastIndexOf("/")+1, ) !== '%E8%A7%82%E6%98%9F1.mp4') {
+                            document.getElementById("v1").src = 'mp4/观星1.mp4';
+                        }
+                        if (v2.slice(v1.lastIndexOf("/")+1, ) !== '%E8%A7%82%E6%98%9F.mp3') {
+                            document.getElementById("music").src = 'mp4/观星.mp3';
+                        }
+                        document.getElementById("v1").style.bottom = '0';
+                        window.onmousewheel = document.onmousewheel = scrollFunc;
+                    }
+                },100);
+            }
+            function holdUp()
+            {
+                clearInterval(time);//如果按下时间不到1000毫秒便弹起，
+            }
+
+    //给页面绑定滑轮滚动事件
+    if (document.addEventListener) {//firefox
+        document.addEventListener('DOMMouseScroll', scrollFunc, false);
+    }
+    //滚动滑轮触发scrollFunc方法  //ie 谷歌
+    window.onmousewheel = document.onmousewheel = scrollFunc;
+
+</script>
+</html>
