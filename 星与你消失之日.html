@@ -248,6 +248,8 @@
 
     //锁定滑轮
         function scrollFunc2(){return false;}
+    // 锁定长按
+	function longPressAc(e){e.preventDefault();}
 
     //解除锁定
          function keyEvent(){
@@ -528,6 +530,8 @@
      document.onkeydown = keyEvent;
     //滚动滑轮触发scrollFunc方法  //ie 谷歌
     window.onmousewheel = document.onmousewheel = scrollFunc;
+  //禁用浏览器自带长按效果
+     EventUtil.bindEvent(domContent, 'contextmenu',longPressAc);
 //上滑事件
      EventUtil.bindEvent(domContent, 'slideup', handleUp);
      //下滑事件
