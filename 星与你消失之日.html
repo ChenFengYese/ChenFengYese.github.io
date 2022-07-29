@@ -34,6 +34,7 @@
 </video>
     <div id="hidden" style="position:relative;width:100%;height:100%;" onmousedown="holdDown()" onmouseup="holdUp()">
         <span hidden id="fullscreen">开启全屏</span>
+	    <span hidden id="query">ispc</span> <span hidden id="query2">nophoto</span>
         <span id="color" class="color" style="display:block;opacity:0.1;color:#db56da;font-size:50px;text-align: center;line-height:6;">听说点击鼠标右键可以全屏诶<br/>
         或许完全显示出来后，会发生神奇的事情诶</span>
         <p id="full1" class="color" style="position:absolute;opacity:0;color:#db56da;font-size:30px;right:150px;top:0;">❤星与你消失之日❤</p>
@@ -68,7 +69,50 @@
                 "❤星陨❤",  "❤所念皆星河❤"
             ]; //自定义内容的数组
 
-        //全屏
+
+	//移动端自行选择
+	function IsPC(){
+             var userAgentInfo = navigator.userAgent;
+             var Agents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"];
+             var flag = true;
+             for (var v = 0; v < Agents.length; v++) {
+                 if (userAgentInfo.indexOf(Agents[v]) > 0) { flag = false; break; }
+             }
+             return flag;
+          }
+	if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)){ 
+		swal({ 
+		title: "选择背景样式", 
+		text: "因移动端各浏览器情况不同，请自行选择动态视频背景或者图片背景，若出现问题可刷新网页重新选择", 
+		type: "warning",
+		showCancelButton: true, 
+		confirmButtonColor: "#DD6B55",
+		confirmButtonText: "动态视频背景", 
+		cancelButtonText: "图片背景",
+		closeOnConfirm: false, 
+		closeOnCancel: false	
+		}).then((isConfirm) => {
+		if (isConfirm.value) { 
+			swal("成功！", "已选择动态视频背景","success"); 
+			document.getElementById("v1").src="mp4/观星1.mp4";
+			document.getElementById("v1").style="width: 100%;object-fit:fill";
+			document.getElementById("query").innerHTML="nopc";
+
+		} else { 
+			swal("成功！", "已选择图片背景","success"); 
+			document.getElementById("query2").innerHTML="isphoto";
+			document.getElementById("v1").src = "";
+			document.getElementById("v1").style.display = "none";
+			document.body.style =  "background-image:url(img/观星.jpg);background-repeat:no-repeat ;background-size:100% 100%;background-attachment: fixed;";
+		} 
+   	 });
+	}
+	else{document.getElementById("v1").src="mp4/观星1.mp4";
+			document.getElementById("v1").style="width: 100%;object-fit:fill";}
+		
+		
+	
+	//全屏
     document.oncontextmenu = function(e){
         if(isclick) {
             if (unfullscreen) {
@@ -221,14 +265,18 @@
                     fullopacity2.style.opacity = opa-1;
                     fullopacity.style.opacity = opa-1;
                     fullopacity3.style.opacity = opa-1;}
-                    else{
-                    if( document.getElementById("v1").src !== 'mp4/德丽莎.mp4')
-                    {document.getElementById("v1").src = 'mp4/德丽莎.mp4';
-		     document.getElementById("music").src = 'mp4/德丽莎.mp3';
-                    document.getElementById("v1").style.bottom = '-26%';
+		    else if(document.getElementById("query2").innerHTML === "isphoto" )
+		    {document.body.style.background-image =  "url(img/观星01.jpg);";}
+                    else if( document.getElementById("v1").src !== 'mp4/德丽莎.mp4')
+                    {
+			document.getElementById("v1").src = 'mp4/德丽莎.mp4';
+			document.getElementById("music").src = 'mp4/德丽莎.mp3';
+			if(document.getElementById("query").innerHTML === "ispc" )
+			{document.getElementById("v1").style.bottom = '-26%';}
+			else{document.getElementById("v1").style.bottom = '0';} 
                     spanopacity.style.opacity = 0;
                     window.onmousewheel = document.onmousewheel = scrollFunc2;
-                    }}
+		    }
                 }
             }
             if (e.wheelDelta < 0) { //当滑轮向下滚动时
@@ -251,7 +299,10 @@
                         downopacity2.style.opacity = -opa;
                         downopacity.style.opacity = -opa;
                         downopacity3.style.opacity = -opa;
-                    } else {
+                    }
+			else if(document.getElementById("query2").innerHTML === "isphoto" )
+		    {document.body.style.background-image =  "url(img/观星02.jpg);";}
+			else {
                         if(document.getElementById("v1").src !== 'mp4/观星2.mp4')
                         {document.getElementById("v1").src = 'mp4/观星2.mp4';
                                             document.getElementById("v1").style.bottom = '0';
@@ -277,14 +328,13 @@
                     fullopacity2.style.opacity = opa-1;
                     fullopacity.style.opacity = opa-1;
                     fullopacity3.style.opacity = opa-1;}
-                    else{
-                    if( document.getElementById("v1").src !== 'mp4/德丽莎.mp4')
+                    else if( document.getElementById("v1").src !== 'mp4/德丽莎.mp4')
                     {document.getElementById("v1").src = 'mp4/德丽莎.mp4';
 		     document.getElementById("music").src = 'mp4/德丽莎.mp3';
                     document.getElementById("v1").style.bottom = '-26%';
                     spanopacity.style.opacity = 0;
                     window.onmousewheel = document.onmousewheel = scrollFunc2;
-                    }}
+                    }
                 }
             }
             if (e.detail < 0) { //当滑轮向下滚动时
@@ -388,7 +438,9 @@
 				downopacity2.style.opacity = -opa;
 				downopacity.style.opacity = -opa;
 				downopacity3.style.opacity = -opa;
-			    } else {
+			    } else if(document.getElementById("query2").innerHTML === "isphoto" )
+			    {document.body.style.background-image =  "url(img/观星02.jpg);";}
+				else {
 				if(document.getElementById("v1").src !== 'mp4/观星2.mp4')
 				{document.getElementById("v1").src = 'mp4/观星2.mp4';
 						    document.getElementById("v1").style.bottom = '0';
@@ -414,11 +466,15 @@
 			    fullopacity2.style.opacity = opa-1;
 			    fullopacity.style.opacity = opa-1;
 			    fullopacity3.style.opacity = opa-1;}
-			    else{
-			    if( document.getElementById("v1").src !== 'mp4/德丽莎.mp4')
-			    {document.getElementById("v1").src = 'mp4/德丽莎.mp4';
-				    document.getElementById("music").src = 'mp4/德丽莎.mp3';
-			    document.getElementById("v1").style.bottom = '-26%';
+			    else if(document.getElementById("query2").innerHTML === "isphoto" )
+			    {document.body.style.background-image =  "url(img/观星01.jpg);";}
+			    else if( document.getElementById("v1").src !== 'mp4/德丽莎.mp4')
+			    {
+				document.getElementById("v1").src = 'mp4/德丽莎.mp4';
+				document.getElementById("music").src = 'mp4/德丽莎.mp3';
+				if(document.getElementById("query").innerHTML === "ispc" )
+				{document.getElementById("v1").style.bottom = '-26%';}
+				else{document.getElementById("v1").style.bottom = '0';} 
 			    spanopacity.style.opacity = 0;
 			    window.onmousewheel = document.onmousewheel = scrollFunc2;
 			    }}
@@ -436,9 +492,14 @@
                         document.getElementById("full3").style.opacity = "0";
                         v1 = document.getElementById("v1").src;
                         v2 = document.getElementById("music").src;
-                        if (v1.slice(v1.lastIndexOf("/")+1, ) !== '%E8%A7%82%E6%98%9F1.mp4') {
-                            document.getElementById("v1").src = 'mp4/观星1.mp4';
-                        }
+		 	v3 = document.body.style.background-image
+		        if(document.getElementById("query2").innerHTML === "nophoto"
+			{
+				if (v1.slice(v1.lastIndexOf("/")+1, ) !== '%E8%A7%82%E6%98%9F1.mp4') {
+				    document.getElementById("v1").src = 'mp4/观星1.mp4';
+				}
+	 		}
+			else{ if (v3.slice(v3.lastIndexOf("/")+1, ) !== '%E8%A7%82%E6%98%9F1.jpg') {document.body.style.background-image=  "url(img/观星1.jpg);";}}
                         if (v2.slice(v1.lastIndexOf("/")+1, ) !== '%E8%A7%82%E6%98%9F.mp3') {
                             document.getElementById("music").src = 'mp4/观星.mp3';
                         }
