@@ -528,9 +528,6 @@
      document.onkeydown = keyEvent;
     //滚动滑轮触发scrollFunc方法  //ie 谷歌
     window.onmousewheel = document.onmousewheel = scrollFunc;
-    window.ontouchstart = function(e) { 
-	    e.preventDefault(); 
-     };
 //上滑事件
      EventUtil.bindEvent(domContent, 'slideup', handleUp);
      //下滑事件
