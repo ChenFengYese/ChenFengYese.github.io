@@ -126,9 +126,30 @@
 </body>
 <script type="text/javascript">
 	 if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)){ 
-		document.getElementById("v1").src = "";
-		document.getElementById("v1").style.display = "none";
-		document.body.style =  "background-image:url(img/getimage.jpg);background-repeat:no-repeat ;background-size:100% 100%;background-attachment: fixed;";
+		swal({ 
+		title: "选择背景样式", 
+		text: "因移动端各浏览器情况不同，请自行选择动态视频背景或者图片背景，若出现问题可刷新网页重新选择", 
+		type: "warning",
+		showCancelButton: true, 
+		confirmButtonColor: "#DD6B55",
+		confirmButtonText: "动态视频背景", 
+		cancelButtonText: "图片背景",
+		closeOnConfirm: false, 
+		closeOnCancel: false	
+		},
+		function(isConfirm){ 
+		if (isConfirm) { 
+			document.getElementById("v1").src="mp4/02.mp4";
+			document.getElementById("v1").style="width: 100%;object-fit:fill";
+			swal("成功！", "已选择动态视频背景","success"); 
+		} else { 
+			document.getElementById("v1").src = "";
+			document.getElementById("v1").style.display = "none";
+			document.body.style =  "background-image:url(img/getimage.jpg);background-repeat:no-repeat ;background-size:100% 100%;background-attachment: fixed;";
+			swal("成功！", "已选择图片背景","success"); 
+		} 
+   	 });
+		
 	}else{
 		document.getElementById("v1").src="mp4/02.mp4";
 		document.getElementById("v1").style="width: 100%;object-fit:fill";
