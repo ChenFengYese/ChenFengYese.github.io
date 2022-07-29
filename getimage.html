@@ -136,17 +136,17 @@
 		cancelButtonText: "图片背景",
 		closeOnConfirm: false, 
 		closeOnCancel: false	
-		},
-		function(isConfirm){ 
-		if (isConfirm) { 
+		}.then((isConfirm) => {
+		if (isConfirm.value) { 
+			swal("成功！", "已选择动态视频背景","success"); 
 			document.getElementById("v1").src="mp4/02.mp4";
 			document.getElementById("v1").style="width: 100%;object-fit:fill";
-			swal("成功！", "已选择动态视频背景","success"); 
+			
 		} else { 
+			swal("成功！", "已选择图片背景","success"); 
 			document.getElementById("v1").src = "";
 			document.getElementById("v1").style.display = "none";
-			document.body.style =  "background-image:url(img/getimage.jpg);background-repeat:no-repeat ;background-size:100% 100%;background-attachment: fixed;";
-			swal("成功！", "已选择图片背景","success"); 
+			document.body.style =  "background-image:url(img/getimage.jpg);background-repeat:no-repeat ;background-size:100% 100%;background-attachment: fixed;";	
 		} 
    	 });
 		
