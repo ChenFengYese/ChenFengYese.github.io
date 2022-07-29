@@ -323,12 +323,10 @@
 
         //移动端滑轮事件
     document.body.addEventListener("touchstart", function(e) {
-    　　　　e.preventDefault();
     　　　　var startX = e.originalEvent.changedTouches[0].pageX;
     　　　　var startY = e.originalEvent.changedTouches[0].pageY;
     　　});
     document.body.addEventListener("touchmove", function(e) {
-　　　　e.preventDefault();
 　　　　var moveEndX = e.originalEvent.changedTouches[0].pageX;
 　　　　var moveEndY = e.originalEvent.changedTouches[0].pageY;
 　　　　var X = moveEndX - startX;
