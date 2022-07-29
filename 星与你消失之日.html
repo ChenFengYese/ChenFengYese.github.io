@@ -46,7 +46,7 @@
 </video>
     <div id="hidden" style="position:relative;width:100%;height:100%;" onmousedown="holdDown()" onmouseup="holdUp()">
         <span hidden id="fullscreen">开启全屏</span>
-	    <span hidden id="query">ispc</span> <span hidden id="query2">nophoto</span>
+	    <span hidden id="query">ispc</span> <span hidden id="query2">nophoto</span> <span hidden id="query3">pc</span>
         <span id="color" class="color" style="display:block;opacity:0.1;color:#db56da;font-size:50px;text-align: center;line-height:6;">听说点击鼠标右键可以全屏诶<br/>
         或许完全显示出来后，会发生神奇的事情诶</span>
         <p id="full1" class="color" style="position:absolute;opacity:0;color:#db56da;font-size:30px;right:150px;top:0;">❤星与你消失之日❤</p>
@@ -93,6 +93,8 @@
              return flag;
           }
 	if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)){ 
+		document.getElementById("query3").innerHTML="nopc";
+		document.getElementById("color").innerHTML="听说点击鼠标右键可以全屏诶<br/>或许完全显示出来后，会发生神奇的事情诶";
 		swal({ 
 		title: "选择背景样式", 
 		text: "因移动端各浏览器情况不同，请自行选择动态视频背景或者图片背景，若出现问题可刷新网页重新选择", 
@@ -139,7 +141,24 @@
         setTimeout(function(){isclick=true;},500);
         return false
     };
-
+	//移动端全屏
+	if(document.getElementById("query3").innerHTML==="nopc"){
+	document.body.addEventListener('dblclick', function (e) {
+		clearTimeout(timeoutID); 
+		if(isclick) {
+		    if (unfullscreen) {
+			fullScreen();
+			unfullscreen = false;
+		    } else {
+			fullExit();
+			unfullscreen = true;
+		    }
+		    isclick = false;
+		}
+		setTimeout(function(){isclick=true;},500);
+		return false
+	    };
+	}
   function fullScreen() {
         var element = document.documentElement; //若要全屏页面中div，var element= document.getElementById("divID");
         //IE 10及以下ActiveXObject
@@ -531,7 +550,8 @@
     //滚动滑轮触发scrollFunc方法  //ie 谷歌
     window.onmousewheel = document.onmousewheel = scrollFunc;
   //禁用浏览器自带长按效果
-     EventUtil.bindEvent(domContent, 'contextmenu',longPressAc);
+    if(document.getElementById("query3").innerHTML==="nopc"){
+     EventUtil.bindEvent(domContent, 'contextmenu',longPressAc);}
 //上滑事件
      EventUtil.bindEvent(domContent, 'slideup', handleUp);
      //下滑事件
