@@ -1,6 +1,6 @@
 [
 null,
-{"id":1,"expanded":true,"name":"新的世界","order":1,"parentId":0,"scrollX":832,"scrollY":640},
+{"id":1,"expanded":true,"name":"新的世界","order":1,"parentId":0,"scrollX":451,"scrollY":312.5},
 {"id":2,"expanded":true,"name":"传送锚点解锁","order":3,"parentId":0,"scrollX":451,"scrollY":312.5},
 {"id":3,"expanded":true,"name":"传送锚点解锁 雨停之后","order":4,"parentId":2,"scrollX":451,"scrollY":312.5},
 {"id":4,"expanded":true,"name":"临时居所","order":6,"parentId":5,"scrollX":451,"scrollY":312.5},
@@ -12,6 +12,6 @@ null,
 {"id":10,"expanded":false,"name":"星落湖","order":9,"parentId":0,"scrollX":451,"scrollY":312.5},
 {"id":11,"expanded":false,"name":"试炼之地","order":12,"parentId":0,"scrollX":832,"scrollY":640},
 {"id":12,"expanded":false,"name":"星落湖小路 无怪","order":11,"parentId":8,"scrollX":832,"scrollY":640},
-{"id":13,"expanded":false,"name":"清泉镇","order":13,"parentId":0,"scrollX":832,"scrollY":640},
+{"id":13,"expanded":false,"name":"清泉镇","order":13,"parentId":0,"scrollX":451,"scrollY":312.5},
 {"id":14,"expanded":false,"name":"往世乐土","order":14,"parentId":0,"scrollX":832,"scrollY":640}
 ]
