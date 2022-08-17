@@ -13,5 +13,6 @@ null,
 {"id":11,"expanded":false,"name":"试炼之地","order":12,"parentId":0,"scrollX":832,"scrollY":640},
 {"id":12,"expanded":false,"name":"星落湖小路 无怪","order":11,"parentId":8,"scrollX":832,"scrollY":640},
 {"id":13,"expanded":false,"name":"清泉镇","order":13,"parentId":0,"scrollX":451,"scrollY":312.5},
-{"id":14,"expanded":false,"name":"往世乐土","order":14,"parentId":0,"scrollX":832,"scrollY":640}
+{"id":14,"expanded":false,"name":"往世乐土","order":14,"parentId":0,"scrollX":832,"scrollY":640},
+{"id":15,"expanded":false,"name":"螺旋深渊","order":15,"parentId":0,"scrollX":451,"scrollY":311.5}
 ]
