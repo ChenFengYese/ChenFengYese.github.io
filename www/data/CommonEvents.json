@@ -1,6 +1,6 @@
 [
 null,
-{"id":1,"list":[{"code":0,"indent":0,"parameters":[]}],"name":"","switchId":1,"trigger":0},
+{"id":1,"list":[{"code":122,"indent":0,"parameters":[1,1,0,3,7,0,0]},{"code":122,"indent":0,"parameters":[2,2,0,3,5,-1,0]},{"code":122,"indent":0,"parameters":[3,3,0,3,5,-1,1]},{"code":201,"indent":0,"parameters":[0,11,9,10,0,0]},{"code":0,"indent":0,"parameters":[]}],"name":"试炼之地","switchId":1,"trigger":0},
 {"id":2,"list":[{"code":0,"indent":0,"parameters":[]}],"name":"","switchId":1,"trigger":0},
 {"id":3,"list":[{"code":0,"indent":0,"parameters":[]}],"name":"","switchId":1,"trigger":0},
 {"id":4,"list":[{"code":0,"indent":0,"parameters":[]}],"name":"","switchId":1,"trigger":0}
