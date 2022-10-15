@@ -217,7 +217,6 @@ if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)){
         backgroundSize: SCALING_MODE_COVER
     });
     document.createElement("script").setAttribute("src", "klee.js");
-    document.createElement("script").setAttribute("src", "klee.js");
     document.getElementById("dream").innerHTML="梦境的篇章Ⅱ"
     document.getElementById("dream_").innerHTML="梦境的篇章Ⅱ"
     document.getElementsByTagName("h1")[0].style.color="#24d9b2";
@@ -227,7 +226,6 @@ if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)){
     for(let i=0; i<document.getElementsByTagName("h2").length; i++){document.getElementsByTagName("h2")[i].style.color="#27ffa8";}
     for(let i=0; i<document.getElementsByClassName("tm-nav-link").length; i++){document.getElementsByClassName("tm-nav-link")[i].style.color="rgb(45 238 179 / 75%)";}
     for(let i=0; i<document.getElementsByClassName("tm-link").length; i++){document.getElementsByClassName("tm-link")[i].style.color="rgb(35 236 183 / 83%)";}
-    window.onmousewheel = document.onmousewheel = scrollFunc2;
     window.onmousewheel = document.onmousewheel = scrollFunc2;
     longpress=true;
 }
