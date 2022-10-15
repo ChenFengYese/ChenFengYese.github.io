@@ -111,6 +111,31 @@ $(document).ready(function() {
     });
 
     adjustFooter();
+    
+    if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)){
+    for(let i=0; i<imageopacity.length; i++){imageopacity[i].style.display="none";}
+    keliopacity.style.display="block";
+    bgCycle = $("body").backgroundCycle({
+        imageUrls: [
+        ],
+        fadeSpeed: 2000,
+        duration: -1,
+        backgroundSize: SCALING_MODE_COVER
+    });
+    document.createElement("script").setAttribute("src", "klee.js");
+    document.getElementById("dream").innerHTML="梦境的篇章Ⅱ"
+    document.getElementById("dream_").innerHTML="梦境的篇章Ⅱ"
+    document.getElementsByTagName("h1")[0].style.color="#24d9b2";
+    document.getElementsByClassName("tm-navbar-menu")[0].style.color="#26e6abf7"
+    document.getElementsByClassName("tm-link m-0")[0].style.color="rgb(35 236 183 / 83%)"
+    for(let i=0; i<document.getElementsByTagName("p").length; i++){document.getElementsByTagName("p")[i].style.color="#11f5ba";}
+    for(let i=0; i<document.getElementsByTagName("h2").length; i++){document.getElementsByTagName("h2")[i].style.color="#27ffa8";}
+    for(let i=0; i<document.getElementsByClassName("tm-nav-link").length; i++){document.getElementsByClassName("tm-nav-link")[i].style.color="rgb(45 238 179 / 75%)";}
+    for(let i=0; i<document.getElementsByClassName("tm-link").length; i++){document.getElementsByClassName("tm-link")[i].style.color="rgb(35 236 183 / 83%)";}
+    window.onmousewheel = document.onmousewheel = scrollFunc2;
+    longpress=true;
+}
+    
 }); // DOM is ready
 function launchFullscreen(element) {
     if(element.requestFullscreen) {
@@ -205,29 +230,6 @@ function setupSlider() {
     //     enabled: true
     //   }
     // });
-}
-if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)){
-    for(let i=0; i<imageopacity.length; i++){imageopacity[i].style.display="none";}
-    keliopacity.style.display="block";
-    bgCycle = $("body").backgroundCycle({
-        imageUrls: [
-        ],
-        fadeSpeed: 2000,
-        duration: -1,
-        backgroundSize: SCALING_MODE_COVER
-    });
-    document.createElement("script").setAttribute("src", "klee.js");
-    document.getElementById("dream").innerHTML="梦境的篇章Ⅱ"
-    document.getElementById("dream_").innerHTML="梦境的篇章Ⅱ"
-    document.getElementsByTagName("h1")[0].style.color="#24d9b2";
-    document.getElementsByClassName("tm-navbar-menu")[0].style.color="#26e6abf7"
-    document.getElementsByClassName("tm-link m-0")[0].style.color="rgb(35 236 183 / 83%)"
-    for(let i=0; i<document.getElementsByTagName("p").length; i++){document.getElementsByTagName("p")[i].style.color="#11f5ba";}
-    for(let i=0; i<document.getElementsByTagName("h2").length; i++){document.getElementsByTagName("h2")[i].style.color="#27ffa8";}
-    for(let i=0; i<document.getElementsByClassName("tm-nav-link").length; i++){document.getElementsByClassName("tm-nav-link")[i].style.color="rgb(45 238 179 / 75%)";}
-    for(let i=0; i<document.getElementsByClassName("tm-link").length; i++){document.getElementsByClassName("tm-link")[i].style.color="rgb(35 236 183 / 83%)";}
-    window.onmousewheel = document.onmousewheel = scrollFunc2;
-    longpress=true;
 }
 function JudgePC(url) {
     if (/(Android)/i.test(navigator.userAgent)) {
