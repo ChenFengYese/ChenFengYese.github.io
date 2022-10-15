@@ -207,6 +207,7 @@ function setupSlider() {
     // });
 }
 if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)){
+    for(let i=0; i<imageopacity.length; i++){imageopacity[i].style.opacity=0;}
     keliopacity.style.display="inline";
     bgCycle = $("body").backgroundCycle({
         imageUrls: [
