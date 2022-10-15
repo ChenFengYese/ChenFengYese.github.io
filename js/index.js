@@ -336,7 +336,7 @@ function holdDown()//鼠标按下时触发
                     imageUrls: [
                         "images//klee.png",
                         "images//nahida.png",
-                        "images//elysia.png",
+                        "images//Elysia.png",
                         "images//nahida2.jpg",
                     ],
                     fadeSpeed: 2000,
