@@ -4,12 +4,13 @@ let previousImageId = 0,
     currentImageId = 0;
 let opa = 1;
 let pageAlign = "right";
-var listenMenuTree = { "value": 1 };
 let bgCycle;
 let links;
 let eachNavLink;
 const imageopacity = document.getElementsByClassName("cycle-bg-image");
 const keliopacity = document.getElementById("keliimage");
+
+var listenMenuTree = {"value": 1};
 
 window.onload = function() {
     $("body").addClass("loaded");
@@ -138,14 +139,15 @@ function quick_game(){
 
 
 Object.defineProperty(listenMenuTree, 'value', {
-    get: function (value) {
+    configurable:true,
+    get: function (newVal) {
         // get 和 set 方法
         return this._value;
     },
-    set: function (value) {
+    set: function (newVal) {
         // 当listenMenuTree 的value值发生改变时，触发set函数的内容
         analyse();
-        this._value=value;
+        this._value=newVal;
         console.log('set:'+this._value);
     }
 });
