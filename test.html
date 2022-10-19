@@ -120,7 +120,22 @@ for(m=0;m<Play.length;m++){
       v = lst[l];
             if(document.getElementById(v).style.boxShadow !== "rgba(241, 237, 9, 0.99) 3px 3px 18px inset")
         {document.getElementById(v).style.boxShadow = "rgba(241, 237, 9, 0.99) 3px 3px 18px inset";
-        }}catch (e){window.parent.document.getElementById("musictouch").style.display="none";}
+        }}catch (e){
+                      jg = window.parent.document.getElementById("quick-game");
+            if (jg.innerHTML === "音韵梦云") {
+                window.parent.kleecommic();
+                jg.innerHTML = "旋律回梦";
+            } else if (jg.innerHTML === "旋律回梦") {
+                window.parent.dream_picture();
+                jg.innerHTML = "幻梦与梦"
+            } else {
+                location.reload();
+            }
+            ifr = window.document.getElementById("ifr");
+            try{            window.parent.document.getElementById("musictouch").removeChild(ifr);}
+            catch (e){      console.log(e);window.parent.document.getElementById("musictouch").style.display = "none";}
+            
+        }
         }
 }
 </script>
