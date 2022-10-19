@@ -145,6 +145,8 @@ Object.defineProperty(listenMenuTree, 'value', {
     set: function (value) {
         // 当listenMenuTree 的value值发生改变时，触发set函数的内容
         analyse();
+        this._value=value;
+        console.log('set:'+this._value);
     }
 });
 
