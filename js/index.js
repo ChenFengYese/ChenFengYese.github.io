@@ -53,18 +53,13 @@ function navLinkClick(e) {
     adjustFooter();
 }
 
-$(document).ready(function() {
-    // Set first page
-    $(".tm-section").fadeOut(0);
-    $(".tm-section-0").fadeIn();
 
-    // Set Background images
-    // https://www.jqueryscript.net/slideshow/Simple-jQuery-Background-Image-Slideshow-with-Fade-Transitions-Background-Cycle.html
+function common_background(){
     bgCycle = $("body").backgroundCycle({
         imageUrls: [
             "https://pic1.zhimg.com/v2-5d268ec9229b1f1c19536ae0396f4ab4_r.jpg",
             "https://pic4.zhimg.com/v2-1fdb97b222569d22e96dea5abc23d9d7_r.jpg",
-            "images//559563.jpg",
+            "https://nahida-elysia.asia/images//559563.jpg",
             "https://tse1-mm.cn.bing.net/th/id/R-C.f9c462dd6365a3dd02955291f5309e40?rik=z8J70gZRKiJRew&riu=http%3a%2f%2fi1.hdslb.com%2fbfs%2farchive%2fab692f8ffdf6408fb4c19eee684b38f689056580.jpg&ehk=%2fks58fj%2f4R8xzgIqCQayk7TG4c38xCl1R%2fTdNHN1JaU%3d&risl=&pid=ImgRaw&r=0"
             //  "https://pic3.zhimg.com/v2-6a1dc51b6b3efc26b221568894165605_r.jpg",
         ],
@@ -72,7 +67,97 @@ $(document).ready(function() {
         duration: -1,
         backgroundSize: SCALING_MODE_COVER
     });
+}
 
+
+function kleecommic(){
+        for(let i=0; i<imageopacity.length; i++){imageopacity[i].style.display="none";}
+        keliopacity.style.display="block";
+        bgCycle = $("body").backgroundCycle({
+            imageUrls: [
+            ],
+            fadeSpeed: 2000,
+            duration: -1,
+            backgroundSize: SCALING_MODE_COVER
+        });
+        document.createElement("script").setAttribute("src", "klee.js");
+        document.getElementById("dream").innerHTML="梦境的篇章Ⅱ"
+        document.getElementById("dream_").innerHTML="梦境的篇章Ⅱ"
+        document.getElementsByTagName("h1")[0].style.color="#24d9b2";
+        document.getElementsByClassName("tm-navbar-menu")[0].style.color="#26e6abf7"
+        document.getElementsByClassName("tm-link m-0")[0].style.color="rgb(35 236 183 / 83%)"
+        for(let i=0; i<document.getElementsByTagName("p").length; i++){document.getElementsByTagName("p")[i].style.color="#11f5ba";}
+        for(let i=0; i<document.getElementsByTagName("h2").length; i++){document.getElementsByTagName("h2")[i].style.color="#27ffa8";}
+        for(let i=0; i<document.getElementsByClassName("tm-nav-link").length; i++){document.getElementsByClassName("tm-nav-link")[i].style.color="rgb(45 238 179 / 75%)";}
+        for(let i=0; i<document.getElementsByClassName("tm-link").length; i++){document.getElementsByClassName("tm-link")[i].style.color="rgb(35 236 183 / 83%)";}
+        window.onmousewheel = document.onmousewheel = scrollFunc2;
+        longpress=true;
+}
+
+function dream_picture(){
+    keliopacity.style.display="none";
+    bgCycle = $("body").backgroundCycle({
+        imageUrls: [
+            "images//klee.png",
+            "images//nahida.png",
+            "images//Elysia.png",
+            "images//nahida2.jpg",
+        ],
+        fadeSpeed: 2000,
+        duration: -1,
+        backgroundSize: SCALING_MODE_COVER
+    });
+    opa=1;
+    for(let i=0; i<imageopacity.length; i++){imageopacity[i].style.opacity=opa;}
+    window.onmousewheel = document.onmousewheel = scrollFunc;
+    longpress=false;
+}
+
+function music_star(){
+    document.getElementById("musictouch").style.display = "block";
+    ls = document.getElementById("music_ls");
+    jg = document.getElementById("quick-game");
+    if (jg.innerHTML === "音韵梦云") {
+        ls.innerHTML = 0;
+    } else if (jg.innerHTML === "旋律回梦") {
+        ls.innerHTML = 1;
+    } else if (jg.innerHTML === "幻梦与梦"){
+        ls.innerHTML = 2
+    }
+    ifr = document.createElement("iframe");
+    ifr.src ="test.html";
+    ifr.frameBorder = "0";
+    ifr.style="position: absolute; width: 100%; height: 100%; border-radius: 3px;";
+    document.getElementById("popupDiv").appendChild(ifr);
+}
+
+function quick_game(){
+    //音游 {}
+    //successful:
+        music_star();
+        if(document.getElementById("musictouch").style.display !== "block") {
+            jg = document.getElementById("quick-game");
+            if (jg.innerHTML === "音韵梦云") {
+                kleecommic();
+                jg.innerHTML = "旋律回梦";
+            } else if (jg.innerHTML === "旋律回梦") {
+                dream_picture();
+                jg.innerHTML = "幻梦与梦"
+            } else {
+                location.reload();
+            }
+        }
+}
+
+$(document).ready(function() {
+    // Set first page
+    $(".tm-section").fadeOut(0);
+    $(".tm-section-0").fadeIn();
+
+    // Set Background images
+    // https://www.jqueryscript.net/slideshow/Simple-jQuery-Background-Image-Slideshow-with-Fade-Transitions-Background-Cycle.html
+
+    common_background();
     eachNavLink = $(".tm-nav-link");
     links = $(".tm-nav-links");
 
@@ -111,31 +196,16 @@ $(document).ready(function() {
     });
 
     adjustFooter();
-    
     if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)){
-    for(let i=0; i<imageopacity.length; i++){imageopacity[i].style.display="none";}
-    keliopacity.style.display="block";
-    bgCycle = $("body").backgroundCycle({
-        imageUrls: [
-        ],
-        fadeSpeed: 2000,
-        duration: -1,
-        backgroundSize: SCALING_MODE_COVER
-    });
-    document.createElement("script").setAttribute("src", "klee.js");
-    document.getElementById("dream").innerHTML="梦境的篇章Ⅱ"
-    document.getElementById("dream_").innerHTML="梦境的篇章Ⅱ"
-    document.getElementsByTagName("h1")[0].style.color="#24d9b2";
-    document.getElementsByClassName("tm-navbar-menu")[0].style.color="#26e6abf7"
-    document.getElementsByClassName("tm-link m-0")[0].style.color="rgb(35 236 183 / 83%)"
-    for(let i=0; i<document.getElementsByTagName("p").length; i++){document.getElementsByTagName("p")[i].style.color="#11f5ba";}
-    for(let i=0; i<document.getElementsByTagName("h2").length; i++){document.getElementsByTagName("h2")[i].style.color="#27ffa8";}
-    for(let i=0; i<document.getElementsByClassName("tm-nav-link").length; i++){document.getElementsByClassName("tm-nav-link")[i].style.color="rgb(45 238 179 / 75%)";}
-    for(let i=0; i<document.getElementsByClassName("tm-link").length; i++){document.getElementsByClassName("tm-link")[i].style.color="rgb(35 236 183 / 83%)";}
-    window.onmousewheel = document.onmousewheel = scrollFunc2;
-    longpress=true;
-}
-    
+        a = document.createElement("a");
+        a.setAttribute("rel", "nofollow")
+        a.setAttribute("class", "tm-nav-link external")
+        a.setAttribute("href", "javascript:quick_game()")
+        a.setAttribute("id", "quick-game")
+        document.getElementById("mobile").appendChild(a);
+        document.getElementById("mobile").style.display="block";
+        document.getElementById("quick-game").innerHTML="音韵梦云";
+    }
 }); // DOM is ready
 function launchFullscreen(element) {
     if(element.requestFullscreen) {
@@ -258,26 +328,7 @@ const scrollFunc = function (e) {
                 opa -= 0.02;
                 for(let i=0; i<imageopacity.length; i++){imageopacity[i].style.opacity=opa+0.3;}
             } else {
-                keliopacity.style.display="inline";
-                bgCycle = $("body").backgroundCycle({
-                    imageUrls: [
-                    ],
-                    fadeSpeed: 2000,
-                    duration: -1,
-                    backgroundSize: SCALING_MODE_COVER
-                });
-                document.createElement("script").setAttribute("src", "klee.js");
-                document.getElementById("dream").innerHTML="梦境的篇章Ⅱ"
-                document.getElementById("dream_").innerHTML="梦境的篇章Ⅱ"
-                document.getElementsByTagName("h1")[0].style.color="#24d9b2";
-                document.getElementsByClassName("tm-navbar-menu")[0].style.color="#26e6abf7"
-                document.getElementsByClassName("tm-link m-0")[0].style.color="rgb(35 236 183 / 83%)"
-                for(let i=0; i<document.getElementsByTagName("p").length; i++){document.getElementsByTagName("p")[i].style.color="#11f5ba";}
-                for(let i=0; i<document.getElementsByTagName("h2").length; i++){document.getElementsByTagName("h2")[i].style.color="#27ffa8";}
-                for(let i=0; i<document.getElementsByClassName("tm-nav-link").length; i++){document.getElementsByClassName("tm-nav-link")[i].style.color="rgb(45 238 179 / 75%)";}
-                for(let i=0; i<document.getElementsByClassName("tm-link").length; i++){document.getElementsByClassName("tm-link")[i].style.color="rgb(35 236 183 / 83%)";}
-                window.onmousewheel = document.onmousewheel = scrollFunc2;
-                longpress=true;
+                kleecommic();
             }
         }
     }else if (e.detail) {  //Firefox滑轮事件
@@ -292,25 +343,7 @@ const scrollFunc = function (e) {
                 opa -= 0.02;
                 for(let i=0; i<imageopacity.length; i++){imageopacity[i].style.opacity=opa+0.3;}
             } else {
-                keliopacity.style.display="inline";
-                bgCycle = $("body").backgroundCycle({
-                    imageUrls: [
-                    ],
-                    fadeSpeed: 2000,
-                    duration: -1,
-                    backgroundSize: SCALING_MODE_COVER
-                });
-                document.createElement("script").setAttribute("src", "klee.js");
-                document.createElement("script").setAttribute("src", "klee.js");
-                document.getElementsByTagName("h1")[0].style.color="#24d9b2";
-                document.getElementsByClassName("tm-navbar-menu")[0].style.color="#26e6abf7"
-                document.getElementsByClassName("tm-link m-0")[0].style.color="rgb(35 236 183 / 83%)"
-                for(let i=0; i<document.getElementsByTagName("p").length; i++){document.getElementsByTagName("p")[i].style.color="#11f5ba";}
-                for(let i=0; i<document.getElementsByTagName("h2").length; i++){document.getElementsByTagName("h2")[i].style.color="#27ffa8";}
-                for(let i=0; i<document.getElementsByClassName("tm-nav-link").length; i++){document.getElementsByClassName("tm-nav-link")[i].style.color="rgb(45 238 179 / 75%)";}
-                for(let i=0; i<document.getElementsByClassName("tm-link").length; i++){document.getElementsByClassName("tm-link")[i].style.color="rgb(35 236 183 / 83%)";}
-                window.onmousewheel = document.onmousewheel = scrollFunc2;
-                longpress=true;
+                kleecommic();
             }
         }
     }
@@ -332,22 +365,7 @@ function holdDown()//鼠标按下时触发
             if (timeEnd - timeStart > 1000)//如果此时检测到的时间与第一次获取的时间差有1000毫秒
             {
                 clearInterval(time);//便不再继续重复此函数 （clearInterval取消周期性执行）
-                keliopacity.style.display="none";
-                bgCycle = $("body").backgroundCycle({
-                    imageUrls: [
-                        "images//klee.png",
-                        "images//nahida.png",
-                        "images//Elysia.png",
-                        "images//nahida2.jpg",
-                    ],
-                    fadeSpeed: 2000,
-                    duration: -1,
-                    backgroundSize: SCALING_MODE_COVER
-                });
-                opa=1;
-                for(let i=0; i<imageopacity.length; i++){imageopacity[i].style.opacity=opa;}
-                window.onmousewheel = document.onmousewheel = scrollFunc;
-                longpress=false;
+                dream_picture();
             }
         },100);
     }
