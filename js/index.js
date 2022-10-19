@@ -123,8 +123,10 @@ function quick_game(){
         ls.innerHTML = 0;
     } else if (jg.innerHTML === "旋律回梦") {
         ls.innerHTML = 1;
+        document.getElementById("popupDiv").removeChild(document.getElementById("ifr"));
     } else if (jg.innerHTML === "幻梦与梦"){
         ls.innerHTML = 2
+        document.getElementById("popupDiv").removeChild(document.getElementById("ifr"));
     }
     ifr = document.createElement("iframe");
     ifr.id="ifr";
