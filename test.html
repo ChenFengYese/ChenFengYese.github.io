@@ -122,17 +122,9 @@ for(m=0;m<Play.length;m++){
             {document.getElementById(v).style.boxShadow = "rgba(241, 237, 9, 0.99) 3px 3px 18px inset";}
         }
         catch (e){
-            console.log(e);
-            if (window.parent.document.getElementById("quick-game").innerHTML === "音韵梦云") {
-                window.parent.kleecommic();
-                window.parent.document.getElementById("quick-game").innerHTML = "旋律回梦";
-            } else if (window.parent.document.getElementById("quick-game").innerHTML === "旋律回梦") {
-                window.parent.dream_picture();
-                window.parent.document.getElementById("quick-game").innerHTML = "幻梦与梦"
-            } else {
-                window.parent.location.reload();
-            }
             window.parent.document.getElementById("musictouch").style.display = "none";
+            window.parent.document.analyse();
+            window.close();
         }
         }
 }
