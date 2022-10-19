@@ -140,7 +140,7 @@ function quick_game(){
 Object.defineProperty(listenMenuTree, 'value', {
     get: function (value) {
         // get 和 set 方法
-        return value;
+        return this._value;
     },
     set: function (value) {
         // 当listenMenuTree 的value值发生改变时，触发set函数的内容
