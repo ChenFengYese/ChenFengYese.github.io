@@ -3,16 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+  <style>
+    .sleepContentView{
+      width:6rem;
+      height:6rem;
+      background-image: linear-gradient(#aaf0d8, #2ED) ;
+      border-radius:50%;
+      text-align:center;
+      padding:20px;
+      font-size:2rem;
+      box-sizing:border-box;
+      float:left;
+      margin:5px;
+
+    }
+    .sleepContentView .circle{
+      width:100%;
+      height:100%;
+      background:#fff;
+      border-radius:50%;
+        display: flex; /**/
+        justify-content: center; /*水平居中*/
+        align-items: Center; /*垂直居中*/
+    }
+    html,body，button{
+        width: 100%;
+        height: 100%;
+        display: flex; /**/
+        justify-content: center; /*水平居中*/
+        align-items: Center; /*垂直居中*/
+
+    }
+
+    .music{
+        background-image: linear-gradient(#aaf0d8, #2ED);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+  </style>
 </head>
 <body>
-<img src="images/起床.png" title="11-12" width="1300" alt=" ">
-<img src="images/拼夕夕.png" title="11-12" width="1300" alt=" ">
-<img src="images/带饭.png" title="11-12" width="1300" alt=" ">
-<img src="images/吃你.png" title="11-12" width="1300" alt=" ">
-<img src="images/生闷气.png" title="11-12" width="1300" alt=" ">
-<img src="images/愧疚.png" title="11-12" width="1300" alt=" ">
-<img src="images/憨憨.png" title="11-12" width="1300" alt=" ">
-<img src="images/憨憨2.png" title="11-12" width="1300" alt=" ">
+<iframe src="klee.html" width="100%" height="100%"  onload="changeFrameHeight()" style="position:fixed;width: 100%;z-index: -1"></iframe>
+<div class="button">
 
+<div class="sleepContentView">
+  <div id=1 class="circle">
+      <span class="music">do</span>
+      <audio src="./music/1do.mp3" ></audio>
+  </div>
+</div><div class="sleepContentView">
+  <div id=2 class="circle">
+      <span class="music">re</span>
+      <audio src="./music/2re.mp3" ></audio>
+  </div>
+</div><div class="sleepContentView">
+  <div id=3 class="circle">
+      <span class="music">mi</span>
+      <audio src="./music/3mi.mp3" ></audio>
+  </div>
+</div><div class="sleepContentView">
+  <div id=4 class="circle">
+      <span class="music">fa</span>
+      <audio src="./music/4fa.mp3" ></audio>
+  </div>
+</div><div class="sleepContentView">
+  <div id=5 class="circle">
+      <span class="music">so</span>
+      <audio src="./music/5so.mp3" ></audio>
+  </div>
+</div><div class="sleepContentView">
+  <div id=6 class="circle">
+      <span class="music">la</span>
+      <audio src="./music/6la.mp3" ></audio>
+  </div>
+</div><div class="sleepContentView">
+  <div id=7 class="circle">
+      <span class="music">si</span>
+      <audio src="./music/7si.mp3" ></audio>
+  </div>
+</div><div class="sleepContentView">
+  <div id=8 class="circle">
+      <span class="music">si</span>
+      <audio src="./music/8do.mp3" ></audio>
+  </div>
+</div>
+</div>
+<span id="value"></span>
 </body>
+<script>
+cir = document.getElementsByClassName("circle")
+//音乐播放暂停
+Play=document.getElementsByClassName("circle");
+music = document.getElementsByTagName("audio");
+ls = [[6,6,5,4,6,5,5,8],[2,6,7,7,8,2,6,7,4,3,2],[3,4,2,1,2]]
+ir = parseInt(window.parent.document.getElementById("music_ls").innerHTML);
+lst=ls[ir];
+
+l = 0;
+v = lst[l];
+document.getElementById("1").style.boxShadow = "rgba(241, 237, 9, 0.99) 3px 3px 18px inset";
+for(m=0;m<Play.length;m++){
+    Play[m].onclick=function(){
+        try{
+        this.style.boxShadow="none";
+        id = this.id;
+        console.log(id,v,id===v.toString());
+        music[id-1].play();
+
+        if(id===v.toString()){
+            l++
+        }
+        else{
+            document.getElementById(v).style.boxShadow = "none"
+            l=0
+        }
+      v = lst[l];
+            if(document.getElementById(v).style.boxShadow !== "rgba(241, 237, 9, 0.99) 3px 3px 18px inset")
+        {document.getElementById(v).style.boxShadow = "rgba(241, 237, 9, 0.99) 3px 3px 18px inset";
+        }}catch (e){window.parent.document.getElementById("musictouch").style.display="none";}
+        }
+}
+</script>
 </html>
