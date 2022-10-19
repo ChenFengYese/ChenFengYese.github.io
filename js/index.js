@@ -4,6 +4,7 @@ let previousImageId = 0,
     currentImageId = 0;
 let opa = 1;
 let pageAlign = "right";
+var listenMenuTree = { "value": 1 };
 let bgCycle;
 let links;
 let eachNavLink;
@@ -134,6 +135,18 @@ function quick_game(){
     document.getElementById("musictouch").style.display = "block";
 
 }
+
+
+Object.defineProperty(listenMenuTree, 'value', {
+    get: function (value) {
+        // get 和 set 方法
+        return value;
+    },
+    set: function (value) {
+        // 当listenMenuTree 的value值发生改变时，触发set函数的内容
+        analyse();
+    }
+});
 
 function analyse(){
     document.getElementById("popupDiv").removeChild(document.getElementById("ifr"));
