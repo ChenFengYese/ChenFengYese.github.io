@@ -113,7 +113,9 @@ function dream_picture(){
     longpress=false;
 }
 
-function music_star(){
+function quick_game(){
+    //音游 {}
+    //successful:
     document.getElementById("musictouch").style.display = "block";
     ls = document.getElementById("music_ls");
     jg = document.getElementById("quick-game");
@@ -125,28 +127,11 @@ function music_star(){
         ls.innerHTML = 2
     }
     ifr = document.createElement("iframe");
+    ifr.id="ifr";
     ifr.src ="test.html";
     ifr.frameBorder = "0";
     ifr.style="position: absolute; width: 100%; height: 100%; border-radius: 3px;";
     document.getElementById("popupDiv").appendChild(ifr);
-}
-
-function quick_game(){
-    //音游 {}
-    //successful:
-        music_star();
-        if(document.getElementById("musictouch").style.display !== "block") {
-            jg = document.getElementById("quick-game");
-            if (jg.innerHTML === "音韵梦云") {
-                kleecommic();
-                jg.innerHTML = "旋律回梦";
-            } else if (jg.innerHTML === "旋律回梦") {
-                dream_picture();
-                jg.innerHTML = "幻梦与梦"
-            } else {
-                location.reload();
-            }
-        }
 }
 
 $(document).ready(function() {
