@@ -100,7 +100,7 @@
             function (event) {
                 if (event.origin === window.location.origin) {
                     console.log(event.data);
-                   document.getElementById("time").style.right = "640px";
+                   document.getElementById("time").style.left = event.data+"px";
                 }
             }, false
         );
