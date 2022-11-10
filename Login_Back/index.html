@@ -22,7 +22,7 @@
 				<div id="large-header" class="large-header">
 					
 
-  <div style="position:absolute;left: 440px; top:300px;"  class="time" id="time" data-hours="" data-minutes="">
+  <div style="position:absolute;left: 340px; top:300px;"  class="time" id="time" data-hours="" data-minutes="">
   <div class="digit">
     <div class="line"></div>
     <div class="line"></div>
@@ -102,7 +102,7 @@ window.addEventListener('message',(e) =>
 {
 		console.log(e.data);
 		document.getElementById("time").style.left = 440+Number(e.data)+"px";
-		window.parent.postMessage( 440+Number(e.data)+"px", e.origin);
+		window.parent.postMessage( 340+Number(e.data)+"px", e.origin);
 
 }, false);
 </script>
