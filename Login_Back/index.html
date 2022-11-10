@@ -95,5 +95,16 @@
 <script src='js/Rx.min.js'></script>
 <script src='js/rxcss.min.js'></script>
 <script src="js/index.js"></script>
+			
+<script>
+// 接收index.html的数据
+window.addEventListener('message',(e) => {
+    console.log(e.data);
+    if(e.origin !== 'http://localhost:8080/#/PasswordForgets')
+    return;
+    // 发送消息给index.html
+    window.parent.postMessage('来自Iframe页面的消息', e.origin);
+}, false);
+</script>
 		</body>
 	</html>
