@@ -95,6 +95,16 @@
 <script src='js/Rx.min.js'></script>
 <script src='js/rxcss.min.js'></script>
 <script src="js/index.js"></script>
+		<script>
+        window.addEventListener("message",
+            function (event) {
+                if (event.origin === window.location.origin) {
+                    console.log(event.data);
+                   document.getElementById("time").style.right = "640px";
+                }
+            }, false
+        );
+    </script>
 
 		</body>
 	</html>
