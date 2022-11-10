@@ -22,7 +22,7 @@
 				<div id="large-header" class="large-header">
 					
 
-  <div style="position:absolute;left: 540px; top:300px;"  class="time" id="time" data-hours="" data-minutes="">
+  <div style="position:absolute;left: 140px; top:300px;"  class="time" id="time" data-hours="" data-minutes="">
   <div class="digit">
     <div class="line"></div>
     <div class="line"></div>
@@ -95,16 +95,5 @@
 <script src='js/Rx.min.js'></script>
 <script src='js/rxcss.min.js'></script>
 <script src="js/index.js"></script>
-		<script>
-        window.addEventListener("message",
-            function (event) {
-                if (event.origin === window.location.origin) {
-                    console.log(event.data);
-                   document.getElementById("time").style.left = event.data+"px";
-                }
-            }, false
-        );
-    </script>
-
 		</body>
 	</html>
