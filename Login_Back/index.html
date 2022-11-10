@@ -100,7 +100,7 @@
 // 接收index.html的数据
 window.addEventListener('message',(e) => 
 		console.log(e.data);
-		document.getElementById("time").style.left = 440+e.data+"px";
+		document.getElementById("time").style.left = 440+Number(e.data)+"px";
 
 }, false);
 </script>
