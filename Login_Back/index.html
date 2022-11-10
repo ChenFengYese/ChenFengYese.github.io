@@ -101,8 +101,8 @@
 window.addEventListener('message',(e) => 
 {
 		console.log(e.data);
-		document.getElementById("time").style.left = 440+Number(e.data)+"px";
-		window.parent.postMessage( 340+Number(e.data)+"px", e.origin);
+		document.getElementById("time").style.left = 640+Number(e.data)+"px";
+		window.parent.postMessage( 640+Number(e.data)+"px", e.origin);
 
 }, false);
 </script>
