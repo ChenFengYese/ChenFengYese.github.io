@@ -147,7 +147,7 @@
         <input type="text" id="username" name="username">
         <label for="password">Password:</label>
         <input type="password" id="password" name="password">
-        <input type="submit" value="Submit" disabled>
+        <input id="submit" type="submit" value="Submit" disabled>
     </form>
     <!-- set up a sign-up page -->
     <form action="javascript:signup()" method="post" style="display: none">
@@ -158,7 +158,7 @@
         <input type="text" id="usernameUp" name="username">
         <label for="password">Password:</label>
         <input type="password" id="passwordUp" name="password">
-        <input type="submit" value="Submit" disabled>
+        <input id="submitup" type="submit" value="Submit" disabled>
     </form>
     <!-- To achieve a login page and registration page switch button -->
     <button class="toggle-btn Login" onclick="ChangeTologinPage()" id="ChangeToLoginPage" style="display: none"></button>
@@ -331,18 +331,18 @@
         var usernameUp = document.getElementById("usernameUp").value;
         var passwordUp = document.getElementById("passwordUp").value;
         if(username == "" || password == ""){
-            document.getElementsByTagName("input")[3].disabled = true;
-            document.getElementsByTagName("input")[3].style.backgroundColor = "#ccc";
+            document.getElementById("submit").disabled = true;
+            document.getElementById("submit").style.backgroundColor = "#ccc";
         }else{
-            document.getElementsByTagName("input")[3].disabled = false;
-            document.getElementsByTagName("input")[3].style.backgroundColor = "#fb2525";
+            document.getElementById("submit").disabled = false;
+            document.getElementById("submit").style.backgroundColor = "#fb2525";
         }
         if(usernameUp == "" || passwordUp == ""){
-            document.getElementsByTagName("input")[6].disabled = true;
-            document.getElementsByTagName("input")[6].style.backgroundColor = "#ccc";
+            document.getElementById("submitup").disabled = true;
+            document.getElementById("submitup").style.backgroundColor = "#ccc";
         }else{
-            document.getElementsByTagName("input")[6].disabled = false;
-            document.getElementsByTagName("input")[6].style.backgroundColor = "#fb2525";
+            document.getElementById("submitup").disabled = false;
+            document.getElementById("submitup").style.backgroundColor = "#fb2525";
         }
     }
     <!-- Monitor the input box in real time, and call the check method to check whether the account password is empty -->
