@@ -34,7 +34,7 @@ function time() {
     $(".wenzhang_box_article_shengming_link").html(document.location.href.split("?")[0].split("noteAdd")[0]+"noteView.html?"+"uid="+document.location.href.split("?")[1]+"&suid="+base64($(".wenzhang_box_content_jieshao_xieti:eq(0)").html()));
 }
 // Add note
-function addNoteInfo() {
+function addNoteInfo(uid) {
     if($("#title").text() !== '' && $(".wenzhang_box_article").text() !== '')
     {
         $.ajax({
@@ -42,7 +42,7 @@ function addNoteInfo() {
             type: "post",
             dataType: "json",
             data: {
-                "uid": (window.location.href).split('?')[1],
+                "uid": uid,
                 "suid": $(".wenzhang_box_content_jieshao_xieti:eq(0)").html(),
                 "time": $(".wenzhang_box_content_jieshao_xieti:eq(2)").html(),
                 "title": $("#title").text(),
@@ -85,7 +85,7 @@ try{
         }
         const suid = note+1;
         $(".wenzhang_box_content_jieshao_xieti:eq(0)").html(suid);
-        $(".lsuidHref:eq(1)").attr("href","javascript:addNoteInfo()");
+        $(".lsuidHref:eq(1)").attr("href","javascript:addNoteInfo('"+uid+"')");
     } else {
         console.log("error:"+data);
     }
