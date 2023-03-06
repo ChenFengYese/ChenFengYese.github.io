@@ -168,17 +168,17 @@ function check(){
     var passwordUp = document.getElementById("passwordUp").value;
     if(username == "" || password == ""){
         document.getElementById("submit").disabled = true;
-        document.getElementsByTagName("submit").style.backgroundColor = "#ccc";
+        document.getElementById("submit").style.backgroundColor = "#ccc";
     }else{
-        document.getElementsByTagName("submit").disabled = false;
-        document.getElementsByTagName("submit").style.backgroundColor = "#fb2525";
+        document.getElementById("submit").disabled = false;
+        document.getElementById("submit").style.backgroundColor = "#fb2525";
     }
     if(usernameUp == "" || passwordUp == ""){
-        document.getElementsByTagName("submitUp").disabled = true;
-        document.getElementsByTagName("submitUp").style.backgroundColor = "#ccc";
+        document.getElementById("submitUp").disabled = true;
+        document.getElementById("submitUp").style.backgroundColor = "#ccc";
     }else{
-        document.getElementsByTagName("submitUp").disabled = false;
-        document.getElementsByTagName("submitUp").style.backgroundColor = "#fb2525";
+        document.getElementById("submitUp").disabled = false;
+        document.getElementById("submitUp").style.backgroundColor = "#fb2525";
     }
 }
 <!-- Monitor the input box in real time, and call the check method to check whether the account password is empty -->
