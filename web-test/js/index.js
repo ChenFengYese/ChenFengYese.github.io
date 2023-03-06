@@ -167,18 +167,18 @@ function check(){
     var usernameUp = document.getElementById("usernameUp").value;
     var passwordUp = document.getElementById("passwordUp").value;
     if(username == "" || password == ""){
-        document.getElementsByTagName("input")[2].disabled = true;
-        document.getElementsByTagName("input")[2].style.backgroundColor = "#ccc";
+        document.getElementById("submit").disabled = true;
+        document.getElementsByTagName("submit").style.backgroundColor = "#ccc";
     }else{
-        document.getElementsByTagName("input")[2].disabled = false;
-        document.getElementsByTagName("input")[2].style.backgroundColor = "#fb2525";
+        document.getElementsByTagName("submit").disabled = false;
+        document.getElementsByTagName("submit").style.backgroundColor = "#fb2525";
     }
     if(usernameUp == "" || passwordUp == ""){
-        document.getElementsByTagName("input")[5].disabled = true;
-        document.getElementsByTagName("input")[5].style.backgroundColor = "#ccc";
+        document.getElementsByTagName("submitUp").disabled = true;
+        document.getElementsByTagName("submitUp").style.backgroundColor = "#ccc";
     }else{
-        document.getElementsByTagName("input")[5].disabled = false;
-        document.getElementsByTagName("input")[5].style.backgroundColor = "#fb2525";
+        document.getElementsByTagName("submitUp").disabled = false;
+        document.getElementsByTagName("submitUp").style.backgroundColor = "#fb2525";
     }
 }
 <!-- Monitor the input box in real time, and call the check method to check whether the account password is empty -->
