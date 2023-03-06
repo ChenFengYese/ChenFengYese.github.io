@@ -1,0 +1,129 @@
+/* Make the body and div full screen */
+html,body{
+    height: 100%;
+}
+body{
+    background-image: url("https://th.bing.com/th/id/R.092f5197b726325d3650400c86b1a78a?rik=BTUEO8uq7XaDeA&riu=http%3a%2f%2fi1.hdslb.com%2fbfs%2farchive%2f5c7a9e7b28d3cc3f9cdafc42cd0f6b2d0b87e727.jpg&ehk=2sH6%2f4J9H9MDqeHcdLxxAQi9ee6%2bBdl6PyUWqNZ%2fDXE%3d&risl=&pid=ImgRaw&r=0");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+/* Remove the scroll bar on the right */
+body::-webkit-scrollbar{
+    display: none;
+}
+
+
+/* Set up the login page and sign-up page */
+form{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 430px;
+    height: 390px;
+    background: rgba(0,0,0,0.5);
+    padding: 40px;
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,0.5);
+    border-radius: 10px;
+}
+/* Set up the login page and sign-up page title */
+form h1{
+    margin: 0 0 30px;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+}
+/* Set up the login page and sign-up page input box */
+form input{
+    width: 100%;
+    margin-bottom: 20px;
+}
+/* Set up the login page and sign-up page input box */
+form input[type="text"], form input[type="password"]{
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+}
+/* Set up the login page and sign-up page input box placeholder */
+form input[type="text"]::placeholder, form input[type="password"]::placeholder{
+    color: rgba(255,255,255,0.5);
+}
+/* Set up the login page and sign-up page input box */
+form input[type="submit"]{
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #ccc;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+}
+/* Set up the login page and sign-up page input box */
+form input[type="submit"]:hover{
+    cursor: pointer;
+    background: #ffc107;
+    color: #000;
+}
+/* Set the switch button as a small slider on the right side, Hide a third of the buttons,When sliding to the button, all button interfaces are displayed */
+.toggle-btn{
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(-50%,-50%);
+    width: 30px;
+    height: 30px;
+    background: #fb2525;
+    border-radius: 50%;
+    overflow: hidden;
+    transition: 0.5s;
+}
+/* Move the mouse into the full screen of the display button, and move it out to show a third of the screen*/
+.toggle-btn:hover{
+    width: 100px;
+}
+/* Set the switch button as a small slider on the right side, Hide a third of the buttons,When sliding to the button, all button interfaces are displayed */
+.toggle-btn span{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.5s;
+}
+/* When the mouse moves over the button, the pointer style changes */
+.toggle-btn:hover span{
+    opacity: 1;
+}
+/* When the mouse moves over the button, the pointer style changes */
+.toggle-btn:hover::before{
+    width: 100%;
+}
+/* When the mouse moves over the button, the pointer style changes */
+.toggle-btn::before{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 100%;
+    background: #ffc107;
+    transition: 0.5s;
+}
+.Login::before{
+    content: "Login";
+
+}
+.SignUp::before{
+    content: "Sign Up";
+}
+/* The page is not affected by mouse scrolling */
+body{
+    overflow: hidden;
+}

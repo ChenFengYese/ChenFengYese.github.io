@@ -1,0 +1,180 @@
+<html lang="en"><head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="renderer" content="webkit">
+    <meta property="og:title" content="">
+    <title>NotBook</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <!--<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">-->
+
+
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/css_animate.min.css">
+    <link rel="stylesheet" href="css/css_base.css">
+    <link rel="stylesheet" href="css/css_notbook.css">
+
+    <script src="js/wow.min.js"></script>
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/base.js"></script>
+
+</head><body><input type="hidden" id="_w_simile" data-inspect-config="3">
+
+
+
+<!--base列表页页面的图片-->
+<div class="bg_pic" style="background-image: url(image/bg_5.png);">
+
+</div>
+<!--base列表页页面的头部部分-->
+<div class="base_header">
+
+    <div class="base_header_content">
+
+        <a href="javascript:" class="base_header_logo">
+            <img src="image/logo.png" alt=""></a>
+
+        <div class="base_header_nav" style="height: 902.667px;">
+            <ul>
+                <!--这里是没有子栏目的样式-->
+                <li><i class="fa fa-caret-right"></i><a class="indexHref" href="NotBook.html">首页</a></li>
+
+                <!-- 这里是修改笔记的样式 -->
+                <li class="have_second_navs">
+                    <i class="fa fa-caret-right"></i><a href="javascript:">修改笔记</a>
+                    <!--二级导航有子栏目的时候-->
+                    <ul class="nav_child" style="overflow: hidden; display: block;">
+                        <li><a href="" >笔记</a></li>
+                        <li><a href="" >笔记</a></li>
+
+                    </ul>
+                </li>
+                <!--顶级导航-->
+                <li class="have_second_navs">
+                    <a class="addHref" href="noteAdd.html">添加笔记</a>
+                </li>
+                <!--顶级导航-->
+                <li class="have_second_navs">
+                    <a class="selectHref" href="javascript:selectNotes()">搜索笔记</a>
+                </li>
+
+                <li class="have_second_navs">
+                   <a href="index.html">退出登录</a>
+
+                </li>
+            </ul>
+        </div>
+
+        <!--手机导航部分-->
+
+        <div class="base_nav_menu" id="base_nav_menu" bind_click="true"><span bind_click="true"></span></div>
+
+        <div class="base_nav_zhezao"></div>
+
+    </div>
+</div>
+
+<!--base列表页身体部分开始-->
+<div class="base_content_body">
+    <!--base列表页身体部分居中显示-->
+    <div class="base_content_content clearfix">
+        <!--base列表页身体部分的左边部分设置宽度-->
+        <div class="base_content_left">
+
+            <!--base列表页身体部分最新博客盒子-->
+            <div class="base_list_box wow zoomIn" data-wow-duration="1s" style="visibility: visible; animation-duration: 1s; animation-name: zoomIn;" id="noteList">
+
+
+                <div class="shangxiaye clearfix">
+                    <a title="Total record"><b>105</b></a>
+                    <a href="#">1</a>
+                    <b>2</b>
+                    <a href="#">3</a>
+                    <a href="$">4</a>
+                    <a href="$">5</a>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!--base列表页身体右边部分-->
+        <div class="base_content_right">
+
+            <div class="base_content_right_item" id="base_content_right_down">
+                <div class="base_search">
+                    <form name="searchform" class="search_form" method="post" action="#" target="_blank">
+                        <input type="text" style="line-height: 40px;" class="search_text" required="required" name="keyboard" placeholder="输入关键字搜索">
+                        <input type="hidden" name="tbname" value="news">
+                        <input type="hidden" name="show" value="title,smalltext">
+                        <input type="hidden" name="tempid" value="1">
+                        <input type="hidden" name="classid" value="1,4,9">
+                        <input type="submit" class="search_btn" value="" title="搜索">
+                        <i class="fa fa-search"></i>
+                    </form>
+                </div>
+                <!--这里是页面右侧的导航部分-->
+                <div class="blog_right_nav">
+                    <ul>
+                        <blog_active_and_hover_class class="blog_active_and_hover_class" style="top: 0px; width: 300px; height: 41px;"></blog_active_and_hover_class>
+                        <li class="blog_lanmu_active"><a href="javascript:void(0)">排序规则</a></li>
+                        <li><a id="sortByTime" href="">按最新修改时间排序</a></li>
+                        <li><a id="sortBySuid" href="">按笔记索引排序</a></li>
+
+                    </ul>
+
+                </div>
+                <!--这里是右侧的博客介绍部分-->
+                <div class="blog_info">
+                    <ul>
+                        <blog_active_and_hover_class class="blog_active_and_hover_class"></blog_active_and_hover_class>
+                        <li class="blog_lanmu_active"><a href="javascript:void(0)">网站介绍</a></li>
+                        <li><a class="updateTime" href="javascript:void(0)">最新修改时间:2023-3-6 17:56:43</a></li>
+                        <li><a class="noteCounts" href="javascript:void(0)">笔记总数:210</a></li>
+                        <li><a class="collectCounts" href="javascript:void(0)">收藏总数:1</a></li>
+                        <li><a class="collectCounts" href="javascript:void(0)">收藏,指定修改,搜索,排序,计算,加密传值跳转等功能等待后端实现</a></li>
+                    </ul>
+                </div>
+                <!--这里是右侧的博主介绍部分-->
+            </div>
+            <div class="base_content_right_item">
+
+                <h3 class="base_content_right_item_title">收藏的笔记</h3>
+                <div class="base_content_right_item_list">
+                                        <ul id="NotBookSave">
+                                            <li><a href="javascript:void(0)">1</a></li>
+                                            <li><a href="javascript:void(0)">2</a></li>
+                                        </ul>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+<!--一键回到顶部的box-->
+<div class="go_top" style="display: none;"><i class="fa fa-angle-up"></i></div>
+<div class="base_footer">
+
+    <span class="base_footer_text">Copyright © 2021-2022 Power by ChenFengYeSe</span>
+    <span class="base_footer_text">网站仓库：<a href="https://github.com/ChenFengYese/ChenFengYese.github.io">ChenFengYeSe</a></span>
+</div>
+
+
+
+
+
+<div class="layui-xzxform-label"></div>
+<script src="js/BaseJSencryption.js"></script>
+<script src="js/getCookies.js"></script>
+<script src="js/ViewBaseNotBook.js"></script>
+
+</body>
+</html>

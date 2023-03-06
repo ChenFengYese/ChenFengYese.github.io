@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+
+<!--    Set up a login page-->
+    <form action="javascript:login()" method="post">
+        <!-- This is the login page, the default display -->
+        <!-- Explain to the user that this is the login screen -->
+        <h1>Login</h1>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+        <input type="submit" value="Submit" disabled>
+    </form>
+    <!-- set up a sign-up page -->
+    <form action="javascript:signup()" method="post" style="display: none">
+        <!-- This is the sign-up page, the default is not displayed -->
+        <!-- Explain to the user that this is the sign-up screen -->
+        <h1>Sign Up</h1>
+        <label for="username">Username:</label>
+        <input type="text" id="usernameUp" name="username">
+        <label for="password">Password:</label>
+        <input type="password" id="passwordUp" name="password">
+        <input type="submit" value="Submit" disabled>
+    </form>
+    <!-- To achieve a login page and registration page switch button -->
+    <button class="toggle-btn Login" onclick="ChangeTologinPage()" id="ChangeToLoginPage" style="display: none"></button>
+    <button class="toggle-btn SignUp" onclick="ChangeToSignUpPage()" id="ChangeToSignUpPage"></button>
+
+<script src="js/BaseJSencryption.js"></script>
+<script src="js/index.js"></script>
+
+
+
+
+</body>
+</html>
