@@ -28,6 +28,9 @@ function time() {
     hours = date.getHours();
     minutes = date.getMinutes();
     seconds = date.getSeconds();
+    hours =  hours<10?"0"+hours:hours;
+    minutes =  minutes<10?"0"+minutes:minutes;
+    seconds = seconds<10?"0"+seconds:seconds;
     vWeek_s = date.getDay();
     $(".wenzhang_box_content_jieshao_xieti:eq(2)").html(year + "-" + month + "-" + day + " "  + hours + ":" + minutes + ":" + seconds)
     $(".wenzhang_box_content_jieshao_zishu").html("总字数:"+$(".wenzhang_box_article").text().length+"字");
