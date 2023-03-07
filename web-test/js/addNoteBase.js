@@ -51,7 +51,7 @@ function addNoteInfo(uid) {
                 // "suid": $(".wenzhang_box_content_jieshao_xieti:eq(0)").html(),
                 "time": $(".wenzhang_box_content_jieshao_xieti:eq(2)").html(),
                 "title": $("#title").text(),
-                "text": $(".wenzhang_box_article").text(),
+                "text": $(".wenzhang_box_article").html(),
                 "collect": "0"
             },
             success: function (data) {
