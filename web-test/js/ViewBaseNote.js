@@ -47,7 +47,12 @@ function time() {
     day = date.getDate();
     hours = date.getHours();
     minutes = date.getMinutes();
-    seconds = date.getSeconds();
+    seconds = date.getSeconds();    
+    hours =  hours<10?"0"+hours:hours;
+    minutes =  minutes<10?"0"+minutes:minutes;
+    seconds = seconds<10?"0"+seconds:seconds;
+    month =  month<10?"0"+month:month;
+    day = day<10?"0"+day:day;
     vWeek_s = date.getDay();
     $(".wenzhang_box_content_jieshao_xieti:eq(2)").html(year + "年" + month + "月" + day + "日" + "\t" + hours + ":" + minutes + ":" + seconds + "\t" + vWeek[vWeek_s])
 }
