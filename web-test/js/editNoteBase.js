@@ -55,7 +55,7 @@ function updateNoteInfo(uid,suid) {
             }
         },
         error: function () {
-            layer.msg("服务器异常");
+            alert("服务器异常");
         }
     });
 }
