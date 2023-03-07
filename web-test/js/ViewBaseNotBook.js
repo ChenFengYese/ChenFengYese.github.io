@@ -19,9 +19,18 @@ $.ajax({
         if (JSON.stringify(data) !== '[]') {
             var noteList = data;
             var html = ""
+            var h2 = ""
             console.log(data)
+            var count = 0
             for (var i = 0; i < noteList.length; i++) {
                 var note = noteList[i];
+                b=""
+                if(note.collect=== "1"){
+                    b="style='color: red;"
+                    h2 += '<li><a href="noteView.html?' +'uid='+base64(note.uid)+'&suid='+base64(note.suid.toString())+
+                        '" title="阅读收藏">'+note.title+'</a></li>'
+                    count += 1
+                }
                 html += "<ul>"+
                     '<li class="wow fadeIn" data-wow-delay="0.1s" data-wow-duration="1s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.1s; animation-name: fadeIn;">'+
                     '<div class="base_list_box_title">'+
@@ -50,10 +59,15 @@ $.ajax({
                 html += note.time+"</a>";
                 html += "<a href='javascript:;' onclick='deleteNoteInfo(" + note.suid + ")' title=\"删除笔记\"><i class=\"fa fa-eye\"></i>删除</a>";
                 html += "<a href='noteEdit.html?"  +'uid='+base64(note.uid)+'&suid='+base64(note.suid.toString())+ "' title=\"修改笔记\"><i class=\"fa fa-thumbs-up\"></i>修改</a>";
-                html += "<a href='javascript:'" + note.suid + " title=\"收藏笔记\"><i class=\"fa fa-thumbs-up\"></i>收藏</a>";
+                html += "<a "+b+" href='javascript:'" + note.suid + " title=\"收藏笔记\"><i class=\"fa fa-thumbs-up\"></i>收藏</a>";
                 html += "</div></div></li></ul>";
             }
             $("#noteList").html(html);
+            $("#NotBookSave").html(h2)
+            $(".updateTime").html("最新修改时间:"+noteList[count].time)
+            $(".noteCounts").html("笔记总数:"+noteList.length)
+            $(".collectCounts").html("收藏总数:"+count)
+
         } else {
             console.log(data);
             // alert("你尚未登陆，请先登陆！")
