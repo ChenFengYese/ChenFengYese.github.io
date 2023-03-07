@@ -42,7 +42,7 @@ function updateNoteInfo(uid,suid) {
         dataType: "json",
         data: {
             "title": $("#title").text(),
-            "text": $(".wenzhang_box_article").text(),
+            "text": $(".wenzhang_box_article").html(),
             "uid": uid,
             "suid": suid,
             "time": $(".wenzhang_box_content_jieshao_xieti:eq(2)").html(),
@@ -83,7 +83,7 @@ try{
 
     if (data !== '') {
         $("#title").text(noteInfo[0].title);
-        $(".wenzhang_box_article").text(noteInfo[0].text);
+        $(".wenzhang_box_article").html(noteInfo[0].text);
         $(".wenzhang_box_article_shengming_title").html(noteInfo[0].title);
         $(".wenzhang_box_article_shengming_link").html(window.location.href);
         $(".wenzhang_box_content_jieshao_zishu").html("总字数:"+noteInfo[0].text.length+"字");
