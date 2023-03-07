@@ -30,7 +30,7 @@ function time() {
     minutes = date.getMinutes();
     seconds = date.getSeconds();
     vWeek_s = date.getDay();
-    $(".wenzhang_box_content_jieshao_xieti:eq(2)").html(year + "-" + month + "-" + day + "-"  + hours + ":" + minutes + ":" + seconds)
+    $(".wenzhang_box_content_jieshao_xieti:eq(2)").html(year + "-" + month + "-" + day + " "  + hours + ":" + minutes + ":" + seconds)
 }
 function updateNoteInfo(uid,suid) {
     $.ajax({
