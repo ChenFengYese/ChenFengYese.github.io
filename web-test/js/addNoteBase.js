@@ -22,7 +22,8 @@ function time() {
     vWeek = ["星期天", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
     var date =  new Date();
     year = date.getFullYear();
-    month = (date.getMonth() + 1)<10?"0"+date.getDate() + 1:date.getDate() + 1;
+    month = date.getMonth() + 1;
+    month =  month<10?"0"+month:month;
     day = date.getDate()<10?"0"+date.getDate():date.getDate();
     hours = date.getHours();
     minutes = date.getMinutes();
@@ -43,7 +44,7 @@ function addNoteInfo(uid) {
             dataType: "json",
             data: {
                 "uid": uid,
-                "suid": $(".wenzhang_box_content_jieshao_xieti:eq(0)").html(),
+                // "suid": $(".wenzhang_box_content_jieshao_xieti:eq(0)").html(),
                 "time": $(".wenzhang_box_content_jieshao_xieti:eq(2)").html(),
                 "title": $("#title").text(),
                 "text": $(".wenzhang_box_article").text()
@@ -81,9 +82,12 @@ try{
     if (JSON.stringify(data) !== '{}') {
         var note = 0;
         for (var i = 0; i < data.length; i++) {
+            console.log(data[i].suid)
             note = data[i].suid>note?data[i].suid:note;
         }
+        console.log(note)
         const suid = note+1;
+        console.log(suid)
         $(".wenzhang_box_content_jieshao_xieti:eq(0)").html(suid);
         $(".lsuidHref:eq(1)").attr("href","javascript:addNoteInfo('"+uid+"')");
     } else {
