@@ -20,6 +20,7 @@ $.ajax({
             var noteList = data;
             var html = ""
             var h2 = ""
+            var h3 = ""
             console.log(data)
             var count = 0
             for (var i = 0; i < noteList.length; i++) {
@@ -31,6 +32,8 @@ $.ajax({
                         '" title="阅读收藏">'+note.title+'</a></li>'
                     count += 1
                 }
+                h3 += '<li><a href="noteEdit.html?' +'uid='+base64(note.uid)+'&suid='+base64(note.suid.toString())+
+                    '" title="修改笔记"  style="background: #5e8c88">'+note.title+'</a></li>'
                 html += "<ul>"+
                     '<li class="wow fadeIn" data-wow-delay="0.1s" data-wow-duration="1s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.1s; animation-name: fadeIn;">'+
                     '<div class="base_list_box_title">'+
@@ -64,6 +67,7 @@ $.ajax({
             }
             $("#noteList").html(html);
             $("#NotBookSave").html(h2)
+            $("#editNoteList").html(h3)
             $(".updateTime").html("最新修改时间:"+noteList[count].time)
             $(".noteCounts").html("笔记总数:"+noteList.length)
             $(".collectCounts").html("收藏总数:"+count)
