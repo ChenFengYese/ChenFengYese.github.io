@@ -45,7 +45,8 @@ function updateNoteInfo(uid,suid) {
             "text": $(".wenzhang_box_article").text(),
             "uid": uid,
             "suid": suid,
-            "time": $(".wenzhang_box_content_jieshao_xieti:eq(2)").html()
+            "time": $(".wenzhang_box_content_jieshao_xieti:eq(2)").html(),
+            "collect": "0"
         },
         success: function (data) {
             if (data !=='') {
