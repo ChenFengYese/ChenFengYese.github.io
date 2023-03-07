@@ -24,6 +24,7 @@ function time() {
     var date =  new Date();
     year = date.getFullYear();
     month = date.getMonth() + 1;
+    month =  month<10?"0"+month:month;
     day = date.getDate()<10?"0"+date.getDate():date.getDate();
     hours = date.getHours();
     minutes = date.getMinutes();
