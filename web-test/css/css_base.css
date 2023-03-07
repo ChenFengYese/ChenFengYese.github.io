@@ -9,7 +9,7 @@ ul{list-style: none;}
 p{padding: 0;margin: 0;text-align: Justify;word-wrap: break-word;
     word-break: break-all;}
 input,textarea{outline: none;}
-@font-face {
+/* @font-face {
     font-family: 'Myfont';
     src: url('https://www.nahida-elysia.asia/font/SENTYTANG.woff');
     src:
@@ -17,7 +17,7 @@ input,textarea{outline: none;}
             url('https://www.nahida-elysia.asia/css/SENTYTANG.TTF') format('truetype');
     font-weight: normal;
     font-style: normal;
-}
+} */
 body{font-family: Arial,'Times New Roman','Myfont',sans-serif;font: 14px/1.5}
 
 .clearfix:after {content:""; display:block; height:0; visibility:hidden; clear:both; }
