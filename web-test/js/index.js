@@ -70,6 +70,7 @@ function login(){
                     'Authorization': dat
                 },
                 success: function (dat) {
+                    $.cookie('Tokens', Token, { expires: 7, path: '/',secure:true });
                     //dat:服务端返回的数据
                     console.log("data "+dat)
                     console.log(dat.split(',')[0].split('=')[1])
@@ -77,7 +78,7 @@ function login(){
                     id = dat.split(',')[0].split('=')[1]
                     id = base64(id)
                     // // Store the id returned by the server in the cookie
-                    document.location.href = "NotBook.html?" + id + "&" + Token;
+                    document.location.href = "NotBook.html?" + id;
                 },
                 // 请求失败
                 error: function (e) {
@@ -187,7 +188,6 @@ document.getElementById("username").addEventListener("input",check);
 document.getElementById("password").addEventListener("input",check);
 document.getElementById("usernameUp").addEventListener("input",check);
 document.getElementById("passwordUp").addEventListener("input",check);
-
 
 
 
