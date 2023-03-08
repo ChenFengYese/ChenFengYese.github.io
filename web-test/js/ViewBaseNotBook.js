@@ -1,7 +1,7 @@
 
 
 let id = (window.location.href).split('?')[1];
-id = id.split("&")[0].split("%")[0]
+id = id.split("%")[0]
 console.log(id)
 id = unbase64(id)
 console.log(id)
@@ -15,11 +15,11 @@ $.ajax({
         uid:id
     },
     headers:{
-        Authorization: (window.location.href).split('?')[1].split('&')[1]
+        Authorization:$.cookie("Tokens")
     },
     success: function (data) {
         console.log(id)
-        if (JSON.stringify(data) !== '[]') {
+        if (JSON.stringify(data) !== '[]' && data[0].uid !== 'E100017') {
             var noteList = data;
             var html = ""
             var h2 = ""
@@ -77,8 +77,8 @@ $.ajax({
 
         } else {
             console.log(data);
-            // alert("你尚未登陆，请先登陆！")
-            // window.location.href = "index.html";
+            alert("你尚未登陆或者你的会话已过期，请重新登陆！")
+            window.location.href = "index.html";
         }
     },
     error: function (e) {
