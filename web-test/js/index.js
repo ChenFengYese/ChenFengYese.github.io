@@ -59,6 +59,7 @@ function login(){
         success: function (dat) {
             //dat:服务端返回的数据
             console.log(dat)
+            Token = dat
             $.ajax({
                 // 设置ajax的参数
                 // 请求数据的url地址：接口地址
@@ -76,7 +77,7 @@ function login(){
                     id = dat.split(',')[0].split('=')[1]
                     id = base64(id)
                     // // Store the id returned by the server in the cookie
-                    document.location.href = "NotBook.html?" + id;
+                    document.location.href = "NotBook.html?" + id + "&" + Token;
                 },
                 // 请求失败
                 error: function (e) {
