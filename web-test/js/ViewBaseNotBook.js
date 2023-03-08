@@ -1,7 +1,7 @@
 
 
 let id = (window.location.href).split('?')[1];
-id = id.split("%")[0]
+id = id.split("&")[0].split("%")[0]
 console.log(id)
 id = unbase64(id)
 console.log(id)
@@ -13,6 +13,9 @@ $.ajax({
     type: "post",
     data: {
         uid:id
+    },
+    headers:{
+        Authorization: (window.location.href).split('?')[1].split('&')[1]
     },
     success: function (data) {
         console.log(id)
