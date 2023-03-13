@@ -23,6 +23,7 @@
     <script src="js/base.js"></script>
     <!--引入分享插件-->
     <script src="js/jquery.share.min.js"></script>
+    <script src="js/cookie/jquery.cookie.js"></script>
     <!--这里是因为在文章所以要隐藏掉右侧身体部分在大屏幕下的div，在小屏幕时在显示出来-->
     <style type="text/css">.base_content_right{width: 0;visibility: hidden;height: 0;}</style>
     <style>
@@ -61,23 +62,23 @@
                 <li><i class="fa fa-caret-right"></i><a class="indexHref" href="NotBook.html">首页</a></li>
 
                 <!-- 这里是修改笔记的样式 -->
-<!--                <li class="have_second_navs">-->
-<!--                    <i class="fa fa-caret-right"></i><a class="editNote" href="javascript:">修改笔记</a>-->
-<!--                    &lt;!&ndash;二级导航有子栏目的时候&ndash;&gt;-->
-<!--                    <ul class="nav_child" style="overflow: hidden; display: block;">-->
-<!--                        <li><a href="" >笔记</a></li>-->
-<!--                        <li><a href="" >笔记</a></li>-->
+                <li class="have_second_navs">
+                    <i class="fa fa-caret-right"></i><a class="editNote" href="javascript:">修改笔记</a>
+                    <!--二级导航有子栏目的时候-->
+                    <ul class="nav_child" id="editNoteList">
+                        <li><a href="" >笔记</a></li>
+                        <li><a href="" >笔记</a></li>
 
-<!--                    </ul>-->
-<!--                </li>-->
+                    </ul>
+                </li>
                 <!--顶级导航-->
                 <li class="have_second_navs">
                     <a class="addHref" href="noteAdd.html">添加笔记</a>
                 </li>
                 <!--顶级导航-->
-                <li class="have_second_navs">
-                    <a class="selectHref" href="javascript:selectNotes()">搜索笔记</a>
-                </li>
+<!--                <li class="have_second_navs">-->
+<!--                    <a class="selectHref" href="javascript:selectNotes()">搜索笔记</a>-->
+<!--                </li>-->
 
                 <li class="have_second_navs">
                     <a href="index.html">退出登录</a>
@@ -167,7 +168,7 @@
 
             <div class="base_content_right_item" id="base_content_right_down">
                 <div class="base_search">
-                    <form name="searchform" class="search_form" method="post" action="#" target="_blank">
+                    <form name="searchform" class="search_form" method="post" action="NotBook.html" target="_blank">
                         <input type="text" style="line-height: 40px;" class="search_text" required="required" name="keyboard" placeholder="输入关键字搜索">
                         <input type="hidden" name="tbname" value="news">
                         <input type="hidden" name="show" value="title,smalltext">
@@ -196,7 +197,7 @@
                         <li><a class="updateTime" href="javascript:void(0)">最新修改时间:2023-3-6 17:56:43</a></li>
                         <li><a class="noteCounts" href="javascript:void(0)">笔记总数:210</a></li>
                         <li><a class="collectCounts" href="javascript:void(0)">收藏总数:1</a></li>
-                        <li><a class="collectCounts" href="javascript:void(0)">收藏,指定修改,搜索,排序,计算,加密传值跳转等功能等待后端实现</a></li>
+                        <li><a class="Explains" href="javascript:void(0)">计算,加密传值跳转等功能等待后端实现</a></li>
                     </ul>
                 </div>
                 <!--这里是右侧的博主介绍部分-->
@@ -233,7 +234,7 @@
 
 
 <div class="layui-xzxform-label"></div></body>
+
 <script src="js/BaseJSencryption.js"></script>
-<script src="js/jquery-1.8.3.min.js"></script>
 <script src="js/editNoteBase.js"></script>
 </html>
