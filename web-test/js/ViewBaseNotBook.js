@@ -155,14 +155,14 @@ function viewData(data){
             html += "<ul>" +
                 '<li class="wow fadeIn" data-wow-delay="0.1s" data-wow-duration="1s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.1s; animation-name: fadeIn;">' +
                 '<div class="base_list_box_title">' +
-                ' <!--列表页判断文章是否原创是原创添加span元素-->' +
+             
                 '<span><img src="image/yuanchuangwenzhang.png"></span>' +
                 '<a class="base_list_box_title_a" href="noteView.html?' +
                 'uid=' + base64(note.uid) + '&suid=' + base64(note.suid.toString()) + '" title="这里是文章title">';
             html += note.title;
             html += "" +
                 "</a></div>" +
-                '<!--列表页判断文章是否原创是原创添加版权元素-->' +
+ 
                 '<div class="base_list_xiebian"><span>版权</span></div>' +
                 '<div class="base_list_box_content clearfix">' +
                 '<div class="base_list_box_left">' +
