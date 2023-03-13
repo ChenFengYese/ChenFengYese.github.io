@@ -37,17 +37,32 @@ function deleteNoteInfo(suid) {
     }
 }
 // 收藏笔记
-function collectNoteInfo(suid) {
+function collectNoteInfo(suid,collect,i) {
+    if(collect===1){
+        collect = 0
+    }else
+    {collect = 1}
+    button = $(".collect_button:eq("+i+")")
+    button.css("background","rgb(130,229,241)")
     $.ajax({
         url: "https://www.lbservice.top/textif/collectBySuid",
         type: "post",
         dataType: "json",
         data: {
             "suid": suid,
-            uid:id
+            uid:id,
+            collect:collect
         },
         success: function () {
-            $(this).style.color = "red";
+            if(collect===1)
+            {
+                button.css('color','red')
+            }
+            else
+            {
+                button.css('color','')
+            }
+            button.attr("onclick","collectNoteInfo("+suid+","+collect+","+i+")")
         },
         error: function () {
             alert("服务器异常");
@@ -124,6 +139,8 @@ function viewData(data){
         var h3 = ""
         var count = 0
         var node = ''
+        var i = 0
+        console.log(noteList)
         for (node in noteList) {
             var note = noteList[node];
             b = ""
@@ -163,8 +180,9 @@ function viewData(data){
             html += note.time + "</a>";
             html += "<a href='javascript:;' onclick='deleteNoteInfo(" + note.suid + ")' title=\"删除笔记\"><i class=\"fa fa-eye\"></i>删除</a>";
             html += "<a href='noteEdit.html?" + 'uid=' + base64(note.uid) + '&suid=' + base64(note.suid.toString()) + "' title=\"修改笔记\"><i class=\"fa fa-thumbs-up\"></i>修改</a>";
-            html += "<a " + b + " href='javascript:' onclick='collectNoteInfo(" + note.suid + ")' title=\"收藏笔记\"><i class=\"fa fa-thumbs-up\"></i>收藏</a>";
+            html += "<a " + b + " href='javascript:' class='collect_button' onclick='collectNoteInfo(" + note.suid + ","+note.collect+","+i+ ")' title=\"收藏笔记\"><i class=\"fa fa-thumbs-up\"></i>收藏</a>";
             html += "</div></div></li></ul>";
+            i += 1;
         }
         $("#noteList").html(html);
         $("#NotBookSave").html(h2)
