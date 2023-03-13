@@ -12,12 +12,12 @@ function getData(uid,suid){
             Rdata = data
         },
         error: function (e) {
-            alert(uid+suid+"请求失败")
+            alert("请求失败")
             console.log(e)
         }
     })
-    console.log("最终值:"+suid+"data:  "+Rdata)
-    return Rdata
+
+    return Rdata.details
 }
 function getSuid(uid){
     var Rdata
@@ -72,8 +72,6 @@ try{
     $(".editNote").attr("href","noteEdit.html?uid="+base64(uid)+"&suid="+base64(suid.toString()))
     var luid =parseInt(suid)-1
     var ruid = parseInt(suid)+1
-    console.log("====================================")
-    console.log("这里是uid:"+uid+"这里是suid:"+suid)
 
     while (suidlist.indexOf(luid) === -1){
         if(luid > Math.min.apply(null,suidlist)) {
@@ -103,32 +101,32 @@ try{
 
 
     if (!$.isEmptyObject(data)) {
-        $("#title").text(noteInfo[0].title);
-        $(".wenzhang_box_article").html(noteInfo[0].text);
-        $(".wenzhang_box_article_shengming_title").html(noteInfo[0].title);
+        $("#title").text(noteInfo.title);
+        $(".wenzhang_box_article").html(noteInfo.text);
+        $(".wenzhang_box_article_shengming_title").html(noteInfo.title);
         $(".wenzhang_box_article_shengming_link").html(window.location.href);
-        $(".wenzhang_box_content_jieshao_zishu").html("总字数:"+noteInfo[0].text.length+"字");
-        $(".wenzhang_box_content_jieshao_zuozhe").html("作者:"+noteInfo[0].uid);
+        $(".wenzhang_box_content_jieshao_zishu").html("总字数:"+noteInfo.text.length+"字");
+        $(".wenzhang_box_content_jieshao_zuozhe").html("作者:"+noteInfo.uid);
         $(".BackHref").attr("href","NotBook.html?"+base64(uid));
-        $(".wenzhang_box_content_jieshao_time").html("更新时间:"+noteInfo[0].time);
-        $(".wenzhang_box_content_jieshao_xieti:eq(0)").html(noteInfo[0].suid);
+        $(".wenzhang_box_content_jieshao_time").html("更新时间:"+noteInfo.time);
+        $(".wenzhang_box_content_jieshao_xieti:eq(0)").html(noteInfo.suid);
         $(".wenzhang_box_content_jieshao_xieti:eq(1)").html((Math.random()*10).toFixed(2));
     } else {
         console.log("error:"+data);
     }
     if (!$.isEmptyObject(ldata)) {
-        console.log("ldata= "+ldata[0].title)
-        $(".lsuidHref:eq(0)").attr("href","noteView.html?uid="+base64(uid)+"&suid="+base64(ldata[0].suid.toString()));
-        $(".lsuid1").html(ldata[0].title);
+        console.log("ldata= "+ldata.title)
+        $(".lsuidHref:eq(0)").attr("href","noteView.html?uid="+base64(uid)+"&suid="+base64(ldata.suid.toString()));
+        $(".lsuid1").html(ldata.title);
     } else {
         console.log("ldata=空")
         $(".lsuidHref:eq(0)").attr("href","javascript:");
         $(".lsuid1").html("没有了");
     }
     if (!$.isEmptyObject(rdata)) {
-        console.log("rdata= "+rdata[0].title)
-        $(".lsuidHref:eq(1)").attr("href","noteView.html?uid="+base64(uid)+"&suid="+base64(rdata[0].suid.toString()));
-        $(".lsuid2").html(rdata[0].title);
+        console.log("rdata= "+rdata.title)
+        $(".lsuidHref:eq(1)").attr("href","noteView.html?uid="+base64(uid)+"&suid="+base64(rdata.suid.toString()));
+        $(".lsuid2").html(rdata.title);
     } else {
         console.log("rdata=空 ")
         $(".lsuidHref:eq(1)").attr("href", "javascript:");

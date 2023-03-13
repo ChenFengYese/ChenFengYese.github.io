@@ -9,7 +9,7 @@ function getData(uid,suid){
             "suid": suid
         },
         success: function (data) {
-            Rdata = data
+            Rdata = data.details
         },
         error: function (e) {
             alert(uid+suid+"请求失败")
@@ -82,23 +82,23 @@ try{
     const noteInfo = data;
 
     if (data !== '') {
-        $("#title").text(noteInfo[0].title);
-        $(".wenzhang_box_article").html(noteInfo[0].text);
-        $(".wenzhang_box_article_shengming_title").html(noteInfo[0].title);
+        $("#title").text(noteInfo.title);
+        $(".wenzhang_box_article").html(noteInfo.text);
+        $(".wenzhang_box_article_shengming_title").html(noteInfo.title);
         $(".wenzhang_box_article_shengming_link").html(window.location.href);
-        $(".wenzhang_box_content_jieshao_zishu").html("总字数:"+noteInfo[0].text.length+"字");
-        $(".wenzhang_box_content_jieshao_zuozhe").html("作者:"+noteInfo[0].uid);
-        $(".wenzhang_box_content_jieshao_time").html("更新时间:"+noteInfo[0].time);
-        $(".wenzhang_box_content_jieshao_xieti:eq(0)").html(noteInfo[0].suid);
+        $(".wenzhang_box_content_jieshao_zishu").html("总字数:"+noteInfo.text.length+"字");
+        $(".wenzhang_box_content_jieshao_zuozhe").html("作者:"+noteInfo.uid);
+        $(".wenzhang_box_content_jieshao_time").html("更新时间:"+noteInfo.time);
+        $(".wenzhang_box_content_jieshao_xieti:eq(0)").html(noteInfo.suid);
         $(".wenzhang_box_content_jieshao_xieti:eq(1)").html((Math.random()*10).toFixed(2));
-        $(".lsuidHref:eq(0)").attr("href","NotBook.html?"+base64(noteInfo[0].uid));
-        $(".lsuidHref:eq(1)").attr("href","javascript:updateNoteInfo('"+noteInfo[0].uid+"','"+noteInfo[0].suid+"')");
+        $(".lsuidHref:eq(0)").attr("href","NotBook.html?"+base64(noteInfo.uid));
+        $(".lsuidHref:eq(1)").attr("href","javascript:updateNoteInfo('"+noteInfo.uid+"','"+noteInfo.suid+"')");
     } else {
         console.log("error:"+data);
     }
 }
 catch (e) {
     console.log(e);
-    alert("你尚未登陆,请重新登录")
-    window.location.href = "index.html";
+    // alert("你尚未登陆,请重新登录")
+    // window.location.href = "index.html";
 }

@@ -2,9 +2,7 @@
 
 let id = (window.location.href).split('?')[1];
 id = id.split("%")[0]
-console.log(id)
 id = unbase64(id)
-console.log(id)
 $(".indexHref").attr("href","NotBook.html?"+base64(id))
 $(".addHref").attr("href","noteAdd.html?"+base64(id))
 
@@ -18,16 +16,15 @@ $.ajax({
         Authorization:$.cookie("Tokens")
     },
     success: function (data) {
-        console.log(id)
-        if (JSON.stringify(data) !== '[]' && data[0].uid !== 'E100017') {
+        if (JSON.stringify(data) !== '{}') {
             var noteList = data;
             var html = ""
             var h2 = ""
             var h3 = ""
-            console.log(data)
             var count = 0
-            for (var i = 0; i < noteList.length; i++) {
-                var note = noteList[i];
+            var node = ''
+            for (node in noteList) {
+                var note = noteList[node];
                 b=""
                 if(note.collect=== "1"){
                     b="style='color: red;"
@@ -71,8 +68,8 @@ $.ajax({
             $("#noteList").html(html);
             $("#NotBookSave").html(h2)
             $("#editNoteList").html(h3)
-            $(".updateTime").html("最新修改时间:"+noteList[count].time)
-            $(".noteCounts").html("笔记总数:"+noteList.length)
+            $(".updateTime").html("最新修改时间:"+noteList[node].time)
+            $(".noteCounts").html("笔记总数:"+Object.keys(noteList).length)
             $(".collectCounts").html("收藏总数:"+count)
 
         } else {

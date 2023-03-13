@@ -1,11 +1,12 @@
-function getData(uid){
+
+function getSuid(uid){
     var Rdata
     $.ajax({
-        url: "https://www.lbservice.top/textif/getif",
+        url: "https://www.lbservice.top/textif/getsuidlist",
         type: "post",
         async: false,
         data: {
-            "uid": uid,
+            "uid": uid
         },
         success: function (data) {
             Rdata = data
@@ -14,7 +15,7 @@ function getData(uid){
             alert(uid+"请求失败")
             console.log(e)
         }
-    });
+    })
     return Rdata
 }
 function time() {
@@ -74,30 +75,22 @@ try{
     const key = parseInt(id.split("%")[1].split("").reverse().join(""))
     id = id.split("%")[0]
     id = unbase64(id)
+
     uid = id
     console.log(uid)
+    ruid = 1
     setInterval("time()", 1000);
-    data = getData(uid);
-    const noteInfo = data;
+    const suidlist = getSuid(uid);
+    while (suidlist.indexOf(ruid) !== -1){
+
+        ruid += 1;
+    }
+    $(".wenzhang_box_content_jieshao_xieti:eq(0)").html(ruid)
     $(".indexHref").attr("href","NotBook.html?"+base64(uid))
     $(".wenzhang_box_content_jieshao_zuozhe").html("作者:"+uid);
     $(".wenzhang_box_content_jieshao_xieti:eq(1)").html((Math.random()*10).toFixed(2));
     $(".lsuidHref:eq(0)").attr("href","NotBook.html?"+base64(uid));
-
-    if (JSON.stringify(data) !== '{}') {
-        var note = 0;
-        for (var i = 0; i < data.length; i++) {
-            console.log(data[i].suid)
-            note = data[i].suid>note?data[i].suid:note;
-        }
-        console.log(note)
-        const suid = note+1;
-        console.log(suid)
-        $(".wenzhang_box_content_jieshao_xieti:eq(0)").html(suid);
-        $(".lsuidHref:eq(1)").attr("href","javascript:addNoteInfo('"+uid+"')");
-    } else {
-        console.log("error:"+data);
-    }
+    $(".lsuidHref:eq(1)").attr("href","javascript:addNoteInfo('"+uid+"')");
 }
 catch (e) {
     console.log(e);
