@@ -76,6 +76,11 @@ try{
 
     $(".indexHref").attr("href","NotBook.html?"+base64(uid))
     $(".addHref").attr("href","noteAdd.html?"+base64(uid))
+    $("#editNoteList").html(sessionStorage.getItem("editNoteList"))
+    $(".updateTime").html(sessionStorage.getItem("updateTime"))
+    $(".noteCounts").html(sessionStorage.getItem("noteCounts"))
+    $(".collectCounts").html(sessionStorage.getItem("collectCounts"))
+    $("#NotBookSave").html(sessionStorage.getItem("NotBookSave"))
     console.log(uid,suid)
     setInterval("time()", 1000);
     data = getData(uid,suid);

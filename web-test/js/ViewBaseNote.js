@@ -70,6 +70,11 @@ try{
     $(".indexHref").attr("href","NotBook.html?"+base64(uid))
     $(".addHref").attr("href","noteAdd.html?"+base64(uid))
     $(".editNote").attr("href","noteEdit.html?uid="+base64(uid)+"&suid="+base64(suid.toString()))
+    $("#editNoteList").html(sessionStorage.getItem("editNoteList"))
+    $(".updateTime").html(sessionStorage.getItem("updateTime"))
+    $(".noteCounts").html(sessionStorage.getItem("noteCounts"))
+    $(".collectCounts").html(sessionStorage.getItem("collectCounts"))
+    $("#NotBookSave").html(sessionStorage.getItem("NotBookSave"))
     var luid =parseInt(suid)-1
     var ruid = parseInt(suid)+1
 

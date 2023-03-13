@@ -82,15 +82,20 @@ try{
     setInterval("time()", 1000);
     const suidlist = getSuid(uid);
     while (suidlist.indexOf(ruid) !== -1){
-
         ruid += 1;
     }
+
     $(".wenzhang_box_content_jieshao_xieti:eq(0)").html(ruid)
     $(".indexHref").attr("href","NotBook.html?"+base64(uid))
     $(".wenzhang_box_content_jieshao_zuozhe").html("作者:"+uid);
     $(".wenzhang_box_content_jieshao_xieti:eq(1)").html((Math.random()*10).toFixed(2));
     $(".lsuidHref:eq(0)").attr("href","NotBook.html?"+base64(uid));
     $(".lsuidHref:eq(1)").attr("href","javascript:addNoteInfo('"+uid+"')");
+    $("#editNoteList").html(sessionStorage.getItem("editNoteList"))
+    $(".updateTime").html(sessionStorage.getItem("updateTime"))
+    $(".noteCounts").html(sessionStorage.getItem("noteCounts"))
+    $(".collectCounts").html(sessionStorage.getItem("collectCounts"))
+    $("#NotBookSave").html(sessionStorage.getItem("NotBookSave"))
 }
 catch (e) {
     console.log(e);
