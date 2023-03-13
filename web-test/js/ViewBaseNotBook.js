@@ -197,8 +197,8 @@ function viewData(data){
         sessionStorage.setItem("collectCounts", "收藏总数:" + count);
     } else {
         console.log(data);
-        alert("你尚未登陆或者你的会话已过期，请重新登陆！")
-        window.location.href = "index.html";
+//         alert("你尚未登陆或者你的会话已过期，请重新登陆！")
+//         window.location.href = "index.html";
     }
 }
 
