@@ -57,6 +57,7 @@ window.onload = function(){
 		this.r = Math.round(Math.random()*255);
 		this.g = Math.round(Math.random()*255);
 		this.b = Math.round(Math.random()*255);
+		this.a = Math.round(Math.random());
 	}
 	
 	function draw()
@@ -80,8 +81,8 @@ window.onload = function(){
 			p.opacity = Math.round(p.remaining_life/p.life*100)/100
 			//a gradient instead of white fill
 			var gradient = ctx.createRadialGradient(p.location.x, p.location.y, 0, p.location.x, p.location.y, p.radius);
-			gradient.addColorStop(0, "rgba("+p.r+", "+p.g+", "+p.b+", "+p.opacity+")");
-			gradient.addColorStop(0.5, "rgba("+p.r+", "+p.g+", "+p.b+", "+p.opacity+")");
+			gradient.addColorStop(0, "rgba("+p.r+", "+p.g+", "+p.b+", "+0.3+")");
+			gradient.addColorStop(0.5, "rgba("+p.r+", "+p.g+", "+p.b+", "+0.3+")");
 			gradient.addColorStop(1, "rgba("+p.r+", "+p.g+", "+p.b+", 0)");
 			ctx.fillStyle = gradient;
 			ctx.arc(p.location.x, p.location.y, p.radius, Math.PI*2, false);

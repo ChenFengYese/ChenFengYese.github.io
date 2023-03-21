@@ -1,9 +1,9 @@
 
 try{
-bless_name = window.opener.document.getElementById("contact_name").value;
-happy_name = window.opener.document.getElementById("contact_name2").value;
-greetings = window.opener.document.getElementById("contact_message").value;
-userselect = window.opener.document.getElementById("contact_info").value;
+bless_name = $.cookie("contact_name_blessing");
+happy_name = $.cookie("contact_name2_blessing");
+greetings = $.cookie("contact_message_blessing");
+userselect = $.cookie("contact_info_blessing");
 }
 catch(error){
   bless_name = prompt("请输入你的名字","魏涛");
@@ -24,11 +24,12 @@ var S = {
         i = action.indexOf('?a=');
 
     S.Drawing.init('.canvas');
+    var beginPath;
     document.body.classList.add('body--ready');
     if(userselect.length!==0)
-    { var beginPath =  userselect;}
+    {beginPath =  userselect;}
     else{
-        var beginPath = "|#countdown 3||"+bless_name+"|祝|"+happy_name+"|生日快乐|#rectangle|"+greetings+"|感谢我的一生中|"+"遇到了你|"+"谢谢你|";
+       beginPath = "|#countdown 3||"+bless_name+"|祝|"+happy_name+"|生日快乐|#rectangle|"+greetings+"|感谢我的一生中|"+"遇到了你|"+"谢谢你|";
     }
     if (i !== -1) {
       S.UI.simulate(decodeURI(action).substring(i + 3));

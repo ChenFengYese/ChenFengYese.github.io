@@ -154,33 +154,40 @@ function draw(arr){
 	}
 }
 draw.type = "column";//默认显示效果类型
-
-$("#add")[0].onclick = function(){
-judgement = document.getElementById("add").innerHTML;
-	if(judgement==="Load Music"){
+// $.cookie("music_choose_name_selected", "已加载"+ name + ".MP3", { expires: 7, path: '/' });
+// $.cookie("music_choose_address_selected", value, { expires: 7, path: '/' });
+$("#add")[0].onclick = function() {
+	// if($.cookie("music_choose_name_selected")!==undefined&&$.cookie("music_choose_address_selected")!==undefined){
+	// 	var name = $.cookie("music_choose_name_selected");
+	// 	var value = $.cookie("music_choose_address_selected");
+	// 	$("#add").html(name);
+	// 	$("#address").attr("href",value);
+	// 	mv.play(value);
+	// }
+	let judgement = document.getElementById("add").innerHTML;
+	if (judgement === "Load Music") {
 		swal({
-			  title: "",
-			  text: "选择本地音乐播放或者网络音乐播放",
-			  icon: "warning",
-				buttons: ["网络音乐选择","本地音乐播放"],
-			  dangerMode: true,
-			})
+			title: "",
+			text: "选择本地音乐播放或者网络音乐播放",
+			icon: "warning",
+			buttons: ["网络音乐选择", "本地音乐播放"],
+			dangerMode: true,
+		})
 			.then((local) => {
-			  if (local) {
+				if (local) {
 					$("#loadfile")[0].click();
-			  } else {
-				openWin('music_choose.html');
-			  }
+				} else {
+					openWin('music_choose.html');
+				}
 			});
-	}
-	else{
+	} else {
 		swal({
-			  title: "",
-			  text: judgement+"，是否重新选择?",
-			  icon: "warning",
-				buttons: ["播放","重新选择"],
-			  dangerMode: true,
-			})
+			title: "",
+			text: judgement + "，是否重新选择?",
+			icon: "warning",
+			buttons: ["播放", "重新选择"],
+			dangerMode: true,
+		})
 			.then((local) => {
 				if (local) {
 					document.getElementById("add").innerHTML = "Load Music";
@@ -188,20 +195,42 @@ judgement = document.getElementById("add").innerHTML;
 				} else {
 
 					const value = document.getElementById("address").href;
-					reader(value, function () {
-						const base = window.base;
-						const buf = base64ToUint8Array(base);
-						mv.play(buf);
+					console.log(value)
+					fetch(value).then(function (response) {
+						return response.blob();
+					}).then(function (response) {
+						var fr = new FileReader();
+						fr.onload = function (e) {
+							console.log(e)
+							console.log(e.target.result)
+							// 重写play方法  这边e.target.result已经是arraybuffer对象类型，不再是ajax路径读入
+							mv.play(e.target.result);
+						}
+						fr.readAsArrayBuffer(response);
 					});
-			}
+				}
 			});
 	}
 }
+function urlToBlob(the_url, callback) {
+	let xhr = new XMLHttpRequest();
+	xhr.open("get", the_url, true);
+	xhr.responseType = "blob";
+	xhr.onload = function () {
+		console.log(this.status)
+		if (this.status === 204) {
+			if (callback) {
+				callback(this.response);
+			}
+		}
+	};
+	xhr.send();
+}
 function openWin(url)
 			 {
-			  var name;                           //网页名称，可为空;
-			  var iWidth=200;                         //弹出窗口的宽度;
-			  var iHeight=200;                        //弹出窗口的高度;
+			  var name="音乐选择";                           //网页名称，可为空;
+			  var iWidth=800;                         //弹出窗口的宽度;
+			  var iHeight=600;                        //弹出窗口的高度;
 			  //window.screen.height获得屏幕的高，window.screen.width获得屏幕的宽
 			  var iTop = (window.screen.height-30-iHeight)/2;       //获得窗口的垂直位置;
 			  var iLeft = (window.screen.width-10-iWidth)/2;        //获得窗口的水平位置;

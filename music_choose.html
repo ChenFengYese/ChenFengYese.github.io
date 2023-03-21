@@ -2,7 +2,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>音乐选择</title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+      <script type="text/javascript" src="js/jquery.js"></script>
+      <script type="text/javascript" src="js/jquery.cookie.js"></script>
+     <title>音乐选择</title>
       <style type="text/css">
           body{
               font-size:25px;
@@ -10,46 +14,6 @@
           }
       </style>
   </head>
-      <script type="text/javascript" src="scripts/MusicVisualizer.js"></script>
-      <script type="text/javascript" src="scripts/index.js"></script>
-      <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-      <script src="http://code.jquery.com/jquery-latest.js"></script>
-  <script type="text/javascript">
-
-      function play() {
-          var audio = document.getElementById('music');
-          var src = audio.src;
-          var str;
-          if (audio.paused) {
-              audio.play();
-              str = src.split('//');
-              document.getElementById('musicImg').innerHTML = "正在播放" + str[str.length - 1];
-          } else {
-              audio.pause();
-              audio.currentTime = 0;//音乐从头播放
-              document.getElementById('musicImg').innerHTML = "已停止";
-          }
-      }
-      function select(srcs) {
-          const audio = document.getElementById('music');
-          audio.src = srcs;
-          play();
-      }
-
- function post() {
-          const choice = document.getElementById("choice");
-          const index = choice.selectedIndex;
-          const value = choice.options[index].value;
-          const name = choice.options[index].innerHTML;
-          try{
-              window.opener.document.getElementById("add").innerHTML = "已加载"+ name + ".MP3";
-          window.opener.document.getElementById("address").href = value;}
-          catch (e) {
-              alert("出现错误"+e);
-          }
-          window.close();
-      }
-  </script>
   <body>
 <audio size="20mm" autoplay="autoplay" src="music/back.mp3" loop="loop" preload="auto" id="music"></audio>
   <span id="musicImg">点击试听音乐</span><br>
@@ -57,7 +21,7 @@
 	   <a href="javascript:select('music//miss.mp3')">千与千寻</a><br>
 	   <a href="javascript:select('music//secret.mp3')">secret base</a><br>
 	   <a href="javascript:select('music//you.mp3')">you</a><br>
-	   <a href="javascript:select('music//Beauty.mp3')">雪山</a><br>
+	   <a href="javascript:select('music//Beauty.mp3')">Beauty</a><br>
 	   <a href="javascript:select('music//backgroundmusic.mp3')">鹤观</a><br>
 	   <a href="javascript:select('music//getimage.mp3')">申鹤</a><br>
 	   <a href="javascript:select('music//love.mp3')">love</a><br>
@@ -66,20 +30,21 @@
 	   <a href="javascript:select('music//sanye.mp3')">三叶主题曲</a><br>
 <label for="choice"></label>
 <select id="choice" >
-  <option style="font-size: 20px;" value=base64//rubia.js selected>rubia</option>
-     <option style="font-size: 20px;" value=base64//千与千寻.js>千与千寻 </option>
-     <option style="font-size: 20px;" value=base64//secretbase.js>secret base </option>
-     <option style="font-size: 20px;" value=base64//you.js>you </option>
-    <option style="font-size: 20px;" value=base64//雪山.js>雪山</option>
-     <option style="font-size: 20px;" value=base64//鹤观.js>鹤观</option>
-     <option style="font-size: 20px;" value=base64//申鹤.js>申鹤</option>
-     <option style="font-size: 20px;" value=base64//love.js>love</option>
-    <option style="font-size: 20px;" value=base64//绀田村.js>绀田村</option>
-     <option style="font-size: 20px;" value=base64//绀memory.js>memory</option>
-     <option style="font-size: 20px;" value=base64//三叶主题曲.js>三叶主题曲</option>
-<option style="font-size: 20px;" value=base64//海岛.js>海岛</option>
+  <option style="font-size: 20px;" value='music//back.mp3' selected>rubia</option>
+     <option style="font-size: 20px;" value='music//miss.mp3'>千与千寻 </option>
+     <option style="font-size: 20px;" value='music//secret.mp3'>secret base </option>
+     <option style="font-size: 20px;" value='music//you.mp3'>you </option>
+    <option style="font-size: 20px;" value='music//Beauty.mp3'>Beauty</option>
+     <option style="font-size: 20px;" value='music//backgroundmusic.mp3'>鹤观</option>
+     <option style="font-size: 20px;" value='music//getimage.mp3'>申鹤</option>
+     <option style="font-size: 20px;" value='music//love.mp3'>love</option>
+    <option style="font-size: 20px;" value='music//sendlove.mp3'>绀田村</option>
+     <option style="font-size: 20px;" value='music//sky.mp3'>memory</option>
+     <option style="font-size: 20px;" value='music//sanye.mp3'>三叶主题曲</option>
+<option style="font-size: 20px;" value='music//elysia.mp3'>TruE</option>
 </select>
   <button id="post" onclick="post()">提交</button>
 </body>
+  <script type="text/javascript" src="PageJS/music-choose.js"></script>
 
 </html>

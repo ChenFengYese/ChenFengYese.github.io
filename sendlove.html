@@ -6,62 +6,11 @@
   
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
     <script type="text/javascript" src="scripts/click.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery.cookie.js"></script>
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>
+    <link rel="stylesheet" href="PageCSS/send-love.css">
     <title>自定义内容</title>
-    <style>
-	    html,body{height:100%;}
-        .div{
-            filter:alpha(Opacity=70);
-            /*垂直居中 */
-            vertical-align: middle;
-            /*水平居中*/
-            text-align: center;
-	    
-	    width:100%;
-	    height:100%;
-        }
-        #submit {
-            
-            border: none;
-            outline: none;
-        }
-        #fullscreen{
-            
-            border: none;
-            outline: none;
-        }
-        #show{
-            color: #FF1CAE;
-            font-size:30px;
-        }
-        #text{
-            color: #FF00FF;
-        }
-         textarea::-webkit-input-placeholder {
-
-        color: #FF00FF;
-
-        font-size: 16px;
-
-    }
-        video{
-
-          position: fixed;
-
-          right:0;
-
-          bottom: 0;
-
-          min-width: 100%;
-
-          min-height: 100%;
-
-          width: auto;
-
-          height: auto;
-
-          z-index: -9999;}
-    </style>
 </head>
 <body>
     <video id="v1" autoplay muted loop  preload="auto" playsinline="true" webkit-playsinline="true" x-webkit-airplay="true" mtt-playsinline="true" x5-video-player-type="h5-page"
@@ -70,115 +19,21 @@
 </video>
     <audio size="20mm" autoplay="autoplay" src="music/sendlove.mp3" loop="loop" preload="auto"></audio>
 <div class="div">
+    <div class="textarea-container">
     <label>
-        <textarea name="saythis" id="text" placeholder="这里填写" style="width:80%;height:100%;overflow:auto;background-color:rgba(255,255,255,0.1);border-style:none;outline:none"></textarea></label>
-    <br/><br/><br/><br/>
-    <label><input type="submit" name="submit" id="submit" value="提交" onclick="listen()" style="width:40px;height:30px" ></label>
-                  &nbsp &nbsp&nbsp&nbsp&nbsp&nbsp  &nbsp       
-    <label><input type="submit" name="submit" id="fullscreen" value="开启全屏" onclick="confirmFull()" style="width:60px;height:30px" ></label>
-    <br/><br/>
+        <textarea name="saythis" id="text" placeholder="这里填写" rows="24" wrap="hard" style="width:80%;height:100%;overflow:auto;background-color:rgba(255,255,255,0.1);border-style:none;outline:none"></textarea></label>
+    </div>
+    <div class="padding-bottom-div">
+   <div class="button-onclick-style">
+    <label><input type="submit" name="submit" class="button-onclick-style-button" id="submit" value="提交" onclick="listen()"  ></label>
+    <label><input type="submit" name="submit" class="button-onclick-style-button" id="fullscreen" value="开启全屏" onclick="confirmFull()"  ></label>
+   </div>
+    <div class="span-explanation">
     <span id="show">最多允许输入23行字符，且最后一行为粉红色字体</span>
+    </div>
+    </div>
 </div>
     <!--soft回车不会提交，hard回车会提交-->
 </body>
-<script type="text/javascript">
-	function IsPC(){
-             var userAgentInfo = navigator.userAgent;
-             var Agents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"];
-             var flag = true;
-             for (var v = 0; v < Agents.length; v++) {
-                 if (userAgentInfo.indexOf(Agents[v]) > 0) { flag = false; break; }
-             }
-             return flag;
-          }
-	if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)){ 
-		swal({ 
-		title: "选择背景样式", 
-		text: "因移动端各浏览器情况不同，请自行选择动态视频背景或者图片背景，若出现问题可刷新网页重新选择", 
-		type: "warning",
-		showCancelButton: true, 
-		confirmButtonColor: "#DD6B55",
-		confirmButtonText: "动态视频背景", 
-		cancelButtonText: "图片背景",
-		closeOnConfirm: false, 
-		closeOnCancel: false	
-		}).then((isConfirm) => {
-		if (isConfirm.value) { 
-			swal("成功！", "已选择动态视频背景","success"); 
-			document.getElementById("v1").src="mp4/01.mp4";
-			document.getElementById("v1").style="width: 100%;object-fit:fill";
-
-		} else { 
-			swal("成功！", "已选择图片背景","success"); 
-			document.getElementById("v1").src = "";
-			document.getElementById("v1").style.display = "none";
-			document.body.style =  "background-image:url(img/sendlove.jpg);background-repeat:no-repeat ;background-size:100% 100%;background-attachment: fixed;";
-		} 
-   	 });
-		
-	}else{
-		document.getElementById("v1").src="mp4/01.mp4";
-		document.getElementById("v1").style="width: 100%;object-fit:fill";
-	}
-    function listen() {
-        if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)) {
-            swal({
-              title: '加载失败',
-              text: "当前移动端浏览器无法进行自定义设计，将为您跳转到默认样式链接，我们为您的糟糕体验感到很抱歉，在未来我们将不断进行优化以满足用户更多需求，感谢你的支持。",
-              icon: 'warning',
-              showCancelButton: true,
-              confirmButtonColor: '#3085d6',
-              cancelButtonColor: '#d33',
-              confirmButtonText: '跳转至默认链接'
-            }).then((result) => {
-                window.open('%E6%99%A8%E6%98%9F%E6%96%B0%E7%BD%91%E7%AB%99.html')
-            });
-        }else{
-        var value = document.getElementById('text').value;
-        str_array = [];
-        str_array = value.split(/[(\r\n)\r\n]+/);
-        if(str_array.length>23) {
-            document.getElementById('show').innerHTML = "方框内不可输入超过23行的字符";
-        }
-        else if(str_array.length===1){
-            document.getElementById('show').innerHTML = "你尚未输入任何字符或仅输入一行字符";
-        }
-        else{window.open("getlove.html");}
-        }
-    }
-	function launchFullscreen(element) {
-			  if(element.requestFullscreen) {
-			    element.requestFullscreen();
-			  } else if(element.mozRequestFullScreen) {
-			    element.mozRequestFullScreen();
-			  } else if(element.webkitRequestFullscreen) {
-			    element.webkitRequestFullscreen();
-			  } else if(element.msRequestFullscreen) {
-			    element.msRequestFullscreen();
-			  }
-	}
-	function exitFullscreen() {
-    if (document.exitFullscreen) {
-        document.exitFullscreen();
-    } else if (document.msExitFullscreen) {
-        document.msExitFullscreen();
-    } else if (document.mozCancelFullScreen) {
-        document.mozCancelFullScreen();
-    } else if (document.webkitExitFullscreen) {
-        document.webkitExitFullscreen();
-    }
-}
-
-function confirmFull(){
-		if(document.getElementById("fullscreen").value==="开启全屏"){
-		    launchFullscreen(document.documentElement);
-	    	    document.getElementById("fullscreen").value="关闭全屏";
-		}
-		else if(document.getElementById("fullscreen").value==="关闭全屏"){
-		     document.getElementById("fullscreen").value="开启全屏";
-		     exitFullscreen() 
-		}
-	}
-    
-    </script>
+<script type="text/javascript" src="PageJS/send-love.js"></script>
 </html>
