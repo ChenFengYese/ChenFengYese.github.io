@@ -36,7 +36,12 @@ document.onmousedown = function (e) {
         document.location.href = "goto.html"
     },1000)
 }
-document.onmouseup = function (e) {
+document.ontouchend = function (e) {
+    time=setTimeout(()=>{
+        document.location.href = "goto.html"
+    },1000)
+}
+document.ontouchstart = function (e) {
     clearTimeout(time)
 }
 function start() {

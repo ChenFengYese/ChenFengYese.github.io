@@ -26,8 +26,8 @@ html,body,.div{height:100%;}
     border: 1px solid #dcdfe6;
     border-radius: 4px;
     font-size: 20px;
-    margin-inline: 243px;
-    margin-block: 40px;
+    margin-inline: 15vw;
+    margin-block: 3vh;
 }
 #submit {
 
@@ -41,7 +41,7 @@ html,body,.div{height:100%;}
 }
 #show{
     color: #FF1CAE;
-    font-size:30px;
+    font-size:3vh;
 }
 #text{
     box-sizing: border-box;

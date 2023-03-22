@@ -89,8 +89,8 @@ input#submit,#remove{
     padding:0 23px;
     text-decoration:none;
     vertical-align: middle;
-    margin-inline: 243px;
-    margin-block: 40px;
+    margin-inline: 2vw;
+    margin-block: 1vh;
 }
 #d1{
     overflow:hidden;
