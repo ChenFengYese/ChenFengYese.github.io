@@ -16,7 +16,7 @@ window.requestAnimFrame = (function () {
 })();
 window.addEventListener('load', start, false);
 
-var c,
+let c,
     $,
     w,
     h,
