@@ -507,6 +507,16 @@ clear: both;}
     min-height: 200px;
     color: #515250;
     text-align: justify;
+    display: block;
+    word-break: break-all;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+pre {
+    white-space: pre-wrap;
+    word-break: break-all;
+    word-wrap: break-word;
+
 }
 .wenzhang_box_article img{max-width: 100% !important;height: auto !important;}
 .wenzhang_box_article_info{
