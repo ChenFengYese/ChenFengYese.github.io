@@ -52,7 +52,7 @@ function signup(){
             else alert("Sign up failed!");
         }
         // 请求失败
-        , error: function (e) {
+        , error: function () {
             alert('请求失败')
         }
     });
@@ -96,7 +96,7 @@ function login(){
                     document.location.href = "NotBook.html?" + id;
                 },
                 // 请求失败
-                error: function (e) {
+                error: function () {
                     alert('请求失败')
                 }
             })
@@ -183,14 +183,14 @@ function check(){
     var password = document.getElementById("password").value;
     var usernameUp = document.getElementById("usernameUp").value;
     var passwordUp = document.getElementById("passwordUp").value;
-    if(username == "" || password == ""){
+    if(username === "" || password === ""){
         document.getElementById("submit").disabled = true;
         document.getElementById("submit").style.backgroundColor = "#ccc";
     }else{
         document.getElementById("submit").disabled = false;
         document.getElementById("submit").style.backgroundColor = "#fb2525";
     }
-    if(usernameUp == "" || passwordUp == ""){
+    if(usernameUp === "" || passwordUp === ""){
         document.getElementById("submitUp").disabled = true;
         document.getElementById("submitUp").style.backgroundColor = "#ccc";
     }else{
