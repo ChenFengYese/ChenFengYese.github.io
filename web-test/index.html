@@ -12,23 +12,23 @@
     <form action="javascript:login()" method="post">
         <!-- This is the login page, the default display -->
         <!-- Explain to the user that this is the login screen -->
-        <h1>Login</h1>
+        <h1 onclick="ChangeToSignUpPage()">Login</h1>
         <label for="username">Username:</label>
         <input type="text" id="username" name="username">
         <label for="password">Password:</label>
         <input type="password" id="password" name="password">
-        <input type="submit" id="submit" value="Submit" disabled>
+        <input type="submit" id="submit" value="Login" disabled>
     </form>
     <!-- set up a sign-up page -->
     <form action="javascript:signup()" method="post" style="display: none">
         <!-- This is the sign-up page, the default is not displayed -->
         <!-- Explain to the user that this is the sign-up screen -->
-        <h1>Sign Up</h1>
+        <h1 onclick="ChangeTologinPage()">Sign Up</h1>
         <label for="username">Username:</label>
         <input type="text" id="usernameUp" name="username">
         <label for="password">Password:</label>
         <input type="password" id="passwordUp" name="password">
-        <input type="submit" id="submitUp" value="Submit" disabled>
+        <input type="submit" id="submitUp" value="SignUp" disabled>
     </form>
     <!-- To achieve a login page and registration page switch button -->
     <button class="toggle-btn Login" onclick="ChangeTologinPage()" id="ChangeToLoginPage" style="display: none"></button>

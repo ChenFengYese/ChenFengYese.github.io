@@ -26,21 +26,36 @@ function ChangeToSignUpPage(){
 function signup(){
     var username = document.getElementById("usernameUp").value;
     var password = document.getElementById("passwordUp").value;
-    var data = "username="+username+"&password="+password;
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST","signup",true);
-    xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-    xhr.onreadystatechange = function(){
-        if(xhr.readyState == 4 && xhr.status == 200){
-            var result = xhr.responseText;
-            if(result == "success"){
+    $.ajax({
+        // 设置ajax的参数
+        // 请求数据的url地址：接口地址
+        url: 'https://www.lbservice.top/wxse/register',
+        // 请求数据方式：get  post
+        type: 'post',
+        // data:发送给接口的数据
+        data: {"id": username, "password": password},
+        headers: {
+            'verifyCode': "wwssadadbaba"
+        },
+        // 请求成功之后要执行的回调函数
+        success: function (dat) {
+            //dat:服务端返回的数据
+            console.log(dat)
+            if(dat.msg === "success")
+            {
                 alert("Sign up success!");
-            }else{
-                alert("Sign up failed!");
+                document.getElementById("username").value = username
+                document.getElementById("password").value = password
+                login();
             }
+            else if(dat.msg === "verifyCodeIllegal") alert("Sign up failed!");
+            else alert("Sign up failed!");
         }
-    }
-    xhr.send(data);
+        // 请求失败
+        , error: function (e) {
+            alert('请求失败')
+        }
+    });
 }
 <!-- Use ajax to implement the login function -->
 function login(){
