@@ -6,7 +6,8 @@ function getData(uid,suid){
         async: false,
         data: {
             "uid": uid,
-            "suid": suid
+            "suid": suid,
+            "GetValueWay":2
         },
         success: function (data) {
             Rdata = data.details
