@@ -58,18 +58,20 @@ function time() {
 }
 
 try{
-    let uid = (window.location.href).split('?')[1].split("&")[0].split("=")[1];
+    let base_ = (window.location.href).split('?')[1].split("&")[0].split("=")[1];
+    uid = sessionStorage.getItem("NoteBookUidInUnique")
     uid = uid.split("%")[0]
+    base_ = base_.split("%")[0]
+    base_ = unbase64(base_)
     uid = unbase64(uid)
 
     let suid = (window.location.href).split('?')[1].split("&")[1].split("=")[1];
     suid = suid.split("%")[0]
     suid = parseInt(unbase64(suid))
-
     const suidlist = getSuid(uid);
-    $(".indexHref").attr("href","NotBook.html?"+base64(uid))
-    $(".addHref").attr("href","noteAdd.html?"+base64(uid))
-    $(".editNote").attr("href","noteEdit.html?uid="+base64(uid)+"&suid="+base64(suid.toString()))
+    $(".indexHref").attr("href","NotBook.html?"+base64(base_))
+    $(".addHref").attr("href","noteAdd.html?"+base64(base_))
+    $(".editNote").attr("href","noteEdit.html?uid="+base64(base_)+"&suid="+base64(suid.toString()))
     $("#editNoteList").html(sessionStorage.getItem("editNoteList"))
     $(".updateTime").html(sessionStorage.getItem("updateTime"))
     $(".noteCounts").html(sessionStorage.getItem("noteCounts"))
@@ -106,22 +108,45 @@ try{
 
 
     if (!$.isEmptyObject(data)) {
+        let locationHref = (window.location.href).split('/');
+        let locationHref_ = "";
+        for(var i=0;i<locationHref.length-1;i++){
+            locationHref_ += locationHref[i];
+            locationHref_ += "/"
+        }
+        let LinkHref = locationHref_+"noteGuestView.html?h_ijt=U?at"+base64(Math.round(Math.random() * 100000))+"="+base64(uid)+"&h_ijr=S?at"+base64(Math.round(Math.random() * 100000))+"="+base64(suid);
         $("#title").text(noteInfo.title);
+        console.log(LinkHref)
         $(".wenzhang_box_article").html(noteInfo.text);
         $(".wenzhang_box_article_shengming_title").html(noteInfo.title);
-        $(".wenzhang_box_article_shengming_link").html(window.location.href);
+        // $(".wenzhang_box_article_shengming_link:eq(0)").html(window.location.href);
+        $(".wenzhang_box_article_shengming_link:eq(0)").html(LinkHref);
+        $(".wenzhang_box_article_shengming_link:eq(0)").click(function (){
+            window.open($(".wenzhang_box_article_shengming_link:eq(0)").text())
+        });
         $(".wenzhang_box_content_jieshao_zishu").html("总字数:"+noteInfo.text.length+"字");
         $(".wenzhang_box_content_jieshao_zuozhe").html("作者:"+noteInfo.uid);
-        $(".BackHref").attr("href","NotBook.html?"+base64(uid));
+        $(".BackHref").attr("href","NotBook.html?"+base64(base_));
         $(".wenzhang_box_content_jieshao_time").html("更新时间:"+noteInfo.time);
         $(".wenzhang_box_content_jieshao_xieti:eq(0)").html(noteInfo.suid);
         $(".wenzhang_box_content_jieshao_xieti:eq(1)").html((Math.random()*10).toFixed(2));
+
+        $('#share').share({
+            sites: ['wechat', 'weibo', 'qq','qzone'],
+            url:LinkHref,
+            source:"www.nahida-elysia.asia",
+            title:noteInfo.title,
+            description:$(".wenzhang_box_article").text().substring(0,20),
+            image:'../image/bg_2.png',
+            wechatQrcodeTitle:"微信扫一扫:分享"
+        });
+
     } else {
         console.log("error:"+data);
     }
     if (!$.isEmptyObject(ldata)) {
         console.log("ldata= "+ldata.title)
-        $(".lsuidHref:eq(0)").attr("href","noteView.html?uid="+base64(uid)+"&suid="+base64(ldata.suid.toString()));
+        $(".lsuidHref:eq(0)").attr("href","noteView.html?uid="+base64(base_)+"&suid="+base64(ldata.suid.toString()));
         $(".lsuid1").html(ldata.title);
     } else {
         console.log("ldata=空")
@@ -130,7 +155,7 @@ try{
     }
     if (!$.isEmptyObject(rdata)) {
         console.log("rdata= "+rdata.title)
-        $(".lsuidHref:eq(1)").attr("href","noteView.html?uid="+base64(uid)+"&suid="+base64(rdata.suid.toString()));
+        $(".lsuidHref:eq(1)").attr("href","noteView.html?uid="+base64(base_)+"&suid="+base64(rdata.suid.toString()));
         $(".lsuid2").html(rdata.title);
     } else {
         console.log("rdata=空 ")
@@ -142,3 +167,43 @@ catch (e) {
     console.log(e);
     alert(e)
 }
+// function shareToOthers(LinkHref,R_title,R_description){
+//     function AllClick(ElementsClick,R_initUrl,blocks,others=""){
+//         $(ElementsClick).click(function () {
+//             var initUrl = R_initUrl;
+//             //浏览器网址
+//             var browser = encodeURIComponent(LinkHref);
+//             //console.log(location);
+//             //分享图片地址
+//             var coverImage = location.origin + $("#coverImage").attr("src");
+//             //描述
+//             initUrl = initUrl + browser + blocks + R_title + "&pics=" + coverImage + "&summary=" + R_description + others;// + "&desc=" + description;
+//             window.open(initUrl);
+//         });
+//     }
+//     //QQ分享
+//     AllClick("#QQSHare","http://connect.qq.com/widget/shareqq/index.html?url=","&sharesource=qzone&title=")
+//     //QQ空间分享,本地测试链接为localhost会出现标题和内容undefined
+//     AllClick("#ZoneShare","https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=","&title=")
+//     //新浪微博 &appkey=你的key，需要在新浪微博开放平台中申请
+//     AllClick("#WeiboShare","http://service.weibo.com/share/share.php?url=","&sharesource=weibo&title=","&appkey=1343713053")
+//     var qrcode = new QRCode($('#qrcode'), {
+//         text: LinkHref,
+//         width: 200,
+//         height: 200,
+//         colorDark: "#000000",
+//         colorLight: "#ffffff",
+//         correctLevel: QRCode.CorrectLevel.H
+//     });
+// //微信分享
+//     $("#WeiChatShare").click(function () {
+//         layer.open({
+//             type: 1,
+//             title: false,
+//             area: ['200px', '200px'],
+//             shadeClose: true,
+//             closeBtn: false,
+//             content: $('#qrcode')
+//         });
+//     });
+// }

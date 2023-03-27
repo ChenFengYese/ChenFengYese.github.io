@@ -90,10 +90,14 @@ function login(){
                     //dat:服务端返回的数据
                     console.log(dat.id)
                     let id;
+                    let base_;
                     id = dat.id
                     id = base64(id)
+                    base_ = base64(Math.round(Math.random() * 10000000))
+                    sessionStorage.setItem("NoteBookUidInUnique", id);
                     // // Store the id returned by the server in the cookie
-                    document.location.href = "NotBook.html?" + id;
+                    document.location.href = "NotBook.html?"+base_;
+                    // document.location.href = "NotBook.html?" + id;
                 },
                 // 请求失败
                 error: function () {

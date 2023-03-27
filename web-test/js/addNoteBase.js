@@ -71,8 +71,11 @@ function addNoteInfo(uid) {
     }
 }
 try{
-    var id = (window.location.href).split('?')[1];
-    const key = parseInt(id.split("%")[1].split("").reverse().join(""))
+    var base_ = (window.location.href).split('?')[1];
+    const key = parseInt(base_.split("%")[1].split("").reverse().join(""))
+    var id = sessionStorage.getItem("NoteBookUidInUnique");
+    base_ = base_.split("%")[0]
+    base_ = unbase64(base_)
     id = id.split("%")[0]
     id = unbase64(id)
 
@@ -86,10 +89,10 @@ try{
     }
 
     $(".wenzhang_box_content_jieshao_xieti:eq(0)").html(ruid)
-    $(".indexHref").attr("href","NotBook.html?"+base64(uid))
+    $(".indexHref").attr("href","NotBook.html?"+base64(base_))
     $(".wenzhang_box_content_jieshao_zuozhe").html("作者:"+uid);
     $(".wenzhang_box_content_jieshao_xieti:eq(1)").html((Math.random()*10).toFixed(2));
-    $(".lsuidHref:eq(0)").attr("href","NotBook.html?"+base64(uid));
+    $(".lsuidHref:eq(0)").attr("href","NotBook.html?"+base64(base_));
     $(".lsuidHref:eq(1)").attr("href","javascript:addNoteInfo('"+uid+"')");
     $("#editNoteList").html(sessionStorage.getItem("editNoteList"))
     $(".updateTime").html(sessionStorage.getItem("updateTime"))
@@ -100,5 +103,5 @@ try{
 catch (e) {
     console.log(e);
     alert("你尚未登陆,请重新登录")
-    window.location.href = "index.html";
+    // window.location.href = "index.html";
 }

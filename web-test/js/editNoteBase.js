@@ -65,17 +65,20 @@ function updateNoteInfo(uid,suid) {
     });
 }
 try{
-    let uid = (window.location.href).split('?')[1].split("&")[0].split("=")[1];
+    let base_ = (window.location.href).split('?')[1].split("&")[0].split("=")[1];
+    base_ = base_.split("%")[0]
+    uid = sessionStorage.getItem("NoteBookUidInUnique")
     uid = uid.split("%")[0]
     uid = unbase64(uid)
+    base_ = unbase64(base_)
 
     let suid = (window.location.href).split('?')[1].split("&")[1].split("=")[1];
     suid = suid.split("%")[0]
     suid = parseInt(unbase64(suid))
 
 
-    $(".indexHref").attr("href","NotBook.html?"+base64(uid))
-    $(".addHref").attr("href","noteAdd.html?"+base64(uid))
+    $(".indexHref").attr("href","NotBook.html?"+base64(base_))
+    $(".addHref").attr("href","noteAdd.html?"+base64(base_))
     $("#editNoteList").html(sessionStorage.getItem("editNoteList"))
     $(".updateTime").html(sessionStorage.getItem("updateTime"))
     $(".noteCounts").html(sessionStorage.getItem("noteCounts"))
@@ -96,7 +99,7 @@ try{
         $(".wenzhang_box_content_jieshao_time").html("更新时间:"+noteInfo.time);
         $(".wenzhang_box_content_jieshao_xieti:eq(0)").html(noteInfo.suid);
         $(".wenzhang_box_content_jieshao_xieti:eq(1)").html((Math.random()*10).toFixed(2));
-        $(".lsuidHref:eq(0)").attr("href","NotBook.html?"+base64(noteInfo.uid));
+        $(".lsuidHref:eq(0)").attr("href","NotBook.html?"+base64(base_));
         $(".lsuidHref:eq(1)").attr("href","javascript:updateNoteInfo('"+noteInfo.uid+"','"+noteInfo.suid+"')");
     } else {
         console.log("error:"+data);

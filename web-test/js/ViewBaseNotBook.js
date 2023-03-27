@@ -1,10 +1,13 @@
 
 
-let id = (window.location.href).split('?')[1];
+let base_ = (window.location.href).split('?')[1];
+let id = sessionStorage.getItem("NoteBookUidInUnique")
+base_ = base_.split("%")[0]
 id = id.split("%")[0]
 id = unbase64(id)
-$(".indexHref").attr("href","NotBook.html?"+base64(id))
-$(".addHref").attr("href","noteAdd.html?"+base64(id))
+base_ = unbase64(base_)
+$(".indexHref").attr("href","NotBook.html?"+base64(base_))
+$(".addHref").attr("href","noteAdd.html?"+base64(base_))
 
 
 sortByTime()
@@ -146,11 +149,11 @@ function viewData(data){
             b = ""
             if (note.collect === "1") {
                 b = "style='color: red;'"
-                h2 += '<li><a href="noteView.html?' + 'uid=' + base64(note.uid) + '&suid=' + base64(note.suid.toString()) +
+                h2 += '<li><a href="noteView.html?' + 'uid=' + base64(base_) + '&suid=' + base64(note.suid.toString()) +
                     '" title="阅读收藏">' + note.title + '</a></li>'
                 count += 1
             }
-            h3 += '<li><a href="noteEdit.html?' + 'uid=' + base64(note.uid) + '&suid=' + base64(note.suid.toString()) +
+            h3 += '<li><a href="noteEdit.html?' + 'uid=' + base64(base_) + '&suid=' + base64(note.suid.toString()) +
                 '" title="修改笔记"  style="background: #5e8c88">' + note.title + '</a></li>'
             html += "<ul>" +
                 '<li class="wow fadeIn" data-wow-delay="0.1s" data-wow-duration="1s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.1s; animation-name: fadeIn;">' +
@@ -158,7 +161,7 @@ function viewData(data){
              
                 '<span><img src="image/yuanchuangwenzhang.png"></span>' +
                 '<a class="base_list_box_title_a" href="noteView.html?' +
-                'uid=' + base64(note.uid) + '&suid=' + base64(note.suid.toString()) + '" title="这里是文章title">';
+                'uid=' + base64(base_) + '&suid=' + base64(note.suid.toString()) + '" title="这里是文章title">';
             html += note.title;
             html += "" +
                 "</a></div>" +
@@ -166,20 +169,20 @@ function viewData(data){
                 '<div class="base_list_xiebian"><span>版权</span></div>' +
                 '<div class="base_list_box_content clearfix">' +
                 '<div class="base_list_box_left">' +
-                ' <a href="noteView.html?uid=' + base64(note.uid) + '&suid=' + base64(note.suid.toString()) + '" title="文章title">' +
+                ' <a href="noteView.html?uid=' + base64(base_) + '&suid=' + base64(note.suid.toString()) + '" title="文章title">' +
                 ' <img src="image/bg_1.png">' +
                 '</a> </div>' +
                 '<div class="base_list_box_right">' +
                 '<div class="base_list_box_info" title="文章的全部简介部分">';
             html += note.text;
-            html += '</div></div></div><div class="base_list_box_readmore"><a href="noteView.html?' + 'uid=' + base64(note.uid) + '&suid=' + base64(note.suid.toString()) +
-                '" title="阅读全部">阅读全部<i class="fa fa-paper-plane"></i></a></div><div class="base_list_box_message clearfix"><div class="left"><a href="noteView.html?' + 'uid=' + base64(note.uid) + '&suid=' + base64(note.suid.toString()) +
+            html += '</div></div></div><div class="base_list_box_readmore"><a href="noteView.html?' + 'uid=' + base64(base_) + '&suid=' + base64(note.suid.toString()) +
+                '" title="阅读全部">阅读全部<i class="fa fa-paper-plane"></i></a></div><div class="base_list_box_message clearfix"><div class="left"><a href="noteView.html?' + 'uid=' + base64(base_) + '&suid=' + base64(note.suid.toString()) +
                 '" title="笔记标注"><i class="fa fa-bookmark"></i>'
             html += "账号:" + note.uid + "笔记编号:" + note.suid;
             html += '</a></div><div class="right"><a href="javascript:void(0)" title="最新修改时间">最新修改时间:<i class="fa fa-clock-o"></i>'
             html += note.time + "</a>";
             html += "<a href='javascript:;' onclick='deleteNoteInfo(" + note.suid + ")' title=\"删除笔记\"><i class=\"fa fa-eye\"></i>删除</a>";
-            html += "<a href='noteEdit.html?" + 'uid=' + base64(note.uid) + '&suid=' + base64(note.suid.toString()) + "' title=\"修改笔记\"><i class=\"fa fa-thumbs-up\"></i>修改</a>";
+            html += "<a href='noteEdit.html?" + 'uid=' + base64(base_) + '&suid=' + base64(note.suid.toString()) + "' title=\"修改笔记\"><i class=\"fa fa-thumbs-up\"></i>修改</a>";
             html += "<a " + b + " href='javascript:' class='collect_button' onclick='collectNoteInfo(" + note.suid + ","+note.collect+","+i+ ")' title=\"收藏笔记\"><i class=\"fa fa-thumbs-up\"></i>收藏</a>";
             html += "</div></div></li></ul>";
             i += 1;
