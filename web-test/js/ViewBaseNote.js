@@ -39,7 +39,7 @@ function getSuid(uid){
     })
     return Rdata
 }
-function updatePublic(uid,suid){
+function updatePublic(uid,suid,pon){
     var Rdata
     $.ajax({
         url: "https://www.lbservice.top/textif/alterif",
@@ -48,7 +48,7 @@ function updatePublic(uid,suid){
         data: {
             "uid": uid,
             "suid": suid,
-            "texthtml": "1"
+            "texthtml": pon
         },
         success: function (data) {
             Rdata = "成功"
@@ -78,6 +78,46 @@ function time() {
     day = day<10?"0"+day:day;
     vWeek_s = date.getDay();
     $(".wenzhang_box_content_jieshao_xieti:eq(2)").html(year + "年" + month + "月" + day + "日" + "\t" + hours + ":" + minutes + ":" + seconds + "\t" + vWeek[vWeek_s])
+}
+function setPublicOrNot(uid,suid,pon,LinkHref){
+    swal({
+        title: pon==="1"?'设置公开':'设置私密',
+        text: pon==="1"?"确定将这篇文章设置为公开吗?当设置为公开后,所有人都可以通过该链接访问你的文章,并且文章分享功能也将对该篇文章开放":"确定将这篇文章设置为私密吗?当设置为私密后,所有人都无法通过该链接访问你的文章,并且文章分享功能也将对该篇文章关闭",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: '确定'
+    }).then((result) => {
+        if (result.value) {
+            if(updatePublic(uid,suid,pon)==="成功"){
+                document.getElementsByClassName("article_dig")[0].style.display = pon==="1"?"block":"none";
+                if(pon==="1"){
+                    swal({
+                        title: '设置成功',
+                        text: "正在为你跳转至公开文章页面",
+                        type: 'success',
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: '确定'
+                    }).then((result) => {
+                        if (result.value) {
+                            $("#publicOrNot").html("已公开")
+                            document.getElementsByClassName("article_dig")[0].style.display = "block";
+                            window.open(LinkHref)
+
+                        }
+                    });
+                }else {
+                    swal("设置成功", "已将这篇文章设置为私密", "success")
+                    $("#publicOrNot").html("未公开")
+                    document.getElementsByClassName("article_dig")[0].style.display = "none";
+                }
+            }else {
+                swal("请求失败", pon==="1"?"无法将该篇文章设置为公开":"无法将这篇文章设置为私密", "error")
+            }
+        }
+    });
 }
 
 try{
@@ -145,41 +185,20 @@ try{
         $(".wenzhang_box_article_shengming_title").html(noteInfo.title);
         // $(".wenzhang_box_article_shengming_link:eq(0)").html(window.location.href);
         $(".wenzhang_box_article_shengming_link:eq(0)").html(LinkHref);
+        if(noteInfo.texthtml === "1"){
+            document.getElementsByClassName("article_dig")[0].style.display = "block";
+            $("#publicOrNot").html("已公开")
+        }
         $(".wenzhang_box_article_shengming_link:eq(0)").click(function (){
-            if(noteInfo.texthtml !== "1"&&document.getElementsByClassName("article_dig")[0].style.display !== "block"){
-                swal({
-                    title: '设置公开',
-                    text: "确定将这篇文章设置为公开吗?当设置为公开后,所有人都可以通过该链接访问你的文章,并且文章分享功能也将对该篇文章开放",
-                    type: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: '确定'
-                }).then((result) => {
-                    if (result.value) {
-                        if(updatePublic(noteInfo.uid,noteInfo.suid)==="成功"){
-                            document.getElementsByClassName("article_dig")[0].style.display = "block";
-                            swal({
-                                title: '设置成功',
-                                text: "正在为你跳转至公开文章页面",
-                                type: 'success',
-                                confirmButtonColor: '#3085d6',
-                                cancelButtonColor: '#d33',
-                                confirmButtonText: '确定'
-                            }).then((result) => {
-                                if (result.value) {
-                                    window.open(LinkHref)
-                                }
-                            });
-                        }else {
-                            swal("请求失败", "无法将该篇文章设置为公开", "error")
-                        }
-                    }
-                });
+            if(document.getElementsByClassName("article_dig")[0].style.display !== "block"){
+                setPublicOrNot(noteInfo.uid,noteInfo.suid,"1",LinkHref)
             }else {
                 window.open(LinkHref)
             }
         });
+        $("#publicOrNot").click(function (){
+            setPublicOrNot(noteInfo.uid,noteInfo.suid,$("#publicOrNot").html() === "已公开"?"0":"1",LinkHref)
+        })
         $('#share').share({
             sites: ['wechat', 'weibo', 'qq','qzone'],
             url:LinkHref,
@@ -189,9 +208,8 @@ try{
             image:'../image/bg_2.png',
             wechatQrcodeTitle:"微信扫一扫:分享"
         });
-        if(noteInfo.texthtml === "1"){
-            document.getElementsByClassName("article_dig")[0].style.display = "block";
-        }
+
+
         $(".wenzhang_box_content_jieshao_zishu").html("总字数:"+noteInfo.text.length+"字");
         $(".wenzhang_box_content_jieshao_zuozhe").html("作者:"+noteInfo.uid);
         $(".BackHref").attr("href","NotBook.html?"+base64(base_));
