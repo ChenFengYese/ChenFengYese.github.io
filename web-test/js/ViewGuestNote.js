@@ -7,7 +7,8 @@ function getData(uid,suid){
         data: {
             "uid": uid,
             "suid": suid,
-            "GetValueWay":2
+            "GetValueWay":2,
+            "publicOrPrivate": 1
         },
         success: function (data) {
             Rdata = data
@@ -54,7 +55,7 @@ try{
 
     const noteInfo = data;
 
-    if (!$.isEmptyObject(data)) {
+    if (data!=="没有找到该备忘录") {
         $("#title").text(noteInfo.title);
         $(".wenzhang_box_article").html(noteInfo.text);
         $(".wenzhang_box_article_shengming_title").html(noteInfo.title);
@@ -76,6 +77,7 @@ try{
             wechatQrcodeTitle:"微信扫一扫:分享"
         });
     } else {
+        alert(data)
         console.log("error:"+data);
     }
 }

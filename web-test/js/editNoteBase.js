@@ -50,7 +50,7 @@ function updateNoteInfo(uid,suid) {
             "collect": "0"
         },
         success: function (data) {
-            if (data !=='') {
+            if (data.msg !=='fail') {
                 alert("修改成功");
                 setTimeout(function () {
                     window.location.href = "noteView.html?uid=" + base64(uid) + "&suid=" + base64(suid.toString()) ;
@@ -90,7 +90,7 @@ try{
     data = getData(uid,suid);
     const noteInfo = data;
 
-    if (data !== '') {
+    if (data !== '没有找到该备忘录') {
         $("#title").text(noteInfo.title);
         $(".wenzhang_box_article").html(noteInfo.text);
         $(".wenzhang_box_article_shengming_title").html(noteInfo.title);
@@ -103,6 +103,7 @@ try{
         $(".lsuidHref:eq(0)").attr("href","NotBook.html?"+base64(base_));
         $(".lsuidHref:eq(1)").attr("href","javascript:updateNoteInfo('"+noteInfo.uid+"','"+noteInfo.suid+"')");
     } else {
+        alert(data)
         console.log("error:"+data);
     }
 }
