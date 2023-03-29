@@ -39,6 +39,28 @@ function getSuid(uid){
     })
     return Rdata
 }
+function updatePublic(uid,suid){
+    var Rdata
+    $.ajax({
+        url: "https://www.lbservice.top/textif/alterif",
+        type: "post",
+        async: false,
+        data: {
+            "uid": uid,
+            "suid": suid,
+            "texthtml": "1"
+        },
+        success: function (data) {
+            Rdata = "成功"
+        },
+        error: function (e) {
+            alert("请求失败")
+            console.log(e)
+            Rdata = "失败"
+        }
+    })
+    return Rdata
+}
 function time() {
     var vWeek, vWeek_s, vDay;
     vWeek = ["星期天", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
@@ -118,20 +140,46 @@ try{
         let LinkHref = locationHref_+"noteGuestView.html?h_ijt=U?at"+base64(Math.round(Math.random() * 100000))+"="+base64(uid)+"&h_ijr=S?at"+base64(Math.round(Math.random() * 100000))+"="+base64(suid);
         $("#title").text(noteInfo.title);
         console.log(LinkHref)
+        console.log(noteInfo)
         $(".wenzhang_box_article").html(noteInfo.text);
         $(".wenzhang_box_article_shengming_title").html(noteInfo.title);
         // $(".wenzhang_box_article_shengming_link:eq(0)").html(window.location.href);
         $(".wenzhang_box_article_shengming_link:eq(0)").html(LinkHref);
         $(".wenzhang_box_article_shengming_link:eq(0)").click(function (){
-            window.open($(".wenzhang_box_article_shengming_link:eq(0)").text())
+            if(noteInfo.texthtml !== "1"&&document.getElementsByClassName("article_dig")[0].style.display !== "block"){
+                swal({
+                    title: '设置公开',
+                    text: "确定将这篇文章设置为公开吗?当设置为公开后,所有人都可以通过该链接访问你的文章,并且文章分享功能也将对该篇文章开放",
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: '确定'
+                }).then((result) => {
+                    if (result.value) {
+                        if(updatePublic(noteInfo.uid,noteInfo.suid)==="成功"){
+                            document.getElementsByClassName("article_dig")[0].style.display = "block";
+                            swal({
+                                title: '设置成功',
+                                text: "正在为你跳转至公开文章页面",
+                                type: 'success',
+                                confirmButtonColor: '#3085d6',
+                                cancelButtonColor: '#d33',
+                                confirmButtonText: '确定'
+                            }).then((result) => {
+                                if (result.value) {
+                                    window.open(LinkHref)
+                                }
+                            });
+                        }else {
+                            swal("请求失败", "无法将该篇文章设置为公开", "error")
+                        }
+                    }
+                });
+            }else {
+                window.open(LinkHref)
+            }
         });
-        $(".wenzhang_box_content_jieshao_zishu").html("总字数:"+noteInfo.text.length+"字");
-        $(".wenzhang_box_content_jieshao_zuozhe").html("作者:"+noteInfo.uid);
-        $(".BackHref").attr("href","NotBook.html?"+base64(base_));
-        $(".wenzhang_box_content_jieshao_time").html("更新时间:"+noteInfo.time);
-        $(".wenzhang_box_content_jieshao_xieti:eq(0)").html(noteInfo.suid);
-        $(".wenzhang_box_content_jieshao_xieti:eq(1)").html((Math.random()*10).toFixed(2));
-
         $('#share').share({
             sites: ['wechat', 'weibo', 'qq','qzone'],
             url:LinkHref,
@@ -141,6 +189,15 @@ try{
             image:'../image/bg_2.png',
             wechatQrcodeTitle:"微信扫一扫:分享"
         });
+        if(noteInfo.texthtml === "1"){
+            document.getElementsByClassName("article_dig")[0].style.display = "block";
+        }
+        $(".wenzhang_box_content_jieshao_zishu").html("总字数:"+noteInfo.text.length+"字");
+        $(".wenzhang_box_content_jieshao_zuozhe").html("作者:"+noteInfo.uid);
+        $(".BackHref").attr("href","NotBook.html?"+base64(base_));
+        $(".wenzhang_box_content_jieshao_time").html("更新时间:"+noteInfo.time);
+        $(".wenzhang_box_content_jieshao_xieti:eq(0)").html(noteInfo.suid);
+        $(".wenzhang_box_content_jieshao_xieti:eq(1)").html((Math.random()*10).toFixed(2));
 
     } else {
         console.log("error:"+data);
