@@ -2,7 +2,7 @@
 function getSuid(uid){
     var Rdata
     $.ajax({
-        url: "https://www.lbservice.top/textif/getsuidlist",
+        url: getURLTest()+"textif/getsuidlist",
         type: "post",
         async: false,
         data: {
@@ -40,31 +40,37 @@ function time() {
     $(".wenzhang_box_article_shengming_link").html(document.location.href.split("?")[0].split("noteAdd")[0]+"noteView.html?"+"uid="+document.location.href.split("?")[1]+"&suid="+base64($(".wenzhang_box_content_jieshao_xieti:eq(0)").html()));
 }
 // Add note
-function addNoteInfo(uid) {
+async function addNoteInfo(uid,ruid) {
     if($("#title").text() !== '' && $(".wenzhang_box_article").text() !== '')
     {
-        $.ajax({
-            url: "https://www.lbservice.top/textif/addif",
-            type: "post",
-            dataType: "json",
-            data: {
-                "uid": uid,
-                // "suid": $(".wenzhang_box_content_jieshao_xieti:eq(0)").html(),
-                "time": $(".wenzhang_box_content_jieshao_xieti:eq(2)").html(),
-                "title": $("#title").text(),
-                "text": $(".wenzhang_box_article").html(),
-                "collect": "0"
-            },
-            success: function (data) {
-                alert("添加成功");
-                setTimeout(function () {
-                    window.location.href = "NotBook.html?"+(window.location.href).split('?')[1];
-                }, 1000);
-            },
-            error: function () {
-                console.log("服务器异常");
-            }
-        });
+        var article_note =  document.getElementsByClassName("upload-img-display")
+        // uid = "'"+uid+"'"
+        // ruid = "'"+ruid+"'"
+        console.log(uid,ruid)
+        await UploadFunction(uid,ruid,article_note)
+        await UpdateValueFunction(getUploadComponents(uid, ruid))
+            $.ajax({
+                url: getURLTest()+"textif/addif",
+                type: "post",
+                dataType: "json",
+                data: {
+                    "uid": uid,
+                    // "suid": $(".wenzhang_box_content_jieshao_xieti:eq(0)").html(),
+                    "time": $(".wenzhang_box_content_jieshao_xieti:eq(2)").html(),
+                    "title": $("#title").text(),
+                    "text": $(".wenzhang_box_article").html(),
+                    "collect": "0"
+                },
+                success: function (data) {
+                    alert("添加成功");
+                    setTimeout(function () {
+                        window.location.href = "NotBook.html?"+(window.location.href).split('?')[1];
+                    }, 1000);
+                },
+                error: function () {
+                    console.log("服务器异常");
+                }
+            });
     }
     else {
         alert("标题或内容不能为空");
@@ -87,13 +93,13 @@ try{
     while (suidlist.indexOf(ruid) !== -1){
         ruid += 1;
     }
-
+    console.log(ruid)
     $(".wenzhang_box_content_jieshao_xieti:eq(0)").html(ruid)
     $(".indexHref").attr("href","NotBook.html?"+base64(base_))
     $(".wenzhang_box_content_jieshao_zuozhe").html("作者:"+uid);
     $(".wenzhang_box_content_jieshao_xieti:eq(1)").html((Math.random()*10).toFixed(2));
     $(".lsuidHref:eq(0)").attr("href","NotBook.html?"+base64(base_));
-    $(".lsuidHref:eq(1)").attr("href","javascript:addNoteInfo('"+uid+"')");
+    $(".lsuidHref:eq(1)").attr("href","javascript:addNoteInfo('"+uid+"','"+ruid+"')");
     $("#editNoteList").html(sessionStorage.getItem("editNoteList"))
     $(".updateTime").html(sessionStorage.getItem("updateTime"))
     $(".noteCounts").html(sessionStorage.getItem("noteCounts"))

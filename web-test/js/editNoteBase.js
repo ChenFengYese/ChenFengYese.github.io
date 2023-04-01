@@ -1,7 +1,7 @@
 function getData(uid,suid){
     var Rdata
     $.ajax({
-        url: "https://www.lbservice.top/textif/getif_s",
+        url: getURLTest()+"textif/getif_s",
         type: "post",
         async: false,
         data: {
@@ -36,36 +36,51 @@ function time() {
     vWeek_s = date.getDay();
     $(".wenzhang_box_content_jieshao_xieti:eq(2)").html(year + "-" + month + "-" + day + " "  + hours + ":" + minutes + ":" + seconds)
 }
-function updateNoteInfo(uid,suid) {
-    $.ajax({
-        url: "https://www.lbservice.top/textif/alterif",
-        type: "post",
-        dataType: "json",
-        data: {
-            "title": $("#title").text(),
-            "text": $(".wenzhang_box_article").html(),
-            "uid": uid,
-            "suid": suid,
-            "time": $(".wenzhang_box_content_jieshao_xieti:eq(2)").html(),
-            "collect": "0"
-        },
-        success: function (data) {
-            if (data.msg !=='fail') {
-                alert("修改成功");
-                setTimeout(function () {
-                    window.location.href = "noteView.html?uid=" + base64(uid) + "&suid=" + base64(suid.toString()) ;
-                }, 1000);
-            } else {
-                console.log("修改失败");
-                console.log(data);
+async function updateNoteInfo(uid, suid) {
+    if ($("#title").text() !== '' && $(".wenzhang_box_article").text() !== '') {
+        await deleteFunction(uid, suid, UploadFunction)
+        await UpdateValueFunction(getUploadComponents(uid, suid))
+        console.log("删除成功")
+        console.log("上传成功")
+        $("#hidden-value-uploadReaderValue").remove();
+        // .wenzhang_box_article
+        $.ajax({
+            url: getURLTest() + "textif/alterif",
+            type: "post",
+            dataType: "json",
+            data: {
+                "title": $("#title").text(),
+                "text": $(".wenzhang_box_article").html(),
+                "uid": uid,
+                "suid": suid,
+                "time": $(".wenzhang_box_content_jieshao_xieti:eq(2)").html(),
+                "collect": "0"
+            },
+            success: function (data) {
+                if (data.msg !== 'fail') {
+                    alert("修改成功");
+                    setTimeout(function () {
+                        window.location.href = "noteView.html?uid=" + base64(uid) + "&suid=" + base64(suid.toString());
+                    }, 1000);
+                } else {
+                    console.log("修改失败");
+                    console.log(data);
+                }
+            },
+            error: function () {
+                alert("服务器异常");
             }
-        },
-        error: function () {
-            alert("服务器异常");
-        }
-    });
+        });
+    } else {
+        alert("标题或内容不能为空");
+    }
 }
 try{
+    let cc = document.createElement("div");
+    cc.id="hidden-value-uploadReaderValue";
+    cc.style.display = "none"
+    $(".wenzhang_box_article").append(cc)
+
     let base_ = (window.location.href).split('?')[1].split("&")[0].split("=")[1];
     base_ = base_.split("%")[0]
     uid = sessionStorage.getItem("NoteBookUidInUnique")
@@ -89,6 +104,7 @@ try{
     setInterval("time()", 1000);
     data = getData(uid,suid);
     const noteInfo = data;
+    let upload_data  = getUploadComponents(uid, suid);
 
     if (data !== '没有找到该备忘录') {
         $("#title").text(noteInfo.title);
@@ -102,6 +118,9 @@ try{
         $(".wenzhang_box_content_jieshao_xieti:eq(1)").html((Math.random()*10).toFixed(2));
         $(".lsuidHref:eq(0)").attr("href","NotBook.html?"+base64(base_));
         $(".lsuidHref:eq(1)").attr("href","javascript:updateNoteInfo('"+noteInfo.uid+"','"+noteInfo.suid+"')");
+        UpdateValueFunction(upload_data)
+
+
     } else {
         alert(data)
         console.log("error:"+data);

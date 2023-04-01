@@ -1,7 +1,7 @@
 function getData(uid,suid){
     var Rdata
     $.ajax({
-        url: "https://www.lbservice.top/textif/getif_s",
+        url: getURLTest()+"/textif/getif_s",
         type: "post",
         async: false,
         data: {
@@ -10,10 +10,12 @@ function getData(uid,suid){
             "GetValueWay":2
         },
         success: function (data) {
+
             Rdata = data
         },
         error: function (e) {
-            alert("请求失败")
+            console.log("getData==================================")
+            // alert("请求失败")
             console.log(e)
         }
     })
@@ -23,7 +25,7 @@ function getData(uid,suid){
 function getSuid(uid){
     var Rdata
     $.ajax({
-        url: "https://www.lbservice.top/textif/getsuidlist",
+        url: getURLTest()+"/textif/getsuidlist",
         type: "post",
         async: false,
         data: {
@@ -33,7 +35,29 @@ function getSuid(uid){
             Rdata = data
         },
         error: function (e) {
-            alert(uid+"请求失败")
+            // alert(uid+"请求失败")
+            console.log("getSuid==================================")
+            console.log(e)
+        }
+    })
+    return Rdata
+}
+function getTitle(uid,suid){
+    var Rdata
+    $.ajax({
+        url: getURLTest()+"/textif/getSuidAndNameList",
+        type: "post",
+        async: false,
+        data: {
+            "uid": uid,
+            "suid":suid
+        },
+        success: function (data) {
+            Rdata = data.details
+        },
+        error: function (e) {
+            // alert(uid+"请求失败")
+            console.log("getTitle==================================")
             console.log(e)
         }
     })
@@ -42,7 +66,7 @@ function getSuid(uid){
 function updatePublic(uid,suid,pon){
     var Rdata
     $.ajax({
-        url: "https://www.lbservice.top/textif/alterif",
+        url: getURLTest()+"/textif/alterif",
         type: "post",
         async: false,
         data: {
@@ -54,7 +78,8 @@ function updatePublic(uid,suid,pon){
             Rdata = "成功"
         },
         error: function (e) {
-            alert("请求失败")
+            // alert("请求失败")
+            console.log("getPublic==================================")
             console.log(e)
             Rdata = "失败"
         }
@@ -120,8 +145,11 @@ function setPublicOrNot(uid,suid,pon,LinkHref){
     });
 }
 
-try{
+let fileReader;
+try {
     let base_ = (window.location.href).split('?')[1].split("&")[0].split("=")[1];
+    let FoolBase_ = base_
+    let luid, ruid;
     uid = sessionStorage.getItem("NoteBookUidInUnique")
     uid = uid.split("%")[0]
     base_ = base_.split("%")[0]
@@ -131,41 +159,39 @@ try{
     let suid = (window.location.href).split('?')[1].split("&")[1].split("=")[1];
     suid = suid.split("%")[0]
     suid = parseInt(unbase64(suid))
-    const suidlist = getSuid(uid);
-    $(".indexHref").attr("href","NotBook.html?"+base64(base_))
-    $(".addHref").attr("href","noteAdd.html?"+base64(base_))
-    $(".editNote").attr("href","noteEdit.html?uid="+base64(base_)+"&suid="+base64(suid.toString()))
+    console.log(suid)
+    console.log(uid)
+    suidlist = getSuid(uid)
+    uuuuid = suidlist.indexOf(parseInt(suid))
+    $(".indexHref").attr("href", "NotBook.html?" + FoolBase_)
+    $(".addHref").attr("href", "noteAdd.html?" + FoolBase_)
+    $(".editNote").attr("href", "noteEdit.html?uid=" + FoolBase_ + "&suid=" + base64(suid.toString()))
     $("#editNoteList").html(sessionStorage.getItem("editNoteList"))
     $(".updateTime").html(sessionStorage.getItem("updateTime"))
     $(".noteCounts").html(sessionStorage.getItem("noteCounts"))
     $(".collectCounts").html(sessionStorage.getItem("collectCounts"))
     $("#NotBookSave").html(sessionStorage.getItem("NotBookSave"))
-    var luid =parseInt(suid)-1
-    var ruid = parseInt(suid)+1
+    if (uuuuid - 1 >= 0) {
+        luid = suidlist[uuuuid - 1]
+    } else {
+        luid = ''
+    }
+    if (uuuuid + 1 < suidlist.length) {
+        console.log("ruid-成功复制")
+        ruid = suidlist[uuuuid + 1]
+    } else {
+        ruid = ''
+        console.log("ruid=空")
+    }
 
-    while (suidlist.indexOf(luid) === -1){
-        if(luid > Math.min.apply(null,suidlist)) {
-            luid = parseInt(luid) - 1
-        }
-        else{
-            luid = Math.min.apply(null,suidlist) - 1
-            break
-        }
-    }
-    while (suidlist.indexOf(ruid) === -1){
-        if(ruid < Math.max.apply(null,suidlist)) {
-            ruid = parseInt(ruid) + 1
-        }
-        else{
-            ruid = Math.max.apply(null,suidlist) + 1
-            break
-        }
-    }
-    console.log(luid,ruid)
     setInterval("time()", 1000);
-    data = getData(uid,suid);
-    ldata = (luid>=Math.min.apply(null,suidlist)?getData(uid,luid):{});
-    rdata = (ruid<=Math.max.apply(null,suidlist)?getData(uid,ruid):{});
+    data = getData(uid, suid);
+    upload_data = getUploadComponents(uid, suid)
+    console.log("=========")
+    console.log(luid, ruid)
+    console.log("=========")
+    ldata = (luid !== '' ? getTitle(uid, luid) : {});
+    rdata = (ruid !== '' ? getTitle(uid, ruid) : {});
 
     const noteInfo = data;
 
@@ -173,11 +199,11 @@ try{
     if (!$.isEmptyObject(data)) {
         let locationHref = (window.location.href).split('/');
         let locationHref_ = "";
-        for(var i=0;i<locationHref.length-1;i++){
+        for (var i = 0; i < locationHref.length - 1; i++) {
             locationHref_ += locationHref[i];
             locationHref_ += "/"
         }
-        let LinkHref = locationHref_+"noteGuestView.html?h_ijt=U?at"+base64(Math.round(Math.random() * 100000))+"="+base64(uid)+"&h_ijr=S?at"+base64(Math.round(Math.random() * 100000))+"="+base64(suid);
+        let LinkHref = locationHref_ + "noteGuestView.html?h_ijt=U?at" + base64(Math.round(Math.random() * 100000)) + "=" + base64(uid) + "&h_ijr=S?at" + base64(Math.round(Math.random() * 100000)) + "=" + base64(suid);
         $("#title").text(noteInfo.title);
         console.log(LinkHref)
         console.log(noteInfo)
@@ -185,61 +211,64 @@ try{
         $(".wenzhang_box_article_shengming_title").html(noteInfo.title);
         // $(".wenzhang_box_article_shengming_link:eq(0)").html(window.location.href);
         $(".wenzhang_box_article_shengming_link:eq(0)").html(LinkHref);
-        if(noteInfo.texthtml === "1"){
+        if (noteInfo.texthtml === "1") {
             document.getElementsByClassName("article_dig")[0].style.display = "block";
             $("#publicOrNot").html("已公开")
         }
-        $(".wenzhang_box_article_shengming_link:eq(0)").click(function (){
-            if(document.getElementsByClassName("article_dig")[0].style.display !== "block"){
-                setPublicOrNot(noteInfo.uid,noteInfo.suid,"1",LinkHref)
-            }else {
+        $(".wenzhang_box_article_shengming_link:eq(0)").click(function () {
+            if (document.getElementsByClassName("article_dig")[0].style.display !== "block") {
+                setPublicOrNot(noteInfo.uid, noteInfo.suid, "1", LinkHref)
+            } else {
                 window.open(LinkHref)
             }
         });
-        $("#publicOrNot").click(function (){
-            setPublicOrNot(noteInfo.uid,noteInfo.suid,$("#publicOrNot").html() === "已公开"?"0":"1",LinkHref)
+        $("#publicOrNot").click(function () {
+            setPublicOrNot(noteInfo.uid, noteInfo.suid, $("#publicOrNot").html() === "已公开" ? "0" : "1", LinkHref)
         })
         $('#share').share({
-            sites: ['wechat', 'weibo', 'qq','qzone'],
-            url:LinkHref,
-            source:"www.nahida-elysia.asia",
-            title:noteInfo.title,
-            description:$(".wenzhang_box_article").text().substring(0,20),
-            image:'../image/bg_2.png',
-            wechatQrcodeTitle:"微信扫一扫:分享"
+            sites: ['wechat', 'weibo', 'qq', 'qzone'],
+            url: LinkHref,
+            source: "www.nahida-elysia.asia",
+            title: noteInfo.title,
+            description: $(".wenzhang_box_article").text().substring(0, 20),
+            image: '../image/bg_2.png',
+            wechatQrcodeTitle: "微信扫一扫:分享"
         });
+        for (let f = 0; f < document.getElementsByClassName("upload-img-display").length; f++) {
+            document.getElementsByClassName("upload-img-display")[f].src = upload_data[f].name
+            document.getElementsByClassName("upload-img-display")[f].href = upload_data[f].name
+            document.getElementsByClassName("upload-img-display")[f].name = upload_data[f].originalname
+        }
 
-
-        $(".wenzhang_box_content_jieshao_zishu").html("总字数:"+noteInfo.text.length+"字");
-        $(".wenzhang_box_content_jieshao_zuozhe").html("作者:"+noteInfo.uid);
-        $(".BackHref").attr("href","NotBook.html?"+base64(base_));
-        $(".wenzhang_box_content_jieshao_time").html("更新时间:"+noteInfo.time);
+        $(".wenzhang_box_content_jieshao_zishu").html("总字数:" + noteInfo.text.length + "字");
+        $(".wenzhang_box_content_jieshao_zuozhe").html("作者:" + noteInfo.uid);
+        $(".BackHref").attr("href", "NotBook.html?" + FoolBase_);
+        $(".wenzhang_box_content_jieshao_time").html("更新时间:" + noteInfo.time);
         $(".wenzhang_box_content_jieshao_xieti:eq(0)").html(noteInfo.suid);
-        $(".wenzhang_box_content_jieshao_xieti:eq(1)").html((Math.random()*10).toFixed(2));
+        $(".wenzhang_box_content_jieshao_xieti:eq(1)").html((Math.random() * 10).toFixed(2));
 
     } else {
-        console.log("error:"+data);
+        console.log("error:" + data);
     }
     if (!$.isEmptyObject(ldata)) {
-        console.log("ldata= "+ldata.title)
-        $(".lsuidHref:eq(0)").attr("href","noteView.html?uid="+base64(base_)+"&suid="+base64(ldata.suid.toString()));
+        console.log("ldata= " + ldata.title)
+        $(".lsuidHref:eq(0)").attr("href", "noteView.html?uid=" + FoolBase_ + "&suid=" + base64(ldata.suid.toString()));
         $(".lsuid1").html(ldata.title);
     } else {
         console.log("ldata=空")
-        $(".lsuidHref:eq(0)").attr("href","javascript:");
+        $(".lsuidHref:eq(0)").attr("href", "javascript:");
         $(".lsuid1").html("没有了");
     }
     if (!$.isEmptyObject(rdata)) {
-        console.log("rdata= "+rdata.title)
-        $(".lsuidHref:eq(1)").attr("href","noteView.html?uid="+base64(base_)+"&suid="+base64(rdata.suid.toString()));
+        console.log("rdata= " + rdata.title)
+        $(".lsuidHref:eq(1)").attr("href", "noteView.html?uid=" + FoolBase_ + "&suid=" + base64(rdata.suid.toString()));
         $(".lsuid2").html(rdata.title);
     } else {
         console.log("rdata=空 ")
         $(".lsuidHref:eq(1)").attr("href", "javascript:");
         $(".lsuid2").html("没有了");
     }
-}
-catch (e) {
+} catch (e) {
     console.log(e);
     alert(e)
 }

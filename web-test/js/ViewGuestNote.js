@@ -1,7 +1,7 @@
 function getData(uid,suid){
     var Rdata
     $.ajax({
-        url: "https://www.lbservice.top/textif/getif_s",
+        url: getURLTest()+"/textif/getif_s",
         type: "post",
         async: false,
         data: {

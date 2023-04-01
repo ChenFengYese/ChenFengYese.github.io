@@ -129,6 +129,14 @@
 
                 </div>
 
+                <div class="upload-Cloud">
+                    <input class="file-upload" type="file" id="file" multiple="multiple" accept="image/*" name="picture" style="display: none"/>
+                    <input class="file-upload" type="file" id="file2" multiple="multiple" accept="*" name="picture" style="display: none"/>
+                    <a href="javascript:"><img src="fonts/uploadPicture.svg" class="upload-Cloud upload-Cloud-dom" id="uploadPicture" title="插入图片" alt="插入图片"/></a>
+                    <a href="javascript:"><img src="fonts/uploadFold.svg" class="upload-Cloud upload-Cloud-dom" id="uploadFolder" title="上传文件"  alt="上传文件"/></a>
+                    <a href="javascript:"><img src="fonts/paste.svg" class="upload-Cloud upload-Cloud-dom" id="pasteToArticle" title="粘贴文字" alt="粘贴文字"/></a>
+                    <a href="javascript:"><img src="fonts/AutoPicture.svg" class="upload-Cloud upload-Cloud-dom" id="AutoloadPicture" title="清除图片格式" alt="清除图片格式"/></a>
+                </div>
 
                 <div class="wenzhang_box_article" contenteditable="true">
 
@@ -223,6 +231,7 @@
 <!--一键回到顶部的box-->
 <div class="go_top" style="display: none;"><i class="fa fa-angle-up"></i></div>
 <div class="base_footer">
+    <div class="hidden-value-uploadReaderValue" hidden></div>
 
 
     <span class="base_footer_text">Copyright © 2021-2022 Power by ChenFengYeSe</span>
@@ -234,7 +243,8 @@
 
 
 <div class="layui-xzxform-label"></div></body>
-
+<script src="js/AllRequiresURL.js"></script>
 <script src="js/BaseJSencryption.js"></script>
+<script src="js/uploadComponent.js"></script>
 <script src="js/editNoteBase.js"></script>
 </html>

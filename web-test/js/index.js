@@ -29,7 +29,7 @@ function signup(){
     $.ajax({
         // 设置ajax的参数
         // 请求数据的url地址：接口地址
-        url: 'https://www.lbservice.top/wxse/register',
+        url: getURLTest()+'wxse/register',
         // 请求数据方式：get  post
         type: 'post',
         // data:发送给接口的数据
@@ -65,7 +65,7 @@ function login(){
     $.ajax({
         // 设置ajax的参数
         // 请求数据的url地址：接口地址
-        url: 'https://www.lbservice.top/wxse/login',
+        url: getURLTest()+'wxse/login',
         // 请求数据方式：get  post
         type: 'post',
         // data:发送给接口的数据
@@ -79,7 +79,7 @@ function login(){
             $.ajax({
                 // 设置ajax的参数
                 // 请求数据的url地址：接口地址
-                url: 'https://www.lbservice.top/secure/getUserInfo',
+                url: getURLTest()+'secure/getUserInfo',
                 // 请求数据方式：get  post
                 type: 'post',
                 headers: {
@@ -121,7 +121,7 @@ function login(){
 //     console.log(username+' '+password);
 //     var data = "id="+username+"&password="+password;
 //     var xhr = new XMLHttpRequest();
-//     xhr.open("post","https://www.lbservice.top/wxse/login",true);
+//     xhr.open("post",getURLTest()+"wxse/login",true);
 //     xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 //     xhr.onreadystatechange = function(){
 //         console.log("==========responseText:"+xhr.responseText)
@@ -130,7 +130,7 @@ function login(){
 //             var result = xhr.responseText;
 //             if(result !== "login failure"){
 //                 var xhrr = new XMLHttpRequest();
-//                 xhrr.open("post","https://www.lbservice.top/secure/getUserInfo",true);
+//                 xhrr.open("post",getURLTest()+"secure/getUserInfo",true);
 //                 xhrr.setRequestHeader("Authorization",result);
 //                 xhrr.onreadystatechange = function(){
 //                     if(xhrr.readyState == 4 && xhrr.status == 200){
