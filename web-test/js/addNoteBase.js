@@ -48,7 +48,7 @@ async function addNoteInfo(uid,ruid) {
         // ruid = "'"+ruid+"'"
         console.log(uid,ruid)
         await UploadFunction(uid,ruid,article_note)
-        await UpdateValueFunction(getUploadComponents(uid, ruid))
+        await UpdateValueFunction(await getUploadComponents(uid, ruid))
             $.ajax({
                 url: getURLTest()+"textif/addif",
                 type: "post",

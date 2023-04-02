@@ -160,13 +160,19 @@ async function deleteFunction(uid,suid,func){
     return judge;
 }
 async function UpdateValueFunction( upload_data) {
-    for (let f = 0; f < document.getElementsByClassName("upload-img-display").length; f++) {
-        document.getElementsByClassName("upload-img-display")[f].href = upload_data[f].name
-        document.getElementsByClassName("upload-img-display")[f].src = upload_data[f].name
-        document.getElementsByClassName("upload-img-display")[f].name = upload_data[f].originalname
-        const blob = await fetch(upload_data[f].name).then(r => r.blob())
-        console.log(blob)
-        document.getElementsByClassName("upload-img-display")[f].value = new File([blob], upload_data[f].name, {type: blob.type})
-        //    document.getElementsByClassName("upload-img-display")[f].value = document.getElementsByClassName("hidden-value-uploadReaderValue-childNodes")[f].innerHTML;
+    try{
+        for (let f = 0; f < document.getElementsByClassName("upload-img-display").length; f++) {
+            document.getElementsByClassName("upload-img-display")[f].href = upload_data[f].name
+            document.getElementsByClassName("upload-img-display")[f].src = upload_data[f].name
+            document.getElementsByClassName("upload-img-display")[f].name = upload_data[f].originalname
+            const blob = await fetch(upload_data[f].name).then(r => r.blob())
+            console.log(blob)
+            document.getElementsByClassName("upload-img-display")[f].value = new File([blob], upload_data[f].name, {type: blob.type})
+            //    document.getElementsByClassName("upload-img-display")[f].value = document.getElementsByClassName("hidden-value-uploadReaderValue-childNodes")[f].innerHTML;
+        }
+    }catch (Exception){
+        console.log(Exception)
+
     }
+
 }

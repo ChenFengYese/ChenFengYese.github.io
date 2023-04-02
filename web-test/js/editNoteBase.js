@@ -39,7 +39,7 @@ function time() {
 async function updateNoteInfo(uid, suid) {
     if ($("#title").text() !== '' && $(".wenzhang_box_article").text() !== '') {
         await deleteFunction(uid, suid, UploadFunction)
-        await UpdateValueFunction(getUploadComponents(uid, suid))
+        await UpdateValueFunction(await getUploadComponents(uid, suid))
         console.log("删除成功")
         console.log("上传成功")
         $("#hidden-value-uploadReaderValue").remove();
