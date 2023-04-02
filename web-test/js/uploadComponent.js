@@ -65,6 +65,7 @@ $(document).on("click","#uploadFolder",function (){
                 cc.name=files[i].name;
                 cc.innerHTML=" "+files[i].name+"<br>";
                 cc.className="upload-img-display"
+                cc.target = "_blank"
                 cc.style.width = "auto"
                 cc.style.height = "auto"
                 cc.id = "fold";
