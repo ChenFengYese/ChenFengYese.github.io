@@ -77,7 +77,8 @@ $(document).on("click","#uploadFolder",function (){
     };
 })
 $(document).on("click","#AutoloadPicture",function (){
-    $(".upload-img-display").removeAttr("class")
+    $(".upload-img-display").css("width","auto")
+    $(".upload-img-display").css("height","auto")
     console.log("成功")
 })
 $(document).on("click","#pasteToArticle",function (){

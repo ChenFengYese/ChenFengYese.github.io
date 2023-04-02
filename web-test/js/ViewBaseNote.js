@@ -25,7 +25,7 @@ function getData(uid,suid){
 function getSuid(uid){
     var Rdata
     $.ajax({
-        url: getURLTest()+"/textif/getsuidlist",
+        url: getURLTest()+"/textif/getSuidListNotDeleted",
         type: "post",
         async: false,
         data: {
@@ -238,6 +238,9 @@ try {
             document.getElementsByClassName("upload-img-display")[f].src = upload_data[f].name
             document.getElementsByClassName("upload-img-display")[f].href = upload_data[f].name
             document.getElementsByClassName("upload-img-display")[f].name = upload_data[f].originalname
+            document.getElementsByClassName("upload-img-display")[f].onclick = function () {
+                window.open(this.src)
+            }
         }
 
         $(".wenzhang_box_content_jieshao_zishu").html("总字数:" + noteInfo.text.length + "字");
