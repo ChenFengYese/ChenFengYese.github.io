@@ -144,8 +144,6 @@ function setPublicOrNot(uid,suid,pon,LinkHref){
         }
     });
 }
-
-let fileReader;
 try {
     let base_ = (window.location.href).split('?')[1].split("&")[0].split("=")[1];
     let FoolBase_ = base_
@@ -155,7 +153,6 @@ try {
     base_ = base_.split("%")[0]
     base_ = unbase64(base_)
     uid = unbase64(uid)
-
     let suid = (window.location.href).split('?')[1].split("&")[1].split("=")[1];
     suid = suid.split("%")[0]
     suid = parseInt(unbase64(suid))
@@ -255,8 +252,8 @@ try {
         $(".wenzhang_box_content_jieshao_time").html("更新时间:" + noteInfo.time);
         $(".wenzhang_box_content_jieshao_xieti:eq(0)").html(noteInfo.suid);
         $(".wenzhang_box_content_jieshao_xieti:eq(1)").html((Math.random() * 10).toFixed(2));
-
     } else {
+        alert("这里没有东西")
         console.log("error:" + data);
     }
     if (!$.isEmptyObject(ldata)) {

@@ -47,6 +47,12 @@ async function addNoteInfo(uid,ruid) {
         // uid = "'"+uid+"'"
         // ruid = "'"+ruid+"'"
         console.log(uid,ruid)
+        document.getElementById("uploadIframe").style.display = "block";
+        document.getElementsByClassName("base_content_body")[0].style.display = "none";
+        document.getElementsByClassName("base_header")[0].style.display = "none";
+        document.body.addEventListener('click', function (e) {
+            e.preventDefault()
+        })
         await UploadFunction(uid,ruid,article_note)
         await UpdateValueFunction(await getUploadComponents(uid, ruid))
             $.ajax({

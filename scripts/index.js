@@ -20,7 +20,7 @@ var mv = new Musicvisualizer({
 	size:size,
 	draw:draw
 });
-
+document.querySelector("body").style.cursor = "none";
 
 // 切换可视化效果类型
 var typeli = $(".type li");
@@ -153,7 +153,7 @@ function draw(arr){
 
 	}
 }
-draw.type = "column";//默认显示效果类型
+draw.type = "dot";//默认显示效果类型
 // $.cookie("music_choose_name_selected", "已加载"+ name + ".MP3", { expires: 7, path: '/' });
 // $.cookie("music_choose_address_selected", value, { expires: 7, path: '/' });
 $("#add")[0].onclick = function() {

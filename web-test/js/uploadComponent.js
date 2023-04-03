@@ -229,5 +229,4 @@ async function UpdateValueFunction( upload_data) {
         console.log(Exception)
 
     }
-
 }

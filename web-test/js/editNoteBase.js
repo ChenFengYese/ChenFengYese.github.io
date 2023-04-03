@@ -38,6 +38,12 @@ function time() {
 }
 async function updateNoteInfo(uid, suid) {
     if ($("#title").text() !== '' && $(".wenzhang_box_article").text() !== '') {
+        document.getElementById("uploadIframe").style.display = "block";
+        document.getElementsByClassName("base_content_body")[0].style.display = "none";
+        document.getElementsByClassName("base_header")[0].style.display = "none";
+        document.body.addEventListener('click', function (e) {
+            e.preventDefault()
+        })
         await deleteFunction(uid, suid, UploadFunction)
         await UpdateValueFunction(await getUploadComponents(uid, suid))
         console.log("删除成功")
