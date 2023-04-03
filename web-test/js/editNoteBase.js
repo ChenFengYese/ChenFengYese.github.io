@@ -134,6 +134,6 @@ try{
 }
 catch (e) {
     console.log(e);
-    // alert("你尚未登陆,请重新登录")
-    // window.location.href = "index.html";
+    alert("你尚未登陆,请重新登录")
+    window.location.href = "index.html";
 }

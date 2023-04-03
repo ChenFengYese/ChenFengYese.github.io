@@ -277,6 +277,7 @@ try {
 } catch (e) {
     console.log(e);
     alert(e)
+    window.location.href = "index.html"
 }
 // function shareToOthers(LinkHref,R_title,R_description){
 //     function AllClick(ElementsClick,R_initUrl,blocks,others=""){
