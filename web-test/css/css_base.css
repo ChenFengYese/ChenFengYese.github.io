@@ -518,6 +518,21 @@ clear: both;}
     left: 50%;
     transform: translate(-50%, -50%);
 }
+.upload-img-display-outerPaste{
+    /*float: left;*/
+    width: 50%;
+    height: 25vw;
+    max-height: 50%;
+    object-fit: cover;
+    vertical-align: top;
+    border-width: 0;
+}
+.upload-img-display-outerPaste > img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
 .wenzhang_box_article{margin: 20px 0 0 0;
     line-height: 28px;

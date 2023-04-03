@@ -87,6 +87,59 @@ $(document).on("click","#pasteToArticle",function (){
 
     );
 })
+document.addEventListener("paste", function (e){
+    if ( !(e.clipboardData && e.clipboardData.items) ) {
+        return ;
+    }
+
+    for (var i = 0, len = e.clipboardData.items.length; i < len; i++) {
+        console.log(e.clipboardData.items[i])
+        var item = e.clipboardData.items[i];
+
+        if (item.kind === "string"&&item.type==="text/html") {
+            item.getAsString(function (str) {
+                var cc = document.createElement("div");
+                cc.innerHTML = str
+                var codeLength = cc.getElementsByTagName("code").length
+                var length = cc.getElementsByTagName("img").length
+                if (length === 0&&codeLength===0) {
+                    $("#article").focus();
+                    insertHtmlAtCaret(cc);
+                } else {
+                    for (let i = 0; i < length; i++) {
+                        cc.getElementsByTagName("img")[i].className = "upload-img-display-outerPaste";
+                    }
+                    for (let i = 0; i < codeLength; i++) {
+                        cc.getElementsByTagName("code")[i].style.color = "rgba(0,0,0,0.88)"
+                    }
+                    $("#article").focus();
+                    insertHtmlAtCaret(cc);
+                }
+                // str 是获取到的字符串
+            })
+        }
+        // } else if (item.kind === "file"&&item.kind !== "string"&&item.type!=="text/html") {
+        //     // var pasteFile = item.getAsFile();
+        //     // var cc = document.createElement("a");
+        //     // cc.href=window.URL.createObjectURL(pasteFile);
+        //     // // cc.click(function (){
+        //     // //     window.open(cc.href)
+        //     // // })
+        //     // cc.name=pasteFile.name;
+        //     // cc.innerHTML=" "+pasteFile.name+"<br>";
+        //     // cc.className="upload-img-display-outerPaste"
+        //     // cc.target = "_blank"
+        //     // cc.style.width = "auto"
+        //     // cc.style.height = "auto"
+        //     // cc.id = "fold";
+        //     // cc.value = pasteFile
+        //     // $("#article").focus();
+        //     // insertHtmlAtCaret(cc);
+        //     // // pasteFile就是获取到的文件
+        // }
+        event.preventDefault();
+    }
+},false );
 function getUploadComponents(uid,suid){
     var Rdata
     $.ajax({

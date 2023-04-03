@@ -242,6 +242,12 @@ try {
                 window.open(this.src)
             }
         }
+        for (let f = 0; f < document.getElementsByClassName("upload-img-display-outerPaste").length; f++) {
+            document.getElementsByClassName("upload-img-display-outerPaste")[f].onclick = function () {
+                window.open(this.src)
+            }
+        }
+
 
         $(".wenzhang_box_content_jieshao_zishu").html("总字数:" + noteInfo.text.length + "字");
         $(".wenzhang_box_content_jieshao_zuozhe").html("作者:" + noteInfo.uid);
