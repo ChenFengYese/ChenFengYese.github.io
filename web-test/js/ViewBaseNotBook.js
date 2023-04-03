@@ -147,6 +147,7 @@ function viewData(data){
         for (node in noteList) {
             var note = noteList[node];
             b = ""
+            re = new RegExp('<[^<>]+>','g');
             if (note.collect === "1") {
                 b = "style='color: red;'"
                 h2 += '<li><a href="noteView.html?' + 'uid=' + base64(base_) + '&suid=' + base64(note.suid.toString()) +
@@ -174,7 +175,18 @@ function viewData(data){
                 '</a> </div>' +
                 '<div class="base_list_box_right">' +
                 '<div class="base_list_box_info" title="文章的全部简介部分">';
-            html += note.subtext;
+            if(note.subtext.replace(re,"").indexOf("<img")!==-1){
+                html += note.subtext.replace(re,"").substring(0,note.subtext.replace(re,"").indexOf("<img"));
+                html += "(img)"
+            }else if(note.subtext.replace(re,"").indexOf("<!--")!==-1){
+                html += note.subtext.replace(re,"").substring(0,note.subtext.replace(re,"").indexOf("<!--"));
+                html += "(注释)"
+            }
+            else if(note.subtext.replace(re,"").indexOf("<a")!==-1){
+                html += note.subtext.replace(re,"").substring(0,note.subtext.replace(re,"").indexOf("<a"));
+                html += "(超链接)"
+            }
+            else{html += note.subtext;}
             html += '</div></div></div><div class="base_list_box_readmore"><a href="noteView.html?' + 'uid=' + base64(base_) + '&suid=' + base64(note.suid.toString()) +
                 '" title="阅读全部">阅读全部<i class="fa fa-paper-plane"></i></a></div><div class="base_list_box_message clearfix"><div class="left"><a href="noteView.html?' + 'uid=' + base64(base_) + '&suid=' + base64(note.suid.toString()) +
                 '" title="笔记标注"><i class="fa fa-bookmark"></i>'
