@@ -213,7 +213,6 @@ function viewData(data){
     } else {
         console.log(data);
         alert("这里没有记录,一切都是空空的,好寂寞┭┮﹏┭┮")
-        window.location.href = "index.html"
 //         window.location.href = "index.html";
     }
 }
