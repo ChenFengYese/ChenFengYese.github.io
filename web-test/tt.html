@@ -6,20 +6,27 @@
 </head>
 <body>
 <button onclick="ba()">base64</button>
-<script src="js/BaseJSencryption.js"></script>
+<div class="aabb">aabb</div>
+<div class="aabb">aabb</div>
+<div class="aabb">aabb</div>
+<div class="aabb">aabb</div>
+<!--<script src="js/BaseJSencryption.js"></script>-->
 <script>
   function ba(){
-      str = Math.random().toString(36).slice(-8)
-      // str = "02P"
-      console.log("原码:"+str);
-    str = base64(str);
-    console.log(str)
-    rstr = str.split("#")[0]
-      console.log(rstr)
-      const key = parseInt(str.split("#")[1].split().reverse().join(""))
-    console.log(rstr);
-    unstr = unbase64(rstr);
-    console.log(unstr);
+      let sa = document.getElementsByClassName("aabb")
+      let ba = sa
+      ba[0].remove()
+    //   str = Math.random().toString(36).slice(-8)
+    //   // str = "02P"
+    //   console.log("原码:"+str);
+    // str = base64(str);
+    // console.log(str)
+    // rstr = str.split("#")[0]
+    //   console.log(rstr)
+    //   const key = parseInt(str.split("#")[1].split().reverse().join(""))
+    // console.log(rstr);
+    // unstr = unbase64(rstr);
+    // console.log(unstr);
   }
 
 </script>

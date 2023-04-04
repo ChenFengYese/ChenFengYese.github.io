@@ -140,7 +140,7 @@ document.addEventListener("paste", function (e){
         event.preventDefault();
     }
 },false );
-function getUploadComponents(uid,suid){
+async function getUploadComponents(uid,suid){
     var Rdata
     $.ajax({
         url: getURLTest()+"/file/download",
@@ -162,71 +162,290 @@ function getUploadComponents(uid,suid){
     })
     return Rdata
 }
-async function UploadFunction(uid,suid,article_note) {
+async function UploadFunction(uid,suid,article_note,functionType,numUploads) {
+
+    let non = 0
     if (article_note.length !== 0) {
         for (let i = 0; i < article_note.length; i++) {
-            let formdata = new FormData();
-            console.log(article_note[i].name + "i===============")
-            formdata.append("file", article_note[i].value)
-            // article_note[i].src = ""
-            // article_note[i].href = ""
-            $.ajax({
-                dataType: "json",
-                headers: {
-                    "fid": uid,
-                    "sfid": suid,
-                    "originalname": encodeURIComponent(article_note[i].name)
-                },
-                data: formdata,
-                url: getURLTest() + "file/upload",
-                type: "post",
-                cache: false,
-                processData: false,
-                contentType: false,
-                success: function (data) {
-                    console.log(data)
-                },
-                error: function (data) {
-                    console.log(data)
+                let formdata = new FormData();
+                console.log(article_note[i].name + "i===============")
+                if(article_note[i].value!==undefined){
+                    formdata.append("file", article_note[i].value)
+                    UploadForFolders(uid, suid, article_note, formdata,i,functionType,numUploads)
                 }
-            });
+                else{
+                    non+=1
+                    console.log(non)
+                    console.log(article_note.length-1)
+                }
+                // article_note[i].src = ""
+                // article_note[i].href = ""
         }
+        if(non===article_note.length){
+            await UploadForElements(uid, suid)
+        }
+    }else{
+        if(functionType==="upload"){await UploadForElements(uid, suid)}
+        else{addElementsFunction(uid)}
     }
 }
-async function deleteFunction(uid,suid,func){
+async function deleteFunction(uid,suid,func,functionType){
     let judge = false;
     var article_note =  document.getElementsByClassName("upload-img-display")
-    $.ajax({
-        url:getURLTest()+"file/delete",
-        dataType:"json",
-        type:"post",
-        data:{
-            "uid": uid,
-            "suid":suid
-        },
-        success:function (data) {
-            console.log(data)
-            func(uid,suid,article_note)
-        },
-        error:function (data) {
-            console.log(data)
-        }
-    });
-    return judge;
+    if(article_note.length===0){
+        let my = $.ajax({
+            url:getURLTest()+"file/delete",
+            dataType:"json",
+            type:"post",
+            data:{
+                "uid": uid,
+                "suid":suid
+            },
+            success:function (data) {
+                console.log(data)
+                console.log("删除成功")
+                if(functionType==="upload")
+                {UploadForElements(uid,suid)}
+                else
+                {addElementsFunction(uid)}
+            },
+            error:function (data) {
+                console.log(data)
+            }
+        });
+        $.when(my).done(function (){
+            UploadForElements(uid,suid)
+        })
+    }
+    else{
+        let lst = []
+        let getList = $.ajax({
+            url: getURLTest()+"file/getFileIdList",
+            type: "post",
+            dataType: "json",
+            data: {
+                "fid":uid,
+                "sfid":suid
+            },
+            success: function (data) {
+                console.log(data)
+                lst = data.details;
+            },
+            error: function () {
+                console.log("服务器异常");
+                lst = null;
+            }
+        });
+        $.when(getList).done(function ()
+        {
+            let server_fileIdList = lst;
+            let fileIdList = [-1]
+            for(let m=0;m<article_note.length;m++){
+                    fileIdList[m] = article_note[m].id.split("-")[1]
+            }
+            console.log(fileIdList)
+            console.log(server_fileIdList)
+            let numUploads = 0
+            let numDeletes = 0
+            let finishDeletes = 0
+            for(let n=0;n<fileIdList.length;n++){
+                if(server_fileIdList.indexOf(fileIdList[n])===-1){
+                    console.log("上传")
+                    numUploads++
+                }
+            }
+            for(let n=0;n<server_fileIdList.length;n++){
+                if(fileIdList.indexOf(server_fileIdList[n])===-1) {
+                    console.log("删除")
+                    numDeletes++
+
+                    deleFileByFileid =$.ajax({
+                        url: getURLTest()+"file/deleteByFileid",
+                        type: "post",
+                        dataType: "json",
+                        async:false,
+                        data: {
+                            "fid":uid,
+                            "sfid":suid,
+                            "fileid":server_fileIdList[n]
+                        },
+                        success: function () {
+
+                            finishDeletes++
+
+                            console.log("删除成功")
+
+                        },
+                        error: function () {
+                            console.log("服务器异常");
+                        }
+
+                    });
+                }
+            }
+            if(server_fileIdList.length===0){numUploads=fileIdList.length-1}
+            else{numUploads-=1}
+            console.log("numUploads=========================")
+            console.log(numUploads)
+            console.log("numDeletes=========================")
+            console.log(numDeletes)
+            console.log(article_note)
+            if(numDeletes>0){
+
+                $.when(deleFileByFileid).done(function () {
+
+                    console.log(finishDeletes)
+                    if(finishDeletes===numDeletes)
+                    {func(uid,suid,article_note,functionType,numUploads)}
+
+                })
+
+            }else{
+                func(uid,suid,article_note,functionType,numUploads)
+            }
+
+        })
+    }
 }
-async function UpdateValueFunction( upload_data) {
-    try{
+async function UpdateValueFunction(upload_data,func,uid,suid,functionType) {
+    let UVI;
+    try {
+        let k = 0;
         for (let f = 0; f < document.getElementsByClassName("upload-img-display").length; f++) {
             document.getElementsByClassName("upload-img-display")[f].href = upload_data[f].name
             document.getElementsByClassName("upload-img-display")[f].src = upload_data[f].name
-            document.getElementsByClassName("upload-img-display")[f].name = upload_data[f].originalname
-            const blob = await fetch(upload_data[f].name).then(r => r.blob())
-            console.log(blob)
-            document.getElementsByClassName("upload-img-display")[f].value = new File([blob], upload_data[f].name, {type: blob.type})
+            document.getElementsByClassName("upload-img-display")[f].innerHTML = upload_data[f].originalname
+            document.getElementsByClassName("upload-img-display")[f].id = "img"+"-"+upload_data[f].fileid
+            // document.getElementsByClassName("upload-img-display")[f].name = upload_data[f].originalname
+            // console.log(document.getElementsByClassName("upload-img-display")[f].value)
+            document.getElementsByClassName("upload-img-display")[f].onclick = function () {
+                window.open(this.src)
+            }
+            // UVI = await UploadValueImport(upload_data[f].name, f)
+            // $.when(UVI).done(function () {
+            //     if (func && k === document.getElementsByClassName("upload-img-display").length - 1) {
+            //         if(functionType==="upload"){UploadForElements(uid, suid)}
+            //         else{addElementsFunction(uid)}
+            //     }
+            //     k++;
+            // })
             //    document.getElementsByClassName("upload-img-display")[f].value = document.getElementsByClassName("hidden-value-uploadReaderValue-childNodes")[f].innerHTML;
         }
-    }catch (Exception){
+        if(functionType==="upload"){await UploadForElements(uid, suid)}
+        else{addElementsFunction(uid)}
+    } catch (Exception) {
         console.log(Exception)
 
     }
 }
+async function SelectValueFunction(upload_data,uid,suid,article_note,i){
+    let UpF;
+    for (let f = 0; f < upload_data.length(); f++) {
+        if (upload_data[f].originalname === article_note[i].name) {
+            UpF = await UploadValueImport(upload_data[f].name, i)
+            $.when(UpF).done(function () {
+                return true;
+            })
+        }
+    }
+}
+async function UploadValueImport(dataName,f){
+    if(document.getElementsByClassName("upload-img-display")[f].value===undefined){
+        const blob = await fetch(dataName).then(r => r.blob())
+        console.log(blob)
+        document.getElementsByClassName("upload-img-display")[f].value = new File([blob], dataName, {type: blob.type})
+    }
+}
+async function UploadForElements(uid,suid){
+    $.ajax({
+        url: getURLTest() + "textif/alterif",
+        type: "post",
+        dataType: "json",
+        data: {
+            "title": $("#title").text(),
+            "text": $(".wenzhang_box_article").html(),
+            "uid": uid,
+            "suid": suid,
+            "time": $(".wenzhang_box_content_jieshao_xieti:eq(2)").html(),
+        },
+        success: function (data) {
+            if (data.msg !== 'fail') {
+                setTimeout(function () {
+                    alert("修改成功");
+                    window.location.href = "noteView.html?uid=" + base64(uid) + "&suid=" + base64(suid.toString());
+                }, 1000);
+            } else {
+                console.log("修改失败");
+                console.log(data);
+            }
+        },
+        error: function () {
+            alert("服务器异常");
+        }
+    });
+}
+var kp = 0;
+function UploadForFolders(uid,suid,article_note,formdata,i,functionType,numUploads){
+    let UploadAjax = $.ajax({
+        dataType: "json",
+        headers: {
+            "fid": uid,
+            "sfid": suid,
+            "originalname": encodeURIComponent(article_note[i].name)
+        },
+        data: formdata,
+        url: getURLTest() + "file/upload",
+        type: "post",
+        cache: false,
+        processData: false,
+        contentType: false,
+        success: function (data) {
+            console.log(data)
+        },
+        error: function (data) {
+            console.log(data)
+        }
+    });
+    $.when(UploadAjax).done(function () {
+        console.log(kp)
+        if (kp === numUploads) {
+            console.log("上传成功")
+            getUploadComponents(uid, suid).then(
+                r =>
+                    UpdateValueFunction(r, true,uid,suid,functionType)
+            )
+        }
+        kp++;
+    })
+}
+function addElementsFunction(uid){
+    $.ajax({
+        url: getURLTest()+"textif/addif",
+        type: "post",
+        dataType: "json",
+        data: {
+            "uid": uid,
+            // "suid": $(".wenzhang_box_content_jieshao_xieti:eq(0)").html(),
+            "time": $(".wenzhang_box_content_jieshao_xieti:eq(2)").html(),
+            "title": $("#title").text(),
+            "text": $(".wenzhang_box_article").html(),
+            "collect": "0"
+        },
+        success: function (data) {
+            if (data.msg !== 'fail') {
+                setTimeout(function () {
+                    alert("修改成功");
+                    window.location.href = "NotBook.html?" + (window.location.href).split('?')[1];
+                }, 1000);
+            } else {
+                console.log("修改失败");
+                console.log(data);
+            }
+        },
+        error: function () {
+            console.log("服务器异常");
+        }
+    });
+}
+
+

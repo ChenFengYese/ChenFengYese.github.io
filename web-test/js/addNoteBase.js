@@ -53,30 +53,8 @@ async function addNoteInfo(uid,ruid) {
         document.body.addEventListener('click', function (e) {
             e.preventDefault()
         })
-        await UploadFunction(uid,ruid,article_note)
-        await UpdateValueFunction(await getUploadComponents(uid, ruid))
-            $.ajax({
-                url: getURLTest()+"textif/addif",
-                type: "post",
-                dataType: "json",
-                data: {
-                    "uid": uid,
-                    // "suid": $(".wenzhang_box_content_jieshao_xieti:eq(0)").html(),
-                    "time": $(".wenzhang_box_content_jieshao_xieti:eq(2)").html(),
-                    "title": $("#title").text(),
-                    "text": $(".wenzhang_box_article").html(),
-                    "collect": "0"
-                },
-                success: function (data) {
-                    alert("添加成功");
-                    setTimeout(function () {
-                        window.location.href = "NotBook.html?"+(window.location.href).split('?')[1];
-                    }, 1000);
-                },
-                error: function () {
-                    console.log("服务器异常");
-                }
-            });
+        await UploadFunction(uid, ruid, article_note,"add",article_note.length-1)
+
     }
     else {
         alert("标题或内容不能为空");

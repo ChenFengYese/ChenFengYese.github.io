@@ -44,39 +44,9 @@ async function updateNoteInfo(uid, suid) {
         document.body.addEventListener('click', function (e) {
             e.preventDefault()
         })
-        await deleteFunction(uid, suid, UploadFunction)
-        await UpdateValueFunction(await getUploadComponents(uid, suid))
-        console.log("删除成功")
-        console.log("上传成功")
-        $("#hidden-value-uploadReaderValue").remove();
+        await deleteFunction(uid, suid, UploadFunction,"upload")
         // .wenzhang_box_article
-        $.ajax({
-            url: getURLTest() + "textif/alterif",
-            type: "post",
-            dataType: "json",
-            data: {
-                "title": $("#title").text(),
-                "text": $(".wenzhang_box_article").html(),
-                "uid": uid,
-                "suid": suid,
-                "time": $(".wenzhang_box_content_jieshao_xieti:eq(2)").html(),
-                "collect": "0"
-            },
-            success: function (data) {
-                if (data.msg !== 'fail') {
-                    alert("修改成功");
-                    setTimeout(function () {
-                        window.location.href = "noteView.html?uid=" + base64(uid) + "&suid=" + base64(suid.toString());
-                    }, 1000);
-                } else {
-                    console.log("修改失败");
-                    console.log(data);
-                }
-            },
-            error: function () {
-                alert("服务器异常");
-            }
-        });
+
     } else {
         alert("标题或内容不能为空");
     }
@@ -110,7 +80,7 @@ try{
     setInterval("time()", 1000);
     data = getData(uid,suid);
     const noteInfo = data;
-    let upload_data  = getUploadComponents(uid, suid);
+
 
     if (data !== '没有找到该备忘录') {
         $("#title").text(noteInfo.title);
@@ -124,7 +94,6 @@ try{
         $(".wenzhang_box_content_jieshao_xieti:eq(1)").html((Math.random()*10).toFixed(2));
         $(".lsuidHref:eq(0)").attr("href","NotBook.html?"+base64(base_));
         $(".lsuidHref:eq(1)").attr("href","javascript:updateNoteInfo('"+noteInfo.uid+"','"+noteInfo.suid+"')");
-        UpdateValueFunction(upload_data)
 
 
     } else {

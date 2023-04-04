@@ -183,7 +183,6 @@ try {
 
     setInterval("time()", 1000);
     data = getData(uid, suid);
-    upload_data = getUploadComponents(uid, suid)
     console.log("=========")
     console.log(luid, ruid)
     console.log("=========")
@@ -231,14 +230,6 @@ try {
             image: '../image/bg_2.png',
             wechatQrcodeTitle: "微信扫一扫:分享"
         });
-        for (let f = 0; f < document.getElementsByClassName("upload-img-display").length; f++) {
-            document.getElementsByClassName("upload-img-display")[f].src = upload_data[f].name
-            document.getElementsByClassName("upload-img-display")[f].href = upload_data[f].name
-            document.getElementsByClassName("upload-img-display")[f].name = upload_data[f].originalname
-            document.getElementsByClassName("upload-img-display")[f].onclick = function () {
-                window.open(this.src)
-            }
-        }
         for (let f = 0; f < document.getElementsByClassName("upload-img-display-outerPaste").length; f++) {
             document.getElementsByClassName("upload-img-display-outerPaste")[f].onclick = function () {
                 window.open(this.src)
@@ -252,6 +243,7 @@ try {
         $(".wenzhang_box_content_jieshao_time").html("更新时间:" + noteInfo.time);
         $(".wenzhang_box_content_jieshao_xieti:eq(0)").html(noteInfo.suid);
         $(".wenzhang_box_content_jieshao_xieti:eq(1)").html((Math.random() * 10).toFixed(2));
+
     } else {
         alert("这里没有东西")
         console.log("error:" + data);
@@ -277,7 +269,7 @@ try {
 } catch (e) {
     console.log(e);
     alert(e)
-    window.location.href = "index.html"
+    // window.location.href = "index.html"
 }
 // function shareToOthers(LinkHref,R_title,R_description){
 //     function AllClick(ElementsClick,R_initUrl,blocks,others=""){
