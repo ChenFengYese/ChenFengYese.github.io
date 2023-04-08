@@ -7,10 +7,10 @@
 //   }
 //   return flag;
 // }
-document.getElementById("contact_name").value = (($.cookie("contact_name_blessing")!==undefined)&&($.cookie("contact_name_blessing")!==null))?$.cookie("contact_name_blessing"):"";
-document.getElementById("contact_name2").value = (($.cookie("contact_name2_blessing")!==undefined)&&($.cookie("contact_name2_blessing")!==null))?$.cookie("contact_name_blessing2"):"";
-document.getElementById("contact_message").value = (($.cookie("contact_message_blessing")!==undefined)&&($.cookie("contact_message_blessing")!==null))?$.cookie("contact_message_blessing"):"";
-document.getElementById("contact_info").value = (($.cookie("contact_info_blessing")!==undefined)&&($.cookie("contact_info_blessing")!==null))?$.cookie("contact_info_blessing"):"";
+document.getElementById("contact_name").value = (($.cookie("contact_name_blessing")!==undefined)&&($.cookie("contact_name_blessing")!=='null'))?$.cookie("contact_name_blessing"):"";
+document.getElementById("contact_name2").value = (($.cookie("contact_name2_blessing")!==undefined)&&($.cookie("contact_name2_blessing")!=='null'))?$.cookie("contact_name_blessing2"):"";
+document.getElementById("contact_message").value = (($.cookie("contact_message_blessing")!==undefined)&&($.cookie("contact_message_blessing")!=='null'))?$.cookie("contact_message_blessing"):"";
+document.getElementById("contact_info").value = (($.cookie("contact_info_blessing")!==undefined)&&($.cookie("contact_info_blessing")!=='null'))?$.cookie("contact_info_blessing"):"";
 
 document.querySelector('#file').onchange = function (){
     document.getElementById("save").innerHTML = getFileURL(this.files[0]);
