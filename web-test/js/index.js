@@ -1,6 +1,7 @@
 
-
 <!-- Disable the right mouse button -->
+
+swal("数据库暂未运行", "数据库正在全力跑其他项目中,该项目数据库暂时停止运行", "error")
 document.oncontextmenu = function(){
     return false;
 }
@@ -191,15 +192,15 @@ function check(){
         document.getElementById("submit").disabled = true;
         document.getElementById("submit").style.backgroundColor = "#ccc";
     }else{
-        document.getElementById("submit").disabled = false;
-        document.getElementById("submit").style.backgroundColor = "#fb2525";
+        // document.getElementById("submit").disabled = false;
+        // document.getElementById("submit").style.backgroundColor = "#fb2525";
     }
     if(usernameUp === "" || passwordUp === ""){
         document.getElementById("submitUp").disabled = true;
         document.getElementById("submitUp").style.backgroundColor = "#ccc";
     }else{
-        document.getElementById("submitUp").disabled = false;
-        document.getElementById("submitUp").style.backgroundColor = "#fb2525";
+        // document.getElementById("submitUp").disabled = false;
+        // document.getElementById("submitUp").style.backgroundColor = "#fb2525";
     }
 }
 <!-- Monitor the input box in real time, and call the check method to check whether the account password is empty -->
