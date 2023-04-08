@@ -86,7 +86,7 @@ function create() {
         parts[n] = p;
     }
     c.onmousemove = msmv;
-    c.onmousedown = msdn;
+    c.onmousedown = msdon;
     c.onmouseup = msup;
 
     var int = setInterval(function () {
@@ -177,7 +177,7 @@ function msmv(e) {
     msY = e.clientY - p.y + sY;
 }
 
-function msdn(e) {
+function msdon(e) {
     msdn = true;
 }
 
