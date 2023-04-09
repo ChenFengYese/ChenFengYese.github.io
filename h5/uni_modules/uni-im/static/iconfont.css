@@ -1,0 +1,28 @@
+@font-face {
+  font-family: "uni-im-font"; /* Project id 3726059 */
+  src: url('@/uni_modules/uni-im/static/iconfont.ttf') format('truetype');
+}
+
+
+.uni-im-font {
+  font-family: uni-im-font !important;
+  font-size: 16px;
+  font-style: normal;
+  /* #ifndef APP-NVUE */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* #endif */
+}
+/* #ifndef APP-NVUE */
+.uni-im-share:before {
+  content: "\e6c4";
+}
+
+.uni-im-copy:before {
+  content: "\e67e";
+}
+
+.uni-im-delete:before {
+  content: "\e63d";
+}
+/* #endif */
