@@ -20,7 +20,7 @@ sortByTime()
 function deleteNoteInfo(suid) {
     if (confirm("确定删除吗？")){
         $.ajax({
-            url: getURLTest()+"/textif/deleteif",
+            url: getURLTest()+"textif/deleteif",
             type: "post",
             dataType: "json",
             data: {
@@ -48,7 +48,7 @@ function collectNoteInfo(suid,collect,i) {
     button = $(".collect_button:eq("+i+")")
     button.css("background","rgb(130,229,241)")
     $.ajax({
-        url: getURLTest()+"/textif/collectBySuid",
+        url: getURLTest()+"textif/collectBySuid",
         type: "post",
         dataType: "json",
         data: {
@@ -75,7 +75,7 @@ function collectNoteInfo(suid,collect,i) {
 
 function sortByTime() {
     $.ajax({
-        url: getURLTest()+"/textif/getif",
+        url: getURLTest()+"textif/getif",
         type: "post",
         data: {
             uid:id
@@ -98,7 +98,7 @@ function sortByTime() {
 
 function sortBySuid() {
     $.ajax({
-        url: getURLTest()+"/textif/sortBySuid",
+        url: getURLTest()+"textif/sortBySuid",
         type: "post",
         dataType: "json",
         data: {
@@ -118,7 +118,7 @@ function selectByKeywords(){
     if (keywords === ""){alert("请先输入字段");}
     else {
         $.ajax({
-        url: getURLTest()+"/textif/searchByArgs",
+        url: getURLTest()+"textif/searchByArgs",
         type: "post",
         data: {
             "args": keywords,

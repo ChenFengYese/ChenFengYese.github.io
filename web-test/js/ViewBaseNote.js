@@ -1,7 +1,7 @@
 function getData(uid,suid){
     var Rdata
     $.ajax({
-        url: getURLTest()+"/textif/getif_s",
+        url: getURLTest()+"textif/getif_s",
         type: "post",
         async: false,
         data: {
@@ -25,7 +25,7 @@ function getData(uid,suid){
 function getSuid(uid){
     var Rdata
     $.ajax({
-        url: getURLTest()+"/textif/getSuidListNotDeleted",
+        url: getURLTest()+"textif/getSuidListNotDeleted",
         type: "post",
         async: false,
         data: {
@@ -45,7 +45,7 @@ function getSuid(uid){
 function getTitle(uid,suid){
     var Rdata
     $.ajax({
-        url: getURLTest()+"/textif/getSuidAndNameList",
+        url: getURLTest()+"textif/getSuidAndNameList",
         type: "post",
         async: false,
         data: {
@@ -66,7 +66,7 @@ function getTitle(uid,suid){
 function updatePublic(uid,suid,pon){
     var Rdata
     $.ajax({
-        url: getURLTest()+"/textif/alterif",
+        url: getURLTest()+"textif/alterif",
         type: "post",
         async: false,
         data: {

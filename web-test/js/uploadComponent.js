@@ -143,7 +143,7 @@ document.addEventListener("paste", function (e){
 async function getUploadComponents(uid,suid){
     var Rdata
     $.ajax({
-        url: getURLTest()+"/file/download",
+        url: getURLTest()+"file/download",
         type: "get",
         async: false,
         data: {
