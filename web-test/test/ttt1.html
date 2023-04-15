@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script src="../js/html2canvas.js"></script>
+</head>
+<body>
+<div id="target-div">121
+34ejdo1d3</div>
+<script>
+  // 获取目标 div 元素
+  const targetDiv = document.getElementById('target-div');
+
+  // 使用 html2canvas 将目标 div 转化为截图
+  html2canvas(targetDiv).then(function(canvas) {
+    // 将 canvas 转化为图片并保存或展示在页面中
+    const dataUrl = canvas.toDataURL();
+    const img = document.createElement('img');
+    img.src = dataUrl;
+    document.body.appendChild(img);
+  });
+
+</script>
+
+</body>
+</html>

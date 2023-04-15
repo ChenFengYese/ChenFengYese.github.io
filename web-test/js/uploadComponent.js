@@ -76,6 +76,80 @@ $(document).on("click","#uploadFolder",function (){
         }
     };
 })
+$(document).on("click","#uploadToPDF",function (){
+    //swal警告当前功能处于实验状态,确认后执行后续程序
+    swal({
+        title: "警告",
+        text: "当前功能处于实验状态，可能会出现一些问题，是否继续？",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+    })
+        .then(() => {
+            // 点击图片的同时，点击上传文件的input
+            $('#file').click();
+            document.getElementById("file").onchange = async function(event) {
+                // 获取选中的图片文件
+                const file = event.target.files[0];
+
+                // 创建一个新的空白 PDF 文档
+                const newPdfDoc = await createPdfDoc();
+
+                // 将图片添加到新的 PDF 文档中
+                const image = await toImage(file);
+                await addImageToPdfDoc(image, newPdfDoc);
+
+                // 将新的 PDF 文档转换为 Blob 对象
+                const pdfBlob = await newPdfDoc.output('blob');
+
+                // 下载 PDF 文件
+                const url = URL.createObjectURL(pdfBlob);
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = 'output.pdf';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                URL.revokeObjectURL(url);
+            };
+        }
+    );
+// 创建一个新的 PDF 文档对象
+    async function createPdfDoc() {
+        const doc = new jsPDF('p', 'px', [1000, 1000]);
+        return doc;
+    }
+
+// 将图片文件转换为 Image 对象
+    function toImage(file) {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => {
+                const img = new Image();
+                img.src = reader.result;
+                img.onload = () => {
+                    resolve(img);
+                };
+            };
+            reader.onerror = (error) => {
+                reject(error);
+            };
+        });
+    }
+
+// 将 Image 对象添加到 PDF 文档中
+    async function addImageToPdfDoc(image, pdfDoc) {
+        const canvas = document.createElement('canvas');
+        canvas.width = image.width;
+        canvas.height = image.height;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(image, 0, 0);
+        const dataUrl = canvas.toDataURL('image/jpeg');
+        pdfDoc.addImage(dataUrl, 'JPEG', 0, 0, pdfDoc.internal.pageSize.getWidth(), pdfDoc.internal.pageSize.getHeight());
+    }
+
+})
 $(document).on("click","#AutoloadPicture",function (){
     $(".upload-img-display").css("width","auto")
     $(".upload-img-display").css("height","auto")

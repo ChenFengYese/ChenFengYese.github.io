@@ -18,5 +18,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="sweetalert2" level="application" />
+    <orderEntry type="library" name="html2canvas" level="application" />
+    <orderEntry type="library" name="jspdf" level="application" />
   </component>
 </module>

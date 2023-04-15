@@ -23,7 +23,8 @@
     <script src="js/base.js"></script>
     <script src="js/jquery.share.min.js"></script>
     <script src="js/cookie/jquery.cookie.js"></script>
-
+    <script src="js/html2canvas.js"></script>
+    <script src="js/jspdf.min.js"></script>
     <!--这里是因为在文章所以要隐藏掉右侧身体部分在大屏幕下的div，在小屏幕时在显示出来-->
     <style type="text/css">.base_content_right{width: 0;visibility: hidden;height: 0;}</style>
 </head><body><input type="hidden" id="_w_simile" data-inspect-config="3">
@@ -115,7 +116,10 @@
 
                 </div>
 
-
+                <div class="upload-Cloud" style="border:none">
+                    <input class="file-upload" type="file" id="file" accept="image/*" name="picture" style="display: none"/>
+                    <a href="javascript:"><img src="fonts/uploadFold.svg" class="upload-Cloud upload-Cloud-dom" id="uploadToPDF" title="图片转pdf"  alt="图片转pdf"/></a>
+                    <a href="javascript:"><img src="fonts/uploadPicture.svg" class="upload-Cloud upload-Cloud-dom" id="canvasPictures" title="截取图片" alt="截取图片"/></a></div>
                 <div class="wenzhang_box_article">
 
 
@@ -219,7 +223,6 @@
 <div class="go_top" style="display: none;"><i class="fa fa-angle-up"></i></div>
 <div class="base_footer">
     <div id="qrcode" style="display:none;"></div>
-
 
     <span class="base_footer_text">Copyright © 2021-2022 Power by ChenFengYeSe</span>
     <span class="base_footer_text">网站仓库：<a href="https://github.com/ChenFengYese/ChenFengYese.github.io">ChenFengYeSe</a></span>

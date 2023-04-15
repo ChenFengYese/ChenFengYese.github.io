@@ -65,6 +65,10 @@ function getTitle(uid,suid){
 }
 function updatePublic(uid,suid,pon){
     var Rdata
+    console.log("updatePublic==================================")
+    console.log(uid)
+    console.log(suid)
+    console.log(pon)
     $.ajax({
         url: getURLTest()+"textif/alterif",
         type: "post",
@@ -75,6 +79,7 @@ function updatePublic(uid,suid,pon){
             "texthtml": pon
         },
         success: function (data) {
+            console.log(data)
             Rdata = "成功"
         },
         error: function (e) {
@@ -221,6 +226,27 @@ try {
         $("#publicOrNot").click(function () {
             setPublicOrNot(noteInfo.uid, noteInfo.suid, $("#publicOrNot").html() === "已公开" ? "0" : "1", LinkHref)
         })
+        $("#canvasPictures").click(function () {
+            // 获取目标 div 元素
+            const targetDiv = document.getElementsByClassName("wenzhang_box_article")[0];
+
+            // 使用 html2canvas 将目标 div 转化为截图
+            html2canvas(targetDiv).then(function(canvas) {
+                // 将 canvas 转化为图片并保存或展示在页面中
+                canvas.toBlob(function (blob) {
+                    // 将图片转化为 blob 对象
+                    const blobUrl = URL.createObjectURL(blob);
+
+                    // 创建一个带有下载链接的 a 元素
+                    const a = document.createElement('a');
+                    a.href = blobUrl;
+                    a.download = 'image.png';
+
+                    // 模拟点击 a 元素
+                    a.click();
+                }, 'image/png');
+            });
+        });
         $('#share').share({
             sites: ['wechat', 'weibo', 'qq', 'qzone'],
             url: LinkHref,
