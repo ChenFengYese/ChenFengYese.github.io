@@ -11,7 +11,7 @@ $(".addHref").attr("href","noteAdd.html?"+base64(base_))
 
 
 sortByTime()
-
+selectPublicNotes()
 
 
 
@@ -28,13 +28,13 @@ function deleteNoteInfo(suid) {
                 uid: id
             },
             success: function (data) {
-                alert("删除成功！")
+                swal("删除成功！")
                 setTimeout(function () {
                     window.location.href = "NotBook.html?" + base64(id);
                 }, 1000);
             },
             error: function () {
-                alert("服务器异常");
+                swal("服务器异常");
             }
         });
     }
@@ -68,7 +68,7 @@ function collectNoteInfo(suid,collect,i) {
             button.attr("onclick","collectNoteInfo("+suid+","+collect+","+i+")")
         },
         error: function () {
-            alert("服务器异常");
+            swal("服务器异常");
         }
     });
 }
@@ -84,12 +84,25 @@ function sortByTime() {
             Authorization:$.cookie("Tokens")
         },
         success: function (data) {
-            viewData(data)
+            if(data.msg==="E30001"){
+                //swal确定之后在跳转页面
+                swal({
+                    title: "错误",
+                    text: "缓存过期或在其他地方登陆，请重新登陆！",
+                    icon: "error",
+                }).then((login) => {
+                    if (login) {
+                        window.location.href = "index.html";
+                    }
+                });
+            }
+            else
+            { viewData(data)}
         },
         error: function (e) {
             console.log("服务器异常");
             console.log(e)
-            // alert("你尚未登陆，请先登陆！")
+            // swal("你尚未登陆，请先登陆！")
             // window.location.href = "index.html";
         }
     });
@@ -108,14 +121,14 @@ function sortBySuid() {
             viewData(data)
         },
         error: function () {
-            alert("服务器异常");
+            swal("服务器异常");
         }
     });
 }
 
 function selectByKeywords(){
     var keywords = $(".search_text").val();
-    if (keywords === ""){alert("请先输入字段");}
+    if (keywords === ""){swal("请先输入字段");}
     else {
         $.ajax({
         url: getURLTest()+"textif/searchByArgs",
@@ -128,9 +141,50 @@ function selectByKeywords(){
             viewData(data)
         },
         error: function () {
-            alert("服务器异常");
+            swal("服务器异常");
         }
     });}
+}
+function selectPublicNotes(){
+    $.ajax({
+        url: getURLTest()+"textif/getPublicNotes",
+        type: "post",
+        data: {
+            uid:id
+        },
+        success: function (data) {
+            if(data===null){}
+            else {
+                console.log(data)
+                viewPublicNotes(data.results)
+            }
+        },
+        error: function () {
+            swal("服务器异常");
+        }
+    });
+}
+function viewPublicNotes(data){
+    let h2 = "";
+    let locationHref = (window.location.href).split('/');
+    let locationHref_ = "";
+    let LinkHref;
+    for (var i = 0; i < locationHref.length - 1; i++) {
+        locationHref_ += locationHref[i];
+        locationHref_ += "/"
+    }
+    let author;
+    let title;
+    // let openFunc;
+    for (let i = 0; i < data.length; i++) {
+        LinkHref = locationHref_ + "noteGuestView.html?h_ijt=U?at" + base64(Math.round(Math.random() * 100000)) + "=" + base64(data[i].uid) + "&h_ijr=S?at" + base64(Math.round(Math.random() * 100000)) + "=" + base64(data[i].suid);
+        author = "<span style='color:#f27474'>  (作者: " + data[i].uid + ")</span>"
+        title = "<span style='color:#f27474'>" + data[i].title + "</span>"
+        // openFunc = "javascript:"+"window.open('" + LinkHref + "')";
+        h2 += '<li><a target="_blank" href="' + LinkHref + '" title="作者: ' + data[i].uid + " 最新修改时间:" + data[i].time + '">' + title + author + '</a></li>'
+        console.log(LinkHref)
+    }
+    $("#NotBookPublic").html(h2)
 }
 
 function viewData(data){
@@ -212,7 +266,7 @@ function viewData(data){
         sessionStorage.setItem("collectCounts", "收藏总数:" + count);
     } else {
         console.log(data);
-        alert("这里没有记录,一切都是空空的,好寂寞┭┮﹏┭┮")
+        swal("提示", "这里都是空空的,好寂寞┭┮﹏┭┮", "warning");
 //         window.location.href = "index.html";
     }
 }

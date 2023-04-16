@@ -12,7 +12,7 @@ function getSuid(uid){
             Rdata = data
         },
         error: function (e) {
-            alert(uid+"请求失败")
+            swal(uid+"请求失败")
             console.log(e)
         }
     })
@@ -57,7 +57,7 @@ async function addNoteInfo(uid,ruid) {
 
     }
     else {
-        alert("标题或内容不能为空");
+        swal("标题或内容不能为空");
     }
 }
 try{
@@ -92,6 +92,6 @@ try{
 }
 catch (e) {
     console.log(e);
-    alert("你尚未登陆,请重新登录")
+    swal("你尚未登陆,请重新登录")
     window.location.href = "index.html";
 }

@@ -230,7 +230,7 @@ async function getUploadComponents(uid,suid){
         },
         error: function (e) {
             console.log("getComponents==================================")
-            // alert(uid+"请求失败")
+            // swal(uid+"请求失败")
             console.log(e)
         }
     })
@@ -445,7 +445,7 @@ async function UploadForElements(uid,suid){
         success: function (data) {
             if (data.msg !== 'fail') {
                 setTimeout(function () {
-                    alert("修改成功");
+                    swal("修改成功");
                     window.location.href = "noteView.html?uid=" + base64(uid) + "&suid=" + base64(suid.toString());
                 }, 1000);
             } else {
@@ -454,7 +454,7 @@ async function UploadForElements(uid,suid){
             }
         },
         error: function () {
-            alert("服务器异常");
+            swal("服务器异常");
         }
     });
 }
@@ -508,7 +508,7 @@ function addElementsFunction(uid){
         success: function (data) {
             if (data.msg !== 'fail') {
                 setTimeout(function () {
-                    alert("修改成功");
+                    swal("修改成功");
                     window.location.href = "NotBook.html?" + (window.location.href).split('?')[1];
                 }, 1000);
             } else {

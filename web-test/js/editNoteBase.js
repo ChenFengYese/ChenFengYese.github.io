@@ -13,7 +13,7 @@ function getData(uid,suid){
             Rdata = data.details
         },
         error: function (e) {
-            alert(uid+suid+"请求失败")
+            swal(uid+suid+"请求失败")
             console.log(e)
         }
     });
@@ -48,7 +48,7 @@ async function updateNoteInfo(uid, suid) {
         // .wenzhang_box_article
 
     } else {
-        alert("标题或内容不能为空");
+        swal("标题或内容不能为空");
     }
 }
 try{
@@ -97,12 +97,12 @@ try{
 
 
     } else {
-        alert(data)
+        swal(data)
         console.log("error:"+data);
     }
 }
 catch (e) {
     console.log(e);
-    alert("你尚未登陆,请重新登录")
+    swal("你尚未登陆,请重新登录")
     window.location.href = "index.html";
 }

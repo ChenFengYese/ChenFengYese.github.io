@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    #myIframe {
+      position: fixed;
+      right: 0;
+      top: 50px; /* 这里可以根据实际情况调整 */
+      width: 700px;
+      height: 800px;
+      z-index: 10000; /* 这里可以根据实际情况调整 */
+      transition: transform 0.5s ease-out;
+      transform: translateX(700px);
+    }
+    #myDiv {
+      position: fixed;
+      right: -100px;
+      top: 50%;
+      transform-origin: center;
+      transform: translateY(-50%);
+      transition: transform 0.3s ease-out;
+      width: auto;
+      height: auto;
+    }
+
+    #mySvg {
+      width: 100%;
+      height: 100%;
+      transform:scale(0.1) scaleX(-1);
+    }
+    .dropdown {
+      position: fixed;
+      right: 120px;
+      top: 70%;
+      transform-origin: center;
+      transform: translateY(-50%);
+      transition: transform 0.3s ease-out;
+      border: 1px solid gray;
+      padding: 5px;
+      z-index: 9999;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      background-color: rgba(255, 255, 255, 0.5);
+      border-radius: 5px;
+      border-right: none;
+    }
+
+    .dropdown > div {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 2px 5px;
+    }
+
+    #loading {
+      position: fixed;
+      z-index: 9999;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(255, 255, 255, 0.8);
+      display: none;
+    }
+
+    #loading-spinner {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 50px; height: 50px;
+      border: 5px solid rgba(0, 0, 0, 0.1);
+      border-top-color: #09f;
+      border-radius: 50%;
+      animation: loading-spinner 0.6s linear infinite;
+    }
+    @keyframes loading-spinner {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+<div class="n-layout-toggle-button" id="myDiv">
+  <div class="dropdown" id="myDropdown">
+    <div>请选择一个网址</div>
+    <div style="color: #6610f2"><a href="javascript:iframeLoaded(0)" style="text-decoration: none;">稳定快速chatGPT</a></div>
+    <div style="color: #0056b3"><a href="javascript:iframeLoaded(1)" style="text-decoration: none;">个人搭建的chatGPT</a></div>
+  </div>
+  <i class="n-base-icon"><svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" id="mySvg" onclick="toggleIframe()">
+    <path d="M5.64645 3.14645C5.45118 3.34171 5.45118 3.65829 5.64645 3.85355L9.79289 8L5.64645 12.1464C5.45118 12.3417 5.45118 12.6583 5.64645 12.8536C5.84171 13.0488 6.15829 13.0488 6.35355 12.8536L10.8536 8.35355C11.0488 8.15829 11.0488 7.84171 10.8536 7.64645L6.35355 3.14645C6.15829 2.95118 5.84171 2.95118 5.64645 3.14645Z" fill="currentColor"></path></svg></i>
+</div>
+<div id="loading">
+  <div id="loading-spinner"></div>
+</div>
+<iframe src="https://1fp4u.aichatos.com/#/chat/1681556898217" id="myIframe" onload="resizeIframe()" class="hidden"></iframe>
+<script>
+  var myDropdown = document.getElementById("myDropdown");
+  var myIframe = document.getElementById("myIframe");
+  myIframe.addEventListener('load', function() {
+    hideLoading();
+  });
+  myIframe.addEventListener('readystatechange', function() {
+    if (this.readyState == 'interactive') {
+      showLoading();
+    }
+  });
+  function showLoading() {
+    var loading = document.getElementById('loading');
+    loading.style.display = 'block';
+  }
+
+  function hideLoading() {
+    var loading = document.getElementById('loading');
+    loading.style.display = 'none';
+  }
+  function showDropdown() {
+    myDropdown.style.display = "block";
+  }
+  function iframeLoaded(target) {
+   if(target===1){
+     myIframe.src = "https://www.nahidelysia.asia/";
+   }else {
+        myIframe.src = "https://1fp4u.aichatos.com/#/chat/1681556898217";
+   }
+  }
+  function hideDropdown() {
+    myDropdown.style.transform = "translateY(-50%)";
+    myDropdown.style.display = "none";
+  }
+    function resizeIframe() {
+        var obj = document.getElementById("myIframe");
+        obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+    }
+    function toggleIframe() {
+      var iframe = document.getElementById("myIframe");
+      if (iframe.classList.contains("hidden")) {
+        iframe.classList.remove("hidden");
+        iframe.style.transform = "translateX(0)";
+        document.getElementById("mySvg").style.transform = "scale(0.1)";
+        document.getElementById("myDiv").style.transform = "translateY(-50%) translateX(-680px)";
+        showDropdown()
+      } else {
+        iframe.style.transform = "translateX(700px)";
+        iframe.addEventListener("transitionend", function () {
+          iframe.classList.add("hidden");
+        }, { once: true });
+        document.getElementById("mySvg").style.transform = "scale(0.1) scaleX(-1)";
+        document.getElementById("myDiv").style.transform = "translateY(-50%)";
+        hideDropdown()
+      }
+    }
+</script>
+</body>
+</html>

@@ -15,7 +15,7 @@ function getData(uid,suid){
         },
         error: function (e) {
             console.log("getData==================================")
-            // alert("请求失败")
+            // swal("请求失败")
             console.log(e)
         }
     })
@@ -35,7 +35,7 @@ function getSuid(uid){
             Rdata = data
         },
         error: function (e) {
-            // alert(uid+"请求失败")
+            // swal(uid+"请求失败")
             console.log("getSuid==================================")
             console.log(e)
         }
@@ -56,7 +56,7 @@ function getTitle(uid,suid){
             Rdata = data.details
         },
         error: function (e) {
-            // alert(uid+"请求失败")
+            // swal(uid+"请求失败")
             console.log("getTitle==================================")
             console.log(e)
         }
@@ -83,7 +83,7 @@ function updatePublic(uid,suid,pon){
             Rdata = "成功"
         },
         error: function (e) {
-            // alert("请求失败")
+            // swal("请求失败")
             console.log("getPublic==================================")
             console.log(e)
             Rdata = "失败"
@@ -271,7 +271,7 @@ try {
         $(".wenzhang_box_content_jieshao_xieti:eq(1)").html((Math.random() * 10).toFixed(2));
 
     } else {
-        alert("这里没有东西")
+        swal("这里没有东西")
         console.log("error:" + data);
     }
     if (!$.isEmptyObject(ldata)) {
@@ -294,7 +294,7 @@ try {
     }
 } catch (e) {
     console.log(e);
-    alert(e)
+    swal(e)
     // window.location.href = "index.html"
 }
 // function shareToOthers(LinkHref,R_title,R_description){

@@ -14,7 +14,7 @@ function getData(uid,suid){
             Rdata = data
         },
         error: function (e) {
-            alert("请求失败")
+            swal("请求失败")
             console.log(e)
         }
     })
@@ -49,6 +49,9 @@ try{
     suid = suid.split("%")[0]
     suid = parseInt(unbase64(suid))
 
+    console.log(uid)
+    console.log(suid)
+
     setInterval("time()", 1000);
     data = getData(uid,suid);
 
@@ -77,11 +80,11 @@ try{
             wechatQrcodeTitle:"微信扫一扫:分享"
         });
     } else {
-        alert(data)
+        swal(data)
         console.log("error:"+data);
     }
 }
 catch (e) {
     console.log(e);
-    alert(e)
+    swal(e)
 }

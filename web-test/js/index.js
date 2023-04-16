@@ -1,10 +1,23 @@
 
 <!-- Disable the right mouse button -->
-
-swal("数据库暂未运行", "服务器正在全力跑其他项目中,该项目原服务器暂时停止运行.可联系开发者开启临时服务器以试用,临时服务器不具备文件上传功能", "error")
+if( $.cookie('FaceTestAuth')==="" || $.cookie('FaceTestAuth')===undefined){
+    //swal确定后在执行后续操作
+    swal({
+        title: "你尚未认证身份",
+        text: "为你的安全以及保护你的隐私,请先进行身份认证",
+        icon: "error",
+        button: "确定",
+    }).then(function () {
+        document.location.href = "FaceTest/index.html";
+    });
+}
+// swal("数据库暂未运行", "服务器正在全力跑其他项目中,该项目原服务器暂时停止运行.可联系开发者开启临时服务器以试用,临时服务器不具备文件上传功能", "error")
 document.oncontextmenu = function(){
     return false;
 }
+var mask = document.getElementById('mask');
+var animation = document.getElementById('loading');
+
 
 <!--Implementation of switching to the login page-->
 function ChangeTologinPage(){
@@ -25,6 +38,11 @@ function ChangeToSignUpPage(){
 
 <!--Implementation signup method-->
 function signup(){
+    // 获取遮罩层和动画元素
+    mask.style.display = 'block';
+    animation.style.display = 'block';
+    // 禁用其他页面元素的点击事件
+    document.body.style.pointerEvents = 'none';
     var username = document.getElementById("usernameUp").value;
     var password = document.getElementById("passwordUp").value;
     $.ajax({
@@ -40,26 +58,41 @@ function signup(){
         },
         // 请求成功之后要执行的回调函数
         success: function (dat) {
+            // 隐藏遮罩层和动画元素
+            mask.style.display = 'none';
+            animation.style.display = 'none';
+            // 恢复其他页面元素的点击事件
+            document.body.style.pointerEvents = 'auto';
             //dat:服务端返回的数据
             console.log(dat)
             if(dat.msg === "success")
             {
-                alert("Sign up success!");
+                swal("Sign up success!");
                 document.getElementById("username").value = username
                 document.getElementById("password").value = password
                 login();
             }
-            else if(dat.msg === "verifyCodeIllegal") alert("Sign up failed!");
-            else alert("Sign up failed!");
+            else if(dat.msg === "verifyCodeIllegal") swal("Sign up failed!");
+            else swal("Sign up failed!");
         }
         // 请求失败
         , error: function () {
-            alert('请求失败')
+            // 隐藏遮罩层和动画元素
+            mask.style.display = 'none';
+            animation.style.display = 'none';
+            // 恢复其他页面元素的点击事件
+            document.body.style.pointerEvents = 'auto';
+            swal('请求失败')
         }
     });
 }
 <!-- Use ajax to implement the login function -->
 function login(){
+    // 获取遮罩层和动画元素
+    mask.style.display = 'block';
+    animation.style.display = 'block';
+    // 禁用其他页面元素的点击事件
+    document.body.style.pointerEvents = 'none';
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
     console.log(username+' '+password);
@@ -102,14 +135,24 @@ function login(){
                 },
                 // 请求失败
                 error: function () {
-                    alert('请求失败')
+                    // 隐藏遮罩层和动画元素
+                    mask.style.display = 'none';
+                    animation.style.display = 'none';
+                    // 恢复其他页面元素的点击事件
+                    document.body.style.pointerEvents = 'auto';
+                    swal('请求失败')
                 }
             })
         },
         // 请求失败
         error: function (e) {
+            // 隐藏遮罩层和动画元素
+            mask.style.display = 'none';
+            animation.style.display = 'none';
+            // 恢复其他页面元素的点击事件
+            document.body.style.pointerEvents = 'auto';
             console.log(e)
-            alert('请求失败')
+            swal('请求失败')
         }
     })
 
@@ -138,46 +181,46 @@ function login(){
 //                         var result = xhr.responseText;
 //                         console.log(result);
 //                         if(result !== ""){
-//                             alert("Login success!");
+//                             swal("Login success!");
 //                         }else{
-//                             alert("Login failed!");
+//                             swal("Login failed!");
 //                         }
 //                     }
 //                     else if(xhrr.readyState == 4 && xhrr.status == 404){
-//                         alert("404");
+//                         swal("404");
 //                     }
 //                     else if(xhrr.readyState == 4 && xhrr.status == 500){
-//                         alert("500");
+//                         swal("500");
 //                     }
 //                     else if(xhrr.readyState == 4 && xhrr.status == 403){
-//                         alert("403");
+//                         swal("403");
 //                     }
 //                     else if(xhrr.readyState == 4 && xhrr.status == 400){
-//                         alert("400");
+//                         swal("400");
 //                     }
 //                     else if(xhrr.readyState == 4 && xhrr.status == 401){
-//                         alert("401");
+//                         swal("401");
 //                     }
 //                 }
 //                 xhrr.send(result.data);
 //             }else{
-//                 alert("Login failed!");
+//                 swal("Login failed!");
 //             }
 //         }
 //         else if(xhr.readyState == 4 && xhr.status == 404){
-//             alert("404");
+//             swal("404");
 //         }
 //         else if(xhr.readyState == 4 && xhr.status == 500){
-//             alert("500");
+//             swal("500");
 //         }
 //         else if(xhr.readyState == 4 && xhr.status == 403){
-//             alert("403");
+//             swal("403");
 //         }
 //         else if(xhr.readyState == 4 && xhr.status == 400){
-//             alert("400");
+//             swal("400");
 //         }
 //         else if(xhr.readyState == 4 && xhr.status == 401){
-//             alert("401");
+//             swal("401");
 //         }
 //     }
 //     xhr.send(data);

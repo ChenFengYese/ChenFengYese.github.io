@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .wenzhang_box_article{margin: 20px 0 0 0;
+            line-height: 28px;
+            overflow: hidden;
+            clear: both;
+            position: relative;
+            border-bottom: 1px solid #e1e2e0;
+            padding-bottom: 20px;
+            min-height: 200px;
+            color: #515250;
+            text-align: justify;
+            display: block;
+            word-break: break-all;
+            word-wrap: break-word;
+            white-space: pre-wrap;
+        }
+        /* 输入框 */
+        .wenzhang_box_article{
+            padding: 5px;
+            border: 1px solid red;
+        }
+        /* 输入框为空时显示 placeholder */
+        .wenzhang_box_article:empty:before:empty:before {
+            content: attr(placeholder);
+            color: red;
+        }
+        /* 输入框获取焦点时移除 placeholder */
+        .wenzhang_box_article:focus:before:focus:before {
+            content: none;
+        }
+    </style>
+</head>
+
+
+<body>
+<div id="editor" contenteditable="true" class="wenzhang_box_article"></div>
+<div id="hidden" style="display:none;"></div>
+<div id="preview"></div>
+
+</body>
+<script>
+  const editor = document.getElementById('editor');
+  const hidden = document.getElementById('hidden');
+  const preview = document.getElementById('preview');
+
+  editor.addEventListener('input', function(event) {
+      const htmlCode = editor.innerHTML.trim();
+
+      // if (htmlCode) {
+      //     preview.contentDocument.body.innerHTML = htmlCode;
+      // }
+      const container = document.createElement('div');
+      container.innerHTML = htmlCode;
+
+      // 清空预览区域中的内容
+      preview.innerHTML = '';
+
+      // 将解析后的 HTML 元素添加到预览区域中
+      while (container.childNodes.length > 0) {
+          const node = container.childNodes[0];
+          container.removeChild(node);
+          preview.appendChild(node);
+      }
+  });
+
+
+
+</script>
+
+</html>
