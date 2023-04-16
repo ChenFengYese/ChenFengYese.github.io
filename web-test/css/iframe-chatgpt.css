@@ -39,7 +39,7 @@
     }
     #myDiv {
         position: fixed;
-        right: -5vw;
+        right: -3.6vw;
         top: 50%;
         transform-origin: center;
         transform: translateY(-50%);
