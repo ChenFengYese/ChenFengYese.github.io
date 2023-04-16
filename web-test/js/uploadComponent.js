@@ -229,8 +229,9 @@ async function getUploadComponents(uid,suid){
             Rdata = data
         },
         error: function (e) {
+            document.getElementById("uploadIframe").style.display = "none";
             console.log("getComponents==================================")
-            // swal(uid+"请求失败")
+            swal(uid+"请求失败")
             console.log(e)
         }
     })
@@ -284,6 +285,8 @@ async function deleteFunction(uid,suid,func,functionType){
                 {addElementsFunction(uid)}
             },
             error:function (data) {
+                document.getElementById("uploadIframe").style.display = "none";
+                swal("请求失败")
                 console.log(data)
             }
         });
@@ -306,6 +309,8 @@ async function deleteFunction(uid,suid,func,functionType){
                 lst = data.details;
             },
             error: function () {
+                document.getElementById("uploadIframe").style.display = "none";
+                swal("服务器异常")
                 console.log("服务器异常");
                 lst = null;
             }
@@ -351,6 +356,8 @@ async function deleteFunction(uid,suid,func,functionType){
 
                         },
                         error: function () {
+                            document.getElementById("uploadIframe").style.display = "none";
+                            swal("服务器异常")
                             console.log("服务器异常");
                         }
 
@@ -454,6 +461,7 @@ async function UploadForElements(uid,suid){
             }
         },
         error: function () {
+            document.getElementById("uploadIframe").style.display = "none";
             swal("服务器异常");
         }
     });
@@ -477,6 +485,8 @@ function UploadForFolders(uid,suid,article_note,formdata,i,functionType,numUploa
             console.log(data)
         },
         error: function (data) {
+            document.getElementById("uploadIframe").style.display = "none";
+            swal("上传失败")
             console.log(data)
         }
     });
@@ -512,11 +522,14 @@ function addElementsFunction(uid){
                     window.location.href = "NotBook.html?" + (window.location.href).split('?')[1];
                 }, 1000);
             } else {
+                swal("修改失败");
                 console.log("修改失败");
                 console.log(data);
             }
         },
         error: function () {
+            document.getElementById("uploadIframe").style.display = "none";
+            swal("修改失败");
             console.log("服务器异常");
         }
     });
