@@ -7,8 +7,10 @@ if( $.cookie('FaceTestAuth')==="" || $.cookie('FaceTestAuth')===undefined){
         text: "为你的安全以及保护你的隐私,请先进行身份认证",
         icon: "error",
         button: "确定",
-    }).then(function () {
-        document.location.href = "FaceTest/index.html";
+    }).then((result) => {
+        if (result.value) {
+            document.location.href = "FaceTest/index.html";
+        }
     });
 }
 // swal("数据库暂未运行", "服务器正在全力跑其他项目中,该项目原服务器暂时停止运行.可联系开发者开启临时服务器以试用,临时服务器不具备文件上传功能", "error")

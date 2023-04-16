@@ -1,29 +1,57 @@
-#myIframe {
-    position: fixed;
-    right: 0;
-    top: 50px; /* 这里可以根据实际情况调整 */
-    width: 700px;
-    height: 800px;
-    z-index: 10000; /* 这里可以根据实际情况调整 */
-    transition: transform 0.5s ease-out;
-    transform: translateX(700px);
+@media (max-width: 767px) {
+    #myIframe {
+        position: fixed;
+        right: 0;
+        top: 20vh; /* 这里可以根据实际情况调整 */
+        width: 80vw;
+        height: 60vh;
+        z-index: 10000; /* 这里可以根据实际情况调整 */
+        transition: transform 0.5s ease-out;
+        transform: translateX(80vw);
+    }
+    #myDiv {
+        position: fixed;
+        right: -1vw;
+        top: 50%;
+        transform-origin: center;
+        transform: translateY(-50%);
+        transition: transform 0.3s ease-out;
+        font-size: 0.1rem;
+        width: 18vw;
+        height: 52vh;
+    }
+    #mySvg {
+        width: 100%;
+        height: 100%;
+        transform:scale(0.3) scaleX(-1);
+    }
 }
-#myDiv {
-    position: fixed;
-    right: -100px;
-    top: 50%;
-    transform-origin: center;
-    transform: translateY(-50%);
-    transition: transform 0.3s ease-out;
-    width: auto;
-    height: auto;
-}
-
-
-#mySvg {
-    width: 100%;
-    height: 100%;
-    transform:scale(0.1) scaleX(-1);
+@media (min-width: 768px) {
+    #myIframe {
+        position: fixed;
+        right: 0;
+        top: 20vh; /* 这里可以根据实际情况调整 */
+        width: 40vw;
+        height: 60vh;
+        z-index: 10000; /* 这里可以根据实际情况调整 */
+        transition: transform 0.5s ease-out;
+        transform: translateX(40vw);
+    }
+    #myDiv {
+        position: fixed;
+        right: -5vw;
+        top: 50%;
+        transform-origin: center;
+        transform: translateY(-50%);
+        transition: transform 0.3s ease-out;
+        width: 14.8vw;
+        height: 16vw;
+    }
+    #mySvg {
+        width: 100%;
+        height: 100%;
+        transform:scale(0.1) scaleX(-1);
+    }
 }
 #mySvg:hover {
     cursor: pointer;
@@ -37,7 +65,6 @@
 }
 .dropdown {
     position: fixed;
-    right: 120px;
     top: 70%;
     transform-origin: center;
     transform: translateY(-50%);
