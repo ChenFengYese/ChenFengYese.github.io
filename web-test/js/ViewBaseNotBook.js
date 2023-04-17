@@ -27,6 +27,9 @@ function deleteNoteInfo(suid) {
                 "suid": suid,
                 uid: id
             },
+            xhrFields: {
+                withCredentials: true
+            },
             success: function (data) {
                 swal("删除成功！")
                 setTimeout(function () {
@@ -56,6 +59,9 @@ function collectNoteInfo(suid,collect,i) {
             uid:id,
             collect:collect
         },
+        xhrFields: {
+            withCredentials: true
+        },
         success: function () {
             if(collect===1)
             {
@@ -82,6 +88,9 @@ function sortByTime() {
         },
         headers:{
             Authorization:$.cookie("Tokens")
+        },
+        xhrFields: {
+            withCredentials: true
         },
         success: function (data) {
             if(data.msg==="E30001"){
@@ -117,6 +126,9 @@ function sortBySuid() {
         data: {
             uid:id
         },
+        xhrFields: {
+            withCredentials: true
+        },
         success: function (data) {
             viewData(data)
         },
@@ -137,6 +149,9 @@ function selectByKeywords(){
             "args": keywords,
             uid:id
         },
+       xhrFields: {
+                withCredentials: true
+            },
         success: function (data) {
             viewData(data)
         },
@@ -151,6 +166,9 @@ function selectPublicNotes(){
         type: "post",
         data: {
             uid:id
+        },
+        xhrFields: {
+            withCredentials: true
         },
         success: function (data) {
             if(data===null){}

@@ -224,6 +224,9 @@ async function getUploadComponents(uid,suid){
             "uid": uid,
             "suid":suid
         },
+        xhrFields: {
+            withCredentials: true
+        },
         success: function (data) {
             console.log(data)
             Rdata = data
@@ -276,6 +279,9 @@ async function deleteFunction(uid,suid,func,functionType){
                 "uid": uid,
                 "suid":suid
             },
+            xhrFields: {
+                withCredentials: true
+            },
             success:function (data) {
                 console.log(data)
                 console.log("删除成功")
@@ -303,6 +309,9 @@ async function deleteFunction(uid,suid,func,functionType){
             data: {
                 "fid":uid,
                 "sfid":suid
+            },
+            xhrFields: {
+                withCredentials: true
             },
             success: function (data) {
                 console.log(data)
@@ -347,6 +356,9 @@ async function deleteFunction(uid,suid,func,functionType){
                             "fid":uid,
                             "sfid":suid,
                             "fileid":server_fileIdList[n]
+                        },
+                        xhrFields: {
+                            withCredentials: true
                         },
                         success: function () {
 
@@ -449,6 +461,9 @@ async function UploadForElements(uid,suid){
             "suid": suid,
             "time": $(".wenzhang_box_content_jieshao_xieti:eq(2)").html(),
         },
+        xhrFields: {
+            withCredentials: true
+        },
         success: function (data) {
             if (data.msg !== 'fail') {
                 setTimeout(function () {
@@ -474,6 +489,9 @@ function UploadForFolders(uid,suid,article_note,formdata,i,functionType,numUploa
             "fid": uid,
             "sfid": suid,
             "originalname": encodeURIComponent(article_note[i].name)
+        },
+        xhrFields: {
+            withCredentials: true
         },
         data: formdata,
         url: getURLTest() + "file/upload",
@@ -514,6 +532,9 @@ function addElementsFunction(uid){
             "title": $("#title").text(),
             "text": $(".wenzhang_box_article").html(),
             "collect": "0"
+        },
+        xhrFields: {
+            withCredentials: true
         },
         success: function (data) {
             if (data.msg !== 'fail') {

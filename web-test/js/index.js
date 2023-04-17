@@ -58,6 +58,9 @@ function signup(){
         headers: {
             'verifyCode': "wwssadadbaba"
         },
+        xhrFields: {
+            withCredentials: true
+        },
         // 请求成功之后要执行的回调函数
         success: function (dat) {
             // 隐藏遮罩层和动画元素
@@ -106,6 +109,9 @@ function login(){
         type: 'post',
         // data:发送给接口的数据
         data:{"id":username,"password":password},
+        xhrFields: {
+            withCredentials: true
+        },
         // 请求成功之后要执行的回调函数
         success: function (dat) {
             //dat:服务端返回的数据
@@ -120,6 +126,9 @@ function login(){
                 type: 'post',
                 headers: {
                     'Authorization': Token
+                },
+                xhrFields: {
+                    withCredentials: true
                 },
                 success: function (dat) {
                     $.cookie('Tokens', Token, { expires: 7, path: '/',secure:true });

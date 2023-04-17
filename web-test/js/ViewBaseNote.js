@@ -4,6 +4,12 @@ function getData(uid,suid){
         url: getURLTest()+"textif/getif_s",
         type: "post",
         async: false,
+        xhrFields: {
+            withCredentials: true
+        },
+        headers:{
+            Authorization:$.cookie("Tokens")
+        },
         data: {
             "uid": uid,
             "suid": suid,
@@ -31,6 +37,9 @@ function getSuid(uid){
         data: {
             "uid": uid
         },
+        xhrFields: {
+            withCredentials: true
+        },
         success: function (data) {
             Rdata = data
         },
@@ -51,6 +60,9 @@ function getTitle(uid,suid){
         data: {
             "uid": uid,
             "suid":suid
+        },
+        xhrFields: {
+            withCredentials: true
         },
         success: function (data) {
             Rdata = data.details
@@ -77,6 +89,9 @@ function updatePublic(uid,suid,pon){
             "uid": uid,
             "suid": suid,
             "texthtml": pon
+        },
+        xhrFields: {
+            withCredentials: true
         },
         success: function (data) {
             console.log(data)
