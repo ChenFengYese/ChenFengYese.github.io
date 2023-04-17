@@ -214,6 +214,7 @@ function viewData(data,executer){
         var h3 = ""
         var count = 0
         var node = ''
+        var nn = ''
         var i = 0
         console.log(noteList)
         for (node in noteList) {
@@ -225,6 +226,9 @@ function viewData(data,executer){
                 h2 += '<li><a href="noteView.html?' + 'uid=' + base64(base_) + '&suid=' + base64(note.suid.toString()) +
                     '" title="阅读收藏">' + note.title + '</a></li>'
                 count += 1
+            }
+            if(i===count){
+                nn = note.time
             }
             h3 += '<li><a href="noteEdit.html?' + 'uid=' + base64(base_) + '&suid=' + base64(note.suid.toString()) +
                 '" title="修改笔记"  style="background: #5e8c88">' + note.title + '</a></li>'
@@ -277,14 +281,14 @@ function viewData(data,executer){
         if(executer!=="not"){
             $(".noteCounts").html("笔记总数:" + Object.keys(noteList).length)
             $(".collectCounts").html("收藏总数:" + count)
-            $(".updateTime").html("最新修改时间:" + noteList[count].time)
+            $(".updateTime").html("最新修改时间:" + nn)
         }
         if(executer===""){
             sessionStorage.setItem("NotBookSave", h2);
             sessionStorage.setItem("editNoteList", h3);
             sessionStorage.setItem("noteCounts", "笔记总数:" + Object.keys(noteList).length);
             sessionStorage.setItem("collectCounts", "收藏总数:" + count);
-            sessionStorage.setItem("updateTime","最新修改时间:" + noteList[count].time);
+            sessionStorage.setItem("updateTime","最新修改时间:" + nn);
         }
     } else {
         console.log(data);
