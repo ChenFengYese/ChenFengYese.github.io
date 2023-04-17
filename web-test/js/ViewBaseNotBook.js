@@ -106,7 +106,7 @@ function sortByTime() {
                 });
             }
             else
-            { viewData(data)}
+            { viewData(data,"")}
         },
         error: function (e) {
             console.log("服务器异常");
@@ -130,7 +130,7 @@ function sortBySuid() {
             withCredentials: true
         },
         success: function (data) {
-            viewData(data)
+            viewData(data,"not")
         },
         error: function () {
             swal("服务器异常");
@@ -153,7 +153,7 @@ function selectByKeywords(){
                 withCredentials: true
             },
         success: function (data) {
-            viewData(data)
+            viewData(data,"search")
         },
         error: function () {
             swal("服务器异常");
@@ -205,7 +205,7 @@ function viewPublicNotes(data){
     $("#NotBookPublic").html(h2)
 }
 
-function viewData(data){
+function viewData(data,executer){
 
     if (JSON.stringify(data) !== '{}') {
         var noteList = data;
@@ -271,17 +271,21 @@ function viewData(data){
             html += "</div></div></li></ul>";
             i += 1;
         }
-        $("#noteList").html(html);
-        $("#NotBookSave").html(h2)
-        $("#editNoteList").html(h3)
-        $(".updateTime").html("最新修改时间:" + noteList[node].time)
-        $(".noteCounts").html("笔记总数:" + Object.keys(noteList).length)
-        $(".collectCounts").html("收藏总数:" + count)
-        sessionStorage.setItem("NotBookSave", h2);
-        sessionStorage.setItem("editNoteList", h3);
-        sessionStorage.setItem("updateTime","最新修改时间:" + noteList[node].time);
-        sessionStorage.setItem("noteCounts", "笔记总数:" + Object.keys(noteList).length);
-        sessionStorage.setItem("collectCounts", "收藏总数:" + count);
+        if(executer!=="not"){
+            $("#noteList").html(html);
+            $("#NotBookSave").html(h2)
+            $("#editNoteList").html(h3)
+            $(".updateTime").html("最新修改时间:" + noteList[count].time)
+            $(".noteCounts").html("笔记总数:" + Object.keys(noteList).length)
+            $(".collectCounts").html("收藏总数:" + count)
+        }
+        if(executer===""){
+            sessionStorage.setItem("NotBookSave", h2);
+            sessionStorage.setItem("editNoteList", h3);
+            sessionStorage.setItem("updateTime","最新修改时间:" + noteList[count].time);
+            sessionStorage.setItem("noteCounts", "笔记总数:" + Object.keys(noteList).length);
+            sessionStorage.setItem("collectCounts", "收藏总数:" + count);
+        }
     } else {
         console.log(data);
         swal("提示", "这里都是空空的,好寂寞┭┮﹏┭┮", "warning");
