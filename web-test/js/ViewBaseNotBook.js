@@ -271,20 +271,20 @@ function viewData(data,executer){
             html += "</div></div></li></ul>";
             i += 1;
         }
+        $("#noteList").html(html);
+        $("#NotBookSave").html(h2)
+        $("#editNoteList").html(h3)
         if(executer!=="not"){
-            $("#noteList").html(html);
-            $("#NotBookSave").html(h2)
-            $("#editNoteList").html(h3)
-            $(".updateTime").html("最新修改时间:" + noteList[count].time)
             $(".noteCounts").html("笔记总数:" + Object.keys(noteList).length)
             $(".collectCounts").html("收藏总数:" + count)
+            $(".updateTime").html("最新修改时间:" + noteList[count].time)
         }
         if(executer===""){
             sessionStorage.setItem("NotBookSave", h2);
             sessionStorage.setItem("editNoteList", h3);
-            sessionStorage.setItem("updateTime","最新修改时间:" + noteList[count].time);
             sessionStorage.setItem("noteCounts", "笔记总数:" + Object.keys(noteList).length);
             sessionStorage.setItem("collectCounts", "收藏总数:" + count);
+            sessionStorage.setItem("updateTime","最新修改时间:" + noteList[count].time);
         }
     } else {
         console.log(data);
