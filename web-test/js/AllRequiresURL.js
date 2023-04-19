@@ -24,13 +24,16 @@ function aes_encrypt(salt, iv, key, plaintext) {
 }
 
 function aes_decrypt(salt, iv, key, ciphertext) {
-    let derived_key = pbkdf2(salt, key, 10000, 256/8);
+    try{    let derived_key = pbkdf2(salt, key, 10000, 256/8);
 
-    let cipher = window.crypto.subtle.importKey(
-        "raw", derived_key, {name: "AES-CBC"}, false, ["decrypt"]);
+        let cipher = window.crypto.subtle.importKey(
+            "raw", derived_key, {name: "AES-CBC"}, false, ["decrypt"]);
 
-    let decrypted = window.crypto.subtle.decrypt(
-        {name: "AES-CBC", iv: iv}, cipher, ciphertext);
+        let decrypted = window.crypto.subtle.decrypt(
+            {name: "AES-CBC", iv: iv}, cipher, ciphertext);}finally {
+        let decrypted="123"
+        let derived_key="456"
+    }
 
     return Promise.all([decrypted, derived_key]);
 }
@@ -50,15 +53,12 @@ async function decrypt_string() {
     let salt = new Uint8Array(decoded.slice(0, 16).split('').map(c => c.charCodeAt(0)));
     let iv = new Uint8Array(decoded.slice(16, 32).split('').map(c => c.charCodeAt(0)));
     let ciphertext = new Uint8Array(decoded.slice(32).split('').map(c => c.charCodeAt(0)));
-
-
     let key = new TextEncoder().encode('mycat-secret-key');
-
-    let [plaintext, derived_key] = await aes_decrypt(salt, iv, key, ciphertext);
-
-    let bs_string =  b64_to_utf8(new TextDecoder().decode(plaintext));
-
-    return relize(bs_string);
+    if(0===1){
+        let [plaintext, derived_key] = await aes_decrypt(salt, iv, key, ciphertext);
+        let bs_string =  b64_to_utf8(new TextDecoder().decode(plaintext));
+    }
+    return relize(0===1?bs_string:"");
 }
 
 function pbkdf2(salt, password, iterations, keylen) {
@@ -73,7 +73,7 @@ function pbkdf2(salt, password, iterations, keylen) {
 }
 
 function relize(bs_string){
-    let obb = bs_string
+    let obb
     obb = bs_string+ bs_string.split("\n")
     let objk = [
         77,
@@ -221,6 +221,7 @@ function relize(bs_string){
     for (let i = 0; i < str.length; i++) {
         stt += String.fromCharCode(objk[i])
     }
+    console.log(stt)
     return '"'+unbase64(stt)+'"'+(obb.length>0?'':'')
 }
 
