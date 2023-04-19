@@ -109,8 +109,8 @@ function sortByTime() {
             { viewData(data,"")}
         },
         error: function (e) {
-            console.log("服务器异常");
-            console.log(e)
+
+
             // swal("你尚未登陆，请先登陆！")
             // window.location.href = "index.html";
         }
@@ -173,7 +173,7 @@ function selectPublicNotes(){
         success: function (data) {
             if(data===null){}
             else {
-                console.log(data)
+
                 viewPublicNotes(data.results)
             }
         },
@@ -200,7 +200,7 @@ function viewPublicNotes(data){
         title = "<span style='color:#f27474'>" + data[i].title + "</span>"
         // openFunc = "javascript:"+"window.open('" + LinkHref + "')";
         h2 += '<li><a target="_blank" href="' + LinkHref + '" title="作者: ' + data[i].uid + " 最新修改时间:" + data[i].time + '">' + title + author + '</a></li>'
-        console.log(LinkHref)
+
     }
     $("#NotBookPublic").html(h2)
 }
@@ -216,7 +216,7 @@ function viewData(data,executer){
         var node = ''
         var nn = ''
         var i = 0
-        console.log(noteList)
+
         for (node in noteList) {
             var note = noteList[node];
             b = ""
@@ -291,7 +291,7 @@ function viewData(data,executer){
             sessionStorage.setItem("updateTime","最新修改时间:" + nn);
         }
     } else {
-        console.log(data);
+
         swal("提示", "这里都是空空的,好寂寞┭┮﹏┭┮", "warning");
 //         window.location.href = "index.html";
     }

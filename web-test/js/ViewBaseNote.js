@@ -20,9 +20,9 @@ function getData(uid,suid){
             Rdata = data
         },
         error: function (e) {
-            console.log("getData==================================")
+
             // swal("请求失败")
-            console.log(e)
+
         }
     })
 
@@ -45,8 +45,8 @@ function getSuid(uid){
         },
         error: function (e) {
             // swal(uid+"请求失败")
-            console.log("getSuid==================================")
-            console.log(e)
+
+
         }
     })
     return Rdata
@@ -69,18 +69,18 @@ function getTitle(uid,suid){
         },
         error: function (e) {
             // swal(uid+"请求失败")
-            console.log("getTitle==================================")
-            console.log(e)
+
+
         }
     })
     return Rdata
 }
 function updatePublic(uid,suid,pon){
     var Rdata
-    console.log("updatePublic==================================")
-    console.log(uid)
-    console.log(suid)
-    console.log(pon)
+
+
+
+
     $.ajax({
         url: getURLTest()+"textif/alterif",
         type: "post",
@@ -94,13 +94,13 @@ function updatePublic(uid,suid,pon){
             withCredentials: true
         },
         success: function (data) {
-            console.log(data)
+
             Rdata = "成功"
         },
         error: function (e) {
             // swal("请求失败")
-            console.log("getPublic==================================")
-            console.log(e)
+
+
             Rdata = "失败"
         }
     })
@@ -176,8 +176,8 @@ try {
     let suid = (window.location.href).split('?')[1].split("&")[1].split("=")[1];
     suid = suid.split("%")[0]
     suid = parseInt(unbase64(suid))
-    console.log(suid)
-    console.log(uid)
+
+
     suidlist = getSuid(uid)
     uuuuid = suidlist.indexOf(parseInt(suid))
     $(".indexHref").attr("href", "NotBook.html?" + FoolBase_)
@@ -194,18 +194,18 @@ try {
         luid = ''
     }
     if (uuuuid + 1 < suidlist.length) {
-        console.log("ruid-成功复制")
+
         ruid = suidlist[uuuuid + 1]
     } else {
         ruid = ''
-        console.log("ruid=空")
+
     }
 
     setInterval("time()", 1000);
     data = getData(uid, suid);
-    console.log("=========")
-    console.log(luid, ruid)
-    console.log("=========")
+
+
+
     ldata = (luid !== '' ? getTitle(uid, luid) : {});
     rdata = (ruid !== '' ? getTitle(uid, ruid) : {});
 
@@ -221,8 +221,8 @@ try {
         }
         let LinkHref = locationHref_ + "noteGuestView.html?h_ijt=U?at" + base64(Math.round(Math.random() * 100000)) + "=" + base64(uid) + "&h_ijr=S?at" + base64(Math.round(Math.random() * 100000)) + "=" + base64(suid);
         $("#title").text(noteInfo.title);
-        console.log(LinkHref)
-        console.log(noteInfo)
+
+
         $(".wenzhang_box_article").html(noteInfo.text);
         $(".wenzhang_box_article_shengming_title").html(noteInfo.title);
         // $(".wenzhang_box_article_shengming_link:eq(0)").html(window.location.href);
@@ -287,28 +287,28 @@ try {
 
     } else {
         swal("这里没有东西")
-        console.log("error:" + data);
+
     }
     if (!$.isEmptyObject(ldata)) {
-        console.log("ldata= " + ldata.title)
+
         $(".lsuidHref:eq(0)").attr("href", "noteView.html?uid=" + FoolBase_ + "&suid=" + base64(ldata.suid.toString()));
         $(".lsuid1").html(ldata.title);
     } else {
-        console.log("ldata=空")
+
         $(".lsuidHref:eq(0)").attr("href", "javascript:");
         $(".lsuid1").html("没有了");
     }
     if (!$.isEmptyObject(rdata)) {
-        console.log("rdata= " + rdata.title)
+
         $(".lsuidHref:eq(1)").attr("href", "noteView.html?uid=" + FoolBase_ + "&suid=" + base64(rdata.suid.toString()));
         $(".lsuid2").html(rdata.title);
     } else {
-        console.log("rdata=空 ")
+
         $(".lsuidHref:eq(1)").attr("href", "javascript:");
         $(".lsuid2").html("没有了");
     }
 } catch (e) {
-    console.log(e);
+
     swal(e)
     // window.location.href = "index.html"
 }
@@ -318,7 +318,7 @@ try {
 //             var initUrl = R_initUrl;
 //             //浏览器网址
 //             var browser = encodeURIComponent(LinkHref);
-//             //console.log(location);
+//             //
 //             //分享图片地址
 //             var coverImage = location.origin + $("#coverImage").attr("src");
 //             //描述

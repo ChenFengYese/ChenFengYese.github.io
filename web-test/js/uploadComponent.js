@@ -153,7 +153,7 @@ $(document).on("click","#uploadToPDF",function (){
 $(document).on("click","#AutoloadPicture",function (){
     $(".upload-img-display").css("width","auto")
     $(".upload-img-display").css("height","auto")
-    console.log("成功")
+
 })
 $(document).on("click","#pasteToArticle",function (){
     navigator.clipboard.readText().then(
@@ -167,7 +167,7 @@ document.addEventListener("paste", function (e){
     }
 
     for (var i = 0, len = e.clipboardData.items.length; i < len; i++) {
-        console.log(e.clipboardData.items[i])
+
         var item = e.clipboardData.items[i];
 
         if (item.kind === "string"&&item.type==="text/html") {
@@ -228,14 +228,14 @@ async function getUploadComponents(uid,suid){
             withCredentials: true
         },
         success: function (data) {
-            console.log(data)
+
             Rdata = data
         },
         error: function (e) {
             document.getElementById("uploadIframe").style.display = "none";
-            console.log("getComponents==================================")
+
             swal(uid+"请求失败")
-            console.log(e)
+
         }
     })
     return Rdata
@@ -246,15 +246,15 @@ async function UploadFunction(uid,suid,article_note,functionType,numUploads) {
     if (article_note.length !== 0) {
         for (let i = 0; i < article_note.length; i++) {
                 let formdata = new FormData();
-                console.log(article_note[i].name + "i===============")
+
                 if(article_note[i].value!==undefined){
                     formdata.append("file", article_note[i].value)
                     UploadForFolders(uid, suid, article_note, formdata,i,functionType,numUploads)
                 }
                 else{
                     non+=1
-                    console.log(non)
-                    console.log(article_note.length-1)
+
+
                 }
                 // article_note[i].src = ""
                 // article_note[i].href = ""
@@ -283,8 +283,8 @@ async function deleteFunction(uid,suid,func,functionType){
                 withCredentials: true
             },
             success:function (data) {
-                console.log(data)
-                console.log("删除成功")
+
+
                 if(functionType==="upload")
                 {UploadForElements(uid,suid)}
                 else
@@ -293,7 +293,7 @@ async function deleteFunction(uid,suid,func,functionType){
             error:function (data) {
                 document.getElementById("uploadIframe").style.display = "none";
                 swal("请求失败")
-                console.log(data)
+
             }
         });
         $.when(my).done(function (){
@@ -314,13 +314,13 @@ async function deleteFunction(uid,suid,func,functionType){
                 withCredentials: true
             },
             success: function (data) {
-                console.log(data)
+
                 lst = data.details;
             },
             error: function () {
                 document.getElementById("uploadIframe").style.display = "none";
                 swal("服务器异常")
-                console.log("服务器异常");
+
                 lst = null;
             }
         });
@@ -331,20 +331,20 @@ async function deleteFunction(uid,suid,func,functionType){
             for(let m=0;m<article_note.length;m++){
                     fileIdList[m] = article_note[m].id.split("-")[1]
             }
-            console.log(fileIdList)
-            console.log(server_fileIdList)
+
+
             let numUploads = 0
             let numDeletes = 0
             let finishDeletes = 0
             for(let n=0;n<fileIdList.length;n++){
                 if(server_fileIdList.indexOf(fileIdList[n])===-1){
-                    console.log("上传")
+
                     numUploads++
                 }
             }
             for(let n=0;n<server_fileIdList.length;n++){
                 if(fileIdList.indexOf(server_fileIdList[n])===-1) {
-                    console.log("删除")
+
                     numDeletes++
 
                     deleFileByFileid =$.ajax({
@@ -364,13 +364,13 @@ async function deleteFunction(uid,suid,func,functionType){
 
                             finishDeletes++
 
-                            console.log("删除成功")
+
 
                         },
                         error: function () {
                             document.getElementById("uploadIframe").style.display = "none";
                             swal("服务器异常")
-                            console.log("服务器异常");
+
                         }
 
                     });
@@ -378,16 +378,16 @@ async function deleteFunction(uid,suid,func,functionType){
             }
             if(server_fileIdList.length===0){numUploads=fileIdList.length-1}
             else{numUploads-=1}
-            console.log("numUploads=========================")
-            console.log(numUploads)
-            console.log("numDeletes=========================")
-            console.log(numDeletes)
-            console.log(article_note)
+
+
+
+
+
             if(numDeletes>0){
 
                 $.when(deleFileByFileid).done(function () {
 
-                    console.log(finishDeletes)
+
                     if(finishDeletes===numDeletes)
                     {func(uid,suid,article_note,functionType,numUploads)}
 
@@ -410,7 +410,7 @@ async function UpdateValueFunction(upload_data,func,uid,suid,functionType) {
             document.getElementsByClassName("upload-img-display")[f].innerHTML = upload_data[f].originalname
             document.getElementsByClassName("upload-img-display")[f].id = "img"+"-"+upload_data[f].fileid
             // document.getElementsByClassName("upload-img-display")[f].name = upload_data[f].originalname
-            // console.log(document.getElementsByClassName("upload-img-display")[f].value)
+            //
             document.getElementsByClassName("upload-img-display")[f].onclick = function () {
                 window.open(this.src)
             }
@@ -427,7 +427,7 @@ async function UpdateValueFunction(upload_data,func,uid,suid,functionType) {
         if(functionType==="upload"){await UploadForElements(uid, suid)}
         else{addElementsFunction(uid)}
     } catch (Exception) {
-        console.log(Exception)
+
 
     }
 }
@@ -445,7 +445,7 @@ async function SelectValueFunction(upload_data,uid,suid,article_note,i){
 async function UploadValueImport(dataName,f){
     if(document.getElementsByClassName("upload-img-display")[f].value===undefined){
         const blob = await fetch(dataName).then(r => r.blob())
-        console.log(blob)
+
         document.getElementsByClassName("upload-img-display")[f].value = new File([blob], dataName, {type: blob.type})
     }
 }
@@ -471,8 +471,8 @@ async function UploadForElements(uid,suid){
                     window.location.href = "noteView.html?uid=" + base64(uid) + "&suid=" + base64(suid.toString());
                 }, 1000);
             } else {
-                console.log("修改失败");
-                console.log(data);
+
+
             }
         },
         error: function () {
@@ -500,18 +500,18 @@ function UploadForFolders(uid,suid,article_note,formdata,i,functionType,numUploa
         processData: false,
         contentType: false,
         success: function (data) {
-            console.log(data)
+
         },
         error: function (data) {
             document.getElementById("uploadIframe").style.display = "none";
             swal("上传失败")
-            console.log(data)
+
         }
     });
     $.when(UploadAjax).done(function () {
-        console.log(kp)
+
         if (kp === numUploads) {
-            console.log("上传成功")
+
             getUploadComponents(uid, suid).then(
                 r =>
                     UpdateValueFunction(r, true,uid,suid,functionType)
@@ -544,14 +544,14 @@ function addElementsFunction(uid){
                 }, 1000);
             } else {
                 swal("修改失败");
-                console.log("修改失败");
-                console.log(data);
+
+
             }
         },
         error: function () {
             document.getElementById("uploadIframe").style.display = "none";
             swal("修改失败");
-            console.log("服务器异常");
+
         }
     });
 }

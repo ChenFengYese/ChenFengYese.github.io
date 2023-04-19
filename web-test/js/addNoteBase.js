@@ -16,7 +16,7 @@ function getSuid(uid){
         },
         error: function (e) {
             swal(uid+"请求失败")
-            console.log(e)
+
         }
     })
     return Rdata
@@ -49,7 +49,7 @@ async function addNoteInfo(uid,ruid) {
         var article_note =  document.getElementsByClassName("upload-img-display")
         // uid = "'"+uid+"'"
         // ruid = "'"+ruid+"'"
-        console.log(uid,ruid)
+
         document.getElementById("uploadIframe").style.display = "block";
         document.getElementsByClassName("base_content_body")[0].style.display = "none";
         document.getElementsByClassName("base_header")[0].style.display = "none";
@@ -73,14 +73,14 @@ try{
     id = unbase64(id)
 
     uid = id
-    console.log(uid)
+
     ruid = 1
     setInterval("time()", 1000);
     const suidlist = getSuid(uid);
     while (suidlist.indexOf(ruid) !== -1){
         ruid += 1;
     }
-    console.log(ruid)
+
     $(".wenzhang_box_content_jieshao_xieti:eq(0)").html(ruid)
     $(".indexHref").attr("href","NotBook.html?"+base64(base_))
     $(".wenzhang_box_content_jieshao_zuozhe").html("作者:"+uid);
@@ -94,7 +94,7 @@ try{
     $("#NotBookSave").html(sessionStorage.getItem("NotBookSave"))
 }
 catch (e) {
-    console.log(e);
+
     swal("你尚未登陆,请重新登录")
     // window.location.href = "index.html";
 }

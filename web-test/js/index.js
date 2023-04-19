@@ -74,7 +74,7 @@ function signup(){
             // 恢复其他页面元素的点击事件
             document.body.style.pointerEvents = 'auto';
             //dat:服务端返回的数据
-            console.log(dat)
+
             if(dat.msg === "success")
             {
                 swal("Sign up success!");
@@ -105,7 +105,7 @@ function login(){
     document.body.style.pointerEvents = 'none';
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
-    console.log(username+' '+password);
+
     $.ajax({
         // 设置ajax的参数
         // 请求数据的url地址：接口地址
@@ -120,8 +120,8 @@ function login(){
         // 请求成功之后要执行的回调函数
         success: function (dat) {
             //dat:服务端返回的数据
-            console.log(dat)
-            console.log(dat.token)
+
+
             Token = dat.token
             $.ajax({
                 // 设置ajax的参数
@@ -138,7 +138,7 @@ function login(){
                 success: function (dat) {
                     $.cookie('Tokens', Token, { expires: 7, path: '/',secure:true });
                     //dat:服务端返回的数据
-                    console.log(dat.id)
+
                     let id;
                     let base_;
                     id = dat.id
@@ -167,7 +167,7 @@ function login(){
             animation.style.display = 'none';
             // 恢复其他页面元素的点击事件
             document.body.style.pointerEvents = 'auto';
-            console.log(e)
+
             swal('请求失败')
         }
     })
@@ -178,13 +178,13 @@ function login(){
 // function login(){
 //     var username = document.getElementById("username").value;
 //     var password = document.getElementById("password").value;
-//     console.log(username+' '+password);
+//
 //     var data = "id="+username+"&password="+password;
 //     var xhr = new XMLHttpRequest();
 //     xhr.open("post",getURLTest()+"wxse/login",true);
 //     xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 //     xhr.onreadystatechange = function(){
-//         console.log("==========responseText:"+xhr.responseText)
+//
 //
 //         if(xhr.readyState == 4 && xhr.status == 200){
 //             var result = xhr.responseText;
@@ -195,7 +195,7 @@ function login(){
 //                 xhrr.onreadystatechange = function(){
 //                     if(xhrr.readyState == 4 && xhrr.status == 200){
 //                         var result = xhr.responseText;
-//                         console.log(result);
+//
 //                         if(result !== ""){
 //                             swal("Login success!");
 //                         }else{

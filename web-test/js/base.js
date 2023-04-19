@@ -86,7 +86,7 @@ window.onload=function(){
         var slide_two = $(".ul_two");
 
         //如果首页诗词的盒子宽度大于轮播的盒子宽度执行循环移动方法
-        //console.log(slide_one.innerWidth());
+        //
         if(slide_one.innerWidth()>side_box.innerWidth()){
 
             slide_two.html(slide_one.html());
@@ -123,11 +123,11 @@ window.onload=function(){
     //页面获得随机数修改背景图片
     random_bg_pic();
     function random_bg_pic(){
-        //console.log(Math.floor(Math.random()*10)+1);
+        //
         var index=Math.floor(Math.random()*5)+1;
-        //console.log(index+'.png');
+        //
         var url='url(image/bg_'+index+'.png)';
-        //console.log('url(../img/'+index+'.png)');
+        //
         $(".bg_pic").css('background-image',url);
     }
 
@@ -242,7 +242,7 @@ window.onload=function(){
                 var moren_height = moren.height();
                 var moren_width = moren.width();
                 //这是一个好方法 可以直接给到距离父元素的top值
-                //console.log(moren.position().top);
+                //
 
                 //右侧栏目部分鼠标悬停增加的class样式
                 $(".blog_right_nav .blog_active_and_hover_class").css({

@@ -15,7 +15,7 @@ function getData(uid,suid){
         },
         error: function (e) {
             swal("请求失败")
-            console.log(e)
+
         }
     })
 
@@ -49,8 +49,8 @@ try{
     suid = suid.split("%")[0]
     suid = parseInt(unbase64(suid))
 
-    console.log(uid)
-    console.log(suid)
+
+
 
     setInterval("time()", 1000);
     data = getData(uid,suid);
@@ -81,10 +81,10 @@ try{
         });
     } else {
         swal(data)
-        console.log("error:"+data);
+
     }
 }
 catch (e) {
-    console.log(e);
+
     swal(e)
 }
