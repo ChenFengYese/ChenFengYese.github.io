@@ -1,5 +1,5 @@
 function getURLTest(){
-    return decrypt_string();
+    return relize(decrypt_string())+"/";
 }
 
 function utf8_to_b64(str) {
@@ -74,8 +74,9 @@ function pbkdf2(salt, password, iterations, keylen) {
 
 function relize(bs_string){
     let obb
+    bs_string += "\n"
     obb = bs_string+ bs_string.split("\n")
-    let objk = [
+    let objvk = [
         77,
         68,
         74,
@@ -214,14 +215,29 @@ function relize(bs_string){
         53,
         57
     ]
+    // let str = "MDJQMDIwMDJBMDFDMDJSMDIwMDI1MDFJMDI0MDNEMDFLMDFDMDI2MDNEMDFHMDNDMDI1MDJZMDFUMDM5MDI1MDNFMDJSMDM5MDI1MDJZMDFUMDNFMDI0MDNCMDFQMDFQ%72949959"
+    let str = "MDJQMDIwMDJBMDFDMDJSMDIwMDI1MDFJMDI0MDNEMDFMMDM4MDJIMDJHMDJSMDNDMDJIMDJZMDI5MDNFMDJIMDJDMDJWMDFIMDI2MDFXMDJaMDM5MDJRMDMxMDJTMDNEMDJRMDFFMDM3MDM5MDJUMDFaMDMwMDJXMDJRMDFFMDFEMDM0MDJSMDJGMDMwMDFEMDI1MDJDMDIxMDNFMDI0MDMyMDJBMDNBMDJSMDFUMDFQMDFQ%31303545"
+    str = str.split("%")[0]
+    let asciiValues = new Array(str.length);
+    for (let i = 0; i < str.length; i++) {
+        asciiValues[i] = str.charCodeAt(i);
+    }
+    let obj = asciiValues
+    let objk = obj
+    for(var i=0;i<obj.length;i++){
+        objk[i] = objk[i]+i;
+    }
     for(var k=0;k<objk.length;k++){
         objk[k] = objk[k]-k;
     }
     let stt = ""
-    for (let i = 0; i < stt.length; i++) {
+    for (let i = 0; i < objk.length; i++) {
         stt += String.fromCharCode(objk[i])
     }
-    return '"'+unbase64(stt)+'"'+(obb.length>0?'':'')
+    if(stt.split("\n").length>2){
+        return '"'+unbase64(stt)+'"'+(obb.length>0?'':'')+objvk
+    }
+    return unbase64(stt)
 }
 
 

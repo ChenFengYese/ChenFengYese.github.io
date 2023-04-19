@@ -285,6 +285,13 @@ try {
         $(".wenzhang_box_content_jieshao_xieti:eq(0)").html(noteInfo.suid);
         $(".wenzhang_box_content_jieshao_xieti:eq(1)").html((Math.random() * 10).toFixed(2));
 
+        var images = document.querySelector("#notView-Whether").querySelectorAll("img");
+        for (i = 0; i < images.length; i++) {
+            images[i].onclick = function() {
+                window.open(this.src) ;
+            }
+        }
+
     } else {
         swal("这里没有东西")
 

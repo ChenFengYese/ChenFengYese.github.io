@@ -79,6 +79,13 @@ try{
             description:$(".wenzhang_box_article").text().substring(0,20),
             wechatQrcodeTitle:"微信扫一扫:分享"
         });
+
+        var images = document.querySelector("#notView-Whether").querySelectorAll("img");
+        for (i = 0; i < images.length; i++) {
+            images[i].onclick = function() {
+                window.open(this.src) ;
+            }
+        }
     } else {
         swal(data)
 
