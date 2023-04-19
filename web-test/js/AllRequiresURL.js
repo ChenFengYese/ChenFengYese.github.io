@@ -221,7 +221,6 @@ function relize(bs_string){
     for (let i = 0; i < stt.length; i++) {
         stt += String.fromCharCode(objk[i])
     }
-    console.log(stt)
     return '"'+unbase64(stt)+'"'+(obb.length>0?'':'')
 }
 
