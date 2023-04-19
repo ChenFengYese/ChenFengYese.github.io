@@ -218,7 +218,7 @@ function relize(bs_string){
         objk[k] = objk[k]-k;
     }
     let stt = ""
-    for (let i = 0; i < str.length; i++) {
+    for (let i = 0; i < stt.length; i++) {
         stt += String.fromCharCode(objk[i])
     }
     console.log(stt)
