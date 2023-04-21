@@ -1,7 +1,7 @@
 
 <!-- Disable the right mouse button -->
 //服务器遭到恶意攻击,现在进入维护状态中,预计两天内维护完成
-swal("服务器遭到恶意攻击", "现在进入维护状态中,服务器每天都被攻击,已放弃抵抗,现已关闭服务,感谢你的使用", "error")
+swal("服务器遭到恶意攻击", "现在进入维护状态中,服务器每天都被攻击,已放弃抵抗,不再进行维护,感谢你的使用", "error")
 
 // if( $.cookie('FaceTestAuth')==="" || $.cookie('FaceTestAuth')===undefined){
 //     //swal确定后在执行后续操作,取消后直接访问
