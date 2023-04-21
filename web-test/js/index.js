@@ -1,22 +1,22 @@
 
 <!-- Disable the right mouse button -->
 //服务器遭到恶意攻击,现在进入维护状态中,预计两天内维护完成
-// swal("服务器遭到恶意攻击", "现在进入维护状态中× 服务器已重新运行,但有数据丢失,正在恢复数据,预计一天内修复完成", "error")
+swal("服务器遭到恶意攻击", "现在进入维护状态中,服务器每天都被攻击,已放弃抵抗,现已关闭服务,感谢你的使用", "error")
 
-if( $.cookie('FaceTestAuth')==="" || $.cookie('FaceTestAuth')===undefined){
-    //swal确定后在执行后续操作,取消后直接访问
-    swal({
-        title: "你尚未认证身份",
-        text: "为你的安全以及保护你的隐私,请先进行身份认证",
-        icon: "error",
-        button: "确定",
-
-    }).then((result) => {
-        if (result.value) {
-            document.location.href = "FaceTest/index.html";
-        }
-    });
-}
+// if( $.cookie('FaceTestAuth')==="" || $.cookie('FaceTestAuth')===undefined){
+//     //swal确定后在执行后续操作,取消后直接访问
+//     swal({
+//         title: "你尚未认证身份",
+//         text: "为你的安全以及保护你的隐私,请先进行身份认证",
+//         icon: "error",
+//         button: "确定",
+//
+//     }).then((result) => {
+//         if (result.value) {
+//             document.location.href = "FaceTest/index.html";
+//         }
+//     });
+// }
 
 // swal("数据库暂未运行", "服务器正在全力跑其他项目中,该项目原服务器暂时停止运行.可联系开发者开启临时服务器以试用,临时服务器不具备文件上传功能", "error")
 document.oncontextmenu = function(){
