@@ -2,8 +2,8 @@
 <!-- Disable the right mouse button -->
 //服务器遭到恶意攻击,现在进入维护状态中,预计两天内维护完成
 if( $.cookie('EveryBodyKnow')==="" || $.cookie('EveryBodyKnow')===undefined){
-    swal("服务器遭到恶意攻击", "现在进入维护状态中,服务器每天都被攻击,已放弃抵抗,不再进行维护,感谢你的使用", "error")
-    $.cookie('EveryBodyKnow', "ok", { expires: 30, path: '/',secure:true })
+    swal("服务器经常被攻击", "服务器经常被攻击且内存较小内容较多,由于是个人运营,因此时不时会导致无法连接的情况,还请谅解,感谢你的使用", "error")
+    $.cookie('EveryBodyKnow', "ok", { expires: 7, path: '/',secure:true })
 }
 
 if( $.cookie('FaceTestAuth')==="" || $.cookie('FaceTestAuth')===undefined){
@@ -13,10 +13,15 @@ if( $.cookie('FaceTestAuth')==="" || $.cookie('FaceTestAuth')===undefined){
         text: "为你的安全以及保护你的隐私,请先进行身份认证",
         icon: "error",
         button: "确定",
-
+        cancelButtonText: '下次一定!',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
     }).then((result) => {
         if (result.value) {
             document.location.href = "FaceTest/index.html";
+        }else {
+            $.cookie('FaceTestAuth', "ok", { expires: 1, path: '/',secure:true })
         }
     });
 }
