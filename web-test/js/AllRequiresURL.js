@@ -1,5 +1,11 @@
 function getURLTest(){
-    return relize(decrypt_string())+"/";
+    try{
+        return relize(decrypt_string())+"/";
+    }catch (Exception){
+        console.log(Exception)
+        return PhoneTosee();
+    }
+
 }
 
 function utf8_to_b64(str) {
@@ -70,6 +76,9 @@ function pbkdf2(salt, password, iterations, keylen) {
             baseKey, keylen*8
         );
     });
+}
+function PhoneTosee(){
+    return "https://47.120.37.203/"
 }
 
 function relize(bs_string){
