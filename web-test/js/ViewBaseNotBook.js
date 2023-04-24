@@ -18,29 +18,42 @@ selectPublicNotes()
 
 // Delete note
 function deleteNoteInfo(suid) {
-    if (confirm("确定删除吗？")){
-        $.ajax({
-            url: getURLTest()+"textif/deleteif",
-            type: "post",
-            dataType: "json",
-            data: {
-                "suid": suid,
-                uid: id
-            },
-            xhrFields: {
-                withCredentials: true
-            },
-            success: function (data) {
-                swal("删除成功！")
-                setTimeout(function () {
-                    window.location.href = "NotBook.html?" + base64(id);
-                }, 1000);
-            },
-            error: function () {
-                swal("服务器异常");
-            }
-        });
-    }
+    swal({
+        title: "删除",
+        text: "确定删除吗",
+        icon: "warning",
+        button: "确定",
+        cancelButtonText: '还是不了!',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+    }).then((result) => {
+        if (result.value) {
+            $.ajax({
+                url: getURLTest()+"textif/deleteif",
+                type: "post",
+                dataType: "json",
+                data: {
+                    "suid": suid,
+                    uid: id
+                },
+                xhrFields: {
+                    withCredentials: true
+                },
+                success: function (data) {
+                    swal("删除成功！")
+                    setTimeout(function () {
+                        window.location.href = "NotBook.html?" + base64(id);
+                    }, 1000);
+                },
+                error: function () {
+                    swal("服务器异常");
+                }
+            });
+        }else {
+            swal("取消删除")
+        }
+    });
 }
 // 收藏笔记
 function collectNoteInfo(suid,collect,i) {
