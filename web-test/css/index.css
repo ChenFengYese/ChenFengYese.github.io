@@ -2,12 +2,24 @@
 html,body{
     height: 100%;
 }
-body{
-    background-image: url("https://th.bing.com/th/id/R.092f5197b726325d3650400c86b1a78a?rik=BTUEO8uq7XaDeA&riu=http%3a%2f%2fi1.hdslb.com%2fbfs%2farchive%2f5c7a9e7b28d3cc3f9cdafc42cd0f6b2d0b87e727.jpg&ehk=2sH6%2f4J9H9MDqeHcdLxxAQi9ee6%2bBdl6PyUWqNZ%2fDXE%3d&risl=&pid=ImgRaw&r=0");
-    background-repeat: no-repeat;
+#box{
+    background: url('../../images/wallhaven-72kejo.jpg') no-repeat center;
     background-size: cover;
-    background-position: center;
+    position: fixed;
+    inset: 0;
+    display: block;
+    opacity: 0; /*初始不透明度为0，图片都看不见*/
+    transition: 3s; /*--重点--定义一个关于透明度的transition*/
 }
+#box.cycle-bg-image{
+    opacity: 1; /*有active类的图片不透明度为1，即显示图片*/
+}
+/*body{*/
+/*    background-image: url("https://th.bing.com/th/id/R.092f5197b726325d3650400c86b1a78a?rik=BTUEO8uq7XaDeA&riu=http%3a%2f%2fi1.hdslb.com%2fbfs%2farchive%2f5c7a9e7b28d3cc3f9cdafc42cd0f6b2d0b87e727.jpg&ehk=2sH6%2f4J9H9MDqeHcdLxxAQi9ee6%2bBdl6PyUWqNZ%2fDXE%3d&risl=&pid=ImgRaw&r=0");*/
+/*    background-repeat: no-repeat;*/
+/*    background-size: cover;*/
+/*    background-position: center;*/
+/*}*/
 /* Remove the scroll bar on the right */
 body::-webkit-scrollbar{
     display: none;
@@ -31,7 +43,29 @@ body::-webkit-scrollbar{
     background-color: rgba(255, 255, 255, 0.8);
     display: none;
 }
-
+#loading-img {
+    position: fixed;
+    z-index: 9999;
+    top: 0; left: 0; right: 0; bottom: 0;
+    display: none;
+    background-color: #3fc3ee;
+}
+#loading-img  img {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+ }
+#loading iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
 #loading-spinner {
     position: absolute;
     top: 50%; left: 50%;

@@ -1,37 +1,110 @@
 
 <!-- Disable the right mouse button -->
-//服务器遭到恶意攻击,现在进入维护状态中,预计两天内维护完成
-if( $.cookie('EveryBodyKnow')==="" || $.cookie('EveryBodyKnow')===undefined){
-    swal("服务器经常被攻击", "服务器经常被攻击且内存较小内容较多,由于是个人运营,因此时不时会导致无法连接的情况,还请谅解,感谢你的使用", "error")
-    $.cookie('EveryBodyKnow', "ok", { expires: 7, path: '/',secure:true })
-}
-
-if( $.cookie('FaceTestAuth')==="" || $.cookie('FaceTestAuth')===undefined){
-    //swal确定后在执行后续操作,取消后直接访问
-    swal({
-        title: "你尚未认证身份",
-        text: "为你的安全以及保护你的隐私,请先进行身份认证",
-        icon: "error",
-        button: "确定",
-        cancelButtonText: '下次一定!',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-    }).then((result) => {
-        if (result.value) {
-            document.location.href = "FaceTest/index.html";
-        }else {
-            $.cookie('FaceTestAuth', "ok", { expires: 1, path: '/',secure:true })
-        }
-    });
-}
-
 // swal("数据库暂未运行", "服务器正在全力跑其他项目中,该项目原服务器暂时停止运行.可联系开发者开启临时服务器以试用,临时服务器不具备文件上传功能", "error")
 document.oncontextmenu = function(){
     return false;
 }
 var mask = document.getElementById('mask');
 var animation = document.getElementById('loading');
+
+var urls = [
+    "../../images/wallhaven-72kejo.jpg",
+    "../../images/wallhaven-8owjzk.jpg",
+    "../../images/wallhaven-rdxr6j.jpg",
+    "../../images/wallhaven-v9r7dl.png",
+    "../../images/wallhaven-rdxov1.jpg",
+    "../../images/wallhaven-8o12go.jpg"
+];
+
+function preloadImages(callback) {
+    // 显示加载动画
+    var loading = document.getElementById('loading-img');
+    loading.style.display = 'block';
+
+    var loaded = 0;
+    var numImages = urls.length;
+
+    function onImageLoad() {
+        loaded++;
+        if (loaded === numImages) {
+            // 隐藏加载动画
+            loading.style.display = 'none';
+
+            callback();
+        }
+    }
+
+    for (var i = 0; i < numImages; i++) {
+        var img = new Image();
+        img.onload = onImageLoad;
+        img.src = urls[i];
+    }
+}// 在页面加载完成后即开始进行图片预加载
+function handlePreloadComplete(){
+    //服务器遭到恶意攻击,现在进入维护状态中,预计两天内维护完成
+    if( $.cookie('EveryBodyKnow')==="" || $.cookie('EveryBodyKnow')===undefined){
+        swal("服务器经常被攻击", "服务器经常被攻击且内存较小内容较多,由于是个人运营,因此时不时会导致无法连接的情况,还请谅解,感谢你的使用", "error")
+        $.cookie('EveryBodyKnow', "ok", { expires: 7, path: '/',secure:true })
+    }
+
+    if( $.cookie('FaceTestAuth')==="" || $.cookie('FaceTestAuth')===undefined){
+        //swal确定后在执行后续操作,取消后直接访问
+        swal({
+            title: "你尚未认证身份",
+            text: "为你的安全以及保护你的隐私,请先进行身份认证",
+            icon: "error",
+            button: "确定",
+            cancelButtonText: '下次一定!',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+        }).then((result) => {
+            if (result.value) {
+                document.location.href = "FaceTest/index.html";
+            }else {
+                $.cookie('FaceTestAuth', "ok", { expires: 1, path: '/',secure:true })
+            }
+        });
+    }
+    var i=1;//表示当前图片所在位置
+    var time = setTimeout("showImg()", 20000);//启动时钟事件刷新时间 1000==1秒
+    let imgs = document.getElementById("box");
+    function icon_left(){
+        clearTimeout(time);//清楚时钟事件
+        if(i<=1){
+            i=6;
+        }else{
+            i=i-2;
+        }
+        console.info(i);
+        showImg()
+    }
+    function slideOff() {
+        imgs.className="1"; //图片淡出
+
+    }
+    function slideOn() {
+        imgs.className="cycle-bg-image"; //图片淡入
+    }
+    function icon_right(){
+        clearTimeout(time);//清楚时钟事件
+        showImg()
+    }
+    function showImg() { //让背景图片显示
+        slideOff();
+        i++;
+        if(i === 7) {
+            i = 1;
+        }
+        document.getElementById("box").style.background = "url("+urls[i-1]+") no-repeat center";
+        slideOn();
+        //通过id获取标签并修改背景样式
+        time = setTimeout("showImg()", 20000);//启动时钟事件刷新时间 1000==1秒
+    }
+}
+window.addEventListener('load', function() {
+    preloadImages(handlePreloadComplete);
+});
 
 
 <!--Implementation of switching to the login page-->
@@ -181,75 +254,6 @@ function login(){
     })
 
 }
-//
-// <!--Implementation login method-->
-// function login(){
-//     var username = document.getElementById("username").value;
-//     var password = document.getElementById("password").value;
-//
-//     var data = "id="+username+"&password="+password;
-//     var xhr = new XMLHttpRequest();
-//     xhr.open("post",getURLTest()+"wxse/login",true);
-//     xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-//     xhr.onreadystatechange = function(){
-//
-//
-//         if(xhr.readyState == 4 && xhr.status == 200){
-//             var result = xhr.responseText;
-//             if(result !== "login failure"){
-//                 var xhrr = new XMLHttpRequest();
-//                 xhrr.open("post",getURLTest()+"secure/getUserInfo",true);
-//                 xhrr.setRequestHeader("Authorization",result);
-//                 xhrr.onreadystatechange = function(){
-//                     if(xhrr.readyState == 4 && xhrr.status == 200){
-//                         var result = xhr.responseText;
-//
-//                         if(result !== ""){
-//                             swal("Login success!");
-//                         }else{
-//                             swal("Login failed!");
-//                         }
-//                     }
-//                     else if(xhrr.readyState == 4 && xhrr.status == 404){
-//                         swal("404");
-//                     }
-//                     else if(xhrr.readyState == 4 && xhrr.status == 500){
-//                         swal("500");
-//                     }
-//                     else if(xhrr.readyState == 4 && xhrr.status == 403){
-//                         swal("403");
-//                     }
-//                     else if(xhrr.readyState == 4 && xhrr.status == 400){
-//                         swal("400");
-//                     }
-//                     else if(xhrr.readyState == 4 && xhrr.status == 401){
-//                         swal("401");
-//                     }
-//                 }
-//                 xhrr.send(result.data);
-//             }else{
-//                 swal("Login failed!");
-//             }
-//         }
-//         else if(xhr.readyState == 4 && xhr.status == 404){
-//             swal("404");
-//         }
-//         else if(xhr.readyState == 4 && xhr.status == 500){
-//             swal("500");
-//         }
-//         else if(xhr.readyState == 4 && xhr.status == 403){
-//             swal("403");
-//         }
-//         else if(xhr.readyState == 4 && xhr.status == 400){
-//             swal("400");
-//         }
-//         else if(xhr.readyState == 4 && xhr.status == 401){
-//             swal("401");
-//         }
-//     }
-//     xhr.send(data);
-// }
-<!-- Monitor whether the account password is empty in real time. If yes, set the login and registration button as forbidden to click -->
 function check(){
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
