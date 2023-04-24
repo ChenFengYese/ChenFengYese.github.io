@@ -58,7 +58,7 @@ function showImg() { //让背景图片显示
     document.getElementById("box").style.background = "url("+urls[iPicture-1]+") no-repeat center";
     slideOn();
     //通过id获取标签并修改背景样式
-    timePicture = setTimeout("showImg()", 10000);//启动时钟事件刷新时间 1000==1秒
+    timePicture = setTimeout("showImg()", 20000);//启动时钟事件刷新时间 1000==1秒
 }
 // 在页面加载完成后即开始进行图片预加载
 function handlePreloadComplete(){
@@ -88,7 +88,7 @@ function handlePreloadComplete(){
             }
         });
     }
-    timePicture = setTimeout("showImg()", 10000);//启动时钟事件刷新时间 1000==1秒
+    timePicture = setTimeout("showImg()", 20000);//启动时钟事件刷新时间 1000==1秒
 }
 
 window.addEventListener('load', function() {
