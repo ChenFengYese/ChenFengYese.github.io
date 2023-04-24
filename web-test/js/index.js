@@ -17,11 +17,29 @@ var urls = [
     "../../images/wallhaven-rdxov1.jpg",
     "../../images/wallhaven-8o12go.jpg"
 ];
+let container = document.getElementById("nowLoading-text");
+let data = "全力加载中······"
+let index = 0
+let timer = null
+function writing() {
+    if (index < data.length) {
+        // 追加文字
+        container.innerHTML += data[index ++]
+        // 没错，也可以通过，clearTimeout取消setInterval的执行
+        // index === 4 && clearTimeout(timer)
+    } else {
+        setTimeout("index = 0;",200)
+        setTimeout("container.innerHTML = ''", 200)
+    }
+    // console.log(timer) // 这里会打印出 1 1 1 1 1 ...
+}
+// 使用 setInterval 时，结束后不要忘记进行 clearInterval
+timer = setInterval(writing, 200)
 
 function preloadImages(callback) {
     // 显示加载动画
     var loading = document.getElementById('loading-img');
-    loading.style.display = 'block';
+    loading.style.display = 'flex';
 
     var loaded = 0;
     var numImages = urls.length;
@@ -58,7 +76,7 @@ function showImg() { //让背景图片显示
     document.getElementById("box").style.background = "url("+urls[iPicture-1]+") no-repeat center";
     slideOn();
     //通过id获取标签并修改背景样式
-    timePicture = setTimeout("showImg()", 20000);//启动时钟事件刷新时间 1000==1秒
+    timePicture = setTimeout("showImg()", 15000);//启动时钟事件刷新时间 1000==1秒
 }
 // 在页面加载完成后即开始进行图片预加载
 function handlePreloadComplete(){
@@ -88,7 +106,7 @@ function handlePreloadComplete(){
             }
         });
     }
-    timePicture = setTimeout("showImg()", 20000);//启动时钟事件刷新时间 1000==1秒
+    timePicture = setTimeout("showImg()", 15000);//启动时钟事件刷新时间 1000==1秒
 }
 
 window.addEventListener('load', function() {
