@@ -6,7 +6,9 @@ document.oncontextmenu = function(){
 }
 var mask = document.getElementById('mask');
 var animation = document.getElementById('loading');
-
+var iPicture=1;//表示当前图片所在位置
+let imgs = document.getElementById("box");
+var timePicture;
 var urls = [
     "../../images/wallhaven-72kejo.jpg",
     "../../images/wallhaven-8owjzk.jpg",
@@ -39,8 +41,28 @@ function preloadImages(callback) {
         img.onload = onImageLoad;
         img.src = urls[i];
     }
-}// 在页面加载完成后即开始进行图片预加载
+}
+function slideOff() {
+    imgs.className="1"; //图片淡出
+
+}
+function slideOn() {
+    imgs.className="cycle-bg-image"; //图片淡入
+}
+function showImg() { //让背景图片显示
+    slideOff();
+    iPicture++;
+    if(iPicture === 7) {
+        iPicture = 1;
+    }
+    document.getElementById("box").style.background = "url("+urls[iPicture-1]+") no-repeat center";
+    slideOn();
+    //通过id获取标签并修改背景样式
+    timePicture = setTimeout("showImg()", 10000);//启动时钟事件刷新时间 1000==1秒
+}
+// 在页面加载完成后即开始进行图片预加载
 function handlePreloadComplete(){
+    document.getElementById("box").style.background = "url('../../images/wallhaven-72kejo.jpg') no-repeat center";
     //服务器遭到恶意攻击,现在进入维护状态中,预计两天内维护完成
     if( $.cookie('EveryBodyKnow')==="" || $.cookie('EveryBodyKnow')===undefined){
         swal("服务器经常被攻击", "服务器经常被攻击且内存较小内容较多,由于是个人运营,因此时不时会导致无法连接的情况,还请谅解,感谢你的使用", "error")
@@ -66,42 +88,9 @@ function handlePreloadComplete(){
             }
         });
     }
-    var i=1;//表示当前图片所在位置
-    var time = setTimeout("showImg()", 20000);//启动时钟事件刷新时间 1000==1秒
-    let imgs = document.getElementById("box");
-    function icon_left(){
-        clearTimeout(time);//清楚时钟事件
-        if(i<=1){
-            i=6;
-        }else{
-            i=i-2;
-        }
-        console.info(i);
-        showImg()
-    }
-    function slideOff() {
-        imgs.className="1"; //图片淡出
-
-    }
-    function slideOn() {
-        imgs.className="cycle-bg-image"; //图片淡入
-    }
-    function icon_right(){
-        clearTimeout(time);//清楚时钟事件
-        showImg()
-    }
-    function showImg() { //让背景图片显示
-        slideOff();
-        i++;
-        if(i === 7) {
-            i = 1;
-        }
-        document.getElementById("box").style.background = "url("+urls[i-1]+") no-repeat center";
-        slideOn();
-        //通过id获取标签并修改背景样式
-        time = setTimeout("showImg()", 20000);//启动时钟事件刷新时间 1000==1秒
-    }
+    timePicture = setTimeout("showImg()", 10000);//启动时钟事件刷新时间 1000==1秒
 }
+
 window.addEventListener('load', function() {
     preloadImages(handlePreloadComplete);
 });

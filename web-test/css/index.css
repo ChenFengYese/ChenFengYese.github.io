@@ -3,7 +3,6 @@ html,body{
     height: 100%;
 }
 #box{
-    background: url('../../images/wallhaven-72kejo.jpg') no-repeat center;
     background-size: cover;
     position: fixed;
     inset: 0;
