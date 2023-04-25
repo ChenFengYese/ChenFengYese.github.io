@@ -91,7 +91,7 @@ function iframeToEdit() {
                         }
 
                         else if(dat.error){
-                            Swal.fire(data.error)
+                            Swal.fire(dat.error)
                             mask.style.display = 'none';
                             animation.style.display = 'none';
                             document.body.style.pointerEvents = 'auto';
