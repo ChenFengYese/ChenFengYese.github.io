@@ -6,6 +6,8 @@
     <title>Title</title>
     <script src="js/jquery-1.8.3.min.js"></script>
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/iframe-chatgpt.css">
+
 </head>
 <body>
 <div class="cycle-bg-image" id="box"></div>
@@ -28,9 +30,9 @@
         <!-- This is the login page, the default display -->
         <!-- Explain to the user that this is the login screen -->
         <h1 onclick="ChangeToSignUpPage()">Login</h1>
-        <label for="username">Username:</label>
+        <label for="username" style="color: #e9f5f5">Username:</label>
         <input type="text" id="username" name="username">
-        <label for="password">Password:</label>
+        <label for="password" style="color: #e9f5f5">Password:</label>
         <input type="password" id="password" name="password">
         <input type="submit" id="submit" value="Login" disabled>
     </form>
@@ -39,22 +41,32 @@
         <!-- This is the sign-up page, the default is not displayed -->
         <!-- Explain to the user that this is the sign-up screen -->
         <h1 onclick="ChangeTologinPage()">Sign Up</h1>
-        <label for="username">Username:</label>
+        <label for="username" style="color: #e9f5f5">Username:</label>
         <label for="usernameUp"></label><input type="text" id="usernameUp" name="username">
-        <label for="password">Password:</label>
+        <label for="password" style="color: #e9f5f5">Password:</label>
         <label for="passwordUp"></label><input type="password" id="passwordUp" name="password">
         <input type="submit" id="submitUp" value="SignUp" disabled>
     </form>
     <!-- To achieve a login page and registration page switch button -->
-    <button class="toggle-btn Login" onclick="ChangeTologinPage()" id="ChangeToLoginPage" style="display: none"></button>
-    <button class="toggle-btn SignUp" onclick="ChangeToSignUpPage()" id="ChangeToSignUpPage"></button>
-
+<div id="floating-text"></div>
+<div class="n-layout-toggle-button" id="myDiv">
+    <div class="dropdown" id="myDropdown">
+        <div style="color: #0099ff">有什么能帮助你的吗?</div>
+        <div><a href="javascript:ChangeToSignUpPage()" style="text-decoration: none;color: #6610f2">注册账号</a></div>
+        <div><a href="javascript:ChangeTologinPage()" style="text-decoration: none;color: #6610f2">登陆账号</a></div>
+        <div><a href="javascript:iframeToEdit()" style="text-decoration: none;color: #0056b3">更改密码</a></div>
+    </div>
+</div>
+<iframe src="about:blank" id="myIframe" class="hidden" title="chatGPT"></iframe>
 <script src="js/sweetalert2.all.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <link rel='stylesheet' href='css/sweetalert2.min.css'>
 <script src="js/AllRequiresURL.js"></script>
+<script src="js/index.js"></script>
+<script src="js/iframe-chatgpt.js"></script>
 <script src="js/cookie/jquery.cookie.js"></script>
 <script src="js/BaseJSencryption.js"></script>
-<script src="js/index.js"></script>
+
 
 
 

@@ -1,6 +1,6 @@
 
 <!-- Disable the right mouse button -->
-// swal("数据库暂未运行", "服务器正在全力跑其他项目中,该项目原服务器暂时停止运行.可联系开发者开启临时服务器以试用,临时服务器不具备文件上传功能", "error")
+// Swal.fire("数据库暂未运行", "服务器正在全力跑其他项目中,该项目原服务器暂时停止运行.可联系开发者开启临时服务器以试用,临时服务器不具备文件上传功能", "error")
 document.oncontextmenu = function(){
     return false;
 }
@@ -83,13 +83,13 @@ function handlePreloadComplete(){
     document.getElementById("box").style.background = "url('../../images/wallhaven-72kejo.jpg') no-repeat center";
     //服务器遭到恶意攻击,现在进入维护状态中,预计两天内维护完成
     if( $.cookie('EveryBodyKnow')==="" || $.cookie('EveryBodyKnow')===undefined){
-        swal("服务器经常被攻击", "服务器经常被攻击且内存较小内容较多,由于是个人运营,因此时不时会导致无法连接的情况,还请谅解,感谢你的使用", "error")
+        Swal.fire("服务器经常被攻击", "服务器经常被攻击且内存较小内容较多,由于是个人运营,因此时不时会导致无法连接的情况,还请谅解,感谢你的使用", "error")
         $.cookie('EveryBodyKnow', "ok", { expires: 7, path: '/',secure:true })
     }
 
     if( $.cookie('FaceTestAuth')==="" || $.cookie('FaceTestAuth')===undefined){
-        //swal确定后在执行后续操作,取消后直接访问
-        swal({
+        //Swal.fire确定后在执行后续操作,取消后直接访问
+        Swal.fire({
             title: "你尚未认证身份",
             text: "为你的安全以及保护你的隐私,请先进行身份认证",
             icon: "error",
@@ -116,73 +116,99 @@ window.addEventListener('load', function() {
 
 <!--Implementation of switching to the login page-->
 function ChangeTologinPage(){
+    document.getElementById('floating-text').innerText = "现在是登陆页面"
+    var floatingText = document.getElementById('floating-text');
+    setTimeout(function() {
+        floatingText.style.display = 'block';
+        setTimeout(function() {
+            floatingText.style.display = 'none';
+        }, 3000);
+    }, 0);
     document.getElementsByTagName("form")[0].style.display = "block";
     document.getElementsByTagName("form")[1].style.display = "none";
-    document.getElementById("ChangeToLoginPage").style.display = "none";
-    document.getElementById("ChangeToSignUpPage").style.display = "block";
 
 }
 <!--Implementation of switching to the sign-up page-->
 function ChangeToSignUpPage(){
+    document.getElementById('floating-text').innerText = "现在是注册页面"
+    var floatingText = document.getElementById('floating-text');
+    setTimeout(function() {
+        floatingText.style.display = 'block';
+        setTimeout(function() {
+            floatingText.style.display = 'none';
+        }, 3000);
+    }, 0);
     document.getElementsByTagName("form")[0].style.display = "none";
     document.getElementsByTagName("form")[1].style.display = "block";
-    document.getElementById("ChangeToSignUpPage").style.display = "none";
-    document.getElementById("ChangeToLoginPage").style.display = "block";
 
 }
 
 <!--Implementation signup method-->
 function signup(){
-    // 获取遮罩层和动画元素
-    mask.style.display = 'block';
-    animation.style.display = 'block';
-    // 禁用其他页面元素的点击事件
-    document.body.style.pointerEvents = 'none';
-    var username = document.getElementById("usernameUp").value;
-    var password = document.getElementById("passwordUp").value;
-    $.ajax({
-        // 设置ajax的参数
-        // 请求数据的url地址：接口地址
-        url: getURLTest()+'wxse/register',
-        // 请求数据方式：get  post
-        type: 'post',
-        // data:发送给接口的数据
-        data: {"id": username, "password": password},
-        headers: {
-            'verifyCode': "wwssadadbaba"
+    Swal.fire({
+        title: '请输入你需要绑定的密钥',
+        text: '务必记住你设置的密钥,这是你唯一能够找回密码的途径',
+        input: 'text',
+        inputAttributes: {
+            autocapitalize: 'off'
         },
-        xhrFields: {
-            withCredentials: true
-        },
-        // 请求成功之后要执行的回调函数
-        success: function (dat) {
-            // 隐藏遮罩层和动画元素
-            mask.style.display = 'none';
-            animation.style.display = 'none';
-            // 恢复其他页面元素的点击事件
-            document.body.style.pointerEvents = 'auto';
-            //dat:服务端返回的数据
+        confirmButtonText: '下一步',
+        showLoaderOnConfirm: true,
+    }).then((result) => {
+        console.log(result.value)
+        if (result.isConfirmed) {
+            // 获取遮罩层和动画元素
+            mask.style.display = 'block';
+            animation.style.display = 'block';
+            // 禁用其他页面元素的点击事件
+            document.body.style.pointerEvents = 'none';
+            var username = document.getElementById("usernameUp").value;
+            var password = document.getElementById("passwordUp").value;
+            $.ajax({
+                // 设置ajax的参数
+                // 请求数据的url地址：接口地址
+                url: getURLTest()+'wxse/register',
+                // 请求数据方式：get  post
+                type: 'post',
+                // data:发送给接口的数据
+                data: {"id": username, "password": password,"email":result.value},
+                headers: {
+                    'verifyCode': "wwssadadbaba"
+                },
+                xhrFields: {
+                    withCredentials: true
+                },
+                // 请求成功之后要执行的回调函数
+                success: function (dat) {
+                    // 隐藏遮罩层和动画元素
+                    mask.style.display = 'none';
+                    animation.style.display = 'none';
+                    // 恢复其他页面元素的点击事件
+                    document.body.style.pointerEvents = 'auto';
+                    //dat:服务端返回的数据
 
-            if(dat.msg === "success")
-            {
-                swal("Sign up success!");
-                document.getElementById("username").value = username
-                document.getElementById("password").value = password
-                login();
-            }
-            else if(dat.msg === "verifyCodeIllegal") swal("该账号已存在");
-            else swal("该账号已存在");
+                    if(dat.msg === "success")
+                    {
+                        Swal.fire("Sign up success!");
+                        document.getElementById("username").value = username
+                        document.getElementById("password").value = password
+                        login();
+                    }
+                    else if(dat.msg === "verifyCodeIllegal") Swal.fire("该账号已存在");
+                    else Swal.fire("该账号已存在");
+                }
+                // 请求失败
+                , error: function () {
+                    // 隐藏遮罩层和动画元素
+                    mask.style.display = 'none';
+                    animation.style.display = 'none';
+                    // 恢复其他页面元素的点击事件
+                    document.body.style.pointerEvents = 'auto';
+                    Swal.fire('请求失败')
+                }
+            });
         }
-        // 请求失败
-        , error: function () {
-            // 隐藏遮罩层和动画元素
-            mask.style.display = 'none';
-            animation.style.display = 'none';
-            // 恢复其他页面元素的点击事件
-            document.body.style.pointerEvents = 'auto';
-            swal('请求失败')
-        }
-    });
+    })
 }
 <!-- Use ajax to implement the login function -->
 function login(){
@@ -202,15 +228,12 @@ function login(){
         type: 'post',
         // data:发送给接口的数据
         data:{"id":username,"password":password},
-        xhrFields: {
-            withCredentials: true
-        },
         // 请求成功之后要执行的回调函数
         success: function (dat) {
             //dat:服务端返回的数据
 
 
-            Token = dat.token
+            var Token = dat.token
             $.ajax({
                 // 设置ajax的参数
                 // 请求数据的url地址：接口地址
@@ -219,9 +242,6 @@ function login(){
                 type: 'post',
                 headers: {
                     'Authorization': Token
-                },
-                xhrFields: {
-                    withCredentials: true
                 },
                 success: function (dat) {
                     $.cookie('Tokens', Token, { expires: 7, path: '/',secure:true });
@@ -244,7 +264,7 @@ function login(){
                     animation.style.display = 'none';
                     // 恢复其他页面元素的点击事件
                     document.body.style.pointerEvents = 'auto';
-                    swal('请求失败')
+                    Swal.fire('请求失败')
                 }
             })
         },
@@ -256,7 +276,7 @@ function login(){
             // 恢复其他页面元素的点击事件
             document.body.style.pointerEvents = 'auto';
 
-            swal('请求失败')
+            Swal.fire('请求失败')
         }
     })
 

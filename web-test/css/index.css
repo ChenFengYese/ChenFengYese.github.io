@@ -34,7 +34,23 @@ body::-webkit-scrollbar{
     z-index: 2;
     display: none;
 }
-
+#floating-text {
+    width: 12vw;
+    height: 4vh;
+    line-height: 4vh;
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,0.5);
+    border-radius: 10px;
+    display: none;
+    position: fixed;
+    text-align: center;
+    top: 10%;
+    left: 50%;
+    font-size: 24px;
+    color: #ee1616;
+    background-color: rgba(241, 239, 239, 0.23);
+    transform: translate(-50%, -50%); /* 水平垂直居中 */
+}
 #loading {
     position: fixed;
     z-index: 9999;
@@ -77,9 +93,10 @@ body::-webkit-scrollbar{
 }
 #loading-spinner {
     position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    width: 50px; height: 50px;
+    top: 50%;
+    left: 50%;
+    width: 50px;
+    height: 50px;
     border: 5px solid rgba(0, 0, 0, 0.1);
     border-top-color: #09f;
     border-radius: 50%;

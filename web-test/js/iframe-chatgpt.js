@@ -1,3 +1,5 @@
+
+
 var myDropdown = document.getElementById("myDropdown");
 var myIframe = document.getElementById("myIframe");
 var viewportWidth = window.innerWidth || document.documentElement.clientWidth;
@@ -24,8 +26,8 @@ function showDropdown() {
 function iframeLoaded(target) {
     if(target===1&&myIframe.src !== "https://www.nahidelysia.asia/"){
         toggleIframe()
-        //swal弹出 因API使用量有限,故设置了访问密码,请联系开发者给与访问密码
-        swal({
+        //Swal.fire弹出 因API使用量有限,故设置了访问密码,请联系开发者给与访问密码
+        Swal.fire({
             title:"联系开发者",
             text:"因API使用量有限,故设置了访问密码,请联系开发者给与访问密码",
             icon:"info",
@@ -38,6 +40,75 @@ function iframeLoaded(target) {
     }else if(target!==1&&myIframe.src!== "https://1fp4u.aichatos.com/#/chat/1681556898217"){
         myIframe.src = "https://1fp4u.aichatos.com/#/chat/1681556898217";
     }
+}
+function iframeToEdit() {
+        Swal.mixin({
+            input: 'text',
+            confirmButtonText: 'Next →',
+            showCancelButton: true,
+            progressSteps: ['1', '2', '3']
+        }).queue([
+            {
+                title: '请输入你的账号',
+                text: '请确定你的账号没有输入错误'
+            },
+            {
+                title: '请输入你的电子邮箱',
+                text: '请确定该电子邮箱已与你的账号进行绑定'
+            },
+            {
+                title: '请输入你的新密码',
+                text: '请务必记住你的新密码'
+            },
+        ]).then((result) => {
+            if (result.value) {
+                var mask = document.getElementById('mask');
+                var animation = document.getElementById('loading');
+                // 获取遮罩层和动画元素
+                mask.style.display = 'block';
+                animation.style.display = 'block';
+                // 禁用其他页面元素的点击事件
+                document.body.style.pointerEvents = 'none';
+                const answers = JSON.stringify(result.value)
+                $.ajax({
+                    // 设置ajax的参数
+                    // 请求数据的url地址：接口地址
+                    url: getURLTest()+'wxse/changePwd',
+                    // 请求数据方式：get  post
+                    type: 'post',
+                    data:{
+                        id:answers[0],
+                        email:answers[1],
+                        password:answers[2],
+                    },
+                    success: function (dat) {
+                        if(data.success){
+                            Swal.fire('修改成功,正在为你登录···')
+                            document.getElementById("username").value = username
+                            document.getElementById("password").value = password
+                            login();
+                        }
+
+                        else if(data.error){
+                            Swal.fire(data.error)
+                        }else {
+                            Swal.fire('修改失败')
+                            mask.style.display = 'none';
+                            animation.style.display = 'none';
+                        }
+                    },
+                    // 请求失败
+                    error: function () {
+                        // 隐藏遮罩层和动画元素
+                        mask.style.display = 'none';
+                        animation.style.display = 'none';
+                        // 恢复其他页面元素的点击事件
+                        document.body.style.pointerEvents = 'auto';
+                        Swal.fire('请求失败')
+                    }
+                })
+            }
+        })
 }
 function hideDropdown() {
     myDropdown.style.transform = "translateY(-50%)";
