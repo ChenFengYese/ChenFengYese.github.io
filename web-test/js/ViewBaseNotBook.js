@@ -232,6 +232,7 @@ function viewData(data,executer){
 
         for (node in noteList) {
             var note = noteList[node];
+            document.getElementById("noteElement-Subtext").innerHTML = note.subtext
             b = ""
             re = new RegExp('<[^<>]+>','g');
             if (note.collect === "1") {
@@ -275,7 +276,7 @@ function viewData(data,executer){
                 html += note.subtext.replace(re,"").substring(0,note.subtext.replace(re,"").indexOf("<a"));
                 html += "(超链接)"
             }
-            else{html += note.subtext;}
+            else{html += document.getElementById("noteElement-Subtext").innerText;}
             html += '</div></div></div><div class="base_list_box_readmore"><a href="noteView.html?' + 'uid=' + base64(base_) + '&suid=' + base64(note.suid.toString()) +
                 '" title="阅读全部">阅读全部<i class="fa fa-paper-plane"></i></a></div><div class="base_list_box_message clearfix"><div class="left"><a href="noteView.html?' + 'uid=' + base64(base_) + '&suid=' + base64(note.suid.toString()) +
                 '" title="笔记标注"><i class="fa fa-bookmark"></i>'
