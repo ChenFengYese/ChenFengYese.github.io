@@ -69,7 +69,7 @@ function iframeToEdit() {
                 animation.style.display = 'block';
                 // 禁用其他页面元素的点击事件
                 document.body.style.pointerEvents = 'none';
-                const answers = JSON.stringify(result.value)
+                const answers = result.value
                 $.ajax({
                     // 设置ajax的参数
                     // 请求数据的url地址：接口地址
