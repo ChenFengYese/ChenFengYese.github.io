@@ -284,7 +284,7 @@ function login(){
 function ChangeURL(){
     if($.cookie("ConnectionURL")!=="IP"){
         $.cookie("ConnectionURL","IP", { expires: 1, path: '/',secure:true })
-        swal.fire("已切换至直链源,请刷新页面直链源暂未备案,会显示证书无效,但可以使用").then((result) => {
+        swal.fire("已切换至直链源,请刷新页面直链源暂未备案,会显示不安全,但可以使用").then((result) => {
             location.reload();
         })
 
