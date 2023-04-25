@@ -92,6 +92,9 @@ function iframeToEdit() {
 
                         else if(dat.error){
                             Swal.fire(data.error)
+                            mask.style.display = 'none';
+                            animation.style.display = 'none';
+                            document.body.style.pointerEvents = 'auto';
                         }else {
                             console.log(dat)
                             Swal.fire('修改失败')
