@@ -170,8 +170,8 @@ function signup(){
                 document.getElementById("password").value = password
                 login();
             }
-            else if(dat.msg === "verifyCodeIllegal") swal("Sign up failed!");
-            else swal("Sign up failed!");
+            else if(dat.msg === "verifyCodeIllegal") swal("该账号已存在");
+            else swal("该账号已存在");
         }
         // 请求失败
         , error: function () {
