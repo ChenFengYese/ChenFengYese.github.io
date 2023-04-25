@@ -35,7 +35,7 @@ body::-webkit-scrollbar{
     display: none;
 }
 #floating-text {
-    width: 12vw;
+    width: 24vw;
     height: 4vh;
     line-height: 4vh;
     box-sizing: border-box;
@@ -46,7 +46,7 @@ body::-webkit-scrollbar{
     text-align: center;
     top: 10%;
     left: 50%;
-    font-size: 24px;
+    font-size: 1rem;
     color: #ee1616;
     background-color: rgba(241, 239, 239, 0.23);
     transform: translate(-50%, -50%); /* 水平垂直居中 */
@@ -57,6 +57,10 @@ body::-webkit-scrollbar{
     top: 0; left: 0; right: 0; bottom: 0;
     background-color: rgba(255, 255, 255, 0.8);
     display: none;
+}
+.n-base-icon{
+    position: absolute;
+    top:-10%
 }
 #loading-img {
     position: fixed;

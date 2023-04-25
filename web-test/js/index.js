@@ -8,6 +8,7 @@ var mask = document.getElementById('mask');
 var animation = document.getElementById('loading');
 var iPicture=1;//表示当前图片所在位置
 let imgs = document.getElementById("box");
+var viewportWidth = window.innerWidth || document.documentElement.clientWidth;
 var timePicture;
 var urls = [
     "../../images/wallhaven-72kejo.jpg",
@@ -293,6 +294,36 @@ function ChangeURL(){
             location.reload();
         })
     }
+}
+var hiddenByWall=0
+if (viewportWidth >= 768) {
+    document.getElementById("mySvg").style.transform = "scale(0.1)";
+}
+else{
+    document.getElementById("mySvg").style.transform = "scale(0.3)";
+}
+function toggleDiv(){
+    if(hiddenByWall===0){
+        if (viewportWidth >= 768) {
+            document.getElementById("mySvg").style.transform = "scale(0.1) scaleX(-1)";
+            document.getElementById("myDropdown").style.transform = "translateY(-50%) translateX(40vw)";
+        }else {
+            document.getElementById("mySvg").style.transform = "scale(0.3) scaleX(-1)";
+            document.getElementById("myDropdown").style.transform = "translateY(-50%) translateX(80vw)";
+        }
+        hiddenByWall=1
+    }else{
+        if (viewportWidth >= 768) {
+            document.getElementById("mySvg").style.transform = "scale(0.1)";
+            document.getElementById("myDropdown").style.transform = "translateY(-50%) translateX(0vw)";
+        }
+        else{
+            document.getElementById("mySvg").style.transform = "scale(0.3)";
+            document.getElementById("myDropdown").style.transform = "translateY(-50%) translateX(0vw)";
+        }
+        hiddenByWall=0
+    }
+
 }
 function check(){
     var username = document.getElementById("username").value;
