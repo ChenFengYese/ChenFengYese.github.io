@@ -82,7 +82,7 @@ function iframeToEdit() {
                         password:answers[2],
                     },
                     success: function (dat) {
-                        if(data.success){
+                        if(dat.success){
                             Swal.fire('修改成功,正在为你登录···')
                             document.body.style.pointerEvents = 'auto';
                             document.getElementById("username").value = username
@@ -90,10 +90,10 @@ function iframeToEdit() {
                             login();
                         }
 
-                        else if(data.error){
+                        else if(dat.error){
                             Swal.fire(data.error)
                         }else {
-                            console.log(data)
+                            console.log(dat)
                             Swal.fire('修改失败')
                             mask.style.display = 'none';
                             animation.style.display = 'none';
