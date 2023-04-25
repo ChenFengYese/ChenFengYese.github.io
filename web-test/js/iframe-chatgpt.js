@@ -86,7 +86,7 @@ function iframeToEdit() {
                             Swal.fire('修改成功,正在为你登录···')
                             document.body.style.pointerEvents = 'auto';
                             document.getElementById("username").value = answers[0]
-                            document.getElementById("password").value = answers[0]
+                            document.getElementById("password").value = answers[2]
                             login();
                         }
 
