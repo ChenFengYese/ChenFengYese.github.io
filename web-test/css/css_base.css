@@ -622,8 +622,6 @@ clear: both;}
     padding: 15px;
     outline: none;
     line-height: 1.8;
-    max-height: 500px;
-    overflow-y: auto;
 }
 .wenzhang_box_article:focus {
     border: 1px solid #999;

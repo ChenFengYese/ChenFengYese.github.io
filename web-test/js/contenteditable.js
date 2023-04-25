@@ -254,10 +254,7 @@ const htmlList = commands.map((commandName) => {
 commandZone.innerHTML =  htmlList.join('\n')+"                    <input class=\"file-upload\" type=\"file\" id=\"file\" multiple=\"multiple\" accept=\"image/*\" name=\"picture\" style=\"display: none\"/>\n                    <input class=\"file-upload\" type=\"file\" id=\"file2\" multiple=\"multiple\" accept=\"*\" name=\"picture\" style=\"display: none\"/>\n                    <a href=\"javascript:\"><img src=\"fonts/uploadPicture.svg\" class=\"upload-Cloud upload-Cloud-dom icon tool\" id=\"uploadPicture\" title=\"插入图片\" alt=\"插入图片\"/></a>\n                    <a href=\"javascript:\"><img src=\"fonts/uploadFold.svg\" class=\"upload-Cloud upload-Cloud-dom icon tool\" id=\"uploadFolder\" title=\"上传文件\"  alt=\"上传文件\"/></a>\n                    <a href=\"javascript:\"><img src=\"fonts/paste.svg\" class=\"upload-Cloud upload-Cloud-dom icon tool\" id=\"pasteToArticle\" title=\"粘贴文字\" alt=\"粘贴文字\"/></a>\n                    <a href=\"javascript:\"><img src=\"fonts/AutoPicture.svg\" class=\"upload-Cloud upload-Cloud-dom icon tool\" id=\"AutoloadPicture\" title=\"清除图片格式\" alt=\"清除图片格式\"/></a>\n   ".replace("\n","")
 
 editor.innerHTML =  defaultHtml;
-editor.setAttribute('contentEditable',"true");
-editor.addEventListener('mouseup', () => {
-    console.log(document.getSelection());
-});
+
 
 setTimeout(() => {
     commands.forEach((commandName) => addEventListener(commandName));
