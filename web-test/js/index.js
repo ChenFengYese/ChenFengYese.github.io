@@ -232,7 +232,7 @@ function login(){
         success: function (dat) {
             //dat:服务端返回的数据
 
-
+            console.log(dat)
             var Token = dat.token
             $.ajax({
                 // 设置ajax的参数
@@ -264,7 +264,7 @@ function login(){
                     animation.style.display = 'none';
                     // 恢复其他页面元素的点击事件
                     document.body.style.pointerEvents = 'auto';
-                    Swal.fire('请求失败')
+                    Swal.fire('账号或密码错误')
                 }
             })
         },
