@@ -284,13 +284,16 @@ function login(){
 function ChangeURL(){
     if($.cookie("ConnectionURL")!=="IP"){
         $.cookie("ConnectionURL","IP", { expires: 1, path: '/',secure:true })
-        swal.fire("已切换至直链源,请刷新页面直链源暂未备案,会显示不安全,但可以使用").then((result) => {
+        Swal.fire({
+            title: '已切换至直链源',
+            text: '已切换至直链源,请刷新页面,直链源暂未备案,会显示不安全,但可以使用',
+        }).then((result) => {
             location.reload();
         })
 
     }else {
         $.cookie("ConnectionURL","fake", { expires: 1, path: '/',secure:true })
-        swal.fire("已切换至代理源,请刷新页面").then((result) => {
+        Swal.fire("已切换至代理源,请刷新页面").then((result) => {
             location.reload();
         })
     }

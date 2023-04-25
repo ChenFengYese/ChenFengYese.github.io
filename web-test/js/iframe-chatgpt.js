@@ -26,8 +26,8 @@ function showDropdown() {
 function iframeLoaded(target) {
     if(target===1&&myIframe.src !== "https://www.nahidelysia.asia/"){
         toggleIframe()
-        //Swal.fire弹出 因API使用量有限,故设置了访问密码,请联系开发者给与访问密码
-        Swal.fire({
+        //swal弹出 因API使用量有限,故设置了访问密码,请联系开发者给与访问密码
+        swal({
             title:"联系开发者",
             text:"因API使用量有限,故设置了访问密码,请联系开发者给与访问密码",
             icon:"info",
