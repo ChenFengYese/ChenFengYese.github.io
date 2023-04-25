@@ -7,7 +7,7 @@ myIframe.addEventListener('load', function() {
     hideLoading();
 });
 myIframe.addEventListener('readystatechange', function() {
-    if (this.readyState == 'interactive') {
+    if (this.readyState === 'interactive') {
         showLoading();
     }
 });
