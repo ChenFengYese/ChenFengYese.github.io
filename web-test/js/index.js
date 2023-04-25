@@ -155,7 +155,6 @@ function signup(){
         confirmButtonText: '下一步',
         showLoaderOnConfirm: true,
     }).then((result) => {
-        console.log(result.value)
         if (result.isConfirmed) {
             // 获取遮罩层和动画元素
             mask.style.display = 'block';
