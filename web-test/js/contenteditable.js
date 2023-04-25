@@ -237,9 +237,7 @@ const commands = [
 
 const commandZone = document.getElementById('commandZone');
 const editor = document.getElementById('article');
-const editable = document.getElementById('editable');
-
-
+document.getElementById('editable');
 const htmlList = commands.map((commandName) => {
     const command = commandMap[commandName];
     if (!command) {
