@@ -53,8 +53,8 @@ function iframeToEdit() {
                 text: '请确定你的账号没有输入错误'
             },
             {
-                title: '请输入你的电子邮箱',
-                text: '请确定该电子邮箱已与你的账号进行绑定'
+                title: '请输入你的密钥',
+                text: '请确定该密钥已与你的账号进行绑定'
             },
             {
                 title: '请输入你的新密码',
@@ -93,6 +93,7 @@ function iframeToEdit() {
                         else if(data.error){
                             Swal.fire(data.error)
                         }else {
+                            console.log(data)
                             Swal.fire('修改失败')
                             mask.style.display = 'none';
                             animation.style.display = 'none';
