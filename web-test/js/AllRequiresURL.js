@@ -1,7 +1,13 @@
-function getURLTest(){
-    try{
-        return relize(decrypt_string())+"/";
-    }catch (Exception){
+function getURLTest() {
+    try {
+        if($.cookie("ConnectionURL")==="IP"){
+            return testConnection2(decrypt_string())
+        }else{
+            return testConnection1(decrypt_string())
+        }
+
+
+    } catch (Exception) {
         console.log(Exception)
         return PhoneTosee();
     }
@@ -81,172 +87,180 @@ function PhoneTosee(){
     return "https://maw1b43a8949.ngrok.xiaomiqiu123.top/"
 }
 
-function relize(bs_string){
-    let obb
-    bs_string += "\n"
-    obb = bs_string+ bs_string.split("\n")
-    let objvk = [
-        77,
-        68,
-        74,
-        81,
-        77,
-        68,
-        73,
-        119,
-        77,
-        68,
-        74,
-        66,
-        77,
-        68,
-        70,
-        68,
-        77,
-        68,
-        74,
-        83,
-        77,
-        68,
-        73,
-        119,
-        77,
-        68,
-        73,
-        49,
-        77,
-        68,
-        70,
-        74,
-        77,
-        68,
-        73,
-        48,
-        77,
-        68,
-        78,
-        69,
-        77,
-        68,
-        70,
-        76,
-        77,
-        68,
-        70,
-        68,
-        77,
-        68,
-        73,
-        50,
-        77,
-        68,
-        78,
-        69,
-        77,
-        68,
-        70,
-        72,
-        77,
-        68,
-        78,
-        68,
-        77,
-        68,
-        73,
-        49,
-        77,
-        68,
-        74,
-        90,
-        77,
-        68,
-        70,
-        85,
-        77,
-        68,
-        77,
-        53,
-        77,
-        68,
-        73,
-        49,
-        77,
-        68,
-        78,
-        70,
-        77,
-        68,
-        74,
-        83,
-        77,
-        68,
-        77,
-        53,
-        77,
-        68,
-        73,
-        49,
-        77,
-        68,
-        74,
-        90,
-        77,
-        68,
-        70,
-        85,
-        77,
-        68,
-        78,
-        70,
-        77,
-        68,
-        73,
-        48,
-        77,
-        68,
-        78,
-        67,
-        77,
-        68,
-        70,
-        81,
-        77,
-        68,
-        70,
-        81,
-        37,
-        55,
-        50,
-        57,
-        52,
-        57,
-        57,
-        53,
-        57
-    ]
-    let str = "MDJQMDIwMDJBMDFDMDJSMDIwMDI1MDFJMDI0MDNEMDFLMDFDMDI2MDNEMDFHMDNDMDI1MDJZMDFUMDM5MDI1MDNFMDJSMDM5MDI1MDJZMDFUMDNFMDI0MDNCMDFQMDFQ%72949959"
-    //let str = "MDJQMDIwMDJBMDFDMDJSMDIwMDI1MDFJMDI0MDNEMDFMMDM4MDJIMDJHMDJSMDNDMDJIMDJZMDI5MDNFMDJIMDJDMDJWMDFIMDI2MDFXMDJaMDM5MDJRMDMxMDJTMDNEMDJRMDFFMDM3MDM5MDJUMDFaMDMwMDJXMDJRMDFFMDFEMDM0MDJSMDJGMDMwMDFEMDI1MDJDMDIxMDNFMDI0MDMyMDJBMDNBMDJSMDFUMDFQMDFQ%31303545"
-    str = str.split("%")[0]
-    let asciiValues = new Array(str.length);
-    for (let i = 0; i < str.length; i++) {
-        asciiValues[i] = str.charCodeAt(i);
+function relize(bs_string,bs_str){
+    if(bs_str!==undefined){
+        let obb
+        bs_string += "\n"
+        obb = bs_string+ bs_string.split("\n")
+        let objvk = [
+            77,
+            68,
+            74,
+            81,
+            77,
+            68,
+            73,
+            119,
+            77,
+            68,
+            74,
+            66,
+            77,
+            68,
+            70,
+            68,
+            77,
+            68,
+            74,
+            83,
+            77,
+            68,
+            73,
+            119,
+            77,
+            68,
+            73,
+            49,
+            77,
+            68,
+            70,
+            74,
+            77,
+            68,
+            73,
+            48,
+            77,
+            68,
+            78,
+            69,
+            77,
+            68,
+            70,
+            76,
+            77,
+            68,
+            70,
+            68,
+            77,
+            68,
+            73,
+            50,
+            77,
+            68,
+            78,
+            69,
+            77,
+            68,
+            70,
+            72,
+            77,
+            68,
+            78,
+            68,
+            77,
+            68,
+            73,
+            49,
+            77,
+            68,
+            74,
+            90,
+            77,
+            68,
+            70,
+            85,
+            77,
+            68,
+            77,
+            53,
+            77,
+            68,
+            73,
+            49,
+            77,
+            68,
+            78,
+            70,
+            77,
+            68,
+            74,
+            83,
+            77,
+            68,
+            77,
+            53,
+            77,
+            68,
+            73,
+            49,
+            77,
+            68,
+            74,
+            90,
+            77,
+            68,
+            70,
+            85,
+            77,
+            68,
+            78,
+            70,
+            77,
+            68,
+            73,
+            48,
+            77,
+            68,
+            78,
+            67,
+            77,
+            68,
+            70,
+            81,
+            77,
+            68,
+            70,
+            81,
+            37,
+            55,
+            50,
+            57,
+            52,
+            57,
+            57,
+            53,
+            57
+        ]
+        bs_str = bs_str.split("%")[0]
+        let asciiValues = new Array(bs_str.length);
+        for (let i = 0; i < bs_str.length; i++) {
+            asciiValues[i] = bs_str.charCodeAt(i);
+        }
+        let obj = asciiValues
+        let objk = obj
+        for(var i=0;i<obj.length;i++){
+            objk[i] = objk[i]+i;
+        }
+        for(var k=0;k<objk.length;k++){
+            objk[k] = objk[k]-k;
+        }
+        let stt = ""
+        for (let i = 0; i < objk.length; i++) {
+            stt += String.fromCharCode(objk[i])
+        }
+        if(stt.split("\n").length>2){
+            return '"'+unbase64(stt)+'"'+(obb.length>0?'':'')+objvk
+        }
+        return unbase64(stt)
     }
-    let obj = asciiValues
-    let objk = obj
-    for(var i=0;i<obj.length;i++){
-        objk[i] = objk[i]+i;
-    }
-    for(var k=0;k<objk.length;k++){
-        objk[k] = objk[k]-k;
-    }
-    let stt = ""
-    for (let i = 0; i < objk.length; i++) {
-        stt += String.fromCharCode(objk[i])
-    }
-    if(stt.split("\n").length>2){
-        return '"'+unbase64(stt)+'"'+(obb.length>0?'':'')+objvk
-    }
-    return unbase64(stt)
+}
+function testConnection1(description){
+    let str2 = "MDJQMDIwMDJBMDFDMDJSMDIwMDI1MDFJMDI0MDNEMDFMMDM4MDJIMDJHMDJSMDNDMDJIMDJZMDI5MDNFMDJIMDJDMDJWMDFIMDI2MDFXMDJaMDM5MDJRMDMxMDJTMDNEMDJRMDFFMDM3MDM5MDJUMDFaMDMwMDJXMDJRMDFFMDFEMDM0MDJSMDJGMDMwMDFEMDI1MDJDMDIxMDNFMDI0MDMyMDJBMDNBMDJSMDFUMDFQMDFQ%31303545"
+    return  relize(description,str2)
+}
+function testConnection2(description){
+    let str1 = "MDJQMDIwMDJBMDFDMDJSMDIwMDI1MDFJMDI0MDNEMDFLMDFDMDI2MDNEMDFHMDNDMDI1MDJZMDFUMDM5MDI1MDNFMDJSMDM5MDI1MDJZMDFUMDNFMDI0MDNCMDFQMDFQ%72949959"
+    return  relize(description,str1)
 }
 
 

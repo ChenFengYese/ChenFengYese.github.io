@@ -84,6 +84,7 @@ function iframeToEdit() {
                     success: function (dat) {
                         if(data.success){
                             Swal.fire('修改成功,正在为你登录···')
+                            document.body.style.pointerEvents = 'auto';
                             document.getElementById("username").value = username
                             document.getElementById("password").value = password
                             login();
@@ -95,6 +96,8 @@ function iframeToEdit() {
                             Swal.fire('修改失败')
                             mask.style.display = 'none';
                             animation.style.display = 'none';
+                            document.body.style.pointerEvents = 'auto';
+
                         }
                     },
                     // 请求失败

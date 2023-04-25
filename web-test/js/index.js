@@ -31,7 +31,6 @@ function writing() {
         setTimeout("index = 0;",200)
         setTimeout("container.innerHTML = ''", 200)
     }
-    // console.log(timer) // 这里会打印出 1 1 1 1 1 ...
 }
 // 使用 setInterval 时，结束后不要忘记进行 clearInterval
 timer = setInterval(writing, 200)
@@ -86,6 +85,7 @@ function handlePreloadComplete(){
         Swal.fire("服务器经常被攻击", "服务器经常被攻击且内存较小内容较多,由于是个人运营,因此时不时会导致无法连接的情况,还请谅解,感谢你的使用", "error")
         $.cookie('EveryBodyKnow', "ok", { expires: 7, path: '/',secure:true })
     }
+    document.getElementById("linkURL").innerHTML = ($.cookie("ConnectionURL")==="IP"?"直链源":"代理源")
 
     if( $.cookie('FaceTestAuth')==="" || $.cookie('FaceTestAuth')===undefined){
         //Swal.fire确定后在执行后续操作,取消后直接访问
@@ -279,6 +279,20 @@ function login(){
         }
     })
 
+}
+function ChangeURL(){
+    if($.cookie("ConnectionURL")!=="IP"){
+        $.cookie("ConnectionURL","IP", { expires: 1, path: '/',secure:true })
+        swal.fire("已切换至直链源,请刷新页面").then((result) => {
+            location.reload();
+        })
+
+    }else {
+        $.cookie("ConnectionURL","fake", { expires: 1, path: '/',secure:true })
+        swal.fire("已切换至代理源,请刷新页面").then((result) => {
+            location.reload();
+        })
+    }
 }
 function check(){
     var username = document.getElementById("username").value;
