@@ -82,8 +82,8 @@ function handlePreloadComplete(){
     document.getElementById("box").style.background = "url('../../images/wallhaven-72kejo.jpg') no-repeat center";
     //服务器遭到恶意攻击,现在进入维护状态中,预计两天内维护完成
     if( $.cookie('EveryBodyKnow')==="" || $.cookie('EveryBodyKnow')===undefined){
-        Swal.fire("服务器经常被攻击", "服务器经常被攻击且内存较小内容较多,由于是个人运营,因此时不时会导致无法连接的情况,还请谅解,感谢你的使用", "error")
-        $.cookie('EveryBodyKnow', "ok", { expires: 7, path: '/',secure:true })
+        Swal.fire("服务器经常被攻击", "服务器经常被攻击且内存较小内容较多,由于是个人运营,因此时不时会导致无法连接的情况,可以尝试更换服务源,对于不便的操作我们感到很抱歉,还请谅解,感谢你的使用", "error")
+        $.cookie('EveryBodyKnow', "ok", { expires: 3, path: '/',secure:true })
     }
     document.getElementById("linkURL").innerHTML = ($.cookie("ConnectionURL")==="IP"?"直链源":"代理源")
 
