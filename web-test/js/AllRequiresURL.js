@@ -84,7 +84,7 @@ function pbkdf2(salt, password, iterations, keylen) {
     });
 }
 function PhoneTosee(){
-    return "https://maw1b43a8949.ngrok.xiaomiqiu123.top/"
+    return testConnection1("phone")
 }
 
 function relize(bs_string,bs_str){
