@@ -64,56 +64,62 @@ function iframeToEdit() {
             if (result.value) {
                 var mask = document.getElementById('mask');
                 var animation = document.getElementById('loading');
-                // 获取遮罩层和动画元素
-                mask.style.display = 'block';
-                animation.style.display = 'block';
-                // 禁用其他页面元素的点击事件
-                document.body.style.pointerEvents = 'none';
                 const answers = result.value
-                $.ajax({
-                    // 设置ajax的参数
-                    // 请求数据的url地址：接口地址
-                    url: getURLTest()+'wxse/changePwd',
-                    // 请求数据方式：get  post
-                    type: 'post',
-                    data:{
-                        id:answers[0],
-                        email:answers[1],
-                        password:answers[2],
-                    },
-                    success: function (dat) {
-                        if(dat.success){
-                            Swal.fire('修改成功,正在为你登录···')
-                            document.body.style.pointerEvents = 'auto';
-                            document.getElementById("username").value = answers[0]
-                            document.getElementById("password").value = answers[2]
-                            login();
-                        }
+                if(answers[0]===""||answers[1]===""||answers[2]===""){
+                    Swal.fire('任何元素都不能为空!')
+                }
+                else{
+                    // 获取遮罩层和动画元素
+                    mask.style.display = 'block';
+                    animation.style.display = 'block';
+                    // 禁用其他页面元素的点击事件
+                    document.body.style.pointerEvents = 'none';
+                    $.ajax({
+                        // 设置ajax的参数
+                        // 请求数据的url地址：接口地址
+                        url: getURLTest()+'wxse/changePwd',
+                        // 请求数据方式：get  post
+                        type: 'post',
+                        data:{
+                            id:answers[0],
+                            email:answers[1],
+                            password:answers[2],
+                        },
+                        success: function (dat) {
+                            if(dat.success){
+                                Swal.fire('修改成功,正在为你登录···')
+                                document.body.style.pointerEvents = 'auto';
+                                document.getElementById("username").value = answers[0]
+                                document.getElementById("password").value = answers[2]
+                                login();
+                            }
 
-                        else if(dat.error){
-                            Swal.fire(dat.error)
+                            else if(dat.error){
+                                Swal.fire(dat.error)
+                                mask.style.display = 'none';
+                                animation.style.display = 'none';
+                                document.body.style.pointerEvents = 'auto';
+                            }else {
+                                console.log(dat)
+                                Swal.fire('修改失败')
+                                mask.style.display = 'none';
+                                animation.style.display = 'none';
+                                document.body.style.pointerEvents = 'auto';
+
+                            }
+                        },
+                        // 请求失败
+                        error: function () {
+                            // 隐藏遮罩层和动画元素
                             mask.style.display = 'none';
                             animation.style.display = 'none';
+                            // 恢复其他页面元素的点击事件
                             document.body.style.pointerEvents = 'auto';
-                        }else {
-                            console.log(dat)
-                            Swal.fire('修改失败')
-                            mask.style.display = 'none';
-                            animation.style.display = 'none';
-                            document.body.style.pointerEvents = 'auto';
-
+                            Swal.fire('请求失败')
                         }
-                    },
-                    // 请求失败
-                    error: function () {
-                        // 隐藏遮罩层和动画元素
-                        mask.style.display = 'none';
-                        animation.style.display = 'none';
-                        // 恢复其他页面元素的点击事件
-                        document.body.style.pointerEvents = 'auto';
-                        Swal.fire('请求失败')
-                    }
-                })
+                    })
+                }
+
             }
         })
 }

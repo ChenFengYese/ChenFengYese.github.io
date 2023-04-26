@@ -146,69 +146,78 @@ function ChangeToSignUpPage(){
 
 <!--Implementation signup method-->
 function signup(){
-    Swal.fire({
-        title: '请输入你需要绑定的密钥',
-        text: '务必记住你设置的密钥,这是你唯一能够找回密码的途径',
-        input: 'text',
-        inputAttributes: {
-            autocapitalize: 'off'
-        },
-        confirmButtonText: '下一步',
-        showLoaderOnConfirm: true,
-    }).then((result) => {
-        if (result.isConfirmed) {
-            // 获取遮罩层和动画元素
-            mask.style.display = 'block';
-            animation.style.display = 'block';
-            // 禁用其他页面元素的点击事件
-            document.body.style.pointerEvents = 'none';
-            var username = document.getElementById("usernameUp").value;
-            var password = document.getElementById("passwordUp").value;
-            $.ajax({
-                // 设置ajax的参数
-                // 请求数据的url地址：接口地址
-                url: getURLTest()+'wxse/register',
-                // 请求数据方式：get  post
-                type: 'post',
-                // data:发送给接口的数据
-                data: {"id": username, "password": password,"email":result.value},
-                headers: {
-                    'verifyCode': "wwssadadbaba"
-                },
-                xhrFields: {
-                    withCredentials: true
-                },
-                // 请求成功之后要执行的回调函数
-                success: function (dat) {
-                    // 隐藏遮罩层和动画元素
-                    mask.style.display = 'none';
-                    animation.style.display = 'none';
-                    // 恢复其他页面元素的点击事件
-                    document.body.style.pointerEvents = 'auto';
-                    //dat:服务端返回的数据
+    var username = document.getElementById("usernameUp").value;
+    var password = document.getElementById("passwordUp").value;
+    console.log(username.length)
+    console.log(password.length)
+    if(username.length>20||password.length>18){
+        Swal.fire(
+            "账号不能超过10个字符,密码不能超过18个字符"
+        )
+    }else{
+        Swal.fire({
+            title: '请输入你需要绑定的密钥',
+            text: '务必记住你设置的密钥,这是你唯一能够找回密码的途径',
+            input: 'text',
+            inputAttributes: {
+                autocapitalize: 'off'
+            },
+            confirmButtonText: '下一步',
+            showLoaderOnConfirm: true,
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // 获取遮罩层和动画元素
+                mask.style.display = 'block';
+                animation.style.display = 'block';
+                // 禁用其他页面元素的点击事件
+                document.body.style.pointerEvents = 'none';
+                $.ajax({
+                    // 设置ajax的参数
+                    // 请求数据的url地址：接口地址
+                    url: getURLTest()+'wxse/register',
+                    // 请求数据方式：get  post
+                    type: 'post',
+                    // data:发送给接口的数据
+                    data: {"id": username, "password": password,"email":result.value},
+                    headers: {
+                        'verifyCode': "wwssadadbaba"
+                    },
+                    xhrFields: {
+                        withCredentials: true
+                    },
+                    // 请求成功之后要执行的回调函数
+                    success: function (dat) {
+                        // 隐藏遮罩层和动画元素
+                        mask.style.display = 'none';
+                        animation.style.display = 'none';
+                        // 恢复其他页面元素的点击事件
+                        document.body.style.pointerEvents = 'auto';
+                        //dat:服务端返回的数据
 
-                    if(dat.msg === "success")
-                    {
-                        Swal.fire("Sign up success!");
-                        document.getElementById("username").value = username
-                        document.getElementById("password").value = password
-                        login();
+                        if(dat.msg === "success")
+                        {
+                            Swal.fire("Sign up success!");
+                            document.getElementById("username").value = username
+                            document.getElementById("password").value = password
+                            login();
+                        }
+                        else if(dat.msg === "verifyCodeIllegal") Swal.fire("该账号已存在");
+                        else Swal.fire("该账号已存在");
                     }
-                    else if(dat.msg === "verifyCodeIllegal") Swal.fire("该账号已存在");
-                    else Swal.fire("该账号已存在");
-                }
-                // 请求失败
-                , error: function () {
-                    // 隐藏遮罩层和动画元素
-                    mask.style.display = 'none';
-                    animation.style.display = 'none';
-                    // 恢复其他页面元素的点击事件
-                    document.body.style.pointerEvents = 'auto';
-                    Swal.fire('请求失败')
-                }
-            });
-        }
-    })
+                    // 请求失败
+                    , error: function () {
+                        // 隐藏遮罩层和动画元素
+                        mask.style.display = 'none';
+                        animation.style.display = 'none';
+                        // 恢复其他页面元素的点击事件
+                        document.body.style.pointerEvents = 'auto';
+                        Swal.fire('请求失败')
+                    }
+                });
+            }
+        })
+    }
+
 }
 <!-- Use ajax to implement the login function -->
 function login(){
