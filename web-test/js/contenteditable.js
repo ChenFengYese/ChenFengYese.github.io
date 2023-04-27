@@ -9,6 +9,26 @@ const selectRender = (commandName, options = [], title = '') => {
             </select>
         `;
 };
+const title = document.getElementById("title");
+
+// 监听 input 事件，在输入框内容发生变化时触发
+title.addEventListener("input", (event) => {
+    const maxLength = 30; // 最大输入字符数
+    const text = event.target.innerText;
+    if (text.length > maxLength) {
+        event.target.innerText = text.slice(0, maxLength); // 截取前面的字符
+    }
+});
+
+// 监听键盘事件，禁止除删除键以外的输入
+title.addEventListener("keydown", (event) => {
+    const maxLength = 30; // 最大输入字符数
+    const text = event.target.innerText;
+    if (text.length >= maxLength && event.key !== "Backspace" && event.key !== "Delete") {
+        event.preventDefault(); // 阻止默认行为
+    }
+});
+
 
 const addEventListener = (commandName) => {
     const eventNameMap = {
@@ -26,8 +46,23 @@ const addEventListener = (commandName) => {
     dom && dom.addEventListener(eventName, () => {
         if (eventName === 'click') {
             if (needInputUrl.includes(commandName)) {
-                const value = window.prompt('请输入链接');
-                execEditorCommand(commandName, value);
+                const selection = window.getSelection();
+                const range = selection.getRangeAt(0);
+                swal({
+                    title:"请输入链接",
+                    text:"请输入链接",
+                    input: 'text',
+                    showCancelButton: true,
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                }).then((result) => {
+                    selection.removeAllRanges();
+                    selection.addRange(range);
+                    execEditorCommand(commandName, result.value.toString());
+                });
+                // const value = window.prompt('请输入链接');
+                //  execEditorCommand(commandName, value);
+
             } else {
                 execEditorCommand(commandName);
             }
