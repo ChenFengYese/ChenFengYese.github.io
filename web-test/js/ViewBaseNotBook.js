@@ -226,9 +226,10 @@ function viewPublicNotes(data){
         dataDir["time"].push(data[i].time)
     }
     $("#NotBookPublic").html(h2)
-    $("#ViewMorePublic").attr("onclick","viewPublicData("+dataDir+")")
+    $("#ViewMorePublic").attr("onclick","viewPublicData("+JSON.stringify(dataDir)+")")
 }
 function viewPublicData(data){
+    data = JSON.parse(data);
     if (JSON.stringify(data) !== '{}') {
         let html = "";
         for (let i = 0; i < data["author"].length; i++) {
