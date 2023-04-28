@@ -32,9 +32,9 @@
         <!-- Explain to the user that this is the login screen -->
         <h1 onclick="ChangeToSignUpPage()">Login</h1>
         <label for="username" style="color: #e9f5f5">Username:</label>
-        <input type="text" id="username" name="username">
+        <input type="text" id="username" name="username" autocomplete="username">
         <label for="password" style="color: #e9f5f5">Password:</label>
-        <input type="password" id="password" name="password">
+        <input type="password" id="password" name="password" autocomplete="new-password">
         <input type="submit" id="submit" value="Login" disabled>
     </form>
     <!-- set up a sign-up page -->
@@ -43,9 +43,9 @@
         <!-- Explain to the user that this is the sign-up screen -->
         <h1 onclick="ChangeTologinPage()">Sign Up</h1>
         <label for="username" style="color: #e9f5f5">Username:</label>
-        <label for="usernameUp"></label><input type="text" id="usernameUp" name="username">
+        <label for="usernameUp"></label><input type="text" id="usernameUp" name="username" autocomplete="username">
         <label for="password" style="color: #e9f5f5">Password:</label>
-        <label for="passwordUp"></label><input type="password" id="passwordUp" name="password">
+        <label for="passwordUp"></label><input type="password" id="passwordUp" name="password" autocomplete="new-password">
         <input type="submit" id="submitUp" value="SignUp" disabled>
     </form>
     <!-- To achieve a login page and registration page switch button -->

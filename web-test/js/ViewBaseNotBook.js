@@ -206,16 +206,44 @@ function viewPublicNotes(data){
     }
     let author;
     let title;
+    let dataDir = {}
+    dataDir["author"] = []
+    dataDir["title"] = []
+    dataDir["link"] = []
+    dataDir["time"] = []
     // let openFunc;
     for (let i = 0; i < data.length; i++) {
         LinkHref = locationHref_ + "noteGuestView.html?h_ijt=U?at" + base64(Math.round(Math.random() * 100000)) + "=" + base64(data[i].uid) + "&h_ijr=S?at" + base64(Math.round(Math.random() * 100000)) + "=" + base64(data[i].suid);
-        author = "<span style='color:#f27474'>  (作者: " + data[i].uid + ")</span>"
-        title = "<span style='color:#f27474'>" + data[i].title + "</span>"
-        // openFunc = "javascript:"+"window.open('" + LinkHref + "')";
-        h2 += '<li><a target="_blank" href="' + LinkHref + '" title="作者: ' + data[i].uid + " 最新修改时间:" + data[i].time + '">' + title + author + '</a></li>'
-
+        if(i<10){
+            author = "<span style='color:#f27474'>  (作者: " + data[i].uid + ")</span>"
+            title = "<span style='color:#f27474'>" + data[i].title + "</span>"
+            // openFunc = "javascript:"+"window.open('" + LinkHref + "')";
+            h2 += '<li><a target="_blank" href="' + LinkHref + '" title="作者: ' + data[i].uid + " 最新修改时间:" + data[i].time + '">' + title + author + '</a></li>'
+        }
+        dataDir["author"].push(data[i].uid)
+        dataDir["title"].push(data[i].title)
+        dataDir["link"].push(LinkHref)
+        dataDir["time"].push(data[i].time)
     }
     $("#NotBookPublic").html(h2)
+    $("#ViewMorePublic").attr("onclick","viewPublicData("+dataDir+")")
+}
+function viewPublicData(data){
+    if (JSON.stringify(data) !== '{}') {
+        let html = "";
+        for (let i = 0; i < data["author"].length; i++) {
+            html += "<ul>" +
+                '<li class="wow fadeIn" data-wow-delay="0.1s" data-wow-duration="1s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.1s; animation-name: fadeIn;">' +
+                '<div class="base_list_box_title">' +
+                '<span><img src="image/yuanchuangwenzhang.png"></span>' +
+                '<a class="base_list_box_title_a" href="' + data["link"][i] + '" title="这里是文章title">' + data["title"][i] + '</a></div>';
+            html += '<div class="base_list_xiebian"><span>版权</span></div><div class="base_list_box_readmore">';
+            //html += '<div class="base_list_box_readmore"><a href="' + data["link"][i] + '" title="阅读全部">阅读全部<i class="fa fa-paper-plane"></i></a></div>'
+            html += '<div class="base_list_box_message clearfix"><div class="left"><a href="' + data["link"][i] + '" title="笔记标注"><i class="fa fa-bookmark"></i>' + data["author"][i] + '</a></div>';
+            html += ' <div class="right"><a href="javascript:void(0)" title="最新修改时间">最新修改时间:<i class="fa fa-clock-o"></i>' + data["time"][i] + '</a></div></div></li></ul>'
+        }
+        $("#noteList").html(html);
+    }
 }
 
 function viewData(data,executer){
@@ -237,8 +265,10 @@ function viewData(data,executer){
             re = new RegExp('<[^<>]+>','g');
             if (note.collect === "1") {
                 b = "style='color: red;'"
-                h2 += '<li><a href="noteView.html?' + 'uid=' + base64(base_) + '&suid=' + base64(note.suid.toString()) +
-                    '" title="阅读收藏">' + note.title + '</a></li>'
+                if(count<10){
+                    h2 += '<li><a href="noteView.html?' + 'uid=' + base64(base_) + '&suid=' + base64(note.suid.toString()) +
+                        '" title="阅读收藏">' + note.title + '</a></li>'
+                }
                 count += 1
             }
             if(i===count){
