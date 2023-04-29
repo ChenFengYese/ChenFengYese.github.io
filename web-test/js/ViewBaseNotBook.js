@@ -1,17 +1,22 @@
+try{
+
+    let base_ = (window.location.href).split('?')[1];
+    let id = sessionStorage.getItem("NoteBookUidInUnique")
+    base_ = base_.split("%")[0]
+    id = id.split("%")[0]
+    id = unbase64(id)
+    base_ = unbase64(base_)
+    $(".indexHref").attr("href","NotBook.html?"+base64(base_))
+    $(".addHref").attr("href","noteAdd.html?"+base64(base_))
 
 
-let base_ = (window.location.href).split('?')[1];
-let id = sessionStorage.getItem("NoteBookUidInUnique")
-base_ = base_.split("%")[0]
-id = id.split("%")[0]
-id = unbase64(id)
-base_ = unbase64(base_)
-$(".indexHref").attr("href","NotBook.html?"+base64(base_))
-$(".addHref").attr("href","noteAdd.html?"+base64(base_))
+    sortByTime()
+    selectPublicNotes()
+}catch (Ex){
+    swal("你尚未登陆,请先登录")
+    window.location.href = "index.html";
+}
 
-
-sortByTime()
-selectPublicNotes()
 
 
 
