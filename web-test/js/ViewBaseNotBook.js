@@ -122,10 +122,8 @@ function sortByTime() {
             { viewData(data,"")}
         },
         error: function (e) {
-
-
-            // swal("你尚未登陆，请先登陆！")
-            // window.location.href = "index.html";
+            swal("你尚未登陆，请先登陆！")
+            window.location.href = "index.html";
         }
     });
     return true;

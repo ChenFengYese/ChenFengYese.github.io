@@ -316,8 +316,8 @@ try {
     }
 } catch (e) {
 
-    swal(e)
-    // window.location.href = "index.html"
+    swal("你尚未登陆,请先登录")
+    window.location.href = "index.html"
 }
 // function shareToOthers(LinkHref,R_title,R_description){
 //     function AllClick(ElementsClick,R_initUrl,blocks,others=""){

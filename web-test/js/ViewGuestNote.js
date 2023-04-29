@@ -93,5 +93,5 @@ try{
 }
 catch (e) {
 
-    swal(e)
+    swal("无效的链接")
 }
