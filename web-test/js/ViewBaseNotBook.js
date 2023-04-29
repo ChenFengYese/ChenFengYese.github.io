@@ -229,7 +229,8 @@ function viewPublicNotes(data){
     $("#ViewMorePublic").attr("onclick","viewPublicData("+JSON.stringify(dataDir)+")")
 }
 function viewPublicData(data){
-    data = JSON.parse(data);
+    console.log(data)
+    // data = JSON.parse(data);
     if (JSON.stringify(data) !== '{}') {
         let html = "";
         for (let i = 0; i < data["author"].length; i++) {
