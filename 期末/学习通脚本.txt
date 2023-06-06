@@ -1,0 +1,11 @@
+var element = document.querySelector(".borderBom.padBom20.detailsHead");
+var element2 = document.querySelector(".topicNumber");
+var elements = document.getElementsByClassName("mark_fill colorDeep");
+var element3 = document.querySelector(".subNav");
+
+element.remove();
+element2.remove();
+element3.remove();
+while(elements.length > 0){
+    elements[0].parentNode.removeChild(elements[0]);
+}
