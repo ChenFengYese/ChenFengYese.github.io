@@ -1,11 +1,11 @@
 function getURLTest() {
+    let url = "http://154.9.255.241:8083/"
     try {
         if($.cookie("ConnectionURL")==="IP"){
-            return testConnection2(decrypt_string())
+            return url
         }else{
-            return testConnection1(decrypt_string())
+            return url
         }
-
 
     } catch (Exception) {
         console.log(Exception)
