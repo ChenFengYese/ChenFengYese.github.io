@@ -1,5 +1,5 @@
 function getURLTest() {
-    let url = "https://154.9.255.241:8083/"
+    let url = "http://154.9.255.241:8083/"
     try {
         if($.cookie("ConnectionURL")==="IP"){
             return url
